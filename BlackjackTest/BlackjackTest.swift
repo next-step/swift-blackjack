@@ -8,9 +8,9 @@
 import XCTest
 
 class BlackjackTest: XCTestCase {
-    func test_shouldGet2CardsWhenTheDelearDealsCards() throws {
-			let delear = Delear()
-			let blackjackCards = delear.deal()
+    func test_shouldGet2CardsWhenTheDealerDealsCards() throws {
+			let dealear = Dealer()
+			let blackjackCards = dealear.deal()
 			XCTAssertEqual(blackjackCards.count, 2)
     }
 }
