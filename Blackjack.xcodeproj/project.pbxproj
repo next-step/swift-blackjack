@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5199579B273FF5E4001DD993 /* BlackjackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5199579A273FF5E4001DD993 /* BlackjackTest.swift */; };
+		5199579F273FF5F5001DD993 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,11 +25,20 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		51995798273FF5E4001DD993 /* BlackjackTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5199579A273FF5E4001DD993 /* BlackjackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTest.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		51995795273FF5E4001DD993 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F86E13273AAF7900FAA669 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,10 +49,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51995799273FF5E4001DD993 /* BlackjackTest */ = {
+			isa = PBXGroup;
+			children = (
+				5199579A273FF5E4001DD993 /* BlackjackTest.swift */,
+			);
+			path = BlackjackTest;
+			sourceTree = "<group>";
+		};
 		C7F86E0D273AAF7900FAA669 = {
 			isa = PBXGroup;
 			children = (
 				C7F86E18273AAF7900FAA669 /* Blackjack */,
+				51995799273FF5E4001DD993 /* BlackjackTest */,
 				C7F86E17273AAF7900FAA669 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F86E16273AAF7900FAA669 /* Blackjack */,
+				51995798273FF5E4001DD993 /* BlackjackTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,6 +86,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		51995797273FF5E4001DD993 /* BlackjackTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5199579E273FF5E4001DD993 /* Build configuration list for PBXNativeTarget "BlackjackTest" */;
+			buildPhases = (
+				51995794273FF5E4001DD993 /* Sources */,
+				51995795273FF5E4001DD993 /* Frameworks */,
+				51995796273FF5E4001DD993 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlackjackTest;
+			productName = BlackjackTest;
+			productReference = 51995798273FF5E4001DD993 /* BlackjackTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C7F86E15273AAF7900FAA669 /* Blackjack */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7F86E1D273AAF7900FAA669 /* Build configuration list for PBXNativeTarget "Blackjack" */;
@@ -89,9 +127,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1310;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					51995797273FF5E4001DD993 = {
+						CreatedOnToolsVersion = 13.1;
+					};
 					C7F86E15273AAF7900FAA669 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -111,11 +152,31 @@
 			projectRoot = "";
 			targets = (
 				C7F86E15273AAF7900FAA669 /* Blackjack */,
+				51995797273FF5E4001DD993 /* BlackjackTest */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		51995796273FF5E4001DD993 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		51995794273FF5E4001DD993 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5199579F273FF5F5001DD993 /* main.swift in Sources */,
+				5199579B273FF5E4001DD993 /* BlackjackTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F86E12273AAF7900FAA669 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -127,6 +188,48 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		5199579C273FF5E4001DD993 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mephrine.study.BlackjackTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		5199579D273FF5E4001DD993 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = mephrine.study.BlackjackTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		C7F86E1B273AAF7900FAA669 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -263,6 +366,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5199579E273FF5E4001DD993 /* Build configuration list for PBXNativeTarget "BlackjackTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5199579C273FF5E4001DD993 /* Debug */,
+				5199579D273FF5E4001DD993 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C7F86E11273AAF7900FAA669 /* Build configuration list for PBXProject "Blackjack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
