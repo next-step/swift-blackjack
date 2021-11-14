@@ -16,7 +16,10 @@ class BlackjackTest: XCTestCase {
 	
 	func test_shouldRemoveTheDrawnCardsWhenTheDealerDeals() throws {
 		let dealer = Dealer()
+		let initialDeckCount = dealer.deck.count
+		
 		let blackjackCards = dealer.deal()
-		XCTAssertTrue(dealer.deck.contains(blackjackCards))
+		let result = Set(dealer.deck + blackjackCards).count
+		XCTAssertEqual(result, initialDeckCount)
 	}
 }

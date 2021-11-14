@@ -7,11 +7,16 @@
 
 import Foundation
 
-struct Dealer {
+final class Dealer {
+	private(set) var deck: [BlackjackCard] = BlackjackCard.arrangeCards()
+	
 	func deal() -> [BlackjackCard] {
-		return [
-			BlackjackCard(suit: .spades, rank: .ace),
-			BlackjackCard(suit: .spades, rank: .two)
-		]
+		self.drawCard(of: 2)
+	}
+	
+	private func drawCard(of numberOfCards: Int) -> [BlackjackCard] {
+		(0...numberOfCards).map { _ in
+			self.deck.removeLast()
+		}
 	}
 }
