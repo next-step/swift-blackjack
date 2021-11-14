@@ -10,6 +10,9 @@ import Foundation
 class Player {
 	let name: String
 	private(set) var deck: [BlackjackCard]
+	var gameResult: GameResult {
+		GameResult(name: name, deck: deck, sumOfCardNumbers: calculateTheSumOfCardNumbers())
+	}
 	
 	enum CardResult {
 		case bust
@@ -24,10 +27,6 @@ class Player {
 	func hit(drawnCard: BlackjackCard) throws {
 		guard isAvailableHit() else { throw BlackjackError.bust }
 		deck.append(drawnCard)
-	}
-	
-	func gameIsOver() -> GameResult {
-		GameResult(name: name, deck: deck, sumOfCardNumbers: calculateTheSumOfCardNumbers())
 	}
 	
 	private func calculateTheSumOfCardNumbers() -> Int {

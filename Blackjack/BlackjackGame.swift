@@ -29,8 +29,8 @@ class BlackjackGame {
 		}
 	}
 	
-	func gameIsOver() {
-		
+	func gameIsOver() -> [GameResult] {
+		players.map { $0.gameResult }
 	}
 	
 	private func dealTheCards() throws {
