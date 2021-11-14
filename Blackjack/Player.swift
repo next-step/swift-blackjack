@@ -22,22 +22,35 @@ struct Player {
 	}
 	
 	func calculateTheSumOfCardNumbers() -> Int {
-		let calculatedByTheSecondValueOfAce = calculateWithSecondValueOfAce()
-		let calculatedByTheFirstValue = calculateWithFirstValue()
-		let resultCalculatedByTheSecondValueOfAce = compareBlackjackNumber(and: calculatedByTheSecondValueOfAce)
-		let resultCalculatedByTheFirstValue = compareBlackjackNumber(and: calculatedByTheFirstValue)
-		
-		var differenceBySecondValueOfAce: Int = calculatedByTheSecondValueOfAce
-		if case .valid(let difference) = resultCalculatedByTheSecondValueOfAce {
-			differenceBySecondValueOfAce = difference
+		let sumOfCardNumbersByTheFirstValue = calculateWithFirstValue()
+		if hasAceCard() {
+			return calculateTheBestValueOfTheAceCard(compareTo: sumOfCardNumbersByTheFirstValue)
 		}
+		return sumOfCardNumbersByTheFirstValue
+	}
+	
+	private func hasAceCard() -> Bool {
+		deck.filter { card in
+			card.rank == .ace
+		}.count > 0
+	}
+	
+	private func calculateTheBestValueOfTheAceCard(compareTo sumOfCardNumbersByTheFirstValue: Int) -> Int {
+		let sumOfCardNumbersByTheSecondValue = calculateWithSecondValueOfAce()
+		let differenceWithFirstValue = calculateDifferenceWithBlackjack(sumOfCardNumbers: sumOfCardNumbersByTheFirstValue)
+		let differenceWithSecondValue = calculateDifferenceWithBlackjack(sumOfCardNumbers: sumOfCardNumbersByTheSecondValue)
 		
-		var differenceByFirstValue: Int = calculatedByTheFirstValue
-		if case .valid(let difference) = resultCalculatedByTheFirstValue {
-			differenceByFirstValue = difference
+		return differenceWithFirstValue > differenceWithSecondValue ? sumOfCardNumbersByTheSecondValue : sumOfCardNumbersByTheFirstValue
+	}
+	
+	private func calculateDifferenceWithBlackjack(sumOfCardNumbers: Int) -> Int {
+		let gameResult = compareBlackjackNumber(and: sumOfCardNumbers)
+		
+		var differenceWithBlackjack: Int = sumOfCardNumbers
+		if case .valid(let difference) = gameResult {
+			differenceWithBlackjack = difference
 		}
-		
-		return differenceByFirstValue > differenceBySecondValueOfAce ? calculatedByTheSecondValueOfAce : calculatedByTheFirstValue
+		return differenceWithBlackjack
 	}
 	
 	private func calculateWithSecondValueOfAce() -> Int {
