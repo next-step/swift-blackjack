@@ -106,7 +106,7 @@ class BlackjackTest: XCTestCase {
 	
 	func test_shouldThrowABustErrorWhenPlayerAcceptsThe7Hit() throws {
 		let dealer = Dealer()
-		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "y,y,y,y,y,y,y")
+		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "y","y","y","y","y","y","y")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView)
 		
 		XCTAssertThrowsError(try blackjackGame.start()) { error in

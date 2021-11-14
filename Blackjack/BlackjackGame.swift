@@ -17,15 +17,15 @@ class BlackjackGame {
 		self.inputView = inputable
 	}
 	
-	func start() {
-		dealTheCards()
-		deal()
+	func start() throws {
+		try dealTheCards()
+		try deal()
 		gameIsOver()
 	}
 	
-	func deal() {
+	private func deal() throws {
 		for var player in players {
-			askThePlayerWhetherToHit(player: &player)
+			try askThePlayerWhetherToHit(player: &player)
 		}
 	}
 	
@@ -33,13 +33,9 @@ class BlackjackGame {
 		
 	}
 	
-	private func dealTheCards() {
-		do {
-			try inputView.askPlayerNames { player in
-				makePlayers(by: player.names)
-			}
-		} catch (let error) {
-			
+	private func dealTheCards() throws {
+		try inputView.askPlayerNames { player in
+			makePlayers(by: player.names)
 		}
 	}
 	
@@ -52,16 +48,12 @@ class BlackjackGame {
 		}
 	}
 	
-	private func askThePlayerWhetherToHit(player: inout Player) {
-		do {
-			try inputView.askThePlayerWhetherToHit(name: player.name) { input in
-				guard input.isYes else { return }
-				
-				try player.hit(drawnCard: dealer.deal())
-				askThePlayerWhetherToHit(player: &player)
-			}
-		} catch (let error) {
+	private func askThePlayerWhetherToHit(player: inout Player) throws {
+		try inputView.askThePlayerWhetherToHit(name: player.name) { input in
+			guard input.isYes else { return }
 			
+			try player.hit(drawnCard: dealer.deal())
+			try askThePlayerWhetherToHit(player: &player)
 		}
 	}
 }
