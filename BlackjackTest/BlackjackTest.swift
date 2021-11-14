@@ -82,11 +82,11 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(expect, gameResult)
 	}
 	
-	func test_shouldHaveEachPlayers2CardsWhenGameStart() {
+	func test_shouldHaveEachPlayers2CardsWhenGameStart() throws {
 		let dealear = Dealer()
 		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealear, inputable: inputView)
-		blackjackGame.start()
+		try blackjackGame.start()
 		
 		blackjackGame.players.forEach { player in
 			XCTAssertEqual(player.deck.count, 2)
@@ -97,10 +97,20 @@ class BlackjackTest: XCTestCase {
 		let dealer = Dealer()
 		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "y")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView)
-		blackjackGame.start()
+		try blackjackGame.start()
 		
 		blackjackGame.players.forEach { player in
 			XCTAssertEqual(player.deck.count, 3)
+		}
+	}
+	
+	func test_shouldThrowABustErrorWhenPlayerAcceptsThe7Hit() throws {
+		let dealer = Dealer()
+		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "y,y,y,y,y,y,y")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView)
+		
+		XCTAssertThrowsError(try blackjackGame.start()) { error in
+			XCTAssertEqual(error as! BlackjackError, BlackjackError.bust)
 		}
 	}
 	
