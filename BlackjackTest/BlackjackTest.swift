@@ -84,8 +84,8 @@ class BlackjackTest: XCTestCase {
 	
 	func test_shouldHaveEachPlayers2CardsWhenGameStart() {
 		let dealear = Dealer()
-		let blackjackGame = BlackjackGame(delear: dealear, player)
-		let blackjackGame.join()
+		let blackjackGame = BlackjackGame(dealer: dealear)
+		blackjackGame.start()
 		
 		blackjackGame.players.forEach { player in
 			XCTAssertEqual(player.deck.count, 2)
