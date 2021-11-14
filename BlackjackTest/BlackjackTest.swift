@@ -114,4 +114,15 @@ class BlackjackTest: XCTestCase {
 		}
 	}
 	
+	func test_shouldGetResultWhenGameIsOver() throws {
+		let dealer = Dealer()
+		let inputView = StubInputView(playerNames: "abc,def,ghi", answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView)
+		try blackjackGame.start()
+		
+		let expectNames = ["abc", "def", "ghi"]
+		
+		XCTAssertTrue(blackjackGame.gameIsOver().count == 3)
+		XCTAssertEqual(blackjackGame.gameIsOver().map { $0.name }, expectNames)
+	}
 }
