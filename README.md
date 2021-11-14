@@ -39,14 +39,15 @@ NEXTSTEP with yagom-academy
 ### Business Logic
 - 입력된 금액 유효성 검사
     - [ ] 입력된 이름이 빈 값인지에 대한 검사
+    - [ ] 입력된 이름이 최대 인원수를 넘어가는지에 대한 검사
     - [ ] 카드 선택 시 `y` or `n`이 아닌 경우에 대한 검사
 
 <br>
 
 - Blackjack Card
-    - [ ] 일반 숫자 카드는 해당 숫자로 계산
-    - [ ] Ace는 `1` or `11`로 계산
-    - [ ] King, Queen, Jack은 각각 `10`으로 계산
+    - [x] 일반 숫자 카드는 해당 숫자로 계산
+    - [x] Ace는 `1` or `11`로 계산
+    - [x] King, Queen, Jack은 각각 `10`으로 계산
 
 <br>
 
@@ -59,6 +60,7 @@ NEXTSTEP with yagom-academy
 
 - Dealer
     - [ ] InputView와 ResultView를 소유
+    - [ ] 중복된 카드를 줄 수 없다. 전달한 카드는 소유한 카드에서 제외된다.
     - [ ] 게임 시작 시, 딜을 하면 2장의 카드를 준다.
     - [ ] 이후에 추가 딜을 하면 1장의 카드를 준다.
 
