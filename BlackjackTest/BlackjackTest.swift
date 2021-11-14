@@ -26,7 +26,7 @@ class BlackjackTest: XCTestCase {
 	func test_shouldOwnNameAnd2CardsWhenTheBlackjackGameStarts() {
 		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]
 		let name = "ABC"
-		let player = makeFixtureOfPlayer(name: name, deck: blackjackCards)
+		let player = Player(name: name, deck: blackjackCards)
 		
 		XCTAssertEqual(player.name, name)
 		XCTAssertEqual(player.deck, blackjackCards)
@@ -82,7 +82,14 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(expect, gameResult)
 	}
 	
-	private func makeFixtureOfPlayer(name: String = "ABC", deck: [BlackjackCard] = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]) -> Player {
-		return Player(name: name, deck: deck)
+	func test_shouldHaveEachPlayers2CardsWhenGameStart() {
+		let dealear = Dealer()
+		let blackjackGame = BlackjackGame(delear: dealear, player)
+		let blackjackGame.join()
+		
+		blackjackGame.players.forEach { player in
+			XCTAssertEqual(player.deck.count, 2)
+		}
 	}
+	
 }
