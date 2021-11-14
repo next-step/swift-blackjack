@@ -8,6 +8,10 @@
 import XCTest
 
 class BlackjackTest: XCTestCase {
+	override func tearDownWithError() throws {
+		StubInputView.Verify.clear()
+	}
+	
 	func test_shouldGet2CardsWhenTheDealerDealsCards() throws {
 		let dealear = Dealer()
 		let blackjackCards = dealear.firstDeal()!
@@ -124,5 +128,31 @@ class BlackjackTest: XCTestCase {
 		
 		XCTAssertTrue(blackjackGame.gameIsOver().count == 3)
 		XCTAssertEqual(blackjackGame.gameIsOver().map { $0.name }, expectNames)
+	}
+	
+	func test_shouldTheDealWithANextPlayerWhenAPlayerDoNotHit() throws {
+		let dealer = Dealer()
+		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView)
+		try blackjackGame.start()
+		
+		let expectMoveOnToTheNextPlayerCoount = 1
+		let expectAnswerTheHitIndex = 1
+		
+		XCTAssertEqual(StubInputView.Verify.moveOnToTheNextPlayerCount, expectMoveOnToTheNextPlayerCoount)
+		XCTAssertEqual(inputView.answerTheHitIndex, expectAnswerTheHitIndex)
+	}
+	
+	func test_shouldHitAgainWhenAPlayerHit() throws {
+		let dealer = Dealer()
+		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "y","n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView)
+		try blackjackGame.start()
+		
+		let expectMoveOnToTheNextPlayerCoount = 1
+		let expectAnswerTheHitIndex = 2
+		
+		XCTAssertEqual(StubInputView.Verify.moveOnToTheNextPlayerCount, expectMoveOnToTheNextPlayerCoount)
+		XCTAssertEqual(inputView.answerTheHitIndex, expectAnswerTheHitIndex)
 	}
 }

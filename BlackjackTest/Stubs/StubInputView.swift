@@ -13,6 +13,14 @@ final class StubInputView: Inputable {
 	var answerTheHitIndex = 0
 	var currentName = ""
 	
+	enum Verify {
+		static var moveOnToTheNextPlayerCount = 0
+		
+		static func clear() {
+			Verify.moveOnToTheNextPlayerCount = 0
+		}
+	}
+	
 	init(playerNames: String, answerTheHit: String ...) {
 		self.playerNames = playerNames
 		self.answerTheHit = answerTheHit
@@ -32,6 +40,9 @@ final class StubInputView: Inputable {
 	
 	private func checkToClearHitIndex(by name: String) -> Int {
 		if name != currentName {
+			if currentName.isEmpty == false {
+				Verify.moveOnToTheNextPlayerCount += 1
+			}
 			answerTheHitIndex = 0
 			currentName = name
 		}
