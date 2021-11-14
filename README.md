@@ -52,7 +52,7 @@ NEXTSTEP with yagom-academy
 <br>
 
 - Player
-    - [ ] 플레이어는 이름과 Blackjack Card 2장을 소유하고 참여한다.
+    - [x] 플레이어는 이름과 Blackjack Card 2장을 소유하고 시작한다.
     - [ ] 블랙잭 카드를 추가로 받을 수 있다.
     - [ ] 카드 숫자 계산
     - [ ] 자신의 이름, 갖고있는 카드, 결과 숫자를 묘사한다.
