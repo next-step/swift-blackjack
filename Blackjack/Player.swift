@@ -11,7 +11,7 @@ struct Player {
 	let name: String
 	private(set) var deck: [BlackjackCard]
 	
-	enum GameResult {
+	enum CardResult {
 		case bust
 		case valid(difference: Int)
 	}
@@ -21,7 +21,11 @@ struct Player {
 		deck.append(drawnCard)
 	}
 	
-	func calculateTheSumOfCardNumbers() -> Int {
+	func gameIsOver() -> GameResult {
+		GameResult(name: name, deck: deck, sumOfCardNumbers: calculateTheSumOfCardNumbers())
+	}
+	
+	private func calculateTheSumOfCardNumbers() -> Int {
 		let sumOfCardNumbersByTheFirstValue = calculateWithFirstValue()
 		if hasAceCard() {
 			return calculateTheBestValueOfTheAceCard(compareTo: sumOfCardNumbersByTheFirstValue)
@@ -82,10 +86,10 @@ struct Player {
 		}
 	}
 	
-	private func compareBlackjackNumber(and number: Int) -> GameResult {
+	private func compareBlackjackNumber(and number: Int) -> CardResult {
 		if number > BlackjackOption.blackjackNumber {
-			return GameResult.bust
+			return CardResult.bust
 		}
-		return GameResult.valid(difference: BlackjackOption.blackjackNumber - number)
+		return CardResult.valid(difference: BlackjackOption.blackjackNumber - number)
 	}
 }

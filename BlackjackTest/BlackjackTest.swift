@@ -69,15 +69,15 @@ class BlackjackTest: XCTestCase {
 		let thirdDrawnCard = BlackjackCard(suit: .diamonds, rank: .seven)
 		try player.hit(drawnCard: thirdDrawnCard)
 		
-		let sumOfCardNumbers = player.calculateTheSumOfCardNumbers()
-		XCTAssertEqual(21, sumOfCardNumbers)
+		let gameResult = player.gameIsOver()
+		XCTAssertEqual(21, gameResult.sumOfCardNumbers)
 	}
 	
 	func test_shouldGetGameResultWhenTheGameIsOver() {
 		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .clubs, rank: .ace)]
 		let player = Player(name: "ABC", deck: blackjackCards)
 		let gameResult = player.gameIsOver()
-		let expect = Result(name: "ABC", deck: blackjackCards, sumOfCardNumbers: 12)
+		let expect = GameResult(name: "ABC", deck: blackjackCards, sumOfCardNumbers: 12)
 		
 		XCTAssertEqual(expect, gameResult)
 	}

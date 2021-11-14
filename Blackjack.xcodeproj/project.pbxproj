@@ -19,6 +19,8 @@
 		519957AF274101C6001DD993 /* BlackjackOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957AE274101C6001DD993 /* BlackjackOption.swift */; };
 		519957B027410243001DD993 /* BlackjackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957AB27410194001DD993 /* BlackjackError.swift */; };
 		519957B127410287001DD993 /* BlackjackOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957AE274101C6001DD993 /* BlackjackOption.swift */; };
+		519957B3274134A0001DD993 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957B2274134A0001DD993 /* GameResult.swift */; };
+		519957B427413652001DD993 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957B2274134A0001DD993 /* GameResult.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,7 @@
 		519957A72740F4AF001DD993 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		519957AB27410194001DD993 /* BlackjackError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackError.swift; sourceTree = "<group>"; };
 		519957AE274101C6001DD993 /* BlackjackOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackOption.swift; sourceTree = "<group>"; };
+		519957B2274134A0001DD993 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -76,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				519957A4274002ED001DD993 /* BlackjackCard.swift */,
+				519957B2274134A0001DD993 /* GameResult.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -220,6 +224,7 @@
 				5199579B273FF5E4001DD993 /* BlackjackTest.swift in Sources */,
 				519957A6274002F5001DD993 /* BlackjackCard.swift in Sources */,
 				519957A92740F4C4001DD993 /* Player.swift in Sources */,
+				519957B427413652001DD993 /* GameResult.swift in Sources */,
 				519957A2273FFA9F001DD993 /* Dealer.swift in Sources */,
 				519957B127410287001DD993 /* BlackjackOption.swift in Sources */,
 				519957B027410243001DD993 /* BlackjackError.swift in Sources */,
@@ -231,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				519957A82740F4B0001DD993 /* Player.swift in Sources */,
+				519957B3274134A0001DD993 /* GameResult.swift in Sources */,
 				519957A1273FFA9C001DD993 /* Dealer.swift in Sources */,
 				519957AC27410194001DD993 /* BlackjackError.swift in Sources */,
 				519957AF274101C6001DD993 /* BlackjackOption.swift in Sources */,
