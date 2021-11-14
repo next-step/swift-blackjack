@@ -13,6 +13,8 @@
 		519957A2273FFA9F001DD993 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957A0273FFA9C001DD993 /* Dealer.swift */; };
 		519957A5274002ED001DD993 /* BlackjackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957A4274002ED001DD993 /* BlackjackCard.swift */; };
 		519957A6274002F5001DD993 /* BlackjackCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957A4274002ED001DD993 /* BlackjackCard.swift */; };
+		519957A82740F4B0001DD993 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957A72740F4AF001DD993 /* Player.swift */; };
+		519957A92740F4C4001DD993 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957A72740F4AF001DD993 /* Player.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,7 @@
 		5199579A273FF5E4001DD993 /* BlackjackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTest.swift; sourceTree = "<group>"; };
 		519957A0273FFA9C001DD993 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		519957A4274002ED001DD993 /* BlackjackCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackCard.swift; sourceTree = "<group>"; };
+		519957A72740F4AF001DD993 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +98,7 @@
 				519957A3274002DC001DD993 /* Entities */,
 				519957A0273FFA9C001DD993 /* Dealer.swift */,
 				C7F86E19273AAF7900FAA669 /* main.swift */,
+				519957A72740F4AF001DD993 /* Player.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -191,6 +195,7 @@
 				5199579F273FF5F5001DD993 /* main.swift in Sources */,
 				5199579B273FF5E4001DD993 /* BlackjackTest.swift in Sources */,
 				519957A6274002F5001DD993 /* BlackjackCard.swift in Sources */,
+				519957A92740F4C4001DD993 /* Player.swift in Sources */,
 				519957A2273FFA9F001DD993 /* Dealer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +204,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				519957A82740F4B0001DD993 /* Player.swift in Sources */,
 				519957A1273FFA9C001DD993 /* Dealer.swift in Sources */,
 				519957A5274002ED001DD993 /* BlackjackCard.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
