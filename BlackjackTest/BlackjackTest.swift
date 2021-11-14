@@ -10,7 +10,7 @@ import XCTest
 class BlackjackTest: XCTestCase {
 	func test_shouldGet2CardsWhenTheDealerDealsCards() throws {
 		let dealear = Dealer()
-		let blackjackCards = dealear.deal()
+		let blackjackCards = dealear.firstDeal()
 		XCTAssertEqual(blackjackCards.count, 2)
 	}
 	
@@ -18,7 +18,7 @@ class BlackjackTest: XCTestCase {
 		let dealer = Dealer()
 		let initialDeckCount = dealer.deck.count
 		
-		let blackjackCards = dealer.deal()
+		let blackjackCards = dealer.firstDeal()
 		let result = Set(dealer.deck + blackjackCards).count
 		XCTAssertEqual(result, initialDeckCount)
 	}

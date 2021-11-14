@@ -10,13 +10,11 @@ import Foundation
 final class Dealer {
 	private(set) var deck: [BlackjackCard] = BlackjackCard.arrangeCards()
 	
-	func deal() -> [BlackjackCard] {
-		self.drawCard(of: 2)
+	func firstDeal() -> [BlackjackCard] {
+		return [deal(), deal()]
 	}
 	
-	private func drawCard(of numberOfCards: Int) -> [BlackjackCard] {
-		(0...numberOfCards).map { _ in
-			self.deck.removeLast()
-		}
+	func deal() -> BlackjackCard {
+		return self.deck.removeLast()
 	}
 }
