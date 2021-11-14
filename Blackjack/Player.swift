@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Player {
+class Player {
 	let name: String
 	private(set) var deck: [BlackjackCard]
 	
@@ -16,7 +16,12 @@ struct Player {
 		case valid(difference: Int)
 	}
 	
-	mutating func hit(drawnCard: BlackjackCard) throws {
+	init(name: String, deck: [BlackjackCard]) {
+		self.name = name
+		self.deck = deck
+	}
+	
+	func hit(drawnCard: BlackjackCard) throws {
 		guard isAvailableHit() else { throw BlackjackError.bust }
 		deck.append(drawnCard)
 	}

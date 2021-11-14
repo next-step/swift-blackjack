@@ -8,5 +8,9 @@
 import Foundation
 
 enum BlackjackError: Error {
+	enum InputError: Error {
+		case empty
+	}
 	case bust
+	case noCard
 }

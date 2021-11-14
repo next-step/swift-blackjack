@@ -10,7 +10,7 @@ import XCTest
 class BlackjackTest: XCTestCase {
 	func test_shouldGet2CardsWhenTheDealerDealsCards() throws {
 		let dealear = Dealer()
-		let blackjackCards = dealear.firstDeal()
+		let blackjackCards = dealear.firstDeal()!
 		XCTAssertEqual(blackjackCards.count, 2)
 	}
 	
@@ -18,7 +18,7 @@ class BlackjackTest: XCTestCase {
 		let dealer = Dealer()
 		let initialDeckCount = dealer.deck.count
 		
-		let blackjackCards = dealer.firstDeal()
+		let blackjackCards = dealer.firstDeal()!
 		let result = Set(dealer.deck + blackjackCards).count
 		XCTAssertEqual(result, initialDeckCount)
 	}
@@ -84,7 +84,8 @@ class BlackjackTest: XCTestCase {
 	
 	func test_shouldHaveEachPlayers2CardsWhenGameStart() {
 		let dealear = Dealer()
-		let blackjackGame = BlackjackGame(dealer: dealear)
+		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealear, inputable: inputView)
 		blackjackGame.start()
 		
 		blackjackGame.players.forEach { player in
@@ -94,9 +95,13 @@ class BlackjackTest: XCTestCase {
 	
 	func test_shouldGet1CardWhenPlayerAcceptsThe1Hit() throws {
 		let dealer = Dealer()
-		let inputView = StubInputView(answerTheHit: "y", "n")
+		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "y")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView)
 		blackjackGame.start()
+		
+		blackjackGame.players.forEach { player in
+			XCTAssertEqual(player.deck.count, 3)
+		}
 	}
 	
 }
