@@ -26,9 +26,21 @@ class BlackjackTest: XCTestCase {
 	func test_shouldOwnNameAnd2CardsWhenTheBlackjackGameStarts() {
 		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]
 		let name = "ABC"
-		let player = Player(name: name, deck: blackjackCards)
+		let player = makeFixtureOfPlayer(name: name, deck: blackjackCards)
 		
-		XCTAssertEqual(player.name, "ABC")
+		XCTAssertEqual(player.name, name)
 		XCTAssertEqual(player.deck, blackjackCards)
+	}
+	
+	func test_shouldGetTheSumOfTheCardNumbersWhenAPlayerHits() {
+		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]
+		let player = Player(name: "ABC", deck: blackjackCards)
+		let sumOfTheCardNumbers = player.hit()
+		let result = 19
+		XCTAssertEqual(19, sumOfTheCardNumbers)
+	}
+	
+	private func makeFixtureOfPlayer(name: String = "ABC", deck: [BlackjackCard] = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]) -> Player {
+		return Player(name: name, deck: deck)
 	}
 }
