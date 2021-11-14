@@ -38,11 +38,11 @@ class BlackjackTest: XCTestCase {
 		let drawnCard = BlackjackCard(suit: .spades, rank: .two)
 		
 		try player.hit(drawnCard: drawnCard)
-		let sumOfTheCardNumbers = player.deck.count
-		XCTAssertEqual(3, sumOfTheCardNumbers)
+		let sumOfCardNumbers = player.deck.count
+		XCTAssertEqual(3, sumOfCardNumbers)
 	}
 	
-	func test_shouldThrowBustErrorWhenSumOfTheCardnumbersIsEqualToOrGreaterThanTheBlackjackNumber() throws {
+	func test_shouldThrowBustErrorWhenSumOfCardnumbersIsEqualToOrGreaterThanTheBlackjackNumber() throws {
 		let blackjackCards = [BlackjackCard(suit: .spades, rank: .king), BlackjackCard(suit: .spades, rank: .eight)]
 		var player = Player(name: "ABC", deck: blackjackCards)
 		
@@ -54,6 +54,23 @@ class BlackjackTest: XCTestCase {
 		XCTAssertThrowsError(try player.hit(drawnCard: secondDrawnCard)) { error in
 			XCTAssertEqual(error as! BlackjackError, .bust)
 		}
+	}
+	
+	func test_shouldGetTheSumOfCardNumbersWhenTheGameIsOver() throws {
+		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .clubs, rank: .ace)]
+		var player = Player(name: "ABC", deck: blackjackCards)
+		
+		let firstDrawnCard = BlackjackCard(suit: .diamonds, rank: .ace)
+		try player.hit(drawnCard: firstDrawnCard)
+		
+		let secondDrawnCard = BlackjackCard(suit: .diamonds, rank: .ace)
+		try player.hit(drawnCard: secondDrawnCard)
+		
+		let thirdDrawnCard = BlackjackCard(suit: .diamonds, rank: .seven)
+		try player.hit(drawnCard: thirdDrawnCard)
+		
+		let sumOfCardNumbers = player.calculateTheSumOfCardNumbers()
+		XCTAssertEqual(21, sumOfCardNumbers)
 	}
 	
 	private func makeFixtureOfPlayer(name: String = "ABC", deck: [BlackjackCard] = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]) -> Player {
