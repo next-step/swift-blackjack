@@ -73,6 +73,15 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(21, sumOfCardNumbers)
 	}
 	
+	func test_shouldGetGameResultWhenTheGameIsOver() {
+		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .clubs, rank: .ace)]
+		let player = Player(name: "ABC", deck: blackjackCards)
+		let gameResult = player.gameIsOver()
+		let expect = Result(name: "ABC", deck: blackjackCards, sumOfCardNumbers: 12)
+		
+		XCTAssertEqual(expect, gameResult)
+	}
+	
 	private func makeFixtureOfPlayer(name: String = "ABC", deck: [BlackjackCard] = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]) -> Player {
 		return Player(name: name, deck: deck)
 	}
