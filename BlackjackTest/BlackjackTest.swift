@@ -36,8 +36,8 @@ class BlackjackTest: XCTestCase {
 		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]
 		let player = Player(name: "ABC", deck: blackjackCards)
 		let sumOfTheCardNumbers = player.hit()
-		let result = 19
-		XCTAssertEqual(19, sumOfTheCardNumbers)
+		let result = 9
+		XCTAssertEqual(result, sumOfTheCardNumbers)
 	}
 	
 	private func makeFixtureOfPlayer(name: String = "ABC", deck: [BlackjackCard] = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]) -> Player {
