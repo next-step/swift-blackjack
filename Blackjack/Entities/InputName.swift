@@ -19,5 +19,11 @@ struct InputName {
 			.trimmingCharacters(in: .whitespacesAndNewlines)
 			.replacingOccurrences(of: " ", with: "")
 			.components(separatedBy: ",")
+		
+		guard Set(names).count == names.count else {
+			throw BlackjackError.InputError.duplicate
+		}
 	}
 }
+
+

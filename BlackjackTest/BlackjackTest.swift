@@ -164,8 +164,8 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldThrowDuplicateErrorWhenInputNameIsDuplicated() throws {
-		try testExpectInputError(expect: BlackjackError.InputError.empty, playerName: "abc,def,abc", answerTheHit: "n")
-		try testExpectInputError(expect: BlackjackError.InputError.empty, playerName: "abc,dabc,def,abc", answerTheHit: "n")
+		try testExpectInputError(expect: BlackjackError.InputError.duplicate, playerName: "abc,def,abc", answerTheHit: "n")
+		try testExpectInputError(expect: BlackjackError.InputError.duplicate, playerName: "abc,dabc,def,abc", answerTheHit: "n")
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError.InputError, playerName: String?, answerTheHit: String? ...)  throws {
