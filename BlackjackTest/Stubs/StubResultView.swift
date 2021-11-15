@@ -8,7 +8,9 @@
 import Foundation
 
 final class StubResultView: Presentable {
-	var players: [Player]? = nil
+	var hitCount = [Int]()
+	private var players: [Player] = [Player]()
+	private var playerIndex = 0
 	
 	enum Verify {
 		static var printOutGameStatusBeforePlay = false
@@ -17,15 +19,22 @@ final class StubResultView: Presentable {
 
 	func printOutGameStatusBeforePlay(by players: [Player]) {
 		self.players = players
+		self.hitCount = (0...players.count - 1).map { _ in 0 }
 		Verify.printOutGameStatusBeforePlay = true
 	}
 	
 	func printOutDeck(of player: Player) {
+		if players[playerIndex].name != player.name {
+			playerIndex += 1
+		}
+		hitCount[playerIndex] += 1
 		Verify.printOutDeckOfPlayer = true
 	}
 	
 	func clear() {
-		players = nil
+		players = [Player]()
+		playerIndex = 0
+		hitCount = [Int]()
 		Verify.printOutGameStatusBeforePlay = false
 		Verify.printOutDeckOfPlayer = false
 	}
