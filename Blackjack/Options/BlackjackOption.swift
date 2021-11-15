@@ -9,5 +9,6 @@ import Foundation
 
 enum BlackjackOption {
 	static let blackjackNumber = 21
-	static let numberOfNames: ClosedRange<Int> = 2...5
+	static let numberOfNamesRange: ClosedRange<Int> = 2...5
+	static let nameRange: ClosedRange<Int> = 1...10
 }

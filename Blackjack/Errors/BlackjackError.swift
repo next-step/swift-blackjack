@@ -12,6 +12,7 @@ enum BlackjackError: Error {
 		case empty
 		case duplicatedName
 		case outOfRangesForNumberOfParticipants
+		case outOfRangeInName
 	}
 	case bust
 	case noCard

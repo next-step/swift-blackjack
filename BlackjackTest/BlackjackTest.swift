@@ -174,8 +174,8 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldThrowAnOutOfRangesInNameErrorWhenInputNameIsNotContainedInNumberOfNamesRange() throws {
-		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInName, playerName: "abcdefghijasdfkjwbefjkbwa", answerTheHit: "n")
-		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInName, playerName: "12345678910", answerTheHit: "n")
+		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInName, playerName: "abcdefghijasdfkjwbefjkbwa, abcd", answerTheHit: "n")
+		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInName, playerName: "12345678910, abcde", answerTheHit: "n")
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError.InputError, playerName: String?, answerTheHit: String? ...)  throws {
