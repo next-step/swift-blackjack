@@ -72,8 +72,8 @@ NEXTSTEP with yagom-academy
 
 - Blackjack Game
     - [x] 딜러는 플레이어들에게 두 장의 카드를 지급
-    - [ ] 처음에 지급받은 카드를 출력한다.
-    - [ ] InputView와 ResultView를 소유
+    - [x] 처음에 지급받은 카드를 출력한다.
+    - [x] InputView와 ResultView를 소유
     -  딜러가 모든 플레이어들에게 추가 카드 지급에 대한 확인
         - [ ] 카드를 더 받는다면, 지급받은 카드를 포함한 총 카드 출력 및 추가 지급에 대한 재확인
         - [x] 카드를 더 받지 않는다면, 다음 플레이어 확인
