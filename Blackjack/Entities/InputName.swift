@@ -10,7 +10,7 @@ import Foundation
 struct InputName {
 	let names: [String]
 	
-	init(input: String?, numberOfNamesRnage: ClosedRange<Int>) throws {
+	init(input: String?, numberOfNamesRange: ClosedRange<Int>) throws {
 		guard let validInput = input,
 					validInput.isEmpty == false
 		else { throw BlackjackError.InputError.empty }
@@ -24,10 +24,8 @@ struct InputName {
 			throw BlackjackError.InputError.duplicatedName
 		}
 		
-		guard numberOfNamesRnage.contains(names.count) else {
+		guard numberOfNamesRange.contains(names.count) else {
 			throw BlackjackError.InputError.outOfRangesForNumberOfParticipants
 		}
 	}
 }
-
-
