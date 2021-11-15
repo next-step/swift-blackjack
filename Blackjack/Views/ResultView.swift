@@ -11,6 +11,7 @@ protocol Presentable {
 	func printOutGameStatusBeforePlay(by players: [Player])
 	func printOutDeck(of player: Player)
 	func printOutGameResult(by playerGameResults: [GameResult])
+	func printOutError(error: BlackjackError.InputError)
 }
 
 struct ResultView: Presentable {
@@ -26,6 +27,21 @@ struct ResultView: Presentable {
 	func printOutGameResult(by playerGameResults: [GameResult]) {
 		playerGameResults.forEach { gameResult in
 			print("\(gameResult.name)카드: \(gameResult.deck.map { $0.description() }) - 결과: \(gameResult.sumOfCardNumbers)")
+		}
+	}
+	
+	func printOutError(error: BlackjackError.InputError) {
+		switch error {
+		case .empty:
+			print("빈 값은 입력이 불가능합니다.")
+		case .outOfRangeInName:
+			print("참여자의 이름은 1~10자리만 가능합니다.")
+		case .outOfRangesForNumberOfParticipants:
+			print("참여자 수는 2~5명만 가능합니다.")
+		case .duplicatedName:
+			print("참여자 이름은 중복이 불가능합니다.")
+		case .outOfRangeInYesOrNo:
+			print("추가 카드 요청은 `y`, `n`만 입력이 가능합니다.")
 		}
 	}
 	

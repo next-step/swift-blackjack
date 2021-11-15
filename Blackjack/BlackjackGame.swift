@@ -19,10 +19,15 @@ class BlackjackGame {
 		self.resultView = presentable
 	}
 	
-	func start() throws {
-		try dealTheCards()
-		try playGame()
-		gameIsOver()
+	func start() {
+		do {
+			try dealTheCards()
+			try playGame()
+			gameIsOver()
+		} catch (let error) {
+			guard let error = error as? BlackjackError.InputError else { return }
+			resultView.printOutError(error: error)
+		}
 	}
 	
 	private func playGame() throws {
