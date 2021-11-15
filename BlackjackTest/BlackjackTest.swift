@@ -183,6 +183,16 @@ class BlackjackTest: XCTestCase {
 		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInYesOrNo, playerName: "12345678, abcde", answerTheHit: "1")
 	}
 	
+	func test_shouldOutputGameStatusBeforePlayWhenAfterTheDeals() {
+		let dealer = Dealer()
+		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
+		let resultView = StubResultView()
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		
+		try blackjackGame.start()
+		XCTAssertEqual(StubInputView.Verify.printOutGameStatusBeforePlay, true)
+	}
+	
 	private func testExpectInputError(expect expectedError: BlackjackError.InputError, playerName: String?, answerTheHit: String? ...)  throws {
 		let dealer = Dealer()
 		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
