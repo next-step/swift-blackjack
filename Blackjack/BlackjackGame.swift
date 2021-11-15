@@ -31,8 +31,9 @@ class BlackjackGame {
 		}
 	}
 	
-	func gameIsOver() -> [GameResult] {
-		players.map { $0.gameResult }
+	func gameIsOver() {
+		let gameResults = players.map { $0.gameResult }
+		resultView.printOutGameResult(by: gameResults)
 	}
 	
 	private func dealTheCards() throws {

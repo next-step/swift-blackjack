@@ -9,12 +9,14 @@ import Foundation
 
 final class StubResultView: Presentable {
 	var hitCount = [Int]()
+	var gameResults = [GameResult]()
 	private var players: [Player] = [Player]()
 	private var playerIndex = 0
 	
 	enum Verify {
 		static var printOutGameStatusBeforePlay = false
 		static var printOutDeckOfPlayer = false
+		static var printOutGameResult = false
 	}
 
 	func printOutGameStatusBeforePlay(by players: [Player]) {
@@ -31,12 +33,19 @@ final class StubResultView: Presentable {
 		Verify.printOutDeckOfPlayer = true
 	}
 	
+	func printOutGameResult(by playerGameResults: [GameResult]) {
+		self.gameResults = playerGameResults
+		Verify.printOutGameResult = true
+	}
+	
 	func clear() {
 		players = [Player]()
-		playerIndex = 0
+		gameResults = [GameResult]()
 		hitCount = [Int]()
+		playerIndex = 0
 		Verify.printOutGameStatusBeforePlay = false
 		Verify.printOutDeckOfPlayer = false
+		Verify.printOutGameResult = false
 	}
 	
 }

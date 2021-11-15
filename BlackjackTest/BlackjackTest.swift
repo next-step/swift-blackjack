@@ -129,8 +129,8 @@ class BlackjackTest: XCTestCase {
 		
 		let expectNames = ["abc", "def", "ghi"]
 		
-		XCTAssertTrue(blackjackGame.gameIsOver().count == 3)
-		XCTAssertEqual(blackjackGame.gameIsOver().map { $0.name }, expectNames)
+		XCTAssertTrue(resultView.gameResults.count == 3)
+		XCTAssertEqual(resultView.gameResults.map { $0.name }, expectNames)
 	}
 	
 	func test_shouldTheDealWithANextPlayerWhenAPlayerDoNotHit() throws {

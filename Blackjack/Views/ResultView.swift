@@ -10,6 +10,7 @@ import Foundation
 protocol Presentable {
 	func printOutGameStatusBeforePlay(by players: [Player])
 	func printOutDeck(of player: Player)
+	func printOutGameResult(by playerGameResults: [GameResult])
 }
 
 struct ResultView: Presentable {
@@ -20,6 +21,12 @@ struct ResultView: Presentable {
 	
 	func printOutDeck(of player: Player) {
 		print("\(player.name)카드: \(player.deck.map { $0.description() })")
+	}
+	
+	func printOutGameResult(by playerGameResults: [GameResult]) {
+		playerGameResults.forEach { gameResult in
+			print("\(gameResult.name)카드: \(gameResult.deck.map { $0.description() }) - 결과: \(gameResult.sumOfCardNumbers)")
+		}
 	}
 	
 	private func printOutPlayerNames(players: [Player]) {
