@@ -6,5 +6,8 @@
 
 import Foundation
 
-print("Hello, World!")
-
+let dealer = Dealer()
+let inputView = InputView()
+let resultView = ResultView()
+let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+blackjackGame.start()
