@@ -26,7 +26,7 @@ struct ResultView: Presentable {
 	
 	func printOutGameResult(by playerGameResults: [GameResult]) {
 		playerGameResults.forEach { gameResult in
-			print("\(gameResult.name)카드: \(gameResult.deck.map { $0.description() }) - 결과: \(gameResult.sumOfCardNumbers)")
+			print("\(gameResult.name)카드: \(convertToLinkedStringByComma(from: gameResult)) - 결과: \(gameResult.sumOfCardNumbers)")
 		}
 	}
 	
@@ -47,6 +47,10 @@ struct ResultView: Presentable {
 		case .noCard:
 			print("더 이상 카드가 존재하지 않습니다.")
 		}
+	}
+	
+	private func convertToLinkedStringByComma(from gameResult: GameResult) -> String {
+		gameResult.deck.map { $0.description() }.joined(separator: ",")
 	}
 	
 	private func printOutPlayerNames(players: [Player]) {
