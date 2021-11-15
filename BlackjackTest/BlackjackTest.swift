@@ -14,4 +14,12 @@ class BlackjackTest: XCTestCase {
 
     override func tearDownWithError() throws {
     }
+    
+    func test_gamer_card_sum() {
+        let gammer = CardGammer()
+        gammer.pickCard(Card(number: 3, type: .hart))
+        gammer.pickCard(Card(number: 5, type: .spade))
+        
+        XCTAssertEqual(8, gammer.cardSum())
+    }
 }
