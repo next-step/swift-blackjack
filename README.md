@@ -33,7 +33,7 @@ NEXTSTEP with yagom-academy
     - [x] 참여자들이 처음 받은 카드 출력
     - [x] 추가 선택한 카드를 포함한 모든 카드 출력 - Loop
     - [x] 게임 결과 출력
-    - [ ] 게임 오류 메시지 출력
+    - [x] 게임 오류 메시지 출력
 <br>
 
 ### Business Logic
