@@ -10,7 +10,8 @@ import Foundation
 enum BlackjackError: Error {
 	enum InputError: Error {
 		case empty
-		case duplicate
+		case duplicatedName
+		case outOfRangesForNumberOfParticipants
 	}
 	case bust
 	case noCard

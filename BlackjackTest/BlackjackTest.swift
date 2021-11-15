@@ -168,9 +168,9 @@ class BlackjackTest: XCTestCase {
 		try testExpectInputError(expect: BlackjackError.InputError.duplicatedName, playerName: "abc,dabc,def,abc", answerTheHit: "n")
 	}
 	
-	func test_shouldThrowAnErrorOutOfRangesForNumberOfParticipantsWhenInputNameIsNotContainedInNumberOfParticipantsRange() throws {
+	func test_shouldThrowAnOutOfRangesForNumberOfParticipantsErrorWhenInputNameIsNotContainedInNumberOfParticipantsRange() throws {
 		try testExpectInputError(expect: BlackjackError.InputError.outOfRangesForNumberOfParticipants, playerName: "abc", answerTheHit: "n")
-		try testExpectInputError(expect: BlackjackError.InputError.outOfRangesForNumberOfParticipants, playerName: "abc,def,123,456,789", answerTheHit: "n")
+		try testExpectInputError(expect: BlackjackError.InputError.outOfRangesForNumberOfParticipants, playerName: "abc,def,123,456,789,1011", answerTheHit: "n")
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError.InputError, playerName: String?, answerTheHit: String? ...)  throws {
