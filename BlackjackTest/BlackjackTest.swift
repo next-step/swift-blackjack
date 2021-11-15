@@ -194,12 +194,12 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(StubResultView.Verify.printOutGameStatusBeforePlay, true)
 	}
 	
-	func test_shouldOutputAllCardsWhenPlayerHit() throws {
+	func test_shouldOutputAllCardsWhenPlayerHits() throws {
 		let dealer = Dealer()
 		let inputView = StubInputView(playerNames: "ab,cd,ef", answerTheHit: "y", "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		try blackjackGame.start()
-		XCTAssertEqual(StubResultView.Verify.printOutAllCardsInPlayer, true)
+		XCTAssertEqual(StubResultView.Verify.printOutDeckOfPlayer, true)
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError.InputError, playerName: String?, answerTheHit: String? ...)  throws {

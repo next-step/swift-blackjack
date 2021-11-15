@@ -12,6 +12,7 @@ final class StubResultView: Presentable {
 	
 	enum Verify {
 		static var printOutGameStatusBeforePlay = false
+		static var printOutDeckOfPlayer = false
 	}
 
 	func printOutGameStatusBeforePlay(by players: [Player]) {
@@ -19,8 +20,14 @@ final class StubResultView: Presentable {
 		Verify.printOutGameStatusBeforePlay = true
 	}
 	
+	func printOutDeck(of player: Player) {
+		Verify.printOutDeckOfPlayer = true
+	}
+	
 	func clear() {
+		players = nil
 		Verify.printOutGameStatusBeforePlay = false
+		Verify.printOutDeckOfPlayer = false
 	}
 	
 }

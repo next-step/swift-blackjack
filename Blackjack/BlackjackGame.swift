@@ -56,6 +56,7 @@ class BlackjackGame {
 			guard input.isYes else { return }
 			
 			try player.hit(drawnCard: dealer.deal())
+			resultView.printOutDeck(of: player)
 			try askThePlayerWhetherToHit(player: &player)
 		}
 	}
