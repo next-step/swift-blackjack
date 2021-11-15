@@ -61,6 +61,7 @@ class BlackjackTest: XCTestCase {
 		XCTAssertThrowsError(try player.hit(drawnCard: secondDrawnCard)) { error in
 			XCTAssertEqual(error as! BlackjackError, .bust)
 		}
+
 	}
 	
 	func test_shouldGetTheSumOfCardNumbersWhenTheGameIsOver() throws {
@@ -115,10 +116,10 @@ class BlackjackTest: XCTestCase {
 		let dealer = Dealer()
 		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "y","y","y","y","y","y","y")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		blackjackGame.start()
 		
-		XCTAssertThrowsError(blackjackGame.start()) { error in
-			XCTAssertEqual(error as! BlackjackError, BlackjackError.bust)
-		}
+		XCTAssertEqual(StubResultView.Verify.printOutError, true)
+		XCTAssertEqual(resultView.error, .bust)
 	}
 	
 	func test_shouldGetGameResultsWhenGameIsOver() {
@@ -160,30 +161,30 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldThrowEmptyErrorWhenInputNameIsEmpty() throws {
-		try testExpectInputError(expect: BlackjackError.InputError.empty, playerName: nil, answerTheHit: "n")
-		try testExpectInputError(expect: BlackjackError.InputError.empty, playerName: "", answerTheHit: "n")
-		try testExpectInputError(expect: BlackjackError.InputError.empty, playerName: "a,b", answerTheHit: nil)
-		try testExpectInputError(expect: BlackjackError.InputError.empty, playerName: "a,b", answerTheHit: "")
+		try testExpectInputError(expect: .input(.empty), playerName: nil, answerTheHit: "n")
+		try testExpectInputError(expect: .input(.empty), playerName: "", answerTheHit: "n")
+		try testExpectInputError(expect: .input(.empty), playerName: "a,b", answerTheHit: nil)
+		try testExpectInputError(expect: .input(.empty), playerName: "a,b", answerTheHit: "")
 	}
 	
 	func test_shouldThrowDuplicateErrorWhenInputNameIsDuplicated() throws {
-		try testExpectInputError(expect: BlackjackError.InputError.duplicatedName, playerName: "abc,def,abc", answerTheHit: "n")
-		try testExpectInputError(expect: BlackjackError.InputError.duplicatedName, playerName: "abc,dabc,def,abc", answerTheHit: "n")
+		try testExpectInputError(expect: .input(.duplicatedName), playerName: "abc,def,abc", answerTheHit: "n")
+		try testExpectInputError(expect: .input(.duplicatedName), playerName: "abc,dabc,def,abc", answerTheHit: "n")
 	}
 	
 	func test_shouldThrowAnOutOfRangesForNumberOfParticipantsErrorWhenInputNameIsNotContainedInNumberOfParticipantsRange() throws {
-		try testExpectInputError(expect: BlackjackError.InputError.outOfRangesForNumberOfParticipants, playerName: "abc", answerTheHit: "n")
-		try testExpectInputError(expect: BlackjackError.InputError.outOfRangesForNumberOfParticipants, playerName: "abc,def,123,456,789,1011", answerTheHit: "n")
+		try testExpectInputError(expect: .input(.outOfRangesForNumberOfParticipants), playerName: "abc", answerTheHit: "n")
+		try testExpectInputError(expect: .input(.outOfRangesForNumberOfParticipants), playerName: "abc,def,123,456,789,1011", answerTheHit: "n")
 	}
 	
 	func test_shouldThrowAnOutOfRangesInNameErrorWhenInputNameIsNotContainedInNumberOfNamesRange() throws {
-		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInName, playerName: "abcdefghijasdfkjwbefjkbwa, abcd", answerTheHit: "n")
-		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInName, playerName: "12345678910, abcde", answerTheHit: "n")
+		try testExpectInputError(expect: .input(.outOfRangeInName), playerName: "abcdefghijasdfkjwbefjkbwa, abcd", answerTheHit: "n")
+		try testExpectInputError(expect: .input(.outOfRangeInName), playerName: "12345678910, abcde", answerTheHit: "n")
 	}
 	
 	func test_shouldThrowAnOutOfRangesInYesOrNoErrorWhenInputIsOtherThanYesOrNo() throws {
-		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInYesOrNo, playerName: "abcde, abcd", answerTheHit: "a")
-		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInYesOrNo, playerName: "12345678, abcde", answerTheHit: "1")
+		try testExpectInputError(expect: .input(.outOfRangeInYesOrNo), playerName: "abcde, abcd", answerTheHit: "a")
+		try testExpectInputError(expect: .input(.outOfRangeInYesOrNo), playerName: "12345678, abcde", answerTheHit: "1")
 	}
 	
 	func test_shouldOutputGameStatusBeforePlayWhenAfterTheDeals() {
@@ -218,16 +219,18 @@ class BlackjackTest: XCTestCase {
 		
 		blackjackGame.start()
 		XCTAssertEqual(StubResultView.Verify.printOutError, true)
-		XCTAssertEqual(resultView.error, BlackjackError.InputError.empty)
+		XCTAssertEqual(resultView.error, .input(.empty))
 	}
 	
-	private func testExpectInputError(expect expectedError: BlackjackError.InputError, playerName: String?, answerTheHit: String? ...)  throws {
+	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {
 		let dealer = Dealer()
 		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		blackjackGame.start()
 		
-		XCTAssertThrowsError(blackjackGame.start()) { error in
-			XCTAssertEqual(error as! BlackjackError.InputError, expectedError)
-		}
+		XCTAssertEqual(StubResultView.Verify.printOutError, true)
+		XCTAssertEqual(resultView.error, expectedError)
+		
+		resultView.clear()
 	}
 }
