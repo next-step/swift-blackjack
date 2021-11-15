@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum BlackjackError: Error {
+enum BlackjackError: Error, Equatable {
 	enum InputError: Error {
 		case empty
 		case duplicatedName
@@ -17,4 +17,5 @@ enum BlackjackError: Error {
 	}
 	case bust
 	case noCard
+	case input(InputError)
 }

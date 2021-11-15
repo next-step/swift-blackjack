@@ -10,7 +10,7 @@ import Foundation
 final class StubResultView: Presentable {
 	var hitCount = [Int]()
 	var gameResults = [GameResult]()
-	var error: BlackjackError.InputError? = nil
+	var error: BlackjackError? = nil
 	private var players: [Player] = [Player]()
 	private var playerIndex = 0
 	
@@ -35,7 +35,7 @@ final class StubResultView: Presentable {
 		Verify.printOutDeckOfPlayer = true
 	}
 	
-	func printOutError(error: BlackjackError.InputError) {
+	func printOut(error: BlackjackError) {
 		self.error = error
 		Verify.printOutError = true
 	}

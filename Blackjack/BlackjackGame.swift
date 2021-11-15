@@ -22,17 +22,20 @@ class BlackjackGame {
 	func start() {
 		do {
 			try dealTheCards()
-			try playGame()
+			playGame()
 			gameIsOver()
 		} catch (let error) {
-			guard let error = error as? BlackjackError.InputError else { return }
-			resultView.printOutError(error: error)
+			printOutErrorOnResultView(error: error)
 		}
 	}
 	
-	private func playGame() throws {
+	private func playGame() {
 		for var player in players {
-			try askThePlayerWhetherToHit(player: &player)
+			do {
+				try askThePlayerWhetherToHit(player: &player)
+			} catch (let error) {
+				printOutErrorOnResultView(error: error)
+			}
 		}
 	}
 	
@@ -64,6 +67,16 @@ class BlackjackGame {
 			try player.hit(drawnCard: dealer.deal())
 			resultView.printOutDeck(of: player)
 			try askThePlayerWhetherToHit(player: &player)
+		}
+	}
+	
+	private func printOutErrorOnResultView(error: Error) {
+		if let inputError = error as? BlackjackError.InputError {
+			resultView.printOut(error: .input(inputError))
+		}
+		
+		if let blackjackError = error as? BlackjackError {
+			resultView.printOut(error: blackjackError)
 		}
 	}
 }
