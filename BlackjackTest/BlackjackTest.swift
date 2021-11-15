@@ -155,4 +155,21 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(StubInputView.Verify.moveOnToTheNextPlayerCount, expectMoveOnToTheNextPlayerCoount)
 		XCTAssertEqual(inputView.answerTheHitIndex, expectAnswerTheHitIndex)
 	}
+	
+	func test_shouldThrowEmptyErrorWhenInputNameIsEmpty() throws {
+		try testExpectInputError(expect: BlackjackError.InputError.empty, playerName: nil, answerTheHit: "n")
+		try testExpectInputError(expect: BlackjackError.InputError.empty, playerName: "", answerTheHit: "n")
+		try testExpectInputError(expect: BlackjackError.InputError.empty, playerName: "a,b", answerTheHit: nil)
+		try testExpectInputError(expect: BlackjackError.InputError.empty, playerName: "a,b", answerTheHit: "")
+	}
+	
+	private func testExpectInputError(expect expectedError: BlackjackError.InputError, playerName: String?, answerTheHit: String? ...)  throws {
+		let dealer = Dealer()
+		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView)
+		
+		XCTAssertThrowsError(try blackjackGame.start()) { error in
+			XCTAssertEqual(error as! BlackjackError.InputError, expectedError)
+		}
+	}
 }
