@@ -34,11 +34,25 @@ struct BlackjackCard: Hashable {
 				return Values(first: self.rawValue, second: nil)
 			}
 		}
+		
+		var description: String {
+			switch self {
+			case .ace: return "A"
+			case .jack: return "J"
+			case .queen: return "Q"
+			case .king: return "K"
+			default: return String(describing: self.rawValue)
+			}
+		}
 	}
 	
 	init(suit: Suit, rank: Rank) {
 		self.suit = suit
 		self.rank = rank
+	}
+	
+	func description() -> String {
+		rank.description + suit.rawValue
 	}
 	
 	static func arrangeCards() -> [BlackjackCard] {
@@ -48,5 +62,4 @@ struct BlackjackCard: Hashable {
 			}
 		}
 	}
-	
 }

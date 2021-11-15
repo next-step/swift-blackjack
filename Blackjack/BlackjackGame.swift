@@ -10,20 +10,22 @@ import Foundation
 class BlackjackGame {
 	let dealer: Dealer
 	let inputView: Inputable
+	let resultView: Presentable
 	var players: [Player] = [Player]()
 	
-	init(dealer: Dealer, inputable: Inputable) {
+	init(dealer: Dealer, inputable: Inputable, presentable: Presentable) {
 		self.dealer = dealer
 		self.inputView = inputable
+		self.resultView = presentable
 	}
 	
 	func start() throws {
 		try dealTheCards()
-		try deal()
+		try playGame()
 		gameIsOver()
 	}
 	
-	private func deal() throws {
+	private func playGame() throws {
 		for var player in players {
 			try askThePlayerWhetherToHit(player: &player)
 		}
@@ -37,6 +39,7 @@ class BlackjackGame {
 		try inputView.askPlayerNames { player in
 			makePlayers(by: player.names)
 		}
+		resultView.printOutGameStatusBeforePlay(by: self.players)
 	}
 	
 	private func makePlayers(by names: [String]) {
