@@ -14,6 +14,9 @@ struct InputYesOrNo {
 		guard let validInput = input,
 					validInput.isEmpty == false
 		else { throw BlackjackError.InputError.empty }
+		
+		guard ["y", "n"].contains(validInput) else { throw BlackjackError.InputError.outOfRangeInYesOrNo }
+		
 		isYes = validInput == "y"
 	}
 }
