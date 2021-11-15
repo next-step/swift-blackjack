@@ -15,17 +15,28 @@ struct InputName {
 					validInput.isEmpty == false
 		else { throw BlackjackError.InputError.empty }
 		
-		self.names = validInput
+		self.names = validInput.splitTrimedStringByComma()
+		try self.names.checkValidNames(in: numberOfNamesRange)
+	}
+}
+
+fileprivate extension String {
+	func splitTrimedStringByComma() -> [String] {
+		self.replacingOccurrences(of: " ", with: "")
 			.trimmingCharacters(in: .whitespacesAndNewlines)
-			.replacingOccurrences(of: " ", with: "")
 			.components(separatedBy: ",")
-		
-		guard Set(names).count == names.count else {
+	}
+}
+
+fileprivate extension Array where Element == String {
+	func checkValidNames(in numberOfNamesRange: ClosedRange<Int>) throws {
+		guard Set(self).count == self.count else {
 			throw BlackjackError.InputError.duplicatedName
 		}
 		
-		guard numberOfNamesRange.contains(names.count) else {
+		guard numberOfNamesRange.contains(self.count) else {
 			throw BlackjackError.InputError.outOfRangesForNumberOfParticipants
 		}
 	}
 }
+
