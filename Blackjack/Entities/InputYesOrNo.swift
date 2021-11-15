@@ -11,7 +11,9 @@ struct InputYesOrNo {
 	let isYes: Bool
 	
 	init(input: String?) throws {
-		guard let validInput = input else { throw BlackjackError.InputError.empty }
+		guard let validInput = input,
+					validInput.isEmpty == false
+		else { throw BlackjackError.InputError.empty }
 		isYes = validInput == "y"
 	}
 }

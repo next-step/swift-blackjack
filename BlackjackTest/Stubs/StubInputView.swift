@@ -8,8 +8,8 @@
 import Foundation
 
 final class StubInputView: Inputable {
-	let playerNames: String
-	var answerTheHit: [String]
+	let playerNames: String?
+	var answerTheHit: [String?]
 	var answerTheHitIndex = 0
 	var currentName = ""
 	
@@ -21,7 +21,13 @@ final class StubInputView: Inputable {
 		}
 	}
 	
-	init(playerNames: String, answerTheHit: String ...) {
+	init(playerNames: String?, answerTheHit: String? ...) {
+		self.playerNames = playerNames
+		self.answerTheHit = answerTheHit
+		appendFalseToTheLastitem()
+	}
+	
+	init(playerNames: String?, answerTheHit: [String?]) {
 		self.playerNames = playerNames
 		self.answerTheHit = answerTheHit
 		appendFalseToTheLastitem()
@@ -50,6 +56,8 @@ final class StubInputView: Inputable {
 	}
 	
 	private func appendFalseToTheLastitem() {
-		self.answerTheHit.append("n")
+		if answerTheHit.count > 0 {
+			self.answerTheHit.append("n")
+		}
 	}
 }

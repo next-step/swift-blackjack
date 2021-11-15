@@ -11,7 +11,10 @@ struct InputName {
 	let names: [String]
 	
 	init(input: String?) throws {
-		guard let validInput = input else { throw BlackjackError.InputError.empty }
+		guard let validInput = input,
+					validInput.isEmpty == false
+		else { throw BlackjackError.InputError.empty }
+		
 		self.names = validInput
 			.trimmingCharacters(in: .whitespacesAndNewlines)
 			.replacingOccurrences(of: " ", with: "")
