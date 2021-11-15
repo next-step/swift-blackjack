@@ -178,6 +178,11 @@ class BlackjackTest: XCTestCase {
 		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInName, playerName: "12345678910, abcde", answerTheHit: "n")
 	}
 	
+	func test_shouldThrowAnOutOfRangesInYesOrNoErrorWhenInputIsOtherThanYesOrNo() throws {
+		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInYesOrNo, playerName: "abcde, abcd", answerTheHit: "a")
+		try testExpectInputError(expect: BlackjackError.InputError.outOfRangeInYesOrNo, playerName: "12345678, abcde", answerTheHit: "1")
+	}
+	
 	private func testExpectInputError(expect expectedError: BlackjackError.InputError, playerName: String?, answerTheHit: String? ...)  throws {
 		let dealer = Dealer()
 		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
