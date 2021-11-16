@@ -58,15 +58,16 @@ class BlackjackGame {
 	}
 	
 	private func joinTheGame(by playerName: String) {
-		if let drawnCard = dealer.firstDeal() {
-			let player = Player(name: playerName, deck: drawnCard)
+		if let firstCard = try? dealer.deal(),
+			 let secondCard = try? dealer.deal() {
+			let player = Player(name: playerName, deck: [firstCard, secondCard])
 			players.append(player)
 		}
 	}
 	
 	private func askThePlayerWhetherToHit(player: inout Player) throws {
-		try inputView.askThePlayerWhetherToHit(name: player.name) { input in
-			guard input.isYes else { return }
+		try inputView.askThePlayerWhetherToHit(name: player.name) { isYes in
+			guard isYes else { return }
 			
 			try player.hit(drawnCard: dealer.deal())
 			resultView.printOutDeck(of: player)

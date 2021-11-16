@@ -16,8 +16,8 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldGet2CardsWhenTheDealerDealsCards() throws {
-		let dealear = Dealer()
-		let blackjackCards = dealear.firstDeal()!
+		let dealer = Dealer()
+		let blackjackCards = [try dealer.deal(), try dealer.deal()]
 		XCTAssertEqual(blackjackCards.count, 2)
 	}
 	
@@ -25,7 +25,7 @@ class BlackjackTest: XCTestCase {
 		let dealer = Dealer()
 		let initialDeckCount = dealer.deck.count
 		
-		let blackjackCards = dealer.firstDeal()!
+		let blackjackCards = [try dealer.deal(), try dealer.deal()]
 		let result = Set(dealer.deck + blackjackCards).count
 		XCTAssertEqual(result, initialDeckCount)
 	}

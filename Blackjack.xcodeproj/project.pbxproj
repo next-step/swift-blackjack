@@ -29,9 +29,7 @@
 		519957BD27415A17001DD993 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957BC27415A17001DD993 /* InputView.swift */; };
 		519957BE27415A25001DD993 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957BC27415A17001DD993 /* InputView.swift */; };
 		519957C127415CFF001DD993 /* InputName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957C027415CFF001DD993 /* InputName.swift */; };
-		519957C327415D6A001DD993 /* InputYesOrNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957C227415D6A001DD993 /* InputYesOrNo.swift */; };
 		519957C427415DE9001DD993 /* InputName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957C027415CFF001DD993 /* InputName.swift */; };
-		519957C527415DEB001DD993 /* InputYesOrNo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957C227415D6A001DD993 /* InputYesOrNo.swift */; };
 		519957C72742766A001DD993 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957C62742766A001DD993 /* ResultView.swift */; };
 		519957C927427673001DD993 /* StubResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957C827427673001DD993 /* StubResultView.swift */; };
 		519957CA27427CB8001DD993 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957C62742766A001DD993 /* ResultView.swift */; };
@@ -64,7 +62,6 @@
 		519957B927415A0C001DD993 /* StubInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubInputView.swift; sourceTree = "<group>"; };
 		519957BC27415A17001DD993 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		519957C027415CFF001DD993 /* InputName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputName.swift; sourceTree = "<group>"; };
-		519957C227415D6A001DD993 /* InputYesOrNo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputYesOrNo.swift; sourceTree = "<group>"; };
 		519957C62742766A001DD993 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		519957C827427673001DD993 /* StubResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubResultView.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,7 +109,6 @@
 				519957A4274002ED001DD993 /* BlackjackCard.swift */,
 				519957B2274134A0001DD993 /* GameResult.swift */,
 				519957C027415CFF001DD993 /* InputName.swift */,
-				519957C227415D6A001DD993 /* InputYesOrNo.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -282,7 +278,6 @@
 				519957A6274002F5001DD993 /* BlackjackCard.swift in Sources */,
 				519957A92740F4C4001DD993 /* Player.swift in Sources */,
 				5185CABB2743C32500B73A9F /* Array+Extension.swift in Sources */,
-				519957C527415DEB001DD993 /* InputYesOrNo.swift in Sources */,
 				519957BA27415A0C001DD993 /* StubInputView.swift in Sources */,
 				519957B427413652001DD993 /* GameResult.swift in Sources */,
 				519957A2273FFA9F001DD993 /* Dealer.swift in Sources */,
@@ -303,7 +298,6 @@
 				519957AC27410194001DD993 /* BlackjackError.swift in Sources */,
 				519957AF274101C6001DD993 /* BlackjackOption.swift in Sources */,
 				519957C72742766A001DD993 /* ResultView.swift in Sources */,
-				519957C327415D6A001DD993 /* InputYesOrNo.swift in Sources */,
 				519957A5274002ED001DD993 /* BlackjackCard.swift in Sources */,
 				519957BD27415A17001DD993 /* InputView.swift in Sources */,
 				519957C127415CFF001DD993 /* InputName.swift in Sources */,

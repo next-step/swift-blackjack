@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class StubInputView: Inputable {
+final class StubInputView: Inputable, PlayerAskable {
 	let playerNames: String?
 	var answerTheHit: [String?]
 	var answerTheHitIndex = 0
@@ -37,11 +37,11 @@ final class StubInputView: Inputable {
 		try InputName(input: playerNames, numberOfPlayers: BlackjackOption.numberOfPlayers, nameRange: BlackjackOption.nameRange)
 	}
 	
-	func makeYesOrNo(name: String) throws -> InputYesOrNo {
+	func makeYesOrNo(name: String) throws -> Bool {
 		let index = checkToClearHitIndex(by: name)
-		let inputYesOrNo = try InputYesOrNo(input: answerTheHit[index])
+		let inputIsYes = try isinputYes(input: answerTheHit[index])
 		answerTheHitIndex += 1
-		return inputYesOrNo
+		return inputIsYes
 	}
 	
 	private func checkToClearHitIndex(by name: String) -> Int {
