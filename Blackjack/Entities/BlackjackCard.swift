@@ -28,19 +28,17 @@ struct BlackjackCard: Hashable {
 	}
 	
 	enum Rank: Int, CaseIterable {
-		typealias Values = (first: Int, second: Int?)
-		
 		case two = 2, three, four, five, six, seven, eight, nine, ten
 		case ace, jack, queen, king
 		
-		var value: Values {
+		var value: [Int] {
 			switch self {
 			case .ace:
-				return Values(first: 1, second: 11)
+				return [1, 11]
 			case .jack, .queen, .king:
-				return Values(first: 10, second: nil)
+				return [10]
 			default:
-				return Values(first: self.rawValue, second: nil)
+				return [self.rawValue]
 			}
 		}
 		

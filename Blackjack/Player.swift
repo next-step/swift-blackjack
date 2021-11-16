@@ -65,15 +65,19 @@ class Player {
 		var isFirstAce = true
 		return deck.map { blackjackCard in
 			blackjackCard.rank.value
-		}.map { rank in
-			if let secondValue = rank.second, isFirstAce {
-				isFirstAce = false
-				return secondValue
-			} else {
-				return rank.first
-			}
+		}.map { rankValues in
+			findRank(in: rankValues, isFirstAce: &isFirstAce)
 		}.reduce(0) { partialResult, cardRank in
 			partialResult + cardRank
+		}
+	}
+	
+	private func findRank(in rankValues: [Int], isFirstAce: inout Bool) -> Int {
+		if let secondValue = rankValues[safe: 1], isFirstAce {
+			isFirstAce = false
+			return secondValue
+		} else {
+			return rankValues[0]
 		}
 	}
 	
@@ -84,7 +88,7 @@ class Player {
 	
 	private func calculateWithFirstValue() -> Int {
 		deck.map { blackjackCard in
-			blackjackCard.rank.value.first
+			blackjackCard.rank.value[0]
 		}.reduce(0) { partialResult, cardRank in
 			partialResult + cardRank
 		}

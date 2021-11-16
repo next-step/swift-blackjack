@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5185CABA2743BC1600B73A9F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185CAB92743BC1600B73A9F /* Array+Extension.swift */; };
 		5199579B273FF5E4001DD993 /* BlackjackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5199579A273FF5E4001DD993 /* BlackjackTest.swift */; };
 		5199579F273FF5F5001DD993 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 		519957A1273FFA9C001DD993 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957A0273FFA9C001DD993 /* Dealer.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5185CAB92743BC1600B73A9F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		51995798273FF5E4001DD993 /* BlackjackTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5199579A273FF5E4001DD993 /* BlackjackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTest.swift; sourceTree = "<group>"; };
 		519957A0273FFA9C001DD993 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
@@ -86,6 +88,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5185CAB82743BC0000B73A9F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5185CAB92743BC1600B73A9F /* Array+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		51995799273FF5E4001DD993 /* BlackjackTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +175,7 @@
 				519957AD274101BA001DD993 /* Options */,
 				519957AA27410185001DD993 /* Errors */,
 				519957A3274002DC001DD993 /* Entities */,
+				5185CAB82743BC0000B73A9F /* Extensions */,
 				519957A0273FFA9C001DD993 /* Dealer.swift */,
 				519957A72740F4AF001DD993 /* Player.swift */,
 				519957B52741420D001DD993 /* BlackjackGame.swift */,
@@ -295,6 +306,7 @@
 				519957BD27415A17001DD993 /* InputView.swift in Sources */,
 				519957C127415CFF001DD993 /* InputName.swift in Sources */,
 				519957B62741420E001DD993 /* BlackjackGame.swift in Sources */,
+				5185CABA2743BC1600B73A9F /* Array+Extension.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
