@@ -31,22 +31,8 @@ struct ResultView: Presentable {
 	}
 	
 	func printOut(error: BlackjackError) {
-		switch error {
-		case .input(.empty):
-			print("빈 값은 입력이 불가능합니다.")
-		case .input(.outOfRangeInName):
-			print("참여자의 이름은 1~10자리만 가능합니다.")
-		case .input(.outOfRangesForNumberOfParticipants):
-			print("참여자 수는 2~5명만 가능합니다.")
-		case .input(.duplicatedName):
-			print("참여자 이름은 중복이 불가능합니다.")
-		case .input(.outOfRangeInYesOrNo):
-			print("추가 카드 요청은 `y`, `n`만 입력이 가능합니다.")
-		case .bust:
-			print("버스트에서는 카드 추가 요청이 불가능합니다.")
-		case .noCard:
-			print("더 이상 카드가 존재하지 않습니다.")
-		}
+		guard let errorDescription = error.errorDescription else { return }
+		print(errorDescription)
 	}
 	
 	private func convertToLinkedStringByComma(from gameResult: GameResult) -> String {
