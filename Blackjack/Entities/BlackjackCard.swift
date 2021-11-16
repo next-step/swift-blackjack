@@ -11,11 +11,20 @@ struct BlackjackCard: Hashable {
 	let suit: Suit
 	let rank: Rank
 	
-	enum Suit: String, CaseIterable {
-		case hearts = "하트"
-		case clubs = "클로버"
-		case spades = "스페이드"
-		case diamonds = "다이아몬드"
+	enum Suit: CaseIterable {
+		case hearts
+		case clubs
+		case spades
+		case diamonds
+		
+		var description: String {
+			switch self {
+			case .hearts: return "하트"
+			case .clubs: return "클로버"
+			case .spades: return "스페이드"
+			case .diamonds: return "다이아몬드"
+			}
+		}
 	}
 	
 	enum Rank: Int, CaseIterable {
@@ -52,7 +61,7 @@ struct BlackjackCard: Hashable {
 	}
 	
 	func description() -> String {
-		rank.description + suit.rawValue
+		rank.description + suit.description
 	}
 	
 	static func arrangeCards() -> [BlackjackCard] {
