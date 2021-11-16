@@ -34,7 +34,7 @@ final class StubInputView: Inputable {
 	}
 
 	func makePlayerName() throws -> InputName {
-		try InputName(input: playerNames, numberOfNamesRange: BlackjackOption.numberOfNamesRange, nameRange: BlackjackOption.nameRange)
+		try InputName(input: playerNames, numberOfPlayers: BlackjackOption.numberOfPlayers, nameRange: BlackjackOption.nameRange)
 	}
 	
 	func makeYesOrNo(name: String) throws -> InputYesOrNo {

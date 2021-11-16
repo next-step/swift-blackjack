@@ -10,13 +10,13 @@ import Foundation
 struct InputName {
 	let names: [String]
 	
-	init(input: String?, numberOfNamesRange: ClosedRange<Int>, nameRange: ClosedRange<Int>) throws {
+	init(input: String?, numberOfPlayers: ClosedRange<Int>, nameRange: ClosedRange<Int>) throws {
 		guard let validInput = input,
 					validInput.isEmpty == false
 		else { throw BlackjackError.InputError.empty }
 		
 		self.names = validInput.splitTrimedStringByComma()
-		try self.names.checkValidNames(in: numberOfNamesRange, nameRange: nameRange)
+		try self.names.checkValidNames(in: numberOfPlayers, nameRange: nameRange)
 	}
 }
 
@@ -29,12 +29,12 @@ fileprivate extension String {
 }
 
 fileprivate extension Array where Element == String {
-	func checkValidNames(in numberOfNamesRange: ClosedRange<Int>, nameRange: ClosedRange<Int>) throws {
+	func checkValidNames(in numberOfPlayers: ClosedRange<Int>, nameRange: ClosedRange<Int>) throws {
 		guard Set(self).count == self.count else {
 			throw BlackjackError.InputError.duplicatedName
 		}
 		
-		guard numberOfNamesRange.contains(self.count) else {
+		guard numberOfPlayers.contains(self.count) else {
 			throw BlackjackError.InputError.outOfRangesForNumberOfParticipants
 		}
 		

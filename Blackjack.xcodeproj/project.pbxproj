@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5185CABA2743BC1600B73A9F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185CAB92743BC1600B73A9F /* Array+Extension.swift */; };
+		5185CABB2743C32500B73A9F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185CAB92743BC1600B73A9F /* Array+Extension.swift */; };
 		5199579B273FF5E4001DD993 /* BlackjackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5199579A273FF5E4001DD993 /* BlackjackTest.swift */; };
 		5199579F273FF5F5001DD993 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 		519957A1273FFA9C001DD993 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957A0273FFA9C001DD993 /* Dealer.swift */; };
@@ -280,6 +281,7 @@
 				519957C927427673001DD993 /* StubResultView.swift in Sources */,
 				519957A6274002F5001DD993 /* BlackjackCard.swift in Sources */,
 				519957A92740F4C4001DD993 /* Player.swift in Sources */,
+				5185CABB2743C32500B73A9F /* Array+Extension.swift in Sources */,
 				519957C527415DEB001DD993 /* InputYesOrNo.swift in Sources */,
 				519957BA27415A0C001DD993 /* StubInputView.swift in Sources */,
 				519957B427413652001DD993 /* GameResult.swift in Sources */,
