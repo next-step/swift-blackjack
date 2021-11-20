@@ -52,6 +52,7 @@ protocol CardGammerOutputProtocol {
 
 class CardGammer: CardGammerInputProtocol, CardGammerOutputProtocol {
     private var cardsHoldingInHand: [Card] = []
+    var name: String
     
     var cardSum: Int {
         cardsHoldingInHand.reduce(0) { result, card in
@@ -64,6 +65,14 @@ class CardGammer: CardGammerInputProtocol, CardGammerOutputProtocol {
             
             return result + cardNumber
         }
+    }
+    
+    var cards: [Card] {
+        return cardsHoldingInHand
+    }
+    
+    init(name: String) {
+        self.name = name
     }
     
     func pickCard(_ card: Card) {

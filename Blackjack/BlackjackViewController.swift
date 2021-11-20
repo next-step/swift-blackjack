@@ -28,3 +28,24 @@ struct BlackjackInputView {
         }
     }
 }
+
+struct BlackjackOutputView {
+    func printCards(in gammer: CardGammer, isPrintResult: Bool = false) {
+        let names = gammer.cards
+            .map { $0.cardName }
+            .joined(separator: ", ")
+        
+        guard isPrintResult else {
+            print("\(gammer.name)카드: \(names)")
+            return
+        }
+
+        print("\(gammer.name)카드: \(names) - 결과: \(gammer.cardSum)")
+    }
+    
+    func printDistributedTwoCards(_ gammerNames: [String]) {
+        let names = gammerNames.joined(separator: ", ")
+        print("\(names)에게 2장씩 나누었습니다.")
+    }
+}
+
