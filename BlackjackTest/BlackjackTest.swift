@@ -20,6 +20,6 @@ class BlackjackTest: XCTestCase {
         gammer.pickCard(Card(number: 3, type: .hart))
         gammer.pickCard(Card(number: 5, type: .spade))
         
-        XCTAssertEqual(8, gammer.cardSum())
+        XCTAssertEqual(8, gammer.cardSum)
     }
 }
