@@ -51,7 +51,7 @@ protocol CardGammerOutputProtocol {
 }
 
 class CardGammer: CardGammerInputProtocol, CardGammerOutputProtocol {
-    private(set) var cardsHoldingInHand: [Card] = []
+    private var cardsHoldingInHand: [Card] = []
     
     var cardSum: Int {
         cardsHoldingInHand.reduce(0) { result, card in

@@ -15,7 +15,7 @@ class BlackjackTest: XCTestCase {
     override func tearDownWithError() throws {
     }
     
-    func test_gamer_card_sum() {
+    func test_gamer_card_sum_have_nomal_card() {
         let gammer = CardGammer()
         gammer.pickCard(Card(number: 3, type: .hart))
         gammer.pickCard(Card(number: 5, type: .spade))
