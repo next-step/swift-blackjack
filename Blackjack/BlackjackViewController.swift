@@ -49,3 +49,78 @@ struct BlackjackOutputView {
     }
 }
 
+class BlackjackViewController {
+    private let inputView = BlackjackInputView()
+    private let outputView = BlackjackOutputView()
+    
+    private var gammers = [CardGammer]()
+    private var cardDack = [
+        Card(number: 2, type: .clover),
+        Card(number: 3, type: .diamond),
+        Card(number: 4, type: .spade),
+        Card(number: 5, type: .hart),
+        Card(number: 6, type: .clover),
+        Card(number: 7, type: .diamond),
+        Card(number: 8, type: .spade),
+        Card(number: 9, type: .hart),
+        Card(number: nil, type: .king),
+        Card(number: nil, type: .queen),
+        Card(number: nil, type: .jack),
+        Card(number: nil, type: .ace)
+    ]
+    
+    func startGame() {
+        suffleDack()
+        let namesString = inputView.inputGammerName()
+        let gammers = factoryGammers(namesString: namesString, separator: ",")
+        
+        gammers.forEach { gammer in
+            distributeCard(gammer: gammer, count: 2)
+        }
+        
+        outputView.printDistributedTwoCards(gammers.map { $0.name })
+        gammers.forEach { gammer in
+            outputView.printCards(in: gammer)
+        }
+        
+        gammers.forEach { gammer in
+            do {
+                while try inputView.inputIsPick(name: gammer.name) {
+                    distributeCard(gammer: gammer)
+                }
+            } catch {
+                print(error)
+            }
+        }
+        
+        gammers.forEach { gammer in
+            outputView.printCards(in: gammer, isPrintResult: true)
+        }
+    }
+    
+    func factoryGammers(namesString: String, separator: String) -> [CardGammer] {
+        let names = namesString.components(separatedBy: separator)
+        return names.map { CardGammer(name: $0) }
+    }
+    
+    func suffleDack() {
+        var suffledDack = [Card]()
+        
+        while !cardDack.isEmpty {
+            guard let randomNumber = (0..<cardDack.count).randomElement()
+            else { return }
+            
+            let card = cardDack.remove(at: randomNumber)
+            suffledDack.append(card)
+        }
+        
+        cardDack = suffledDack
+    }
+    
+    func distributeCard(gammer: CardGammer, count: Int = 1) {
+        for _ in 0..<count {
+            let card = cardDack.removeLast()
+            gammer.pickCard(card)
+        }
+    }
+}

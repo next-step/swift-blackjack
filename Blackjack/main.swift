@@ -30,7 +30,7 @@ enum CardType {
     }
 }
 
-struct Card {
+struct Card: Equatable {
     let number: Int?
     let type: CardType
     
