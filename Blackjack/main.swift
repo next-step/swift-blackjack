@@ -6,3 +6,5 @@
 
 import Foundation
 
+let viewController = BlackjackViewController()
+viewController.startGame()

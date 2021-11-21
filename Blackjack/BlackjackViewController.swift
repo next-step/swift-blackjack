@@ -18,7 +18,7 @@ struct BlackjackInputView {
     }
 
     func inputIsPick(name: String) throws -> Bool {
-        print("\(name)는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n")
+        print("\(name)는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)")
         guard let input = readLine() else { throw InputError.notInputYorN }
         
         switch input {
@@ -97,6 +97,7 @@ private extension BlackjackViewController {
             do {
                 while try inputView.inputIsPick(name: gammer.name) {
                     distributeCard(gammer: gammer)
+                    outputView.printCards(in: gammer)
                 }
             } catch {
                 print(error)
