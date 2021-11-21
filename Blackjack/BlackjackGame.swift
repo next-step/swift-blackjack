@@ -7,10 +7,10 @@
 
 import Foundation
 
-class BlackjackGame {
-	let dealer: Dealer
-	let inputView: Inputable
-	let resultView: Presentable
+final class BlackjackGame {
+	private let dealer: Dealer
+	private let inputView: Inputable
+	private let resultView: Presentable
 	var players: [Player] = [Player]()
 	
 	init(dealer: Dealer, inputable: Inputable, presentable: Presentable) {
@@ -59,7 +59,8 @@ class BlackjackGame {
 	private func joinTheGame(by playerName: String) {
 		if let firstCard = try? dealer.deal(),
 			 let secondCard = try? dealer.deal() {
-			let player = Player(name: playerName, deck: [firstCard, secondCard])
+			let deck = Deck(cards: [firstCard, secondCard])
+			let player = Player(name: playerName, deck: deck)
 			players.append(player)
 		}
 	}

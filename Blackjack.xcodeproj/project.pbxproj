@@ -33,6 +33,12 @@
 		519957C72742766A001DD993 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957C62742766A001DD993 /* ResultView.swift */; };
 		519957C927427673001DD993 /* StubResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957C827427673001DD993 /* StubResultView.swift */; };
 		519957CA27427CB8001DD993 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957C62742766A001DD993 /* ResultView.swift */; };
+		51C0FEAA274A0E0E00205921 /* CardScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C0FEA9274A0E0E00205921 /* CardScoreCalculator.swift */; };
+		51C0FEAC274A105000205921 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C0FEAB274A105000205921 /* Deck.swift */; };
+		51C0FEAD274A10F700205921 /* CardScoreCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C0FEA9274A0E0E00205921 /* CardScoreCalculator.swift */; };
+		51C0FEAE274A181A00205921 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C0FEAB274A105000205921 /* Deck.swift */; };
+		51C0FEB0274A19E900205921 /* CardPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C0FEAF274A19E900205921 /* CardPack.swift */; };
+		51C0FEB1274A1A0500205921 /* CardPack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C0FEAF274A19E900205921 /* CardPack.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +70,9 @@
 		519957C027415CFF001DD993 /* InputName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputName.swift; sourceTree = "<group>"; };
 		519957C62742766A001DD993 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		519957C827427673001DD993 /* StubResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubResultView.swift; sourceTree = "<group>"; };
+		51C0FEA9274A0E0E00205921 /* CardScoreCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScoreCalculator.swift; sourceTree = "<group>"; };
+		51C0FEAB274A105000205921 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		51C0FEAF274A19E900205921 /* CardPack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPack.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +118,8 @@
 				519957A4274002ED001DD993 /* BlackjackCard.swift */,
 				519957B2274134A0001DD993 /* GameResult.swift */,
 				519957C027415CFF001DD993 /* InputName.swift */,
+				51C0FEAB274A105000205921 /* Deck.swift */,
+				51C0FEAF274A19E900205921 /* CardPack.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -177,6 +188,7 @@
 				519957A72740F4AF001DD993 /* Player.swift */,
 				519957B52741420D001DD993 /* BlackjackGame.swift */,
 				C7F86E19273AAF7900FAA669 /* main.swift */,
+				51C0FEA9274A0E0E00205921 /* CardScoreCalculator.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -274,6 +286,7 @@
 				519957B72741425B001DD993 /* BlackjackGame.swift in Sources */,
 				519957CA27427CB8001DD993 /* ResultView.swift in Sources */,
 				5199579B273FF5E4001DD993 /* BlackjackTest.swift in Sources */,
+				51C0FEAD274A10F700205921 /* CardScoreCalculator.swift in Sources */,
 				519957C927427673001DD993 /* StubResultView.swift in Sources */,
 				519957A6274002F5001DD993 /* BlackjackCard.swift in Sources */,
 				519957A92740F4C4001DD993 /* Player.swift in Sources */,
@@ -281,8 +294,10 @@
 				519957BA27415A0C001DD993 /* StubInputView.swift in Sources */,
 				519957B427413652001DD993 /* GameResult.swift in Sources */,
 				519957A2273FFA9F001DD993 /* Dealer.swift in Sources */,
+				51C0FEB1274A1A0500205921 /* CardPack.swift in Sources */,
 				519957BE27415A25001DD993 /* InputView.swift in Sources */,
 				519957B127410287001DD993 /* BlackjackOption.swift in Sources */,
+				51C0FEAE274A181A00205921 /* Deck.swift in Sources */,
 				519957B027410243001DD993 /* BlackjackError.swift in Sources */,
 				519957C427415DE9001DD993 /* InputName.swift in Sources */,
 			);
@@ -292,10 +307,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51C0FEB0274A19E900205921 /* CardPack.swift in Sources */,
+				51C0FEAC274A105000205921 /* Deck.swift in Sources */,
 				519957A82740F4B0001DD993 /* Player.swift in Sources */,
 				519957B3274134A0001DD993 /* GameResult.swift in Sources */,
 				519957A1273FFA9C001DD993 /* Dealer.swift in Sources */,
 				519957AC27410194001DD993 /* BlackjackError.swift in Sources */,
+				51C0FEAA274A0E0E00205921 /* CardScoreCalculator.swift in Sources */,
 				519957AF274101C6001DD993 /* BlackjackOption.swift in Sources */,
 				519957C72742766A001DD993 /* ResultView.swift in Sources */,
 				519957A5274002ED001DD993 /* BlackjackCard.swift in Sources */,

@@ -23,15 +23,15 @@ class BlackjackTest: XCTestCase {
 	
 	func test_shouldRemoveTheDrawnCardsWhenTheDealerDeals() throws {
 		let dealer = Dealer()
-		let initialDeckCount = dealer.deck.count
+		let initialDeckCount = dealer.cardPack.cards.count
 		
 		let blackjackCards = [try dealer.deal(), try dealer.deal()]
-		let result = Set(dealer.deck + blackjackCards).count
+		let result = Set(dealer.cardPack.cards + blackjackCards).count
 		XCTAssertEqual(result, initialDeckCount)
 	}
 	
 	func test_shouldOwnNameAnd2CardsWhenTheBlackjackGameStarts() {
-		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]
+		let blackjackCards = Deck(cards: [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)])
 		let name = "ABC"
 		let player = Player(name: name, deck: blackjackCards)
 		
@@ -40,17 +40,17 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldGetOneCardWhenAPlayerHits() throws {
-		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)]
+		let blackjackCards = Deck(cards: [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .spades, rank: .eight)])
 		let player = Player(name: "ABC", deck: blackjackCards)
 		let drawnCard = BlackjackCard(suit: .spades, rank: .two)
 		
 		try player.hit(drawnCard: drawnCard)
-		let sumOfCardNumbers = player.deck.count
+		let sumOfCardNumbers = player.deck.cards.count
 		XCTAssertEqual(3, sumOfCardNumbers)
 	}
 	
 	func test_shouldThrowBustErrorWhenSumOfCardnumbersIsEqualToOrGreaterThanTheBlackjackNumber() throws {
-		let blackjackCards = [BlackjackCard(suit: .spades, rank: .king), BlackjackCard(suit: .spades, rank: .eight)]
+		let blackjackCards = Deck(cards: [BlackjackCard(suit: .spades, rank: .king), BlackjackCard(suit: .spades, rank: .eight)])
 		let player = Player(name: "ABC", deck: blackjackCards)
 		
 		let firstDrawnCard = BlackjackCard(suit: .spades, rank: .three)
@@ -65,7 +65,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldGetTheSumOfCardNumbersWhenTheGameIsOver() throws {
-		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .clubs, rank: .ace)]
+		let blackjackCards = Deck(cards: [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .clubs, rank: .ace)])
 		let player = Player(name: "ABC", deck: blackjackCards)
 		
 		let firstDrawnCard = BlackjackCard(suit: .diamonds, rank: .ace)
@@ -82,7 +82,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldGetGameResultWhenTheGameIsOver() {
-		let blackjackCards = [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .clubs, rank: .ace)]
+		let blackjackCards = Deck(cards: [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .clubs, rank: .ace)])
 		let player = Player(name: "ABC", deck: blackjackCards)
 		let gameResult = player.gameResult
 		let expect = GameResult(name: "ABC", deck: blackjackCards, sumOfCardNumbers: 12)
@@ -97,7 +97,7 @@ class BlackjackTest: XCTestCase {
 		blackjackGame.start()
 		
 		blackjackGame.players.forEach { player in
-			XCTAssertEqual(player.deck.count, 2)
+			XCTAssertEqual(player.deck.cards.count, 2)
 		}
 	}
 	
@@ -108,7 +108,7 @@ class BlackjackTest: XCTestCase {
 		blackjackGame.start()
 		
 		blackjackGame.players.forEach { player in
-			XCTAssertEqual(player.deck.count, 3)
+			XCTAssertEqual(player.deck.cards.count, 3)
 		}
 	}
 	
@@ -228,7 +228,7 @@ class BlackjackTest: XCTestCase {
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		
 		blackjackGame.start()
-		XCTAssertFalse(dealer.deck.isEmpty)
+		XCTAssertFalse(dealer.cardPack.cards.isEmpty)
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {

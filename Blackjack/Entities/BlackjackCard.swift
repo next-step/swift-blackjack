@@ -62,10 +62,11 @@ struct BlackjackCard: Hashable {
 		rank.description + suit.description
 	}
 	
-	static func arrangeCards() -> [BlackjackCard] {
-		Suit.allCases.flatMap { suit in
+	static func arrangeCards() -> CardPack {
+		let cards = Suit.allCases.flatMap { suit in
 			makeBlackjackCard(by: suit)
 		}
+		return CardPack(cards: cards)
 	}
 	
 	private static func makeBlackjackCard(by suit: Suit) -> [BlackjackCard] {

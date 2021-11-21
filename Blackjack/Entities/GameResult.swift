@@ -9,6 +9,6 @@ import Foundation
 
 struct GameResult: Equatable {
 	let name: String
-	let deck: [BlackjackCard]
+	let deck: Deck
 	let sumOfCardNumbers: Int
 }

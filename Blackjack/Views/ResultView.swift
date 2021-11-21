@@ -21,7 +21,7 @@ struct ResultView: Presentable {
 	}
 	
 	func printOutDeck(of player: Player) {
-		print("\(player.name)카드: \(player.deck.map { $0.description() })")
+		print("\(player.name)카드: \(player.deck.cards.map { $0.description() })")
 	}
 	
 	func printOutGameResult(by playerGameResults: [GameResult]) {
@@ -36,7 +36,7 @@ struct ResultView: Presentable {
 	}
 	
 	private func convertToLinkedStringByComma(from gameResult: GameResult) -> String {
-		gameResult.deck.map { $0.description() }.joined(separator: ",")
+		gameResult.deck.cards.map { $0.description() }.joined(separator: ",")
 	}
 	
 	private func printOutPlayerNames(players: [Player]) {
