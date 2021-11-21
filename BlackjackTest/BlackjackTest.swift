@@ -257,6 +257,17 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(dealer.deck.cards.count, 2)
 	}
 	
+	func test_shouldOutputTheDealerHitWhenTheScoreOfDealerIs16OrLess() {
+		let blackjackCards = (2...9).map { BlackjackCard(suit: .clubs, rank: BlackjackCard.Rank(rawValue: $0)!) }
+		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
+		let dealer = Dealer(cardPack: cardPack)
+		let inputView = StubInputView(playerNames: "ab, bc", answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		
+		blackjackGame.start()
+		XCTAssertEqual(StubResultView.Verify.printOutTheDealrHit, true)
+	}
+	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {
 		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
