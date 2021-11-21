@@ -8,20 +8,20 @@
 import Foundation
 
 protocol Inputable {
-	func askPlayerNames(completion: (InputName) -> Void) throws
-	func askThePlayerWhetherToHit(name: String, completion: (Bool) throws -> Void) throws
+	func askPlayerNames() throws -> InputName
+	func askThePlayerWhetherToHit(name: String) throws -> Bool
 	func makePlayerName() throws -> InputName
 	func makeYesOrNo(name: String) throws -> Bool
 }
 
 extension Inputable {
-	func askPlayerNames(completion: (InputName) -> Void) throws {
+	func askPlayerNames() throws -> InputName {
 		let name = try makePlayerName()
-		completion(name)
+		return name
 	}
-	func askThePlayerWhetherToHit(name: String, completion: (Bool) throws -> Void) throws {
+	func askThePlayerWhetherToHit(name: String) throws -> Bool {
 		let isWhetherToHit = try makeYesOrNo(name: name)
-		try completion(isWhetherToHit)
+		return isWhetherToHit
 	}
 }
 

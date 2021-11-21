@@ -45,9 +45,8 @@ class BlackjackGame {
 	}
 	
 	private func dealTheCards() throws {
-		try inputView.askPlayerNames { player in
-			startGame(by: player.names)
-		}
+		let player = try inputView.askPlayerNames()
+		startGame(by: player.names)
 		resultView.printOutGameStatusBeforePlay(by: self.players)
 	}
 	
@@ -66,13 +65,11 @@ class BlackjackGame {
 	}
 	
 	private func askThePlayerWhetherToHit(player: inout Player) throws {
-		try inputView.askThePlayerWhetherToHit(name: player.name) { isYes in
-			guard isYes else { return }
-			
-			try player.hit(drawnCard: dealer.deal())
-			resultView.printOutDeck(of: player)
-			try askThePlayerWhetherToHit(player: &player)
-		}
+		guard try inputView.askThePlayerWhetherToHit(name: player.name) else { return }
+		
+		try player.hit(drawnCard: dealer.deal())
+		resultView.printOutDeck(of: player)
+		try askThePlayerWhetherToHit(player: &player)
 	}
 	
 	private func printOutErrorOnResultView(error: Error) {
