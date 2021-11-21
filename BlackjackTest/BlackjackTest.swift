@@ -44,7 +44,7 @@ class BlackjackTest: XCTestCase {
 		let player = Player(name: "ABC", deck: blackjackCards)
 		let drawnCard = BlackjackCard(suit: .spades, rank: .two)
 		
-		layer.hit(drawnCard: drawnCard)
+		player.hit(drawnCard: drawnCard)
 		let sumOfCardNumbers = player.deck.cards.count
 		XCTAssertEqual(3, sumOfCardNumbers)
 	}
@@ -237,6 +237,24 @@ class BlackjackTest: XCTestCase {
 		
 		blackjackGame.start()
 		XCTAssertTrue(dealer.deck.cards.count == 3)
+	}
+	
+	func test_shouldNotHitsWhenTheScoreOfDealerIs17OrMore() {
+		let blackjackCards = BlackjackCard.Suit.allCases
+			.flatMap { suit in
+				(8...9).map { rank in
+					(suit: suit, rank: rank)
+				}
+			}.map {
+				BlackjackCard(suit: $0.suit, rank: BlackjackCard.Rank(rawValue: $0.rank)!)
+			}
+		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
+		let dealer = Dealer(cardPack: cardPack)
+		let inputView = StubInputView(playerNames: "ab, bc", answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		
+		blackjackGame.start()
+		XCTAssertEqual(dealer.deck.cards.count, 2)
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {
