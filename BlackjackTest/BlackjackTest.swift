@@ -231,6 +231,17 @@ class BlackjackTest: XCTestCase {
 		XCTAssertFalse(dealer.cardPack.cards.isEmpty)
 	}
 	
+	func test_shouldTakeOneMoreCardWhenTheScoreOfDealerIs16OrLess() {
+		let blackjackCards = (1...9).map { BlackjackCard(suit: .clubs, rank: BlackjackCard.Rank(rawValue: $0)!) }
+		let cardPack: CardDrawable = StubCardPack(cards: blackjackCards)
+		let dealer = Dealer(cardPack: cardPack)
+		let inputView = StubInputView(playerNames: "ab, bc", answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		
+		blackjackGame.start()
+		XCTAssertTrue(dealer.cardPack.cards.count == 3)
+	}
+	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {
 		let dealer = Dealer()
 		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
