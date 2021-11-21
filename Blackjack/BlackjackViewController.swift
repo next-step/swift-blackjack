@@ -74,6 +74,14 @@ class BlackjackViewController {
         let namesString = inputView.inputGammerName()
         let gammers = factoryGammers(namesString: namesString, separator: ",")
         
+        prepareMeterials(gammers: gammers)
+        progressCardGame(gammers: gammers)
+    }
+}
+
+
+private extension BlackjackViewController {
+    func prepareMeterials(gammers: [CardGammer]) {
         gammers.forEach { gammer in
             distributeCard(gammer: gammer, count: 2)
         }
@@ -82,7 +90,9 @@ class BlackjackViewController {
         gammers.forEach { gammer in
             outputView.printCards(in: gammer)
         }
-        
+    }
+    
+    func progressCardGame(gammers: [CardGammer]) {
         gammers.forEach { gammer in
             do {
                 while try inputView.inputIsPick(name: gammer.name) {
