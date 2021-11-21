@@ -222,6 +222,15 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(resultView.error, .input(.empty))
 	}
 	
+	func test_shouldTheDealerTakeCardsWhenGameStart() {
+		let dealer = Dealer()
+		let inputView = StubInputView(playerNames: "ab, bc", answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		
+		blackjackGame.start()
+		XCTAssertFalse(dealer.deck.isEmpty)
+	}
+	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {
 		let dealer = Dealer()
 		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
