@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C130ABD3274923690065855F /* BlackjackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C130ABD2274923690065855F /* BlackjackViewController.swift */; };
 		C130ABD4274923710065855F /* BlackjackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C130ABD2274923690065855F /* BlackjackViewController.swift */; };
+		C130ABD62749ECE10065855F /* CardGammer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C130ABD52749ECE10065855F /* CardGammer.swift */; };
+		C130ABD72749ECE10065855F /* CardGammer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C130ABD52749ECE10065855F /* CardGammer.swift */; };
 		C183978127428C9400C8EA90 /* BlackjackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C183978027428C9400C8EA90 /* BlackjackTest.swift */; };
 		C183978627428CBA00C8EA90 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
@@ -28,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		C130ABD2274923690065855F /* BlackjackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackViewController.swift; sourceTree = "<group>"; };
+		C130ABD52749ECE10065855F /* CardGammer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGammer.swift; sourceTree = "<group>"; };
 		C183977E27428C9400C8EA90 /* BlackjackTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C183978027428C9400C8EA90 /* BlackjackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTest.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F86E19273AAF7900FAA669 /* main.swift */,
+				C130ABD52749ECE10065855F /* CardGammer.swift */,
 				C130ABD2274923690065855F /* BlackjackViewController.swift */,
 			);
 			path = Blackjack;
@@ -178,6 +182,7 @@
 			files = (
 				C183978627428CBA00C8EA90 /* main.swift in Sources */,
 				C183978127428C9400C8EA90 /* BlackjackTest.swift in Sources */,
+				C130ABD72749ECE10065855F /* CardGammer.swift in Sources */,
 				C130ABD4274923710065855F /* BlackjackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -187,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				C130ABD62749ECE10065855F /* CardGammer.swift in Sources */,
 				C130ABD3274923690065855F /* BlackjackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
