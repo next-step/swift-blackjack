@@ -30,6 +30,11 @@ final class BlackjackGame {
 	}
 	
 	private func playGame() throws {
+		try playPlayers()
+		try playDealer()
+	}
+	
+	private func playPlayers() throws {
 		for var player in players {
 			do {
 				try askThePlayerWhetherToHit(player: &player)
@@ -39,7 +44,12 @@ final class BlackjackGame {
 		}
 	}
 	
-	func gameIsOver() {
+	private func playDealer() throws {
+		if dealer.canHit() == false { return }
+		dealer.hit(drawnCard: try dealer.deal())
+	}
+	
+	private func gameIsOver() {
 		let gameResults = players.map { $0.gameResult }
 		resultView.printOutGameResult(by: gameResults)
 	}
@@ -67,8 +77,9 @@ final class BlackjackGame {
 	
 	private func askThePlayerWhetherToHit(player: inout Player) throws {
 		guard try inputView.askThePlayerWhetherToHit(name: player.name) else { return }
+		if player.canHit() == false { throw BlackjackError.bust }
 		
-		try player.hit(drawnCard: dealer.deal())
+		player.hit(drawnCard: try dealer.deal())
 		resultView.printOutDeck(of: player)
 		try askThePlayerWhetherToHit(player: &player)
 	}

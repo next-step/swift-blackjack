@@ -7,7 +7,12 @@
 
 import Foundation
 
-struct CardPack {
+protocol CardDrawable {
+	var cards: [BlackjackCard] { get set }
+	mutating func draw() throws -> BlackjackCard
+}
+
+struct CardPack: CardDrawable {
 	var cards: [BlackjackCard]
 	
 	mutating func draw() throws -> BlackjackCard {

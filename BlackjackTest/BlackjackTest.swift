@@ -16,13 +16,13 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldGet2CardsWhenTheDealerDealsCards() throws {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let blackjackCards = [try dealer.deal(), try dealer.deal()]
 		XCTAssertEqual(blackjackCards.count, 2)
 	}
 	
 	func test_shouldRemoveTheDrawnCardsWhenTheDealerDeals() throws {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let initialDeckCount = dealer.cardPack.cards.count
 		
 		let blackjackCards = [try dealer.deal(), try dealer.deal()]
@@ -44,24 +44,21 @@ class BlackjackTest: XCTestCase {
 		let player = Player(name: "ABC", deck: blackjackCards)
 		let drawnCard = BlackjackCard(suit: .spades, rank: .two)
 		
-		try player.hit(drawnCard: drawnCard)
+		layer.hit(drawnCard: drawnCard)
 		let sumOfCardNumbers = player.deck.cards.count
 		XCTAssertEqual(3, sumOfCardNumbers)
 	}
 	
-	func test_shouldThrowBustErrorWhenSumOfCardnumbersIsEqualToOrGreaterThanTheBlackjackNumber() throws {
+	func test_shouldNotHitWhenSumOfCardnumbersIsEqualToOrGreaterThanTheBlackjackNumber() throws {
 		let blackjackCards = Deck(cards: [BlackjackCard(suit: .spades, rank: .king), BlackjackCard(suit: .spades, rank: .eight)])
 		let player = Player(name: "ABC", deck: blackjackCards)
 		
 		let firstDrawnCard = BlackjackCard(suit: .spades, rank: .three)
-		try player.hit(drawnCard: firstDrawnCard)
+		player.hit(drawnCard: firstDrawnCard)
 		
 		let secondDrawnCard = BlackjackCard(suit: .spades, rank: .two)
 		
-		XCTAssertThrowsError(try player.hit(drawnCard: secondDrawnCard)) { error in
-			XCTAssertEqual(error as! BlackjackError, .bust)
-		}
-
+		XCTAssertFalse(player.canHit())
 	}
 	
 	func test_shouldGetTheSumOfCardNumbersWhenTheGameIsOver() throws {
@@ -69,13 +66,13 @@ class BlackjackTest: XCTestCase {
 		let player = Player(name: "ABC", deck: blackjackCards)
 		
 		let firstDrawnCard = BlackjackCard(suit: .diamonds, rank: .ace)
-		try player.hit(drawnCard: firstDrawnCard)
+		player.hit(drawnCard: firstDrawnCard)
 		
 		let secondDrawnCard = BlackjackCard(suit: .diamonds, rank: .ace)
-		try player.hit(drawnCard: secondDrawnCard)
+		player.hit(drawnCard: secondDrawnCard)
 		
 		let thirdDrawnCard = BlackjackCard(suit: .diamonds, rank: .seven)
-		try player.hit(drawnCard: thirdDrawnCard)
+		player.hit(drawnCard: thirdDrawnCard)
 		
 		let gameResult = player.gameResult
 		XCTAssertEqual(21, gameResult.sumOfCardNumbers)
@@ -91,7 +88,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldHaveEachPlayers2CardsWhenGameStart() {
-		let dealear = Dealer()
+		let dealear = makeDealer()
 		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealear, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -102,7 +99,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldGet1CardWhenPlayerAcceptsThe1Hit() {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "y")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -113,7 +110,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldThrowABustErrorWhenPlayerAcceptsThe7Hit() {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "y","y","y","y","y","y","y")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -123,7 +120,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldGetGameResultsWhenGameIsOver() {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: "abc,def,ghi", answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -135,7 +132,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldTheDealWithANextPlayerWhenAPlayerDoNotHit() {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -148,7 +145,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldHitAgainWhenAPlayerHit() {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: "abc,def", answerTheHit: "y","n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -188,7 +185,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldOutputGameStatusBeforePlayWhenAfterTheDeals() {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: "ab,cd,ef", answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -196,7 +193,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldOutputAllCardsWhenPlayerHits() {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: "ab,cd,ef", answerTheHit: "y", "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -205,7 +202,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldOutputGameResultWhenGameIsOver() {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: "ab,cd,ef", answerTheHit: "y", "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -213,7 +210,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldOutputEmptyErrorMessageWhenThrowsEmptyError() {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: nil, answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		
@@ -223,7 +220,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldTheDealerTakeCardsWhenGameStart() {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: "ab, bc", answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		
@@ -232,18 +229,18 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldTakeOneMoreCardWhenTheScoreOfDealerIs16OrLess() {
-		let blackjackCards = (1...9).map { BlackjackCard(suit: .clubs, rank: BlackjackCard.Rank(rawValue: $0)!) }
-		let cardPack: CardDrawable = StubCardPack(cards: blackjackCards)
+		let blackjackCards = (2...9).map { BlackjackCard(suit: .clubs, rank: BlackjackCard.Rank(rawValue: $0)!) }
+		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
 		let dealer = Dealer(cardPack: cardPack)
 		let inputView = StubInputView(playerNames: "ab, bc", answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		
 		blackjackGame.start()
-		XCTAssertTrue(dealer.cardPack.cards.count == 3)
+		XCTAssertTrue(dealer.deck.cards.count == 3)
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {
-		let dealer = Dealer()
+		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -252,5 +249,9 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(resultView.error, expectedError)
 		
 		resultView.clear()
+	}
+	
+	private func makeDealer(by cardPack: CardPack = BlackjackCard.arrangeCards()) -> Dealer{
+		Dealer(cardPack: cardPack)
 	}
 }

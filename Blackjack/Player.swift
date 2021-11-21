@@ -9,7 +9,7 @@ import Foundation
 
 class Player {
 	let name: String
-	private(set) var deck: Deck
+	var deck: Deck
 	var gameResult: GameResult {
 		GameResult(name: name, deck: deck, sumOfCardNumbers: CardScoreCalculator.calculateTheSumOfCardNumbers(in: deck))
 	}
@@ -19,12 +19,13 @@ class Player {
 		self.deck = deck
 	}
 	
-	func hit(drawnCard: BlackjackCard) throws {
-		guard isAvailableHit() else { throw BlackjackError.bust }
-		deck.draw(of: drawnCard)
+	func hit(drawnCard: BlackjackCard) {
+		if canHit() {
+			deck.draw(of: drawnCard)
+		}
 	}
 	
-	private func isAvailableHit() -> Bool {
+	func canHit() -> Bool {
 		let sumOfCardNumbers = CardScoreCalculator.calculateWithFirstValue(in: deck)
 		return sumOfCardNumbers < BlackjackOption.blackjackNumber
 	}
