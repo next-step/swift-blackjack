@@ -283,6 +283,7 @@ class BlackjackTest: XCTestCase {
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		
 		blackjackGame.start()
+		blackjackGame.winningResult.first { $0.name == "딜러" }.loseCount == 2
 		XCTAssertEqual(dealer.cardPack.cards.count, 2)
 	}
 	
