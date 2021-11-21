@@ -12,7 +12,7 @@ class BlackjackTest: XCTestCase {
     var gammer: CardGammer!
 
     override func setUpWithError() throws {
-        gammer = CardGammer()
+        gammer = CardGammer(name: "짝귀")
     }
 
     override func tearDownWithError() throws {
