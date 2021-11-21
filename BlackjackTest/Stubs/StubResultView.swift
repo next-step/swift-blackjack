@@ -18,6 +18,7 @@ final class StubResultView: Presentable {
 		static var printOutGameStatusBeforePlay = false
 		static var printOutDeckOfPlayer = false
 		static var printOutGameResult = false
+		static var printOutTheDealrHit = false
 		static var printOutError = false
 	}
 
@@ -33,6 +34,10 @@ final class StubResultView: Presentable {
 		}
 		hitCount[playerIndex] += 1
 		Verify.printOutDeckOfPlayer = true
+	}
+	
+	func printOutTheDealrHit() {
+		Verify.printOutTheDealrHit = true
 	}
 	
 	func printOut(error: BlackjackError) {
@@ -54,6 +59,7 @@ final class StubResultView: Presentable {
 		Verify.printOutGameStatusBeforePlay = false
 		Verify.printOutDeckOfPlayer = false
 		Verify.printOutGameResult = false
+		Verify.printOutTheDealrHit = false
 		Verify.printOutError = false
 	}
 	

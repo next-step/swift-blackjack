@@ -11,6 +11,7 @@ protocol Presentable {
 	func printOutGameStatusBeforePlay(by players: [Player])
 	func printOutDeck(of player: Player)
 	func printOutGameResult(by playerGameResults: [GameResult])
+	func printOutTheDealrHit()
 	func printOut(error: BlackjackError)
 }
 
@@ -28,6 +29,10 @@ struct ResultView: Presentable {
 		playerGameResults.forEach { gameResult in
 			print("\(gameResult.name)카드: \(convertToLinkedStringByComma(from: gameResult)) - 결과: \(gameResult.sumOfCardNumbers)")
 		}
+	}
+	
+	func printOutTheDealrHit() {
+		print("딜러는 16이하라 한장의 카드를 더 받았습니다.")
 	}
 	
 	func printOut(error: BlackjackError) {
