@@ -28,11 +28,12 @@ struct ResultView: Presentable {
 	
 	func printOutGameResult(by playerGameResults: [GameResult]) {
 		playerGameResults.forEach { gameResult in
-			print("\(gameResult.name)카드: \(convertToLinkedStringByComma(from: gameResult)) - 결과: \(gameResult.sumOfCardNumbers)")
+			print("\n\(gameResult.name)카드: \(convertToLinkedStringByComma(from: gameResult)) - 결과: \(gameResult.sumOfCardNumbers)")
 		}
 	}
 	
 	func printOutWinningResult(by winning: Winning) {
+		print("\n## 최종 승패")
 		print("\(winning.dealerResult.description)")
 		winning.playerResults.forEach { winningResult in
 			print("\(winningResult.description)")
@@ -40,7 +41,7 @@ struct ResultView: Presentable {
 	}
 	
 	func printOutTheDealrHit() {
-		print("딜러는 16이하라 한장의 카드를 더 받았습니다.")
+		print("\n딜러는 16이하라 한장의 카드를 더 받았습니다.")
 	}
 	
 	func printOut(error: BlackjackError) {
@@ -53,8 +54,8 @@ struct ResultView: Presentable {
 	}
 	
 	private func printOutPlayerNames(players: [Player]) {
-		let playerNames = players.map{ $0.name }.joined(separator: ",")
-		print("\(playerNames)에게 2장씩 나누었습니다.")
+		let playerNames = players.map{ $0.name }.joined(separator: " ,")
+		print("\n\(playerNames)에게 2장씩 나누었습니다.")
 	}
 	
 	private func printOutEachPlayersOwnCard(players: [Player]) {

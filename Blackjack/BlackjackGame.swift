@@ -104,7 +104,7 @@ final class BlackjackGame {
 	}
 	
 	private func printOutGameResult() {
-		let gameResults = players.map { $0.gameResult }
+		let gameResults = players.map { $0.gameResult } + [dealer.gameResult]
 		resultView.printOutGameResult(by: gameResults)
 	}
 	
