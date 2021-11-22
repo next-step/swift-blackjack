@@ -289,6 +289,25 @@ class BlackjackTest: XCTestCase {
 		}
 	}
 	
+	func test_shouldOutputWinningResultWhenTheGameIsOver() {
+		let blackjackCards = BlackjackCard.Suit.allCases
+			.flatMap { suit in
+				(2...9).map { rank in
+					(suit: suit, rank: rank)
+				}
+			}.map {
+				BlackjackCard(suit: $0.suit, rank: BlackjackCard.Rank(rawValue: $0.rank)!)
+			}
+		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
+		let dealer = Dealer(cardPack: cardPack)
+		let inputView = StubInputView(playerNames: "ab, bc", answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		
+		blackjackGame.start()
+		
+		XCTAssertTrue(StubResultView.Verify.printOutWinningResult, true)
+	}
+	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {
 		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
