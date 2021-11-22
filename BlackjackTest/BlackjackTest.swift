@@ -242,11 +242,11 @@ class BlackjackTest: XCTestCase {
 	func test_shouldNotHitsWhenTheScoreOfDealerIs17OrMore() {
 		let blackjackCards = BlackjackCard.Suit.allCases
 			.flatMap { suit in
-				(8...9).map { rank in
+				[BlackjackCard.Rank.king, BlackjackCard.Rank.queen, BlackjackCard.Rank.jack].map { rank in
 					(suit: suit, rank: rank)
 				}
 			}.map {
-				BlackjackCard(suit: $0.suit, rank: BlackjackCard.Rank(rawValue: $0.rank)!)
+				BlackjackCard(suit: $0.suit, rank: $0.rank)
 			}
 		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
 		let dealer = Dealer(cardPack: cardPack)
@@ -271,7 +271,7 @@ class BlackjackTest: XCTestCase {
 	func test_shouldLoseWhenTheDealerIsBust() {
 		let blackjackCards = BlackjackCard.Suit.allCases
 			.flatMap { suit in
-				(8...9).map { rank in
+				(7...8).map { rank in
 					(suit: suit, rank: rank)
 				}
 			}.map {
@@ -283,8 +283,10 @@ class BlackjackTest: XCTestCase {
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		
 		blackjackGame.start()
-		blackjackGame.winningResult.first { $0.name == "딜러" }.loseCount == 2
-		XCTAssertEqual(dealer.cardPack.cards.count, 2)
+		XCTAssertEqual(resultView.winning!.dealerResult.losingCount, 2)
+		resultView.winning!.playerResults.forEach { playerResults in
+			XCTAssertEqual(playerResults.winning, .win)
+		}
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {

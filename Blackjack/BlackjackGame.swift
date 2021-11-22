@@ -51,8 +51,8 @@ final class BlackjackGame {
 	}
 	
 	private func gameIsOver() {
-		let gameResults = players.map { $0.gameResult }
-		resultView.printOutGameResult(by: gameResults)
+		self.printOutGameResult()
+		self.printOutWinningResult()
 	}
 	
 	private func dealTheCards() throws {
@@ -101,5 +101,15 @@ final class BlackjackGame {
 			return true
 		}
 		return false
+	}
+	
+	private func printOutGameResult() {
+		let gameResults = players.map { $0.gameResult }
+		resultView.printOutGameResult(by: gameResults)
+	}
+	
+	private func printOutWinningResult() {
+		let winningResult = WinningCalculator.calculateWinning(dealer: dealer, players: players)
+		resultView.printOutWinningResult(by: winningResult)
 	}
 }
