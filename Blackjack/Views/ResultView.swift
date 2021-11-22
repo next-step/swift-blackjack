@@ -50,11 +50,11 @@ struct ResultView: Presentable {
 	}
 	
 	private func convertToLinkedStringByComma(from gameResult: GameResult) -> String {
-		gameResult.deck.cards.map { $0.description() }.joined(separator: ",")
+		gameResult.deck.cards.map { $0.description() }.joined(separator: ", ")
 	}
 	
 	private func printOutPlayerNames(players: [Player]) {
-		let playerNames = players.map{ $0.name }.joined(separator: " ,")
+		let playerNames = players.map{ $0.name }.joined(separator: ", ")
 		print("\n\(playerNames)에게 2장씩 나누었습니다.")
 	}
 	
