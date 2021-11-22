@@ -308,6 +308,16 @@ class BlackjackTest: XCTestCase {
 		XCTAssertTrue(StubResultView.Verify.printOutWinningResult)
 	}
 	
+	func test_shouldOutputGameResultIncludeTheDealerWhenTheGameIsOver() {
+		let dealer = makeDealer()
+		let inputView = StubInputView(playerNames: "ab,cd,ef", answerTheHit: "y", "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		blackjackGame.start()
+		XCTAssertTrue(resultView.gameResults.first { $0.name == "딜러" } != nil)
+		XCTAssertEqual(resultView.gameResults.count, 4)
+	}
+	
+	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {
 		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
