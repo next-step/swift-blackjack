@@ -58,7 +58,7 @@ final class BlackjackGame {
 	private func dealTheCards() throws {
 		let player = try inputView.askPlayerNames()
 		startGame(by: player.names)
-		resultView.printOutGameStatusBeforePlay(by: self.players)
+		printOutGameStatusBeforePlay()
 	}
 	
 	private func startGame(by names: [String]) {
@@ -85,6 +85,11 @@ final class BlackjackGame {
 		try askThePlayerWhetherToHit(player: &player)
 	}
 	
+	private func printOutGameStatusBeforePlay() {
+		let outputPlayers: [Player] = [self.dealer] + self.players
+		resultView.printOutGameStatusBeforePlay(by: outputPlayers)
+	}
+	
 	private func printOutErrorOnResultView(error: Error) {
 		if let inputError = error as? BlackjackError.InputError {
 			resultView.printOut(error: .input(inputError))
@@ -104,7 +109,7 @@ final class BlackjackGame {
 	}
 	
 	private func printOutGameResult() {
-		let gameResults = players.map { $0.gameResult } + [dealer.gameResult]
+		let gameResults = [dealer.gameResult] + players.map { $0.gameResult }
 		resultView.printOutGameResult(by: gameResults)
 	}
 	

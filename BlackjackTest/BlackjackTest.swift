@@ -125,9 +125,9 @@ class BlackjackTest: XCTestCase {
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
 		
-		let expectNames = ["abc", "def", "ghi"]
+		let expectNames = ["딜러", "abc", "def", "ghi"]
 		
-		XCTAssertTrue(resultView.gameResults.count == 3)
+		XCTAssertTrue(resultView.gameResults.count == 4)
 		XCTAssertEqual(resultView.gameResults.map { $0.name }, expectNames)
 	}
 	
@@ -198,7 +198,7 @@ class BlackjackTest: XCTestCase {
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
 		XCTAssertEqual(StubResultView.Verify.printOutDeckOfPlayer, true)
-		XCTAssertEqual(resultView.hitCount, [1, 1, 1])
+		XCTAssertEqual(resultView.hitCount[1...3], [1, 1, 1])
 	}
 	
 	func test_shouldOutputGameResultWhenGameIsOver() {

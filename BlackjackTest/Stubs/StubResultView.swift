@@ -12,7 +12,7 @@ final class StubResultView: Presentable {
 	var gameResults = [GameResult]()
 	var error: BlackjackError? = nil
 	var winning: Winning? = nil
-	private var players: [Player] = [Player]()
+	var players: [Player] = [Player]()
 	private var playerIndex = 0
 	
 	enum Verify {
