@@ -28,5 +28,13 @@ struct DealerResult {
 	mutating func losing() {
 		losingCount += 1
 	}
+	
+	var description: String {
+		var description = ["\(name):"]
+		if winningCount > 0 { description.append("\(winningCount)승") }
+		if drawingCount > 0 { description.append("\(drawingCount)무") }
+		if losingCount > 0 { description.append("\(losingCount)패") }
+		return description.joined(separator: " ")
+	}
 }
 

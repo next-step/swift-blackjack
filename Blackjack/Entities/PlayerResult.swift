@@ -8,10 +8,16 @@
 import Foundation
 
 struct PlayerResult {
-	enum Winning {
-		case win, draw, lose
+	enum Winning: String {
+		case win = "승"
+		case draw = "무"
+		case lose = "패"
 	}
 	let name: String
 	let winning: Winning
+	
+	var description: String {
+		"\(name): \(winning.rawValue)"
+	}
 }
 

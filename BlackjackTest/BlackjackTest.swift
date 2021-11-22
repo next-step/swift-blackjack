@@ -305,7 +305,7 @@ class BlackjackTest: XCTestCase {
 		
 		blackjackGame.start()
 		
-		XCTAssertTrue(StubResultView.Verify.printOutWinningResult, true)
+		XCTAssertTrue(StubResultView.Verify.printOutWinningResult)
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {

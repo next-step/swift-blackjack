@@ -33,9 +33,9 @@ struct ResultView: Presentable {
 	}
 	
 	func printOutWinningResult(by winning: Winning) {
-		print("\(winning.dealerResult.name): ")
+		print("\(winning.dealerResult.description)")
 		winning.playerResults.forEach { winningResult in
-			print("\(winningResult.name): ")
+			print("\(winningResult.description)")
 		}
 	}
 	
