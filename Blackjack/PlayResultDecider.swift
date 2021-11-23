@@ -7,36 +7,36 @@
 
 import Foundation
 
-enum WinningCalculator {
-	static func calculateWinning(dealer: Dealer, players: [Player]) -> Winning {
-		dealer.isBust ? winOfPlayer(by: dealer, players: players) : winOrLose(of: players, by: dealer)
+enum PlayResultDecider {
+	static func decideWinning(of dealer: Dealer, players: [Player]) -> PlayResult {
+		dealer.isBust ? winOfPlayer(by: dealer, players: players) : compete(with: players, and: dealer)
 	}
 	
-	private static func winOfPlayer(by bustedDealer: Dealer, players: [Player]) -> Winning {
+	private static func winOfPlayer(by bustedDealer: Dealer, players: [Player]) -> PlayResult {
 		var dealerResult = DealerResult(name: bustedDealer.name)
 		let playerResults = players.map { player in
 			winOrLose(of: player, dealerResult: &dealerResult)
 		}
-		return Winning(dealerResult: dealerResult, playerResults: playerResults)
+		return PlayResult(dealerResult: dealerResult, playerResults: playerResults)
 	}
 	
 	private static func winOrLose(of player: Player, dealerResult: inout DealerResult) -> PlayerResult {
 		if player.isBust {
 			dealerResult.drawing()
-			return PlayerResult(name: player.name, winning: .draw)
+			return PlayerResult(name: player.name, winning: .push)
 		} else {
 			dealerResult.losing()
 			return PlayerResult(name: player.name, winning: .win)
 		}
 	}
 	
-	private static func winOrLose(of players: [Player], by dealer: Dealer) -> Winning {
+	private static func compete(with players: [Player], and dealer: Dealer) -> PlayResult {
 		var dealerResult = DealerResult(name: dealer.name)
 		let dealerScore = dealer.gameResult.sumOfCardNumbers
 		let playerResults = players.map { player -> PlayerResult in
 			winOrLose(of: player, dealerScore: dealerScore, dealerResult: &dealerResult)
 		}
-		return Winning(dealerResult: dealerResult, playerResults: playerResults)
+		return PlayResult(dealerResult: dealerResult, playerResults: playerResults)
 	}
 	
 	private static func winOrLose(of player: Player, dealerScore: Int, dealerResult: inout DealerResult) -> PlayerResult {
@@ -49,7 +49,7 @@ enum WinningCalculator {
 			return PlayerResult(name: player.name, winning: .win)
 		} else {
 			dealerResult.drawing()
-			return PlayerResult(name: player.name, winning: .draw)
+			return PlayerResult(name: player.name, winning: .push)
 		}
 	}
 }

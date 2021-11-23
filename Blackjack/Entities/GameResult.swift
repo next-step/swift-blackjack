@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct GameResult: Equatable {
 	let name: String
 	let deck: Deck

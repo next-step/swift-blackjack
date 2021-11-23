@@ -11,7 +11,7 @@ protocol Presentable {
 	func printOutGameStatusBeforePlay(by players: [Player])
 	func printOutDeck(of player: Player)
 	func printOutGameResult(by playerGameResults: [GameResult])
-	func printOutWinningResult(by winning: Winning)
+	func printOutWinningResult(by winning: PlayResult)
 	func printOutTheDealrHit()
 	func printOut(error: BlackjackError)
 }
@@ -32,7 +32,7 @@ struct ResultView: Presentable {
 		}
 	}
 	
-	func printOutWinningResult(by winning: Winning) {
+	func printOutWinningResult(by winning: PlayResult) {
 		print("\n## 최종 승패")
 		print("\(winning.dealerResult.description)")
 		winning.playerResults.forEach { winningResult in

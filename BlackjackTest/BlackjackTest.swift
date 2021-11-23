@@ -170,7 +170,7 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldThrowAnOutOfRangesForNumberOfParticipantsErrorWhenInputNameIsNotContainedInNumberOfParticipantsRange() throws {
-		try testExpectInputError(expect: .input(.outOfRangesForNumberOfParticipants), playerName: "abc", answerTheHit: "n")
+		try testExpectInputError(expect: .input(.outOfRangesForNumberOfParticipants), playerName: "abc,def,123,456,789,1011,1111", answerTheHit: "n")
 		try testExpectInputError(expect: .input(.outOfRangesForNumberOfParticipants), playerName: "abc,def,123,456,789,1011", answerTheHit: "n")
 	}
 	
@@ -283,8 +283,8 @@ class BlackjackTest: XCTestCase {
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		
 		blackjackGame.start()
-		XCTAssertEqual(resultView.winning!.dealerResult.losingCount, 2)
-		resultView.winning!.playerResults.forEach { playerResults in
+		XCTAssertEqual(resultView.playResult!.dealerResult.losingCount, 2)
+		resultView.playResult!.playerResults.forEach { playerResults in
 			XCTAssertEqual(playerResults.winning, .win)
 		}
 	}

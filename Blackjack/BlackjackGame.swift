@@ -29,32 +29,6 @@ final class BlackjackGame {
 		}
 	}
 	
-	private func playGame() throws {
-		try playPlayers()
-		try playDealer()
-	}
-	
-	private func playPlayers() throws {
-		for var player in players {
-			do {
-				try askThePlayerWhetherToHit(player: &player)
-			} catch (let error) {
-				if isBustError(on: error) == false { throw error }
-			}
-		}
-	}
-	
-	private func playDealer() throws {
-		if dealer.canHit() == false { return }
-		dealer.hit(drawnCard: try dealer.deal())
-		resultView.printOutTheDealrHit()
-	}
-	
-	private func gameIsOver() {
-		self.printOutGameResult()
-		self.printOutWinningResult()
-	}
-	
 	private func dealTheCards() throws {
 		let player = try inputView.askPlayerNames()
 		startGame(by: player.names)
@@ -76,6 +50,26 @@ final class BlackjackGame {
 		}
 	}
 	
+	private func printOutGameStatusBeforePlay() {
+		let outputPlayers: [Player] = [self.dealer] + self.players
+		resultView.printOutGameStatusBeforePlay(by: outputPlayers)
+	}
+	
+	private func playGame() throws {
+		try playPlayers()
+		try playDealer()
+	}
+	
+	private func playPlayers() throws {
+		for var player in players {
+			do {
+				try askThePlayerWhetherToHit(player: &player)
+			} catch (let error) {
+				if isBustError(on: error) == false { throw error }
+			}
+		}
+	}
+	
 	private func askThePlayerWhetherToHit(player: inout Player) throws {
 		guard try inputView.askThePlayerWhetherToHit(name: player.name) else { return }
 		if player.canHit() == false { throw BlackjackError.bust }
@@ -85,9 +79,12 @@ final class BlackjackGame {
 		try askThePlayerWhetherToHit(player: &player)
 	}
 	
-	private func printOutGameStatusBeforePlay() {
-		let outputPlayers: [Player] = [self.dealer] + self.players
-		resultView.printOutGameStatusBeforePlay(by: outputPlayers)
+	private func isBustError(on thrownError: Error) -> Bool {
+		if let error = thrownError as? BlackjackError, error == .bust {
+			printOutErrorOnResultView(error: error)
+			return true
+		}
+		return false
 	}
 	
 	private func printOutErrorOnResultView(error: Error) {
@@ -100,12 +97,15 @@ final class BlackjackGame {
 		}
 	}
 	
-	private func isBustError(on thrownError: Error) -> Bool {
-		if let error = thrownError as? BlackjackError, error == .bust {
-			printOutErrorOnResultView(error: error)
-			return true
-		}
-		return false
+	private func playDealer() throws {
+		if dealer.canHit() == false { return }
+		dealer.hit(drawnCard: try dealer.deal())
+		resultView.printOutTheDealrHit()
+	}
+	
+	private func gameIsOver() {
+		self.printOutGameResult()
+		self.printOutWinningResult()
 	}
 	
 	private func printOutGameResult() {
@@ -114,7 +114,7 @@ final class BlackjackGame {
 	}
 	
 	private func printOutWinningResult() {
-		let winningResult = WinningCalculator.calculateWinning(dealer: dealer, players: players)
+		let winningResult = PlayResultDecider.decideWinning(of: dealer, players: players)
 		resultView.printOutWinningResult(by: winningResult)
 	}
 }
