@@ -14,18 +14,18 @@ enum PlayResultDecider {
 	
 	private static func winOfPlayer(by bustedDealer: Dealer, players: [Player]) -> PlayResult {
 		var dealerResult = DealerResult(name: bustedDealer.name)
-		let playerResults = players.map { player in
-			winOrLose(of: player, dealerResult: &dealerResult)
+		let playerResults = players.map { player -> PlayerResult in
+			let playerResult = winOrLose(of: player, dealerResult: &dealerResult)
+			winOrLoseOfDealer(by: playerResult, dealerResult: &dealerResult)
+			return playerResult
 		}
 		return PlayResult(dealerResult: dealerResult, playerResults: playerResults)
 	}
 	
 	private static func winOrLose(of player: Player, dealerResult: inout DealerResult) -> PlayerResult {
 		if player.isBust {
-			dealerResult.drawing()
 			return PlayerResult(name: player.name, winning: .push)
 		} else {
-			dealerResult.losing()
 			return PlayerResult(name: player.name, winning: .win)
 		}
 	}
@@ -34,22 +34,29 @@ enum PlayResultDecider {
 		var dealerResult = DealerResult(name: dealer.name)
 		let dealerScore = dealer.gameResult.sumOfCardNumbers
 		let playerResults = players.map { player -> PlayerResult in
-			winOrLose(of: player, dealerScore: dealerScore, dealerResult: &dealerResult)
+			let playerResult = winOrLose(of: player, by: dealerScore, dealerResult: &dealerResult)
+			winOrLoseOfDealer(by: playerResult, dealerResult: &dealerResult)
+			return playerResult
 		}
 		return PlayResult(dealerResult: dealerResult, playerResults: playerResults)
 	}
 	
-	private static func winOrLose(of player: Player, dealerScore: Int, dealerResult: inout DealerResult) -> PlayerResult {
+	private static func winOrLose(of player: Player, by dealerScore: Int, dealerResult: inout DealerResult) -> PlayerResult {
 		let playerScore = player.gameResult.sumOfCardNumbers
 		if player.isBust || playerScore < dealerScore {
-			dealerResult.winning()
 			return PlayerResult(name: player.name, winning: .lose)
 		} else if playerScore > dealerScore {
-			dealerResult.losing()
 			return PlayerResult(name: player.name, winning: .win)
 		} else {
-			dealerResult.drawing()
 			return PlayerResult(name: player.name, winning: .push)
+		}
+	}
+	
+	private static func winOrLoseOfDealer(by playerResult: PlayerResult, dealerResult: inout DealerResult) {
+		switch playerResult.winning {
+		case .win: dealerResult.losing()
+		case .push: dealerResult.drawing()
+		case .lose: dealerResult.winning()
 		}
 	}
 }
