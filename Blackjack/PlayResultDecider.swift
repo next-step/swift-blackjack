@@ -34,14 +34,14 @@ enum PlayResultDecider {
 		var dealerResult = DealerResult(name: dealer.name)
 		let dealerScore = dealer.gameResult.sumOfCardNumbers
 		let playerResults = players.map { player -> PlayerResult in
-			let playerResult = winOrLose(of: player, by: dealerScore, dealerResult: &dealerResult)
+			let playerResult = winOrLose(of: player, by: dealerScore)
 			winOrLoseOfDealer(by: playerResult, dealerResult: &dealerResult)
 			return playerResult
 		}
 		return PlayResult(dealerResult: dealerResult, playerResults: playerResults)
 	}
 	
-	private static func winOrLose(of player: Player, by dealerScore: Int, dealerResult: inout DealerResult) -> PlayerResult {
+	private static func winOrLose(of player: Player, by dealerScore: Int) -> PlayerResult {
 		let playerScore = player.gameResult.sumOfCardNumbers
 		if player.isBust || playerScore < dealerScore {
 			return PlayerResult(name: player.name, winning: .lose)
