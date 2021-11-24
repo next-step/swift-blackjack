@@ -33,7 +33,3 @@ final class Dealer: Player, CardDealable {
 		return try cardPack.draw()
 	}
 }
-
-fileprivate extension Deck {
-	
-}
