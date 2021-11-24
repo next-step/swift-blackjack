@@ -55,7 +55,7 @@ enum PlayResultDecider {
 	private static func winOrLoseOfDealer(by playerResult: PlayerResult, dealerResult: inout DealerResult) {
 		switch playerResult.winning {
 		case .win: dealerResult.losing()
-		case .push: dealerResult.drawing()
+		case .push: dealerResult.pushing()
 		case .lose: dealerResult.winning()
 		}
 	}

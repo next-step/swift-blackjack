@@ -8,11 +8,6 @@
 import Foundation
 
 struct PlayerResult {
-	enum Winning: String {
-		case win = "승"
-		case push = "무"
-		case lose = "패"
-	}
 	let name: String
 	let winning: Winning
 	

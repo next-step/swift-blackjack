@@ -10,7 +10,7 @@ import Foundation
 struct DealerResult {
 	let name: String
 	private(set) var winningCount: Int = 0
-	private(set) var drawingCount: Int = 0
+	private(set) var pushingCount: Int = 0
 	private(set) var losingCount: Int = 0
 	
 	init(name: String) {
@@ -21,8 +21,8 @@ struct DealerResult {
 		winningCount += 1
 	}
 	
-	mutating func drawing() {
-		drawingCount += 1
+	mutating func pushing() {
+		pushingCount += 1
 	}
 	
 	mutating func losing() {
@@ -31,9 +31,9 @@ struct DealerResult {
 	
 	var description: String {
 		var description = ["\(name):"]
-		if winningCount > 0 { description.append("\(winningCount)승") }
-		if drawingCount > 0 { description.append("\(drawingCount)무") }
-		if losingCount > 0 { description.append("\(losingCount)패") }
+		if winningCount > 0 { description.append(Winning.win.description(by: winningCount)) }
+		if pushingCount > 0 { description.append(Winning.push.description(by: pushingCount)) }
+		if losingCount > 0 { description.append(Winning.lose.description(by: losingCount)) }
 		return description.joined(separator: " ")
 	}
 }

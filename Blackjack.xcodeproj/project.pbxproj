@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5182213D274E85E9009F0CDC /* Winning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5182213C274E85E9009F0CDC /* Winning.swift */; };
+		5182213E274E85F3009F0CDC /* Winning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5182213C274E85E9009F0CDC /* Winning.swift */; };
 		5185CABA2743BC1600B73A9F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185CAB92743BC1600B73A9F /* Array+Extension.swift */; };
 		5185CABB2743C32500B73A9F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185CAB92743BC1600B73A9F /* Array+Extension.swift */; };
 		5199579B273FF5E4001DD993 /* BlackjackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5199579A273FF5E4001DD993 /* BlackjackTest.swift */; };
@@ -63,6 +65,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5182213C274E85E9009F0CDC /* Winning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Winning.swift; sourceTree = "<group>"; };
 		5185CAB92743BC1600B73A9F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		51995798273FF5E4001DD993 /* BlackjackTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5199579A273FF5E4001DD993 /* BlackjackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTest.swift; sourceTree = "<group>"; };
@@ -135,6 +138,7 @@
 				51C0FEB4274A7C3400205921 /* PlayerResult.swift */,
 				51C0FEC6274BDD2E00205921 /* DealerResult.swift */,
 				51C0FEC9274BE33900205921 /* PlayResult.swift */,
+				5182213C274E85E9009F0CDC /* Winning.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -301,6 +305,7 @@
 				5199579F273FF5F5001DD993 /* main.swift in Sources */,
 				51C0FEB6274A7E7100205921 /* PlayerResult.swift in Sources */,
 				519957B72741425B001DD993 /* BlackjackGame.swift in Sources */,
+				5182213E274E85F3009F0CDC /* Winning.swift in Sources */,
 				519957CA27427CB8001DD993 /* ResultView.swift in Sources */,
 				51C0FECB274BE35000205921 /* PlayResult.swift in Sources */,
 				5199579B273FF5E4001DD993 /* BlackjackTest.swift in Sources */,
@@ -345,6 +350,7 @@
 				519957B62741420E001DD993 /* BlackjackGame.swift in Sources */,
 				5185CABA2743BC1600B73A9F /* Array+Extension.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				5182213D274E85E9009F0CDC /* Winning.swift in Sources */,
 				51C0FEC7274BDD2E00205921 /* DealerResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
