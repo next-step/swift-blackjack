@@ -10,7 +10,7 @@ import Foundation
 class Player {
 	let name: String
 	var deck: Deck
-	var gameResult: CardResultScore {
+	var cardResultScore: CardResultScore {
 		CardResultScore(name: name, deck: deck, sumOfCardNumbers: CardScoreCalculator.calculateTheSumOfCardNumbers(in: deck))
 	}
 	
