@@ -30,8 +30,8 @@ final class BlackjackGame {
 	}
 	
 	private func dealTheCards() throws {
-		let player = try inputView.askPlayerNames()
-		startGame(by: player.names)
+		let players = try inputView.askPlayerNames()
+		startGame(by: players.names)
 		printOutGameStatusBeforePlay()
 	}
 	
