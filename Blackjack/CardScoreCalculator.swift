@@ -68,9 +68,8 @@ enum CardScoreCalculator {
 		if let secondValue = rankValues[safe: 1], isFirstAce {
 			isFirstAce = false
 			return secondValue
-		} else {
-			return rankValues[0]
 		}
+		return rankValues[0]
 	}
 	
 	private static func compareBlackjackNumber(and number: Int) -> CardResult {
