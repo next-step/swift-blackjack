@@ -82,7 +82,7 @@ class BlackjackTest: XCTestCase {
 		let blackjackCards = Deck(cards: [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .clubs, rank: .ace)])
 		let player = Player(name: "ABC", deck: blackjackCards)
 		let gameResult = player.gameResult
-		let expect = GameResult(name: "ABC", deck: blackjackCards, sumOfCardNumbers: 12)
+		let expect = CardResultScore(name: "ABC", deck: blackjackCards, sumOfCardNumbers: 12)
 		
 		XCTAssertEqual(expect, gameResult)
 	}

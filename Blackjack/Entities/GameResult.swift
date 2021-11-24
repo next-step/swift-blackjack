@@ -1,14 +1,13 @@
 //
-//  GameResult.swift
+//  PlayResult.swift
 //  Blackjack
 //
-//  Created by Mephrine on 2021/11/14.
+//  Created by Mephrine on 2021/11/22.
 //
 
 import Foundation
 
-struct GameResult: Equatable {
-	let name: String
-	let deck: Deck
-	let sumOfCardNumbers: Int
+struct GameResult {
+	let dealerResult: DealerResult
+	let playerResults: [PlayerResult]
 }

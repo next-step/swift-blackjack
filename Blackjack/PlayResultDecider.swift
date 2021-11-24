@@ -8,18 +8,18 @@
 import Foundation
 
 enum PlayResultDecider {
-	static func decideWinning(of dealer: Dealer, players: [Player]) -> PlayResult {
+	static func decideWinning(of dealer: Dealer, players: [Player]) -> GameResult {
 		dealer.isBust ? winOfPlayer(by: dealer, players: players) : compete(with: players, and: dealer)
 	}
 	
-	private static func winOfPlayer(by bustedDealer: Dealer, players: [Player]) -> PlayResult {
+	private static func winOfPlayer(by bustedDealer: Dealer, players: [Player]) -> GameResult {
 		var dealerResult = DealerResult(name: bustedDealer.name)
 		let playerResults = players.map { player -> PlayerResult in
 			let playerResult = winOrLose(of: player, dealerResult: &dealerResult)
 			winOrLoseOfDealer(by: playerResult, dealerResult: &dealerResult)
 			return playerResult
 		}
-		return PlayResult(dealerResult: dealerResult, playerResults: playerResults)
+		return GameResult(dealerResult: dealerResult, playerResults: playerResults)
 	}
 	
 	private static func winOrLose(of player: Player, dealerResult: inout DealerResult) -> PlayerResult {
@@ -30,7 +30,7 @@ enum PlayResultDecider {
 		}
 	}
 	
-	private static func compete(with players: [Player], and dealer: Dealer) -> PlayResult {
+	private static func compete(with players: [Player], and dealer: Dealer) -> GameResult {
 		var dealerResult = DealerResult(name: dealer.name)
 		let dealerScore = dealer.gameResult.sumOfCardNumbers
 		let playerResults = players.map { player -> PlayerResult in
@@ -38,7 +38,7 @@ enum PlayResultDecider {
 			winOrLoseOfDealer(by: playerResult, dealerResult: &dealerResult)
 			return playerResult
 		}
-		return PlayResult(dealerResult: dealerResult, playerResults: playerResults)
+		return GameResult(dealerResult: dealerResult, playerResults: playerResults)
 	}
 	
 	private static func winOrLose(of player: Player, by dealerScore: Int) -> PlayerResult {

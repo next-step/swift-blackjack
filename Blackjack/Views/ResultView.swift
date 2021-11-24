@@ -10,8 +10,8 @@ import Foundation
 protocol Presentable {
 	func printOutGameStatusBeforePlay(by players: [Player])
 	func printOutDeck(of player: Player)
-	func printOutGameResult(by playerGameResults: [GameResult])
-	func printOutWinningResult(by winning: PlayResult)
+	func printOutGameResult(by playerGameResults: [CardResultScore])
+	func printOutWinningResult(by winning: GameResult)
 	func printOutTheDealerHit()
 	func printOut(error: BlackjackError)
 }
@@ -26,13 +26,13 @@ struct ResultView: Presentable {
 		print("\(player.name)카드: \(player.deck.cards.map { $0.description() })")
 	}
 	
-	func printOutGameResult(by playerGameResults: [GameResult]) {
+	func printOutGameResult(by playerGameResults: [CardResultScore]) {
 		playerGameResults.forEach { gameResult in
 			print("\n\(gameResult.name)카드: \(convertToLinkedStringByComma(from: gameResult)) - 결과: \(gameResult.sumOfCardNumbers)")
 		}
 	}
 	
-	func printOutWinningResult(by winning: PlayResult) {
+	func printOutWinningResult(by winning: GameResult) {
 		print("\n## 최종 승패")
 		print("\(winning.dealerResult.description)")
 		winning.playerResults.forEach { winningResult in
@@ -49,7 +49,7 @@ struct ResultView: Presentable {
 		print(errorDescription)
 	}
 	
-	private func convertToLinkedStringByComma(from gameResult: GameResult) -> String {
+	private func convertToLinkedStringByComma(from gameResult: CardResultScore) -> String {
 		gameResult.deck.cards.map { $0.description() }.joined(separator: ", ")
 	}
 	
