@@ -20,7 +20,7 @@ final class StubResultView: Presentable {
 		static var printOutDeckOfPlayer = false
 		static var printOutGameResult = false
 		static var printOutWinningResult = false
-		static var printOutTheDealrHit = false
+		static var printOutTheDealerHit = false
 		static var printOutError = false
 	}
 
@@ -38,8 +38,8 @@ final class StubResultView: Presentable {
 		Verify.printOutDeckOfPlayer = true
 	}
 	
-	func printOutTheDealrHit() {
-		Verify.printOutTheDealrHit = true
+	func printOutTheDealerHit() {
+		Verify.printOutTheDealerHit = true
 	}
 	
 	func printOut(error: BlackjackError) {
@@ -67,7 +67,7 @@ final class StubResultView: Presentable {
 		Verify.printOutDeckOfPlayer = false
 		Verify.printOutGameResult = false
 		Verify.printOutWinningResult = false
-		Verify.printOutTheDealrHit = false
+		Verify.printOutTheDealerHit = false
 		Verify.printOutError = false
 	}
 	

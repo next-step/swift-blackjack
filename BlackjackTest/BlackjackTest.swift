@@ -265,7 +265,7 @@ class BlackjackTest: XCTestCase {
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		
 		blackjackGame.start()
-		XCTAssertEqual(StubResultView.Verify.printOutTheDealrHit, true)
+		XCTAssertEqual(StubResultView.Verify.printOutTheDealerHit, true)
 	}
 	
 	func test_shouldLoseWhenTheDealerIsBust() {

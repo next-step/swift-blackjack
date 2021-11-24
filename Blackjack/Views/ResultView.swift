@@ -12,7 +12,7 @@ protocol Presentable {
 	func printOutDeck(of player: Player)
 	func printOutGameResult(by playerGameResults: [GameResult])
 	func printOutWinningResult(by winning: PlayResult)
-	func printOutTheDealrHit()
+	func printOutTheDealerHit()
 	func printOut(error: BlackjackError)
 }
 
@@ -40,7 +40,7 @@ struct ResultView: Presentable {
 		}
 	}
 	
-	func printOutTheDealrHit() {
+	func printOutTheDealerHit() {
 		print("\n딜러는 16이하라 한장의 카드를 더 받았습니다.")
 	}
 	

@@ -100,7 +100,7 @@ final class BlackjackGame {
 	private func playDealer() throws {
 		if dealer.canHit() == false { return }
 		dealer.hit(drawnCard: try dealer.deal())
-		resultView.printOutTheDealrHit()
+		resultView.printOutTheDealerHit()
 	}
 	
 	private func gameIsOver() {
