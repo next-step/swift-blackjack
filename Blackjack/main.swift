@@ -6,7 +6,8 @@
 
 import Foundation
 
-let dealer = Dealer()
+let cardPack = BlackjackCard.arrangeCards()
+let dealer = Dealer(cardPack: cardPack)
 let inputView = InputView()
 let resultView = ResultView()
 let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)

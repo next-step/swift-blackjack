@@ -9,15 +9,18 @@ import Foundation
 
 final class StubResultView: Presentable {
 	var hitCount = [Int]()
-	var gameResults = [GameResult]()
+	var gameResults = [CardResultScore]()
 	var error: BlackjackError? = nil
-	private var players: [Player] = [Player]()
+	var playResult: GameResult? = nil
+	var players: [Player] = [Player]()
 	private var playerIndex = 0
 	
 	enum Verify {
 		static var printOutGameStatusBeforePlay = false
 		static var printOutDeckOfPlayer = false
 		static var printOutGameResult = false
+		static var printOutWinningResult = false
+		static var printOutTheDealerHit = false
 		static var printOutError = false
 	}
 
@@ -35,25 +38,36 @@ final class StubResultView: Presentable {
 		Verify.printOutDeckOfPlayer = true
 	}
 	
+	func printOutTheDealerHit() {
+		Verify.printOutTheDealerHit = true
+	}
+	
 	func printOut(error: BlackjackError) {
 		self.error = error
 		Verify.printOutError = true
 	}
 	
-	func printOutGameResult(by playerGameResults: [GameResult]) {
+	func printOutGameResult(by playerGameResults: [CardResultScore]) {
 		self.gameResults = playerGameResults
 		Verify.printOutGameResult = true
 	}
 	
+	func printOutWinningResult(by winning: GameResult) {
+		self.playResult = winning
+		Verify.printOutWinningResult = true
+	}
+	
 	func clear() {
 		players = [Player]()
-		gameResults = [GameResult]()
+		gameResults = [CardResultScore]()
 		hitCount = [Int]()
 		playerIndex = 0
 		error = nil
 		Verify.printOutGameStatusBeforePlay = false
 		Verify.printOutDeckOfPlayer = false
 		Verify.printOutGameResult = false
+		Verify.printOutWinningResult = false
+		Verify.printOutTheDealerHit = false
 		Verify.printOutError = false
 	}
 	

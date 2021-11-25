@@ -10,7 +10,9 @@ import Foundation
 protocol Presentable {
 	func printOutGameStatusBeforePlay(by players: [Player])
 	func printOutDeck(of player: Player)
-	func printOutGameResult(by playerGameResults: [GameResult])
+	func printOutGameResult(by playerGameResults: [CardResultScore])
+	func printOutWinningResult(by winning: GameResult)
+	func printOutTheDealerHit()
 	func printOut(error: BlackjackError)
 }
 
@@ -21,13 +23,25 @@ struct ResultView: Presentable {
 	}
 	
 	func printOutDeck(of player: Player) {
-		print("\(player.name)카드: \(player.deck.map { $0.description() })")
+		print("\(player.name)카드: \(player.deck.cards.map { $0.description() })")
 	}
 	
-	func printOutGameResult(by playerGameResults: [GameResult]) {
+	func printOutGameResult(by playerGameResults: [CardResultScore]) {
 		playerGameResults.forEach { gameResult in
-			print("\(gameResult.name)카드: \(convertToLinkedStringByComma(from: gameResult)) - 결과: \(gameResult.sumOfCardNumbers)")
+			print("\n\(gameResult.name)카드: \(convertToLinkedStringByComma(from: gameResult)) - 결과: \(gameResult.sumOfCardNumbers)")
 		}
+	}
+	
+	func printOutWinningResult(by winning: GameResult) {
+		print("\n## 최종 승패")
+		print("\(winning.dealerResult.description)")
+		winning.playerResults.forEach { winningResult in
+			print("\(winningResult.description)")
+		}
+	}
+	
+	func printOutTheDealerHit() {
+		print("\n딜러는 16이하라 한장의 카드를 더 받았습니다.")
 	}
 	
 	func printOut(error: BlackjackError) {
@@ -35,13 +49,13 @@ struct ResultView: Presentable {
 		print(errorDescription)
 	}
 	
-	private func convertToLinkedStringByComma(from gameResult: GameResult) -> String {
-		gameResult.deck.map { $0.description() }.joined(separator: ",")
+	private func convertToLinkedStringByComma(from gameResult: CardResultScore) -> String {
+		gameResult.deck.cards.map { $0.description() }.joined(separator: ", ")
 	}
 	
 	private func printOutPlayerNames(players: [Player]) {
-		let playerNames = players.map{ $0.name }.joined(separator: ",")
-		print("\(playerNames)에게 2장씩 나누었습니다.")
+		let playerNames = players.map{ $0.name }.joined(separator: ", ")
+		print("\n\(playerNames)에게 2장씩 나누었습니다.")
 	}
 	
 	private func printOutEachPlayersOwnCard(players: [Player]) {

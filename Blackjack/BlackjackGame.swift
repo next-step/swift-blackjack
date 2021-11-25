@@ -7,10 +7,10 @@
 
 import Foundation
 
-class BlackjackGame {
-	let dealer: Dealer
-	let inputView: Inputable
-	let resultView: Presentable
+final class BlackjackGame {
+	private let dealer: Dealer
+	private let inputView: Inputable
+	private let resultView: Presentable
 	var players: [Player] = [Player]()
 	
 	init(dealer: Dealer, inputable: Inputable, presentable: Presentable) {
@@ -29,26 +29,10 @@ class BlackjackGame {
 		}
 	}
 	
-	private func playGame() throws {
-		for var player in players {
-			do {
-				try askThePlayerWhetherToHit(player: &player)
-			} catch (let error) {
-				if isBustError(on: error) == false { throw error }
-			}
-		}
-	}
-	
-	func gameIsOver() {
-		let gameResults = players.map { $0.gameResult }
-		resultView.printOutGameResult(by: gameResults)
-	}
-	
 	private func dealTheCards() throws {
-		try inputView.askPlayerNames { player in
-			startGame(by: player.names)
-		}
-		resultView.printOutGameStatusBeforePlay(by: self.players)
+		let players = try inputView.askPlayerNames()
+		startGame(by: players.names)
+		printOutGameStatusBeforePlay()
 	}
 	
 	private func startGame(by names: [String]) {
@@ -60,19 +44,47 @@ class BlackjackGame {
 	private func joinTheGame(by playerName: String) {
 		if let firstCard = try? dealer.deal(),
 			 let secondCard = try? dealer.deal() {
-			let player = Player(name: playerName, deck: [firstCard, secondCard])
+			let deck = Deck(cards: [firstCard, secondCard])
+			let player = Player(name: playerName, deck: deck)
 			players.append(player)
 		}
 	}
 	
-	private func askThePlayerWhetherToHit(player: inout Player) throws {
-		try inputView.askThePlayerWhetherToHit(name: player.name) { isYes in
-			guard isYes else { return }
-			
-			try player.hit(drawnCard: dealer.deal())
-			resultView.printOutDeck(of: player)
-			try askThePlayerWhetherToHit(player: &player)
+	private func printOutGameStatusBeforePlay() {
+		let outputPlayers: [Player] = [self.dealer] + self.players
+		resultView.printOutGameStatusBeforePlay(by: outputPlayers)
+	}
+	
+	private func playGame() throws {
+		try playPlayers()
+		try playDealer()
+	}
+	
+	private func playPlayers() throws {
+		for var player in players {
+			do {
+				try askThePlayerWhetherToHit(player: &player)
+			} catch (let error) {
+				if isBustError(on: error) == false { throw error }
+			}
 		}
+	}
+	
+	private func askThePlayerWhetherToHit(player: inout Player) throws {
+		guard try inputView.askThePlayerWhetherToHit(name: player.name) else { return }
+		if player.canHit() == false { throw BlackjackError.bust }
+		
+		player.hit(drawnCard: try dealer.deal())
+		resultView.printOutDeck(of: player)
+		try askThePlayerWhetherToHit(player: &player)
+	}
+	
+	private func isBustError(on thrownError: Error) -> Bool {
+		if let error = thrownError as? BlackjackError, error == .bust {
+			printOutErrorOnResultView(error: error)
+			return true
+		}
+		return false
 	}
 	
 	private func printOutErrorOnResultView(error: Error) {
@@ -85,11 +97,24 @@ class BlackjackGame {
 		}
 	}
 	
-	private func isBustError(on thrownError: Error) -> Bool {
-		if let error = thrownError as? BlackjackError, error == .bust {
-			printOutErrorOnResultView(error: error)
-			return true
-		}
-		return false
+	private func playDealer() throws {
+		if dealer.canHit() == false { return }
+		dealer.hit(drawnCard: try dealer.deal())
+		resultView.printOutTheDealerHit()
+	}
+	
+	private func gameIsOver() {
+		self.printOutGameResult()
+		self.printOutWinningResult()
+	}
+	
+	private func printOutGameResult() {
+		let cardResultScores = [dealer.cardResultScore] + players.map { $0.cardResultScore }
+		resultView.printOutGameResult(by: cardResultScores)
+	}
+	
+	private func printOutWinningResult() {
+		let winningResult = PlayResultDecider.decideWinning(of: dealer, players: players)
+		resultView.printOutWinningResult(by: winningResult)
 	}
 }

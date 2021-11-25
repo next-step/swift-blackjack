@@ -39,7 +39,7 @@ final class StubInputView: Inputable, PlayerAskable {
 	
 	func makeYesOrNo(name: String) throws -> Bool {
 		let index = checkToClearHitIndex(by: name)
-		let inputIsYes = try isinputYes(input: answerTheHit[index])
+		let inputIsYes = try isInputYes(input: answerTheHit[index])
 		answerTheHitIndex += 1
 		return inputIsYes
 	}
