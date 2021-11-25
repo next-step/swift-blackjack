@@ -7,12 +7,23 @@
 
 import Foundation
 
-enum Winning: String {
-	case win = "승"
-	case push = "무"
-	case lose = "패"
+enum Winning {
+	case win
+	case push
+	case lose
 	
 	func description(by count: Int) -> String {
-		"\(count)\(self.rawValue)"
+		return "\(count)\(self.description)"
+	}
+	
+	var description: String {
+		switch self {
+		case .win:
+			return "승"
+		case .push:
+			return "무"
+		case .lose:
+			return "패"
+		}
 	}
 }

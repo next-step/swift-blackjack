@@ -12,7 +12,7 @@ struct PlayerResult {
 	let winning: Winning
 	
 	var description: String {
-		"\(name): \(winning.rawValue)"
+		"\(name): \(winning.description)"
 	}
 }
 
