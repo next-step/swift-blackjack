@@ -1,5 +1,5 @@
 //
-//  GameResult.swift
+//  CardResultScore.swift
 //  Blackjack
 //
 //  Created by Mephrine on 2021/11/14.
@@ -12,3 +12,4 @@ struct CardResultScore: Equatable {
 	let deck: Deck
 	let sumOfCardNumbers: Int
 }
+
