@@ -335,13 +335,14 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(blackjackGame.players[1].bet.amount, 20000)
 	}
 	
-	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {
+	func test_shouldOutputErrorWhenTheBetAmountInputIsInvalid() throws {
+		try testExpectInputError(expect: .input(.invalid), playerName: "ab,cd", betAmounts: ["abc", "def"], answerTheHit: "n")
+		try testExpectInputError(expect: .input(.lessThanTheMinimumAmount), playerName: "ab,cd", betAmounts: ["abc", "def"], answerTheHit: "n")
+	}
+	
+	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, betAmounts: [String?]? = nil,  answerTheHit: String? ...)  throws {
 		let dealer = makeDealer()
-		let betAmountsSize = playerName?.components(separatedBy: ",").count ?? 0
-		let betAmountsRange = betAmountsSize > 0 ? (0...betAmountsSize - 1) : (0...0)
-		let betAmounts = betAmountsRange.map { _ in "10000" }
-		
-		let inputView = StubInputView(playerNames: playerName, betAmounts: betAmounts, answerTheHit: answerTheHit)
+		let inputView = StubInputView(playerNames: playerName, betAmounts: betAmounts ?? makeFixturebetAmoutns(names: playerName), answerTheHit: answerTheHit)
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
 		
@@ -349,6 +350,12 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(resultView.error, expectedError)
 		
 		resultView.clear()
+	}
+	
+	private func makeFixturebetAmoutns(names: String?) -> [String] {
+		let betAmountsSize = names?.components(separatedBy: ",").count ?? 0
+		let betAmountsRange = betAmountsSize > 0 ? (0...betAmountsSize - 1) : (0...0)
+		return betAmountsRange.map { _ in "10000" }
 	}
 	
 	private func makeDealer(by cardPack: CardPack = BlackjackCard.arrangeCards()) -> Dealer{
