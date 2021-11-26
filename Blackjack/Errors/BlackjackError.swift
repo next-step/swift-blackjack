@@ -15,6 +15,7 @@ enum BlackjackError: Error, Equatable {
 		case outOfRangeInName
 		case outOfRangeInYesOrNo
 		case invalid
+		case lessThanTheMinimumAmount
 	}
 	case bust
 	case noCard
@@ -36,6 +37,8 @@ extension BlackjackError: LocalizedError {
 			return "추가 카드 요청은 `y`, `n`만 입력이 가능합니다."
 		case .input(.invalid):
 			return "금액은 숫자만 입력 가능합니다."
+		case .input(.lessThanTheMinimumAmount):
+			return "배팅 금액은 1000원 이상만 가능합니다."
 		case .bust:
 			return "버스트에서는 카드 추가 요청이 불가능합니다."
 		case .noCard:

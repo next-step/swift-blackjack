@@ -337,7 +337,8 @@ class BlackjackTest: XCTestCase {
 	
 	func test_shouldOutputErrorWhenTheBetAmountInputIsInvalid() throws {
 		try testExpectInputError(expect: .input(.invalid), playerName: "ab,cd", betAmounts: ["abc", "def"], answerTheHit: "n")
-		try testExpectInputError(expect: .input(.lessThanTheMinimumAmount), playerName: "ab,cd", betAmounts: ["abc", "def"], answerTheHit: "n")
+		try testExpectInputError(expect: .input(.lessThanTheMinimumAmount), playerName: "ab,cd", betAmounts: ["-1000", "100"], answerTheHit: "n")
+		try testExpectInputError(expect: .input(.lessThanTheMinimumAmount), playerName: "ab,cd", betAmounts: ["1000", "100"], answerTheHit: "n")
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, betAmounts: [String?]? = nil,  answerTheHit: String? ...)  throws {
