@@ -326,6 +326,15 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(resultView.players.count, 4)
 	}
 	
+	func test_shouldHaveBetAmountOfEachPlayerWhenTheBlackjackGameStarts() {
+		let dealer = makeDealer()
+		let inputView = StubInputView(playerNames: "ab,cd", betAmounts: ["10000", "20000"], answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		blackjackGame.start()
+		XCTAssertEqual(blackjackGame.players[0].betAmount, 10000)
+		XCTAssertEqual(blackjackGame.players[1].betAmount, 20000)
+	}
+	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, answerTheHit: String? ...)  throws {
 		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: playerName, answerTheHit: answerTheHit)
