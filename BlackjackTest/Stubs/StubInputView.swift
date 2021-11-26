@@ -9,8 +9,10 @@ import Foundation
 
 final class StubInputView: Inputable, PlayerAskable {
 	let playerNames: String?
+	var betAmounts: [String?]
 	var answerTheHit: [String?]
 	var answerTheHitIndex = 0
+	var betAmountsIndex = 0
 	var currentName = ""
 	
 	enum Verify {
@@ -21,14 +23,16 @@ final class StubInputView: Inputable, PlayerAskable {
 		}
 	}
 	
-	init(playerNames: String?, answerTheHit: String? ...) {
+	init(playerNames: String?, betAmounts: [String?], answerTheHit: String? ...) {
 		self.playerNames = playerNames
+		self.betAmounts = betAmounts
 		self.answerTheHit = answerTheHit
 		appendFalseToTheLastitem()
 	}
 	
-	init(playerNames: String?, answerTheHit: [String?]) {
+	init(playerNames: String?, betAmounts: [String?], answerTheHit: [String?]) {
 		self.playerNames = playerNames
+		self.betAmounts = betAmounts
 		self.answerTheHit = answerTheHit
 		appendFalseToTheLastitem()
 	}
@@ -37,7 +41,13 @@ final class StubInputView: Inputable, PlayerAskable {
 		try InputName(input: playerNames, numberOfPlayers: BlackjackOption.numberOfPlayers, nameRange: BlackjackOption.nameRange)
 	}
 	
-	func makeYesOrNo(name: String) throws -> Bool {
+	func makeBetAmount(by name: String) throws -> PlayerBet {
+		let betAmount = try PlayerBet(input: betAmounts[betAmountsIndex])
+		betAmountsIndex += 1
+		return betAmount
+	}
+	
+	func makeYesOrNo(by name: String) throws -> Bool {
 		let index = checkToClearHitIndex(by: name)
 		let inputIsYes = try isInputYes(input: answerTheHit[index])
 		answerTheHitIndex += 1

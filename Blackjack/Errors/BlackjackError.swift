@@ -14,6 +14,7 @@ enum BlackjackError: Error, Equatable {
 		case outOfRangesForNumberOfParticipants
 		case outOfRangeInName
 		case outOfRangeInYesOrNo
+		case invalid
 	}
 	case bust
 	case noCard
@@ -33,6 +34,8 @@ extension BlackjackError: LocalizedError {
 			return "참여자 이름은 중복이 불가능합니다."
 		case .input(.outOfRangeInYesOrNo):
 			return "추가 카드 요청은 `y`, `n`만 입력이 가능합니다."
+		case .input(.invalid):
+			return "금액은 숫자만 입력 가능합니다."
 		case .bust:
 			return "버스트에서는 카드 추가 요청이 불가능합니다."
 		case .noCard:

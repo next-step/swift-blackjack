@@ -9,13 +9,15 @@ import Foundation
 
 class Player {
 	let name: String
+	let bet: Bet
 	var deck: Deck
 	var cardResultScore: CardResultScore {
 		CardResultScore(name: name, deck: deck, sumOfCardNumbers: CardScoreCalculator.calculateTheSumOfCardNumbers(in: deck))
 	}
 	
-	init(name: String, deck: Deck) {
+	init(name: String, bet: Bet, deck: Deck) {
 		self.name = name
+		self.bet = bet
 		self.deck = deck
 	}
 	

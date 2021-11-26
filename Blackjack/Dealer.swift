@@ -21,7 +21,7 @@ final class Dealer: Player, CardDealable {
 		else { fatalError("처음 드로우되는 카드에서 noCard 에러가 발생했습니다.") }
 		
 		let deck = Deck(cards: [firstCard, secondCard])
-		super.init(name: "딜러", deck: deck)
+		super.init(name: "딜러", bet: DealerBet(), deck: deck)
 	}
 	
 	override func canHit() -> Bool {

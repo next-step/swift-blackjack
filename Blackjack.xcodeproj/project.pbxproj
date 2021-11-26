@@ -49,6 +49,12 @@
 		51C0FEC8274BDD4400205921 /* DealerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C0FEC6274BDD2E00205921 /* DealerResult.swift */; };
 		51C0FECA274BE33900205921 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C0FEC9274BE33900205921 /* GameResult.swift */; };
 		51C0FECB274BE35000205921 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C0FEC9274BE33900205921 /* GameResult.swift */; };
+		51E5AFC52751095B004CC7D4 /* PlayerBet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5AFC42751095B004CC7D4 /* PlayerBet.swift */; };
+		51E5AFC6275109CB004CC7D4 /* PlayerBet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5AFC42751095B004CC7D4 /* PlayerBet.swift */; };
+		51E5AFC827512CCD004CC7D4 /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5AFC727512CCD004CC7D4 /* Bet.swift */; };
+		51E5AFC927512CEC004CC7D4 /* Bet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5AFC727512CCD004CC7D4 /* Bet.swift */; };
+		51E5AFCB27512D04004CC7D4 /* DealerBet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5AFCA27512D04004CC7D4 /* DealerBet.swift */; };
+		51E5AFCC27512DDC004CC7D4 /* DealerBet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E5AFCA27512D04004CC7D4 /* DealerBet.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +94,9 @@
 		51C0FEC3274BD64800205921 /* PlayResultDecider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayResultDecider.swift; sourceTree = "<group>"; };
 		51C0FEC6274BDD2E00205921 /* DealerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerResult.swift; sourceTree = "<group>"; };
 		51C0FEC9274BE33900205921 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		51E5AFC42751095B004CC7D4 /* PlayerBet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerBet.swift; sourceTree = "<group>"; };
+		51E5AFC727512CCD004CC7D4 /* Bet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bet.swift; sourceTree = "<group>"; };
+		51E5AFCA27512D04004CC7D4 /* DealerBet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerBet.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +148,9 @@
 				51C0FEC6274BDD2E00205921 /* DealerResult.swift */,
 				51C0FEC9274BE33900205921 /* GameResult.swift */,
 				5182213C274E85E9009F0CDC /* Winning.swift */,
+				51E5AFC42751095B004CC7D4 /* PlayerBet.swift */,
+				51E5AFCA27512D04004CC7D4 /* DealerBet.swift */,
+				51E5AFC727512CCD004CC7D4 /* Bet.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -316,9 +328,12 @@
 				519957A92740F4C4001DD993 /* Player.swift in Sources */,
 				5185CABB2743C32500B73A9F /* Array+Extension.swift in Sources */,
 				51C0FEC5274BDBB800205921 /* PlayResultDecider.swift in Sources */,
+				51E5AFCC27512DDC004CC7D4 /* DealerBet.swift in Sources */,
 				519957BA27415A0C001DD993 /* StubInputView.swift in Sources */,
+				51E5AFC927512CEC004CC7D4 /* Bet.swift in Sources */,
 				519957B427413652001DD993 /* CardResultScore.swift in Sources */,
 				519957A2273FFA9F001DD993 /* Dealer.swift in Sources */,
+				51E5AFC6275109CB004CC7D4 /* PlayerBet.swift in Sources */,
 				51C0FEB1274A1A0500205921 /* CardPack.swift in Sources */,
 				519957BE27415A25001DD993 /* InputView.swift in Sources */,
 				519957B127410287001DD993 /* BlackjackOption.swift in Sources */,
@@ -335,6 +350,7 @@
 				51C0FEB0274A19E900205921 /* CardPack.swift in Sources */,
 				51C0FEAC274A105000205921 /* Deck.swift in Sources */,
 				519957A82740F4B0001DD993 /* Player.swift in Sources */,
+				51E5AFCB27512D04004CC7D4 /* DealerBet.swift in Sources */,
 				51C0FEC4274BD64800205921 /* PlayResultDecider.swift in Sources */,
 				519957B3274134A0001DD993 /* CardResultScore.swift in Sources */,
 				519957A1273FFA9C001DD993 /* Dealer.swift in Sources */,
@@ -352,6 +368,8 @@
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
 				5182213D274E85E9009F0CDC /* Winning.swift in Sources */,
 				51C0FEC7274BDD2E00205921 /* DealerResult.swift in Sources */,
+				51E5AFC52751095B004CC7D4 /* PlayerBet.swift in Sources */,
+				51E5AFC827512CCD004CC7D4 /* Bet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,21 +31,22 @@ final class BlackjackGame {
 	
 	private func dealTheCards() throws {
 		let players = try inputView.askPlayerNames()
-		startGame(by: players.names)
+		try startGame(by: players.names)
 		printOutGameStatusBeforePlay()
 	}
 	
-	private func startGame(by names: [String]) {
-		names.forEach { name in
-			joinTheGame(by: name)
+	private func startGame(by names: [String]) throws {
+		try names.forEach { name in
+			let playerBet = try inputView.askBetAmount(ofPlayer: name)
+			joinTheGame(by: name, playerBet: playerBet)
 		}
 	}
 	
-	private func joinTheGame(by playerName: String) {
+	private func joinTheGame(by playerName: String, playerBet: PlayerBet) {
 		if let firstCard = try? dealer.deal(),
 			 let secondCard = try? dealer.deal() {
 			let deck = Deck(cards: [firstCard, secondCard])
-			let player = Player(name: playerName, deck: deck)
+			let player = Player(name: playerName, bet: playerBet, deck: deck)
 			players.append(player)
 		}
 	}
