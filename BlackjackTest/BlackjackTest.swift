@@ -341,6 +341,23 @@ class BlackjackTest: XCTestCase {
 		try testExpectInputError(expect: .input(.lessThanTheMinimumAmount), playerName: "ab,cd", betAmounts: ["1000", "100"], answerTheHit: "n")
 	}
 	
+	func test_shouldHaveOneAndAHalftimesTheEarningRateWhenTheGameResultIsBlackjack() {
+		let blackjackCards = BlackjackCard.Suit.allCases
+			.flatMap { suit in
+				[BlackjackCard.Rank.king, BlackjackCard.Rank.ace].map { rank in
+					(suit: suit, rank: rank)
+				}
+			}.map {
+				BlackjackCard(suit: $0.suit, rank: $0.rank)
+			}
+		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
+		let dealer = Dealer(cardPack: cardPack)
+		let inputView = StubInputView(playerNames: "ab", betAmounts: ["10000"], answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		blackjackGame.start()
+		XCTAssertEqual(blackjackGame.players[0].earningRate, 1.5)
+	}
+	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, betAmounts: [String?]? = nil,  answerTheHit: String? ...)  throws {
 		let dealer = makeDealer()
 		let inputView = StubInputView(playerNames: playerName, betAmounts: betAmounts ?? makeFixturebetAmoutns(names: playerName), answerTheHit: answerTheHit)
