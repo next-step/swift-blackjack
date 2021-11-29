@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		517D10FE2753D7F9002D5E41 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D10FD2753D7F9002D5E41 /* GameState.swift */; };
+		517D10FF2753D7FB002D5E41 /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D10FD2753D7F9002D5E41 /* GameState.swift */; };
+		517D11012753D819002D5E41 /* Blackjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D11002753D819002D5E41 /* Blackjack.swift */; };
+		517D11022753D81B002D5E41 /* Blackjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D11002753D819002D5E41 /* Blackjack.swift */; };
+		517D11042753D830002D5E41 /* Stay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D11032753D830002D5E41 /* Stay.swift */; };
+		517D11062753D835002D5E41 /* Bust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D11052753D835002D5E41 /* Bust.swift */; };
+		517D11082753D83A002D5E41 /* Hit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D11072753D83A002D5E41 /* Hit.swift */; };
+		517D11092753D848002D5E41 /* Hit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D11072753D83A002D5E41 /* Hit.swift */; };
+		517D110A2753D84B002D5E41 /* Bust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D11052753D835002D5E41 /* Bust.swift */; };
+		517D110B2753D84E002D5E41 /* Stay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517D11032753D830002D5E41 /* Stay.swift */; };
 		5182213D274E85E9009F0CDC /* Winning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5182213C274E85E9009F0CDC /* Winning.swift */; };
 		5182213E274E85F3009F0CDC /* Winning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5182213C274E85E9009F0CDC /* Winning.swift */; };
 		5185CABA2743BC1600B73A9F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5185CAB92743BC1600B73A9F /* Array+Extension.swift */; };
@@ -23,8 +33,8 @@
 		519957AF274101C6001DD993 /* BlackjackOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957AE274101C6001DD993 /* BlackjackOption.swift */; };
 		519957B027410243001DD993 /* BlackjackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957AB27410194001DD993 /* BlackjackError.swift */; };
 		519957B127410287001DD993 /* BlackjackOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957AE274101C6001DD993 /* BlackjackOption.swift */; };
-		519957B3274134A0001DD993 /* CardResultScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957B2274134A0001DD993 /* CardResultScore.swift */; };
-		519957B427413652001DD993 /* CardResultScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957B2274134A0001DD993 /* CardResultScore.swift */; };
+		519957B3274134A0001DD993 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957B2274134A0001DD993 /* PlayerState.swift */; };
+		519957B427413652001DD993 /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957B2274134A0001DD993 /* PlayerState.swift */; };
 		519957B62741420E001DD993 /* BlackjackGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957B52741420D001DD993 /* BlackjackGame.swift */; };
 		519957B72741425B001DD993 /* BlackjackGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957B52741420D001DD993 /* BlackjackGame.swift */; };
 		519957BA27415A0C001DD993 /* StubInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519957B927415A0C001DD993 /* StubInputView.swift */; };
@@ -71,6 +81,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		517D10FD2753D7F9002D5E41 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		517D11002753D819002D5E41 /* Blackjack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blackjack.swift; sourceTree = "<group>"; };
+		517D11032753D830002D5E41 /* Stay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stay.swift; sourceTree = "<group>"; };
+		517D11052753D835002D5E41 /* Bust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bust.swift; sourceTree = "<group>"; };
+		517D11072753D83A002D5E41 /* Hit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hit.swift; sourceTree = "<group>"; };
 		5182213C274E85E9009F0CDC /* Winning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Winning.swift; sourceTree = "<group>"; };
 		5185CAB92743BC1600B73A9F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		51995798273FF5E4001DD993 /* BlackjackTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +95,7 @@
 		519957A72740F4AF001DD993 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		519957AB27410194001DD993 /* BlackjackError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackError.swift; sourceTree = "<group>"; };
 		519957AE274101C6001DD993 /* BlackjackOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackOption.swift; sourceTree = "<group>"; };
-		519957B2274134A0001DD993 /* CardResultScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardResultScore.swift; sourceTree = "<group>"; };
+		519957B2274134A0001DD993 /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		519957B52741420D001DD993 /* BlackjackGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackGame.swift; sourceTree = "<group>"; };
 		519957B927415A0C001DD993 /* StubInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubInputView.swift; sourceTree = "<group>"; };
 		519957BC27415A17001DD993 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
@@ -119,6 +134,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		517D10FC2753D7EC002D5E41 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				517D10FD2753D7F9002D5E41 /* GameState.swift */,
+				517D11002753D819002D5E41 /* Blackjack.swift */,
+				517D11032753D830002D5E41 /* Stay.swift */,
+				517D11052753D835002D5E41 /* Bust.swift */,
+				517D11072753D83A002D5E41 /* Hit.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
 		5185CAB82743BC0000B73A9F /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				519957A4274002ED001DD993 /* BlackjackCard.swift */,
-				519957B2274134A0001DD993 /* CardResultScore.swift */,
+				519957B2274134A0001DD993 /* PlayerState.swift */,
 				519957C027415CFF001DD993 /* InputName.swift */,
 				51C0FEAB274A105000205921 /* Deck.swift */,
 				51C0FEAF274A19E900205921 /* CardPack.swift */,
@@ -210,6 +237,7 @@
 		C7F86E18273AAF7900FAA669 /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
+				517D10FC2753D7EC002D5E41 /* States */,
 				519957BB27415A0F001DD993 /* Views */,
 				519957AD274101BA001DD993 /* Options */,
 				519957AA27410185001DD993 /* Errors */,
@@ -314,6 +342,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				517D11022753D81B002D5E41 /* Blackjack.swift in Sources */,
 				5199579F273FF5F5001DD993 /* main.swift in Sources */,
 				51C0FEB6274A7E7100205921 /* PlayerResult.swift in Sources */,
 				519957B72741425B001DD993 /* BlackjackGame.swift in Sources */,
@@ -322,20 +351,24 @@
 				51C0FECB274BE35000205921 /* GameResult.swift in Sources */,
 				5199579B273FF5E4001DD993 /* BlackjackTest.swift in Sources */,
 				51C0FEAD274A10F700205921 /* CardScoreCalculator.swift in Sources */,
+				517D110B2753D84E002D5E41 /* Stay.swift in Sources */,
 				519957C927427673001DD993 /* StubResultView.swift in Sources */,
 				519957A6274002F5001DD993 /* BlackjackCard.swift in Sources */,
 				51C0FEC8274BDD4400205921 /* DealerResult.swift in Sources */,
 				519957A92740F4C4001DD993 /* Player.swift in Sources */,
 				5185CABB2743C32500B73A9F /* Array+Extension.swift in Sources */,
 				51C0FEC5274BDBB800205921 /* PlayResultDecider.swift in Sources */,
+				517D110A2753D84B002D5E41 /* Bust.swift in Sources */,
 				51E5AFCC27512DDC004CC7D4 /* DealerBet.swift in Sources */,
+				517D10FF2753D7FB002D5E41 /* GameState.swift in Sources */,
 				519957BA27415A0C001DD993 /* StubInputView.swift in Sources */,
 				51E5AFC927512CEC004CC7D4 /* Bet.swift in Sources */,
-				519957B427413652001DD993 /* CardResultScore.swift in Sources */,
+				519957B427413652001DD993 /* PlayerState.swift in Sources */,
 				519957A2273FFA9F001DD993 /* Dealer.swift in Sources */,
 				51E5AFC6275109CB004CC7D4 /* PlayerBet.swift in Sources */,
 				51C0FEB1274A1A0500205921 /* CardPack.swift in Sources */,
 				519957BE27415A25001DD993 /* InputView.swift in Sources */,
+				517D11092753D848002D5E41 /* Hit.swift in Sources */,
 				519957B127410287001DD993 /* BlackjackOption.swift in Sources */,
 				51C0FEAE274A181A00205921 /* Deck.swift in Sources */,
 				519957B027410243001DD993 /* BlackjackError.swift in Sources */,
@@ -350,9 +383,11 @@
 				51C0FEB0274A19E900205921 /* CardPack.swift in Sources */,
 				51C0FEAC274A105000205921 /* Deck.swift in Sources */,
 				519957A82740F4B0001DD993 /* Player.swift in Sources */,
+				517D11062753D835002D5E41 /* Bust.swift in Sources */,
 				51E5AFCB27512D04004CC7D4 /* DealerBet.swift in Sources */,
 				51C0FEC4274BD64800205921 /* PlayResultDecider.swift in Sources */,
-				519957B3274134A0001DD993 /* CardResultScore.swift in Sources */,
+				519957B3274134A0001DD993 /* PlayerState.swift in Sources */,
+				517D11012753D819002D5E41 /* Blackjack.swift in Sources */,
 				519957A1273FFA9C001DD993 /* Dealer.swift in Sources */,
 				519957AC27410194001DD993 /* BlackjackError.swift in Sources */,
 				51C0FEAA274A0E0E00205921 /* CardScoreCalculator.swift in Sources */,
@@ -366,8 +401,11 @@
 				519957B62741420E001DD993 /* BlackjackGame.swift in Sources */,
 				5185CABA2743BC1600B73A9F /* Array+Extension.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				517D11082753D83A002D5E41 /* Hit.swift in Sources */,
+				517D11042753D830002D5E41 /* Stay.swift in Sources */,
 				5182213D274E85E9009F0CDC /* Winning.swift in Sources */,
 				51C0FEC7274BDD2E00205921 /* DealerResult.swift in Sources */,
+				517D10FE2753D7F9002D5E41 /* GameState.swift in Sources */,
 				51E5AFC52751095B004CC7D4 /* PlayerBet.swift in Sources */,
 				51E5AFC827512CCD004CC7D4 /* Bet.swift in Sources */,
 			);
