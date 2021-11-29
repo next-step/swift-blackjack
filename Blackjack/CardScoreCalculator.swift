@@ -15,24 +15,18 @@ enum CardScoreCalculator {
 	
 	static func calculateTheSumOfCardNumbers(in deck: Deck) -> Int {
 		let sumOfCardNumbersByTheFirstValue = calculateWithFirstValue(in: deck)
-		if hasAceCard(in: deck) {
+		if deck.hasAceCard {
 			return calculateTheBestValueOfTheAceCard(compareTo: sumOfCardNumbersByTheFirstValue, in: deck)
 		}
 		return sumOfCardNumbersByTheFirstValue
 	}
 	
-	static func calculateWithFirstValue(in deck: Deck) -> Int {
+	private static func calculateWithFirstValue(in deck: Deck) -> Int {
 		deck.cards.map { blackjackCard in
 			blackjackCard.rank.value[0]
 		}.reduce(0) { partialResult, cardRank in
 			partialResult + cardRank
 		}
-	}
-
-	private static func hasAceCard(in deck: Deck) -> Bool {
-		deck.cards.filter { card in
-			card.rank == .ace
-		}.count > 0
 	}
 	
 	private static func calculateTheBestValueOfTheAceCard(compareTo sumOfCardNumbersByTheFirstValue: Int, in deck: Deck) -> Int {

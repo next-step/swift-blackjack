@@ -58,7 +58,7 @@ struct BlackjackCard: Hashable {
 		self.rank = rank
 	}
 	
-	func description() -> String {
+	var description: String {
 		rank.description + suit.description
 	}
 	
