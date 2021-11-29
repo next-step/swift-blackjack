@@ -221,11 +221,11 @@ class BlackjackTest: XCTestCase {
 			}
 		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
 		let dealer = Dealer(cardPack: cardPack)
-		let inputView = StubInputView(playerNames: "ab,cd,ef", betAmounts: ["10000", "20000", "10000"], answerTheHit: "y", "n")
+		let inputView = StubInputView(playerNames: "ab", betAmounts: ["10000"], answerTheHit: "y", "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
 		XCTAssertEqual(StubResultView.Verify.printOutDeckOfPlayer, true)
-		XCTAssertEqual(resultView.hitCount[1...3], [1, 1, 1])
+		XCTAssertEqual(resultView.hitCount[1], 1)
 	}
 	
 	func test_shouldOutputGameResultWhenGameIsOver() {
@@ -239,7 +239,7 @@ class BlackjackTest: XCTestCase {
 			}
 		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
 		let dealer = Dealer(cardPack: cardPack)
-		let inputView = StubInputView(playerNames: "ab,cd,ef", betAmounts: ["10000", "20000", "10000"], answerTheHit: "y", "n")
+		let inputView = StubInputView(playerNames: "ab", betAmounts: ["10000"], answerTheHit: "y", "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
 		XCTAssertEqual(StubResultView.Verify.printOutGameResult, true)
