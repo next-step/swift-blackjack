@@ -9,26 +9,32 @@ import Foundation
 
 class Player {
 	let name: String
-	let bet: Bet
-	var deck: Deck
-	var cardResultScore: CardResultScore {
-		CardResultScore(name: name, deck: deck, sumOfCardNumbers: CardScoreCalculator.calculateTheSumOfCardNumbers(in: deck))
-	}
+	private let bet: Bet
+	private var gameState: GameState
 	
 	init(name: String, bet: Bet, deck: Deck) {
 		self.name = name
 		self.bet = bet
-		self.deck = deck
+		
+		let isBlackjack = deck.isBlackjack
+		self.gameState = isBlackjack ? Blackjack(deck: deck) : Hit(deck: deck)
 	}
 	
-	func hit(drawnCard: BlackjackCard) {
-		if canHit() {
-			deck.draw(of: drawnCard)
+	var canHit: Bool {
+		gameState.isFinished == false
+	}
+	
+	var state: PlayerState {
+		PlayerState(name: name, bet: bet, gameState: gameState)
+	}
+
+	func draw(card: BlackjackCard) {
+		if gameState.isFinished == false {
+			self.gameState = gameState.draw(card: card)
 		}
 	}
 	
-	func canHit() -> Bool {
-		let sumOfCardNumbers = CardScoreCalculator.calculateWithFirstValue(in: deck)
-		return sumOfCardNumbers < BlackjackOption.blackjackNumber
+	func stay() {
+		self.gameState = gameState.stay()
 	}
 }

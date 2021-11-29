@@ -32,7 +32,7 @@ enum PlayResultDecider {
 	
 	private static func compete(with players: [Player], and dealer: Dealer) -> GameResult {
 		var dealerResult = DealerResult(name: dealer.name)
-		let dealerScore = dealer.cardResultScore.sumOfCardNumbers
+		let dealerScore = dealer.state.sumOfCardNumbers
 		let playerResults = players.map { player -> PlayerResult in
 			let playerResult = winOrLose(of: player, by: dealerScore)
 			winOrLoseOfDealer(by: playerResult, dealerResult: &dealerResult)
@@ -42,7 +42,7 @@ enum PlayResultDecider {
 	}
 	
 	private static func winOrLose(of player: Player, by dealerScore: Int) -> PlayerResult {
-		let playerScore = player.cardResultScore.sumOfCardNumbers
+		let playerScore = player.state.sumOfCardNumbers
 		if player.isBust || playerScore < dealerScore {
 			return PlayerResult(name: player.name, winning: .lose)
 		} else if playerScore > dealerScore {
@@ -63,6 +63,6 @@ enum PlayResultDecider {
 
 fileprivate extension Player {
 	var isBust: Bool {
-		self.cardResultScore.sumOfCardNumbers > BlackjackOption.blackjackNumber
+		self.state.sumOfCardNumbers > BlackjackOption.blackjackNumber
 	}
 }

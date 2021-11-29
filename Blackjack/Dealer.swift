@@ -24,9 +24,8 @@ final class Dealer: Player, CardDealable {
 		super.init(name: "딜러", bet: DealerBet(), deck: deck)
 	}
 	
-	override func canHit() -> Bool {
-		let sumOfCardNumbers = CardScoreCalculator.calculateWithFirstValue(in: deck)
-		return sumOfCardNumbers <= BlackjackOption.dealerLimitNumber
+	override var canHit: Bool {
+		state.sumOfCardNumbers <= BlackjackOption.dealerLimitNumber
 	}
 		
 	func deal() throws -> BlackjackCard {
