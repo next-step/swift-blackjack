@@ -9,10 +9,10 @@ import Foundation
 
 final class StubResultView: Presentable {
 	var hitCount = [Int]()
-	var gameResults = [CardResultScore]()
+	var gameResults = [PlayerState]()
 	var error: BlackjackError? = nil
 	var playResult: GameResult? = nil
-	var players: [Player] = [Player]()
+	var playerStates: [PlayerState] = [PlayerState]()
 	private var playerIndex = 0
 	
 	enum Verify {
@@ -24,14 +24,14 @@ final class StubResultView: Presentable {
 		static var printOutError = false
 	}
 
-	func printOutGameStatusBeforePlay(by players: [Player]) {
-		self.players = players
-		self.hitCount = (0...players.count - 1).map { _ in 0 }
+	func printOutGameStatusBeforePlay(by playerStates: [PlayerState]) {
+		self.playerStates = playerStates
+		self.hitCount = (0...playerStates.count - 1).map { _ in 0 }
 		Verify.printOutGameStatusBeforePlay = true
 	}
 	
-	func printOutDeck(of player: Player) {
-		if players[playerIndex].name != player.name {
+	func printOutDeck(of playerState: PlayerState) {
+		if playerStates[playerIndex].name != playerState.name {
 			playerIndex += 1
 		}
 		hitCount[playerIndex] += 1
@@ -47,8 +47,8 @@ final class StubResultView: Presentable {
 		Verify.printOutError = true
 	}
 	
-	func printOutGameResult(by playerGameResults: [CardResultScore]) {
-		self.gameResults = playerGameResults
+	func printOutGameResult(by playerStates: [PlayerState]) {
+		self.gameResults = playerStates
 		Verify.printOutGameResult = true
 	}
 	
@@ -58,8 +58,8 @@ final class StubResultView: Presentable {
 	}
 	
 	func clear() {
-		players = [Player]()
-		gameResults = [CardResultScore]()
+		playerStates = [PlayerState]()
+		gameResults = [PlayerState]()
 		hitCount = [Int]()
 		playerIndex = 0
 		error = nil

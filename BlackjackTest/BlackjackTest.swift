@@ -36,7 +36,7 @@ class BlackjackTest: XCTestCase {
 		let player = Player(name: name, bet: try PlayerBet(input: "1000"), deck: blackjackCards)
 		
 		XCTAssertEqual(player.name, name)
-		XCTAssertEqual(player.deck, blackjackCards)
+		XCTAssertEqual(player.state.deckDescription, blackjackCards.description)
 	}
 	
 	func test_shouldGetOneCardWhenAPlayerHits() throws {
@@ -44,8 +44,8 @@ class BlackjackTest: XCTestCase {
 		let player = Player(name: "ABC", bet: try PlayerBet(input: "1000"), deck: blackjackCards)
 		let drawnCard = BlackjackCard(suit: .spades, rank: .two)
 		
-		player.hit(drawnCard: drawnCard)
-		let sumOfCardNumbers = player.deck.cards.count
+		player.draw(card: drawnCard)
+		let sumOfCardNumbers = player.state.deckDescription.components(separatedBy: ",").count
 		XCTAssertEqual(3, sumOfCardNumbers)
 	}
 	
@@ -54,11 +54,12 @@ class BlackjackTest: XCTestCase {
 		let player = Player(name: "ABC", bet: try PlayerBet(input: "1000"), deck: blackjackCards)
 		
 		let firstDrawnCard = BlackjackCard(suit: .spades, rank: .three)
-		player.hit(drawnCard: firstDrawnCard)
+		player.draw(card: firstDrawnCard)
 		
 		let secondDrawnCard = BlackjackCard(suit: .spades, rank: .two)
+		player.draw(card: secondDrawnCard)
 		
-		XCTAssertFalse(player.canHit())
+		XCTAssertFalse(player.canHit)
 	}
 	
 	func test_shouldGetTheSumOfCardNumbersWhenTheGameIsOver() throws {
@@ -66,25 +67,24 @@ class BlackjackTest: XCTestCase {
 		let player = Player(name: "ABC", bet: try PlayerBet(input: "1000"), deck: blackjackCards)
 		
 		let firstDrawnCard = BlackjackCard(suit: .diamonds, rank: .ace)
-		player.hit(drawnCard: firstDrawnCard)
+		player.draw(card: firstDrawnCard)
 		
 		let secondDrawnCard = BlackjackCard(suit: .diamonds, rank: .ace)
-		player.hit(drawnCard: secondDrawnCard)
+		player.draw(card: secondDrawnCard)
 		
 		let thirdDrawnCard = BlackjackCard(suit: .diamonds, rank: .seven)
-		player.hit(drawnCard: thirdDrawnCard)
+		player.draw(card: thirdDrawnCard)
 		
-		let gameResult = player.cardResultScore
+		let gameResult = player.state
 		XCTAssertEqual(21, gameResult.sumOfCardNumbers)
 	}
 	
 	func test_shouldGetGameResultWhenTheGameIsOver() throws {
 		let blackjackCards = Deck(cards: [BlackjackCard(suit: .spades, rank: .ace), BlackjackCard(suit: .clubs, rank: .ace)])
 		let player = Player(name: "ABC", bet: try PlayerBet(input: "1000"), deck: blackjackCards)
-		let gameResult = player.cardResultScore
-		let expect = CardResultScore(name: "ABC", deck: blackjackCards, sumOfCardNumbers: 12)
+		let gameResult = player.state
 		
-		XCTAssertEqual(expect, gameResult)
+		XCTAssertEqual("ABC", gameResult.name)
 	}
 	
 	func test_shouldHaveEachPlayers2CardsWhenGameStart() throws {
@@ -94,18 +94,27 @@ class BlackjackTest: XCTestCase {
 		blackjackGame.start()
 		
 		blackjackGame.players.forEach { player in
-			XCTAssertEqual(player.deck.cards.count, 2)
+			XCTAssertEqual(player.state.deckDescription.components(separatedBy: ",").count, 2)
 		}
 	}
 	
 	func test_shouldGet1CardWhenPlayerAcceptsThe1Hit() throws {
-		let dealer = makeDealer()
+		let blackjackCards = BlackjackCard.Suit.allCases
+			.flatMap { suit in
+				[BlackjackCard.Rank.ace, BlackjackCard.Rank.two].map { rank in
+					(suit: suit, rank: rank)
+				}
+			}.map {
+				BlackjackCard(suit: $0.suit, rank: $0.rank)
+			}
+		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
+		let dealer = Dealer(cardPack: cardPack)
 		let inputView = StubInputView(playerNames: "abc,def", betAmounts: ["10000", "20000"], answerTheHit: "y")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
 		
 		blackjackGame.players.forEach { player in
-			XCTAssertEqual(player.deck.cards.count, 3)
+			XCTAssertEqual(player.state.deckDescription.components(separatedBy: ",").count, 3)
 		}
 	}
 	
@@ -145,7 +154,16 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldHitAgainWhenAPlayerHit() {
-		let dealer = makeDealer()
+		let blackjackCards = BlackjackCard.Suit.allCases
+			.flatMap { suit in
+				[BlackjackCard.Rank.ace, BlackjackCard.Rank.two].map { rank in
+					(suit: suit, rank: rank)
+				}
+			}.map {
+				BlackjackCard(suit: $0.suit, rank: $0.rank)
+			}
+		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
+		let dealer = Dealer(cardPack: cardPack)
 		let inputView = StubInputView(playerNames: "abc,def", betAmounts: ["10000", "20000"], answerTheHit: "y","n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
@@ -229,14 +247,21 @@ class BlackjackTest: XCTestCase {
 	}
 	
 	func test_shouldTakeOneMoreCardWhenTheScoreOfDealerIs16OrLess() {
-		let blackjackCards = (2...9).map { BlackjackCard(suit: .clubs, rank: BlackjackCard.Rank(rawValue: $0)!) }
+		let blackjackCards = BlackjackCard.Suit.allCases
+			.flatMap { suit in
+				[BlackjackCard.Rank.ace, BlackjackCard.Rank.two].map { rank in
+					(suit: suit, rank: rank)
+				}
+			}.map {
+				BlackjackCard(suit: $0.suit, rank: $0.rank)
+			}
 		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
 		let dealer = Dealer(cardPack: cardPack)
 		let inputView = StubInputView(playerNames: "ab, bc", betAmounts: ["10000", "20000"], answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		
 		blackjackGame.start()
-		XCTAssertTrue(dealer.deck.cards.count == 3)
+		XCTAssertTrue(dealer.state.deckDescription.components(separatedBy: ",").count == 3)
 	}
 	
 	func test_shouldNotHitsWhenTheScoreOfDealerIs17OrMore() {
@@ -254,7 +279,7 @@ class BlackjackTest: XCTestCase {
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		
 		blackjackGame.start()
-		XCTAssertEqual(dealer.deck.cards.count, 2)
+		XCTAssertEqual(dealer.state.deckDescription.components(separatedBy: ",").count, 2)
 	}
 	
 	func test_shouldOutputTheDealerHitWhenTheScoreOfDealerIs16OrLess() {
@@ -322,8 +347,8 @@ class BlackjackTest: XCTestCase {
 		let inputView = StubInputView(playerNames: "ab,cd,ef", betAmounts: ["10000", "20000", "10000"], answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
-		XCTAssertTrue(resultView.players.first { $0.name == "딜러" } != nil)
-		XCTAssertEqual(resultView.players.count, 4)
+		XCTAssertTrue(resultView.playerStates.first { $0.name == "딜러" } != nil)
+		XCTAssertEqual(resultView.playerStates.count, 4)
 	}
 	
 	func test_shouldHaveBetAmountOfEachPlayerWhenTheBlackjackGameStarts() {
@@ -331,8 +356,8 @@ class BlackjackTest: XCTestCase {
 		let inputView = StubInputView(playerNames: "ab,cd", betAmounts: ["10000", "20000"], answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
-		XCTAssertEqual(blackjackGame.players[0].bet.amount, 10000)
-		XCTAssertEqual(blackjackGame.players[1].bet.amount, 20000)
+		XCTAssertEqual(blackjackGame.players[0].state.bet.amount, 10000)
+		XCTAssertEqual(blackjackGame.players[1].state.bet.amount, 20000)
 	}
 	
 	func test_shouldOutputErrorWhenTheBetAmountInputIsInvalid() throws {
@@ -341,10 +366,10 @@ class BlackjackTest: XCTestCase {
 		try testExpectInputError(expect: .input(.lessThanTheMinimumAmount), playerName: "ab,cd", betAmounts: ["1000", "100"], answerTheHit: "n")
 	}
 	
-	func test_shouldHaveOneAndAHalftimesTheEarningRateWhenTheGameResultIsBlackjack() {
+	func test_shouldHaveOneAndAHalftimesTheEarningRateWhenTheGameResultIsBlackjack() throws {
 		let blackjackCards = BlackjackCard.Suit.allCases
 			.flatMap { suit in
-				[BlackjackCard.Rank.king, BlackjackCard.Rank.ace].map { rank in
+				[BlackjackCard.Rank.nine, BlackjackCard.Rank.eight].map { rank in
 					(suit: suit, rank: rank)
 				}
 			}.map {
@@ -355,7 +380,12 @@ class BlackjackTest: XCTestCase {
 		let inputView = StubInputView(playerNames: "ab", betAmounts: ["10000"], answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
-		XCTAssertEqual(blackjackGame.players[0].earningRate, 1.5)
+		
+		let stubBlackjackDeck = Deck(cards: [BlackjackCard(suit: .clubs, rank: .ace), BlackjackCard(suit: .diamonds, rank: .king)])
+		let stubPlayer = Player(name: "ab", bet: try PlayerBet(input: "10000"), deck: stubBlackjackDeck)
+		blackjackGame.players = [stubPlayer]
+		
+		XCTAssertEqual(blackjackGame.players[0].state.profit, 25000)
 	}
 	
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, betAmounts: [String?]? = nil,  answerTheHit: String? ...)  throws {
