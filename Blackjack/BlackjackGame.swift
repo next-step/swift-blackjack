@@ -52,8 +52,8 @@ final class BlackjackGame {
 	}
 	
 	private func printOutGameStatusBeforePlay() {
-		let outputPlayers: [Player] = [self.dealer] + self.players
-		resultView.printOutGameStatusBeforePlay(by: outputPlayers)
+		let playerStates: [PlayerState] = [self.dealer.state] + self.players.map { $0.state }
+		resultView.printOutGameStatusBeforePlay(by: playerStates)
 	}
 	
 	private func playGame() throws {
@@ -73,10 +73,10 @@ final class BlackjackGame {
 	
 	private func askThePlayerWhetherToHit(player: inout Player) throws {
 		guard try inputView.askThePlayerWhetherToHit(name: player.name) else { return }
-		if player.canHit() == false { throw BlackjackError.bust }
+		if player.canHit == false { throw BlackjackError.bust }
 		
-		player.hit(drawnCard: try dealer.deal())
-		resultView.printOutDeck(of: player)
+		player.draw(card: try dealer.deal())
+		resultView.printOutDeck(of: player.state)
 		try askThePlayerWhetherToHit(player: &player)
 	}
 	
@@ -99,8 +99,8 @@ final class BlackjackGame {
 	}
 	
 	private func playDealer() throws {
-		if dealer.canHit() == false { return }
-		dealer.hit(drawnCard: try dealer.deal())
+		if dealer.canHit == false { return }
+		dealer.draw(card: try dealer.deal())
 		resultView.printOutTheDealerHit()
 	}
 	
@@ -110,8 +110,8 @@ final class BlackjackGame {
 	}
 	
 	private func printOutGameResult() {
-		let cardResultScores = [dealer.cardResultScore] + players.map { $0.cardResultScore }
-		resultView.printOutGameResult(by: cardResultScores)
+		let participants: [PlayerState] = [dealer.state] + players.map { $0.state }
+		resultView.printOutGameResult(by: participants)
 	}
 	
 	private func printOutWinningResult() {
