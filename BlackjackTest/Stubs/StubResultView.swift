@@ -11,7 +11,7 @@ final class StubResultView: Presentable {
 	var hitCount = [Int]()
 	var gameResults = [PlayerState]()
 	var error: BlackjackError? = nil
-	var playResult: GameResult? = nil
+	var playResult: [GameResult] = [GameResult]()
 	var playerStates: [PlayerState] = [PlayerState]()
 	private var playerIndex = 0
 	
@@ -52,7 +52,7 @@ final class StubResultView: Presentable {
 		Verify.printOutGameResult = true
 	}
 	
-	func printOutWinningResult(by winning: GameResult) {
+	func printOutWinningResult(by winning: [GameResult]) {
 		self.playResult = winning
 		Verify.printOutWinningResult = true
 	}

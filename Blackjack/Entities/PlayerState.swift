@@ -14,11 +14,9 @@ struct PlayerState: Equatable {
 	
 	private let gameState: GameState
 	let name: String
-	let bet: Bet
 	
-	init(name: String, bet: Bet, gameState: GameState) {
+	init(name: String, gameState: GameState) {
 		self.name = name
-		self.bet = bet
 		self.gameState = gameState
 	}
 		
@@ -28,9 +26,5 @@ struct PlayerState: Equatable {
 	
 	var sumOfCardNumbers: Int {
 		gameState.deck.sumOfCardNumbers
-	}
-	
-	var profit: Int {
-		Int(gameState.profit(bet: bet))
 	}
 }

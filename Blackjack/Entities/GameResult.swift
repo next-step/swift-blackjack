@@ -8,6 +8,12 @@
 import Foundation
 
 struct GameResult {
-	let dealerResult: DealerResult
-	let playerResults: [PlayerResult]
+	let name: String
+	let bet: Bet
+	let winning: Winning
+	let gameState: GameState
+	
+	var profit: Int {
+		Int(gameState.profit(bet: bet, winning: winning))
+	}
 }

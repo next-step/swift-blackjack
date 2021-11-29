@@ -12,7 +12,7 @@ protocol GameState {
 	var isFinished: Bool { get }
 	func draw(card: BlackjackCard) -> GameState
 	func stay() -> GameState
-	func profit(bet: Bet) -> Double
+	func profit(bet: Bet, winning: Winning) -> Double
 }
 
 protocol Finished: GameState {
@@ -27,7 +27,7 @@ extension Finished {
 	func stay() -> GameState {
 		return self
 	}
-	func profit(bet: Bet) -> Double {
+	func profit(bet: Bet, winning: Winning) -> Double {
 		let betAmount = Double(bet.amount)
 		return betAmount + betAmount * earningRate
 	}
@@ -39,7 +39,7 @@ protocol Running: GameState {
 
 extension Running {
 	var isFinished: Bool { false }
-	func profit(bet: Bet) -> Double {
+	func profit(bet: Bet, winning: Winning) -> Double {
 		Double(bet.amount)
 	}
 }
