@@ -22,7 +22,7 @@ enum PlayResultDecider {
 		if player.isBust {
 			return player.gameResult(winning: .lose)
 		} else {
-			return player.gameResult(winning: .push)
+			return player.gameResult(winning: .win)
 		}
 	}
 	
