@@ -529,6 +529,36 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(blackjackGame.players[0].gameResult(winning: .win).profit, 20000)
 		XCTAssertEqual(blackjackGame.players[1].gameResult(winning: .lose).profit, -10000)
 	}
+	
+	func test_shouldHaveAmount0WhenTheDealerWins1PlayerAndLoses1Player() throws {
+		let blackjackCards = BlackjackCard.Suit.allCases
+			.flatMap { suit in
+				[BlackjackCard.Rank.seven, BlackjackCard.Rank.six].map { rank in
+					(suit: suit, rank: rank)
+				}
+			}.map {
+				BlackjackCard(suit: $0.suit, rank: $0.rank)
+			}
+		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
+		let dealer = Dealer(cardPack: cardPack)
+		let inputView = StubInputView(playerNames: "ab,bc", betAmounts: ["10000", "10000"], answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+		blackjackGame.start()
+
+		let fixtureWinningDeck = Deck(cards: [BlackjackCard(suit: .clubs, rank: .nine), BlackjackCard(suit: .diamonds, rank: .ace)])
+		let fixtureWinningPlayer = Player(name: "ab", bet: try PlayerBet(input: "10000"), deck: fixtureWinningDeck)
+		
+		let fixtureLosingDeck = Deck(cards: [BlackjackCard(suit: .clubs, rank: .two), BlackjackCard(suit: .diamonds, rank: .three)])
+		let fixtureLosingPlayer = Player(name: "bc", bet: try PlayerBet(input: "10000"), deck: fixtureLosingDeck)
+		
+		blackjackGame.players = [fixtureWinningPlayer, fixtureLosingPlayer]
+		blackjackGame.players[0].stay()
+		blackjackGame.players[1].stay()
+		
+		XCTAssertEqual(blackjackGame.players[0].gameResult(winning: .win).profit, 20000)
+		XCTAssertEqual(blackjackGame.players[1].gameResult(winning: .lose).profit, -10000)
+		XCTAssertEqual(blackjackGame.dealer.gameResult(winning: .lose).profit, 0)
+	}
 
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, betAmounts: [String?]? = nil,  answerTheHit: String? ...)  throws {
 		let dealer = makeDealer()
