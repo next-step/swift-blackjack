@@ -12,7 +12,7 @@ struct Blackjack: Finished {
 	let earningRate: Double = 1.5
 	
 	func profit(bet: Bet, winning: Winning) -> Double {
-		if isPush(winning: winning) { return Win(deck: deck).profit(bet: bet, winning: winning) }
+		if isPush(winning: winning) { return Push(deck: deck).profit(bet: bet, winning: winning) }
 		
 		let betAmount = Double(bet.amount)
 		return betAmount + betAmount * earningRate
