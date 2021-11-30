@@ -8,10 +8,10 @@
 import Foundation
 
 final class BlackjackGame {
-	private let dealer: Dealer
 	private let inputView: Inputable
 	private let resultView: Presentable
 	var players: [Player] = [Player]()
+	let dealer: Dealer
 	
 	init(dealer: Dealer, inputable: Inputable, presentable: Presentable) {
 		self.dealer = dealer
@@ -72,7 +72,10 @@ final class BlackjackGame {
 	}
 	
 	private func askThePlayerWhetherToHit(player: inout Player) throws {
-		guard try inputView.askThePlayerWhetherToHit(name: player.name) else { return }
+		if try inputView.askThePlayerWhetherToHit(name: player.name) == false {
+			player.stay()
+			return
+		}
 		if player.canHit == false { throw BlackjackError.bust }
 		
 		player.draw(card: try dealer.deal())
@@ -99,7 +102,10 @@ final class BlackjackGame {
 	}
 	
 	private func playDealer() throws {
-		if dealer.canHit == false { return }
+		if dealer.canHit == false {
+			dealer.stay()
+			return
+		}
 		dealer.draw(card: try dealer.deal())
 		resultView.printOutTheDealerHit()
 	}
