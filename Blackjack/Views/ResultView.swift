@@ -20,6 +20,7 @@ struct ResultView: Presentable {
 	func printOutGameStatusBeforePlay(by playerStates: [PlayerState]) {
 		printOutPlayerNames(playerStates: playerStates)
 		printOutEachPlayersOwnCard(playerStates: playerStates)
+		print("")
 	}
 	
 	func printOutDeck(of playerState: PlayerState) {

@@ -54,7 +54,7 @@ struct InputView: Inputable, PlayerAskable {
 	}
 	
 	func makeBetAmount(by name: String) throws -> PlayerBet {
-		print("\(name)의 배팅 금액은?")
+		print("\n\(name)의 배팅 금액은?")
 		return try PlayerBet(input: readLine())
 	}
 	
