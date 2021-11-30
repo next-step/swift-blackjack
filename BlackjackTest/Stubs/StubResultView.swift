@@ -9,9 +9,9 @@ import Foundation
 
 final class StubResultView: Presentable {
 	var hitCount = [Int]()
-	var gameResults = [PlayerState]()
+	var playerResults = [PlayerState]()
 	var error: BlackjackError? = nil
-	var playResult: [GameResult] = [GameResult]()
+	var gameResults: [GameResult] = [GameResult]()
 	var playerStates: [PlayerState] = [PlayerState]()
 	private var playerIndex = 0
 	
@@ -48,18 +48,18 @@ final class StubResultView: Presentable {
 	}
 	
 	func printOutGameResult(by playerStates: [PlayerState]) {
-		self.gameResults = playerStates
+		self.playerResults = playerStates
 		Verify.printOutGameResult = true
 	}
 	
 	func printOutWinningResult(by winning: [GameResult]) {
-		self.playResult = winning
+		self.gameResults = winning
 		Verify.printOutWinningResult = true
 	}
 	
 	func clear() {
 		playerStates = [PlayerState]()
-		gameResults = [PlayerState]()
+		playerResults = [PlayerState]()
 		hitCount = [Int]()
 		playerIndex = 0
 		error = nil

@@ -136,8 +136,8 @@ class BlackjackTest: XCTestCase {
 		
 		let expectNames = ["딜러", "abc", "def", "ghi"]
 		
-		XCTAssertTrue(resultView.gameResults.count == 4)
-		XCTAssertEqual(resultView.gameResults.map { $0.name }, expectNames)
+		XCTAssertTrue(resultView.playerResults.count == 4)
+		XCTAssertEqual(resultView.playerResults.map { $0.name }, expectNames)
 	}
 	
 	func test_shouldTheDealWithANextPlayerWhenAPlayerDoNotHit() {
@@ -311,26 +311,29 @@ class BlackjackTest: XCTestCase {
 		XCTAssertEqual(StubResultView.Verify.printOutTheDealerHit, true)
 	}
 	
-//	func test_shouldLoseWhenTheDealerIsBust() {
-//		let blackjackCards = BlackjackCard.Suit.allCases
-//			.flatMap { suit in
-//				(7...8).map { rank in
-//					(suit: suit, rank: rank)
-//				}
-//			}.map {
-//				BlackjackCard(suit: $0.suit, rank: BlackjackCard.Rank(rawValue: $0.rank)!)
-//			}
-//		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
-//		let dealer = Dealer(cardPack: cardPack)
-//		let inputView = StubInputView(playerNames: "ab, bc", betAmounts: ["10000", "20000"], answerTheHit: "n")
-//		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
-//
-//		blackjackGame.start()
-//		XCTAssertEqual(resultView.playResult!.dealerResult.losingCount, 2)
-//		resultView.playResult!.playerResults.forEach { playerResults in
-//			XCTAssertEqual(playerResults.winning, .win)
-//		}
-//	}
+	func test_shouldLoseWhenTheDealerIsBust() {
+		let blackjackCards = BlackjackCard.Suit.allCases
+			.flatMap { suit in
+				(7...8).map { rank in
+					(suit: suit, rank: rank)
+				}
+			}.map {
+				BlackjackCard(suit: $0.suit, rank: BlackjackCard.Rank(rawValue: $0.rank)!)
+			}
+		let cardPack: CardDrawable = CardPack(cards: blackjackCards)
+		let dealer = Dealer(cardPack: cardPack)
+		let inputView = StubInputView(playerNames: "ab, bc", betAmounts: ["10000", "20000"], answerTheHit: "n")
+		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
+
+		blackjackGame.start()
+		resultView.gameResults.forEach { gameResult in
+			if gameResult.name == "딜러" {
+				XCTAssertEqual(gameResult.winning , .lose)
+			} else {
+				XCTAssertEqual(gameResult.winning , .win)
+			}
+		}
+	}
 	
 	func test_shouldOutputWinningResultWhenTheGameIsOver() {
 		let blackjackCards = BlackjackCard.Suit.allCases
@@ -356,8 +359,8 @@ class BlackjackTest: XCTestCase {
 		let inputView = StubInputView(playerNames: "ab,cd,ef", betAmounts: ["10000", "20000", "10000"], answerTheHit: "y", "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
-		XCTAssertTrue(resultView.gameResults.first { $0.name == "딜러" } != nil)
-		XCTAssertEqual(resultView.gameResults.count, 4)
+		XCTAssertTrue(resultView.playerResults.first { $0.name == "딜러" } != nil)
+		XCTAssertEqual(resultView.playerResults.count, 4)
 	}
 	
 	func test_shouldOutputGameStatusIncludingTheDealerBeforePlayWhenAfterTheDeals() {
