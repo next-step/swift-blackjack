@@ -9,48 +9,70 @@ import Foundation
 
 enum PlayResultDecider {
 	static func decideWinning(of dealer: Dealer, players: [Player]) -> [GameResult] {
-		dealer.isBust ? winOfPlayer(players: players) : compete(with: players, and: dealer)
+		dealer.isBust ? winOfPlayer(players: players, and: dealer) : compete(with: players, and: dealer)
 	}
 	
-	private static func winOfPlayer(players: [Player]) -> [GameResult] {
-		return players.map { player in
+	private static func winOfPlayer(players: [Player], and dealer: Dealer) -> [GameResult] {
+		let playerResults = players.map { player in
 			winOrLose(of: player)
 		}
+		let dealerProfit = calculateDealerProfit(by: playerResults)
+		let dealerResult = [dealer.gameResult(profit: dealerProfit)]
+		return playerResults + dealerResult
 	}
 	
 	private static func winOrLose(of player: Player) -> GameResult {
-		if player.isBust {
-			return player.gameResult(winning: .lose)
-		} else {
-			return player.gameResult(winning: .win)
-		}
+		let playerWinning = winOrPushWhenTheDealerIsBust(of: player)
+		return player.gameResult(winning: playerWinning)
+	}
+	
+	private static func winOrPushWhenTheDealerIsBust(of player: Player) -> Winning {
+		if player.isBust { return .push }
+		return .win
 	}
 	
 	private static func compete(with players: [Player], and dealer: Dealer) -> [GameResult] {
 		let dealerScore = dealer.state.sumOfCardNumbers
-		return (players + [dealer]).map { player in
+		let playerResults = players.map { player in
 			winOrLose(of: player, by: dealerScore)
 		}
+		let dealerProfit = calculateDealerProfit(by: playerResults)
+		let dealerResult = [dealer.gameResult(profit: dealerProfit)]
+		return playerResults + dealerResult
 	}
 	
 	private static func winOrLose(of player: Player, by dealerScore: Int) -> GameResult {
+		let playerWinning = compareScore(of: player, and: dealerScore)
+		return player.gameResult(winning: playerWinning)
+	}
+	
+	private static func compareScore(of player: Player, and dealerScore: Int) -> Winning {
 		let playerScore = player.state.sumOfCardNumbers
 		if player.isBust || playerScore < dealerScore {
-			return player.gameResult(winning: .lose)
+			return .lose
 		} else if playerScore > dealerScore {
-			return player.gameResult(winning: .win)
+			return .win
 		} else {
-			return player.gameResult(winning: .push)
+			return .push
 		}
 	}
 	
-//	private static func winOrLoseOfDealer(by playerResult: PlayerResult, dealerResult: inout DealerResult) {
-//		switch playerResult.winning {
-//		case .win: dealerResult.losing()
-//		case .push: dealerResult.pushing()
-//		case .lose: dealerResult.winning()
-//		}
-//	}
+	private static func winOrLoseOfDealer(by playerWinning: Winning) -> Winning {
+		switch playerWinning {
+		case .win: return .lose
+		case .push: return .push
+		case .lose: return .win
+		}
+	}
+	
+	private static func calculateDealerProfit(by playerGameResults: [GameResult]) -> Int {
+		return playerGameResults
+			.map { playerGameResult in
+				-(playerGameResult.profit - playerGameResult.bet.amount)
+			}.reduce(0) { result, profit in
+				result + profit
+			}
+	}
 }
 
 fileprivate extension Player {

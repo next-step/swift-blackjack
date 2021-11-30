@@ -10,7 +10,7 @@ import Foundation
 class Player {
 	let name: String
 	let bet: Bet
-	private var gameState: GameState
+	private(set) var gameState: GameState
 	
 	init(name: String, bet: Bet, deck: Deck) {
 		self.name = name
@@ -29,7 +29,7 @@ class Player {
 	}
 	
 	func gameResult(winning: Winning) -> GameResult {
-		GameResult(name: name, bet: bet, winning: winning, gameState: gameState)
+		PlayerGameResult(name: name, bet: bet, winning: winning, gameState: gameState)
 	}
 
 	func draw(card: BlackjackCard) {

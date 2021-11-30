@@ -7,13 +7,9 @@
 
 import Foundation
 
-struct GameResult {
-	let name: String
-	let bet: Bet
-	let winning: Winning
-	let gameState: GameState
-	
-	var profit: Int {
-		Int(gameState.profit(bet: bet, winning: winning))
-	}
+protocol GameResult {
+	var name: String { get }
+	var bet: Bet { get }
+	var gameState: GameState { get }
+	var profit: Int { get }
 }

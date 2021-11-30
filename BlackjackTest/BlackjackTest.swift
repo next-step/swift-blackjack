@@ -324,13 +324,13 @@ class BlackjackTest: XCTestCase {
 		let dealer = Dealer(cardPack: cardPack)
 		let inputView = StubInputView(playerNames: "ab, bc", betAmounts: ["10000", "20000"], answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
-
 		blackjackGame.start()
+		
 		resultView.gameResults.forEach { gameResult in
 			if gameResult.name == "딜러" {
-				XCTAssertEqual(gameResult.winning , .lose)
+				XCTAssertEqual(gameResult.profit, -30000)
 			} else {
-				XCTAssertEqual(gameResult.winning , .win)
+				XCTAssertEqual(gameResult.profit, gameResult.bet.amount * 2)
 			}
 		}
 	}

@@ -31,4 +31,8 @@ final class Dealer: Player, CardDealable {
 	func deal() throws -> BlackjackCard {
 		return try cardPack.draw()
 	}
+	
+	func gameResult(profit: Int) -> GameResult {
+		DealerGameResult(name: name, bet: bet, gameState: gameState, profit: profit)
+	}
 }
