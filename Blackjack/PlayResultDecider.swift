@@ -52,9 +52,8 @@ enum PlayResultDecider {
 			return .lose
 		} else if playerScore > dealerScore {
 			return .win
-		} else {
-			return .push
 		}
+		return .push
 	}
 	
 	private static func winOrLoseOfDealer(by playerWinning: Winning) -> Winning {
