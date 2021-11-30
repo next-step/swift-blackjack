@@ -32,7 +32,7 @@ final class Dealer: Player, CardDealable {
 		return try cardPack.draw()
 	}
 	
-	func gameResult(profit: Int) -> GameResult {
-		DealerGameResult(name: name, bet: bet, gameState: gameState, profit: profit)
+	func gameResult(by calculatedValue: Int) -> GameResult {
+		DealerGameResult(name: name, bet: bet, gameState: gameState, profit: calculatedValue)
 	}
 }

@@ -7,7 +7,12 @@
 
 import Foundation
 
-class Player {
+protocol Resutable {
+	associatedtype Value
+	func gameResult(by calculatedValue: Value) -> GameResult
+}
+
+class Player: Resutable {
 	let name: String
 	let bet: Bet
 	private(set) var gameState: GameState
@@ -28,8 +33,8 @@ class Player {
 		PlayerState(name: name, gameState: gameState)
 	}
 	
-	func gameResult(winning: Winning) -> GameResult {
-		PlayerGameResult(name: name, bet: bet, winning: winning, gameState: gameState)
+	func gameResult(by calculatedValue: Winning) -> GameResult {
+		PlayerGameResult(name: name, bet: bet, winning: calculatedValue, gameState: gameState)
 	}
 
 	func draw(card: BlackjackCard) {

@@ -377,8 +377,8 @@ class BlackjackTest: XCTestCase {
 		let inputView = StubInputView(playerNames: "ab,cd", betAmounts: ["10000", "20000"], answerTheHit: "n")
 		let blackjackGame = BlackjackGame(dealer: dealer, inputable: inputView, presentable: resultView)
 		blackjackGame.start()
-		XCTAssertEqual(blackjackGame.players[0].gameResult(winning: .win).bet.amount, 10000)
-		XCTAssertEqual(blackjackGame.players[1].gameResult(winning: .win).bet.amount, 20000)
+		XCTAssertEqual(blackjackGame.players[0].gameResult(by: .win).bet.amount, 10000)
+		XCTAssertEqual(blackjackGame.players[1].gameResult(by: .win).bet.amount, 20000)
 	}
 	
 	func test_shouldOutputErrorWhenTheBetAmountInputIsInvalid() throws {
@@ -406,7 +406,7 @@ class BlackjackTest: XCTestCase {
 		let stubPlayer = Player(name: "ab", bet: try PlayerBet(input: "10000"), deck: stubBlackjackDeck)
 		blackjackGame.players = [stubPlayer]
 		
-		XCTAssertEqual(blackjackGame.players[0].gameResult(winning: .win).profit, 25000)
+		XCTAssertEqual(blackjackGame.players[0].gameResult(by: .win).profit, 25000)
 	}
 	
 	func test_shoulGetBetAmountWhenPlayerWinTheGame() throws {
@@ -429,7 +429,7 @@ class BlackjackTest: XCTestCase {
 		blackjackGame.players = [stubPlayer]
 		blackjackGame.players[0].stay()
 		
-		XCTAssertEqual(blackjackGame.players[0].gameResult(winning: .win).profit, 20000)
+		XCTAssertEqual(blackjackGame.players[0].gameResult(by: .win).profit, 20000)
 	}
 //
 	func test_shouldBeLostBetAmountWhenPlayerLosesTheGame() throws {
@@ -452,7 +452,7 @@ class BlackjackTest: XCTestCase {
 		blackjackGame.players = [stubPlayer]
 		blackjackGame.players[0].stay()
 		
-		XCTAssertEqual(blackjackGame.players[0].gameResult(winning: .lose).profit, -10000)
+		XCTAssertEqual(blackjackGame.players[0].gameResult(by: .lose).profit, -10000)
 	}
 	
 	func test_shouldBeSameBetAmountWhenPlayerPushesTheGame() throws {
@@ -475,7 +475,7 @@ class BlackjackTest: XCTestCase {
 		blackjackGame.players = [stubPlayer]
 		blackjackGame.players[0].stay()
 		
-		XCTAssertEqual(blackjackGame.players[0].gameResult(winning: .push).profit, 10000)
+		XCTAssertEqual(blackjackGame.players[0].gameResult(by: .push).profit, 10000)
 	}
 
 	func test_shouldBeSameBetAmountWhenBothTheDealerAndThePlayerAreBlackjack() throws {
@@ -498,7 +498,7 @@ class BlackjackTest: XCTestCase {
 		blackjackGame.players = [stubPlayer]
 		blackjackGame.players[0].stay()
 		
-		XCTAssertEqual(blackjackGame.players[0].gameResult(winning: .push).profit, 10000)
+		XCTAssertEqual(blackjackGame.players[0].gameResult(by: .push).profit, 10000)
 	}
 	
 	func test_shouldWinForAllPlayersExcludeBustWhenTheDealerIsBust() throws {
@@ -526,8 +526,8 @@ class BlackjackTest: XCTestCase {
 		blackjackGame.players[0].stay()
 		blackjackGame.players[1].stay()
 		
-		XCTAssertEqual(blackjackGame.players[0].gameResult(winning: .win).profit, 20000)
-		XCTAssertEqual(blackjackGame.players[1].gameResult(winning: .lose).profit, -10000)
+		XCTAssertEqual(blackjackGame.players[0].gameResult(by: .win).profit, 20000)
+		XCTAssertEqual(blackjackGame.players[1].gameResult(by: .lose).profit, -10000)
 	}
 	
 	func test_shouldHaveAmount0WhenTheDealerWins1PlayerAndLoses1Player() throws {
@@ -555,9 +555,9 @@ class BlackjackTest: XCTestCase {
 		blackjackGame.players[0].stay()
 		blackjackGame.players[1].stay()
 		
-		XCTAssertEqual(blackjackGame.players[0].gameResult(winning: .win).profit, 20000)
-		XCTAssertEqual(blackjackGame.players[1].gameResult(winning: .lose).profit, -10000)
-		XCTAssertEqual(blackjackGame.dealer.gameResult(winning: .lose).profit, 0)
+		XCTAssertEqual(blackjackGame.players[0].gameResult(by: .win).profit, 20000)
+		XCTAssertEqual(blackjackGame.players[1].gameResult(by: .lose).profit, -10000)
+		XCTAssertEqual(blackjackGame.dealer.gameResult(by: .lose).profit, 0)
 	}
 
 	private func testExpectInputError(expect expectedError: BlackjackError, playerName: String?, betAmounts: [String?]? = nil,  answerTheHit: String? ...)  throws {
