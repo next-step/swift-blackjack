@@ -8,7 +8,7 @@
 import Foundation
 
 enum Rank: Int, CustomStringConvertible, CaseIterable {
-    case two = 2, three, four, five, six, seven, eight, nine, ten
+    case two = 2, three, four, five, six, seven, eight, nine
     case A, J, Q, K
     
     var description: String {
