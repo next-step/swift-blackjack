@@ -23,8 +23,25 @@ struct Card {
         self.suit = suit
     }
     
-    var description: String {
+    func description() -> String {
         "\(suit.rawValue)\(rank.description)"
+    }
+    
+    func judgeScore() -> Judgeable {
+        guard rank == .A else {
+            return Judgment(judgeableScores: [Score.from(rank: rank)])
+        }
+        
+        return judgeAce()
+    }
+    
+    private func judgeAce() -> Judgeable {
+        var judgment: Judgment = Judgment(judgeableScores: [])
+        
+        judgment.append(Score.from(rank: rank, aceUsingOne: true))
+        judgment.append(Score.from(rank: rank, aceUsingOne: false))
+        
+        return judgment
     }
 }
 
