@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct Hand {
+protocol HandProtocol {
+    func score() -> Int
+}
+
+struct Hand: HandProtocol {
     private var cards: [Card]
     private let winningScore: WinningScore
     
