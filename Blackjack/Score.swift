@@ -18,6 +18,7 @@ enum Score {
         case .seven: return 7
         case .eight: return 8
         case .nine: return 9
+        case .ten: return 10
         case .A where aceUsingOne: return 1
         case .J: return 10
         case .Q: return 10
