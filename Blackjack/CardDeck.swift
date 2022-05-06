@@ -7,7 +7,14 @@
 
 import Foundation
 
-struct CardDeck: Equatable {
+protocol CardDeckProtocol {
+    func count() -> Int
+    func shuffle()
+    func handOutCard() -> Card
+    func makeHand() -> HandProtocol?
+}
+
+class CardDeck: Equatable, CardDeckProtocol {
     private var cards: [Card]
     
     init?(cards: [Card]) {
@@ -19,7 +26,7 @@ struct CardDeck: Equatable {
         cards.count
     }
     
-    mutating func shuffle() {
+    func shuffle() {
         var swappedIndexes: [Int] = []
         var shuffledCards = cards
         
@@ -41,7 +48,18 @@ struct CardDeck: Equatable {
         self.cards = shuffledCards
     }
     
-    mutating func handOut() -> Card {
+    func handOutCard() -> Card {
         cards.removeLast()
+    }
+    
+    func makeHand() -> HandProtocol? {
+        let cards: [Card] = [self.handOutCard(), self.handOutCard()]
+        return Hand(cards: cards)
+    }
+}
+
+extension CardDeck {
+    static func == (lhs: CardDeck, rhs: CardDeck) -> Bool {
+        lhs.cards == rhs.cards
     }
 }

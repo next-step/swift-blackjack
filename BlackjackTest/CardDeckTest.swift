@@ -24,16 +24,16 @@ class CardDeckTest: XCTestCase {
     }
     
     func testCardDeck_handOut() {
-        var cardDeck = CardDeck(cards: CardDeckGenerator.generate())
-        _ = cardDeck?.handOut()
+        let cardDeck = CardDeck(cards: CardDeckGenerator.generate())
+        _ = cardDeck?.handOutCard()
         XCTAssertEqual(cardDeck?.count(), 51)
-        _ = cardDeck?.handOut()
+        _ = cardDeck?.handOutCard()
         XCTAssertEqual(cardDeck?.count(), 50)
     }
     
     func testCardDeck_shuffle() {
         let cardDeckBeforeShuffle = CardDeck(cards: CardDeckGenerator.generate())
-        var cardDeckAfterShuffle = CardDeck(cards: CardDeckGenerator.generate())
+        let cardDeckAfterShuffle = CardDeck(cards: CardDeckGenerator.generate())
         
         XCTAssertEqual(cardDeckBeforeShuffle, cardDeckAfterShuffle)
         
