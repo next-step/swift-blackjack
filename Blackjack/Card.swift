@@ -9,10 +9,10 @@ import Foundation
 
 struct Card {
     enum Suit: Character, CaseIterable {
-        case hearts = "h"
-        case spades = "s"
-        case diamonds = "d"
-        case clubs = "c"
+        case hearts = "♥"
+        case spades = "♠"
+        case diamonds = "♦"
+        case clubs = "♣"
     }
     
     private let rank: Rank
@@ -24,7 +24,7 @@ struct Card {
     }
     
     func description() -> String {
-        "\(suit.rawValue)\(rank.description)"
+        "\(rank.description)\(suit.rawValue)"
     }
     
     func judgeScore() -> Judgeable {
