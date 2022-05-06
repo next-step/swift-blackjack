@@ -9,16 +9,29 @@ import Foundation
 
 protocol HandProtocol {
     func score() -> Int
+    func hit(card: Card)
+    func giveHandDescription() -> String
 }
 
-struct Hand: HandProtocol {
+class Hand: HandProtocol {
     private var cards: [Card]
     private let winningScore: WinningScore
     
-    init?(cards: [Card], winningScore: WinningScore) {
-        guard cards.count > 0 else { return nil }
+    init(cards: [Card] = [], winningScore: WinningScore = WinningScore()) {
         self.cards = cards
         self.winningScore = winningScore
+    }
+    
+    func giveHandDescription() -> String {
+        var description: String = ""
+        
+        cards.forEach { card in
+            description += "\(card.description()), "
+        }
+        
+        description.removeLast()
+        description.removeLast()
+        return description
     }
     
     func score() -> Int {
@@ -32,6 +45,10 @@ struct Hand: HandProtocol {
 
         return selectScore(firstSelectableScore: firstSelectableScore,
                            lastSelectableScore: lastSelectableScore)
+    }
+    
+    func hit(card: Card) {
+        cards.append(card)
     }
     
     func selectScore(firstSelectableScore: Int, lastSelectableScore: Int) -> Int {

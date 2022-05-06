@@ -17,11 +17,11 @@ class HandTest: XCTestCase {
         XCTAssertNotNil(hand)
     }
     
-    func testHand_make_fail() {
+    func testHand_make_empty_success() {
         let winningScore = WinningScore()
         let hand = Hand(cards: [], winningScore: winningScore)
         
-        XCTAssertNil(hand)
+        XCTAssertNotNil(hand)
     }
     
     func testHand_score() {
@@ -29,7 +29,7 @@ class HandTest: XCTestCase {
                      Card(rank: .seven, suit: .hearts)]
         let winningScore = WinningScore()
         let hand = Hand(cards: cards, winningScore: winningScore)
-        let score = hand?.score()
+        let score = hand.score()
         
         XCTAssertEqual(score, 18)
     }
@@ -40,7 +40,7 @@ class HandTest: XCTestCase {
                      Card(rank: .seven, suit: .spades)]
         let winningScore = WinningScore()
         let hand = Hand(cards: cards, winningScore: winningScore)
-        let score = hand?.score()
+        let score = hand.score()
         
         XCTAssertEqual(score, 15)
     }
@@ -51,9 +51,20 @@ class HandTest: XCTestCase {
                      Card(rank: .three, suit: .spades)]
         let winningScore = WinningScore()
         let hand = Hand(cards: cards, winningScore: winningScore)
-        let score = hand?.score()
+        let score = hand.score()
         
         XCTAssertEqual(score, 16)
+    }
+    
+    func testHand_select_score_same() {
+        let cards = [Card(rank: .eight, suit: .clubs),
+                     Card(rank: .six, suit: .hearts),
+                     Card(rank: .seven, suit: .spades)]
+        let winningScore = WinningScore()
+        let hand = Hand(cards: cards, winningScore: winningScore)
+        let selectScore = hand.selectScore(firstSelectableScore: 21, lastSelectableScore: 21)
+        
+        XCTAssertEqual(selectScore, 21)
     }
     
     func testHand_select_score_close_to_21() {
@@ -62,7 +73,7 @@ class HandTest: XCTestCase {
                      Card(rank: .three, suit: .spades)]
         let winningScore = WinningScore()
         let hand = Hand(cards: cards, winningScore: winningScore)
-        let selectScore = hand?.selectScore(firstSelectableScore: 18, lastSelectableScore: 21)
+        let selectScore = hand.selectScore(firstSelectableScore: 18, lastSelectableScore: 21)
         
         XCTAssertEqual(selectScore, 21)
     }
@@ -73,7 +84,7 @@ class HandTest: XCTestCase {
                      Card(rank: .three, suit: .spades)]
         let winningScore = WinningScore()
         let hand = Hand(cards: cards, winningScore: winningScore)
-        let selectScore = hand?.selectScore(firstSelectableScore: 22, lastSelectableScore: 18)
+        let selectScore = hand.selectScore(firstSelectableScore: 22, lastSelectableScore: 18)
         
         XCTAssertEqual(selectScore, 18)
     }
@@ -84,8 +95,33 @@ class HandTest: XCTestCase {
                      Card(rank: .three, suit: .spades)]
         let winningScore = WinningScore()
         let hand = Hand(cards: cards, winningScore: winningScore)
-        let selectScore = hand?.selectScore(firstSelectableScore: 18, lastSelectableScore: 24)
+        let selectScore = hand.selectScore(firstSelectableScore: 18, lastSelectableScore: 24)
         
         XCTAssertEqual(selectScore, 18)
+    }
+    
+    func testHand_description() {
+        let cards = [Card(rank: .A, suit: .clubs),
+                    Card(rank: .two, suit: .hearts)]
+        let winningScore = WinningScore()
+        let hand = Hand(cards: cards, winningScore: winningScore)
+        let description = hand.giveHandDescription()
+        
+        XCTAssertEqual(description, "A♣, 2♥")
+    }
+    
+    func testHand_hit() {
+        let cards = [Card(rank: .A, suit: .clubs),
+                    Card(rank: .two, suit: .hearts)]
+        let winningScore = WinningScore()
+        let hand = Hand(cards: cards, winningScore: winningScore)
+        
+        XCTAssertEqual(hand.giveHandDescription(), "A♣, 2♥")
+        XCTAssertEqual(hand.score(), 13)
+        
+        hand.hit(card: Card(rank: .three, suit: .spades))
+        
+        XCTAssertEqual(hand.giveHandDescription(), "A♣, 2♥, 3♠")
+        XCTAssertEqual(hand.score(), 16)
     }
 }
