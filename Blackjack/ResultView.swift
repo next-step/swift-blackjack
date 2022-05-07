@@ -16,9 +16,7 @@ struct ResultView {
         print("\(player.giveName())의 카드: \(player.giveHandDescription())")
     }
     
-    static func printGameResult(game: BlackjackGameable) {
-        game.forEachPlayers { participant in
-            print("\(participant.giveName())의 카드: \(participant.giveHandDescription()) - 결과: \(participant.score())")
-        }
+    static func printGameResult(player: Playable) {
+        print("\(player.giveName())의 카드: \(player.giveHandDescription()) - 결과: \(player.score())")
     }
 }
