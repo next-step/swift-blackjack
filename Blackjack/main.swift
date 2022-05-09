@@ -21,18 +21,17 @@ func main() {
         ResultView.printPlayer(player: participant)
     }
     
-    while game.isPlayingGame() {
-        guard let turnToPlayer = game.turnToPlayer() else { return }
-        let hitOrStay = InputView.readAskHitToParticipants(to: turnToPlayer)
-        turnToPlayer.hitOrStay(hitOrStay)
-
-        game.turnForPlayer { turnToPlayer in
-            ResultView.printPlayer(player: turnToPlayer)
-        }
+    controller.noticeTurnOfGame { participant in
+        ResultView.printPlayer(player: participant)
     }
     
-    controller.noticeResultOfGame { participant in
-        ResultView.printGameResult(player: participant)
+    controller.noticeResultOfGame { player in
+        ResultView.printGameResult(player: player)
+    }
+    
+    ResultView.printWinOrLoseTitle()
+    controller.noticeWinnerOfGame { player in
+        ResultView.printWinOrLose(player: player)
     }
 }
 
