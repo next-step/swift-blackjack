@@ -11,6 +11,7 @@ protocol HandProtocol {
     func score() -> Int
     func hit(card: Card)
     func giveHandDescription() -> String
+    func giveWinningScore() -> Int
 }
 
 class Hand: HandProtocol {
@@ -32,6 +33,10 @@ class Hand: HandProtocol {
         description.removeLast()
         description.removeLast()
         return description
+    }
+    
+    func giveWinningScore() -> Int {
+        winningScore.number
     }
     
     func score() -> Int {
