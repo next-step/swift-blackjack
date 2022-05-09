@@ -10,12 +10,12 @@ import Foundation
 class Participant: Playable {
     private let name: String
     private var hand: HandProtocol
-    private var isHit: Bool
+    private var state: Statable
     
-    init(hand: HandProtocol = Hand(), name: String, isHit: Bool = true) {
+    init(hand: HandProtocol = Hand(), name: String, state: Statable = State()) {
         self.hand = hand
         self.name = name
-        self.isHit = isHit
+        self.state = state
     }
     
     func giveName() -> String {
@@ -27,11 +27,11 @@ class Participant: Playable {
     }
     
     func hitOrStay(_ isHit: Bool) {
-        self.isHit = isHit
+        state.hitOrStay(isHit)
     }
     
     func giveIsHit() -> Bool {
-        isHit
+        state.giveIsHit()
     }
     
     func hit(card: Card) {
@@ -44,5 +44,14 @@ class Participant: Playable {
     
     func score() -> Int {
         hand.score()
+    }
+    
+    func record(_ winLose: WinLose) {
+        state.record(winLose)
+    }
+    
+    func giveWinLoseRecord() -> String {
+        guard let winLose = state.giveWinLoseRecord().last else { return "" }
+        return winLose == .win ? "승" : "패"
     }
 }

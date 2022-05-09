@@ -75,15 +75,17 @@ class ParticipantTest: XCTestCase {
         XCTAssertEqual(participant.giveHandDescription(), "A♣, 2♥, 7♠")
     }
     
-    func testParticipant_hit_fail() {
-        //hand_score가 21이 넘을 때
+    func testParticipant_record_win() {
+        let participant = Participant(name: "만사")
+        participant.record(.win)
+        
+        XCTAssertEqual(participant.giveWinLoseRecord(), "승")
     }
     
-    func testParticipant_stay_success() {
-        //추가 카드를 원하지 않을 경우, 딜러는 카드의 합이 17이상이면 추가 카드 받을 수 없음
-    }
-    
-    func testParticipant_stay_fail() {
-        //추가 카드를 원하지 않을 경우, 딜러는 카드의 합이 17이상이면 추가 카드 받을 수 없음
+    func testParticipant_record_lose() {
+        let participant = Participant(name: "만사")
+        participant.record(.lose)
+        
+        XCTAssertEqual(participant.giveWinLoseRecord(), "패")
     }
 }
