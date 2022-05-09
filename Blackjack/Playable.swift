@@ -13,4 +13,6 @@ protocol Playable {
     func giveIsHit() -> Bool
     func hit(card: Card)
     func score() -> Int
+    func record(_ winLose: WinLose)
+    func giveWinLoseRecord() -> String
 }
