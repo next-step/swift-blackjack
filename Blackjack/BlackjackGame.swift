@@ -12,6 +12,8 @@ protocol BlackjackGameable {
     func turnForPlayer(behavior: (Playable) -> ())
     func isPlayingGame() -> Bool
     func turnToPlayer() -> Playable?
+    func winOrLoseForPlayer(behavior: (Playable) -> ())
+    func dealer() -> Playable?
 }
 
 struct BlackjackGame: BlackjackGameable {
@@ -27,9 +29,7 @@ struct BlackjackGame: BlackjackGameable {
     }
     
     func forEachPlayers(behavior: (Playable) -> ()) {
-        players.forEachPlayers { participant in
-            behavior(participant)
-        }
+        players.forEachPlayers(behavior: behavior)
     }
     
     func turnForPlayer(behavior: (Playable) -> ()) {
@@ -40,6 +40,10 @@ struct BlackjackGame: BlackjackGameable {
         players.turnToPlayer()
     }
     
+    func dealer() -> Playable? {
+        players.turnTodealer()
+    }
+    
     func isPlayingGame() -> Bool {
         var isPlayingGame: Bool = false
         
@@ -48,5 +52,9 @@ struct BlackjackGame: BlackjackGameable {
         }
         
         return isPlayingGame
+    }
+    
+    func winOrLoseForPlayer(behavior: (Playable) -> ()) {
+        players.winOrLoseForPlayer(behavior: behavior)
     }
 }
