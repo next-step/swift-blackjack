@@ -24,11 +24,11 @@ struct ResultView {
         print("딜러는 16이하라 한장의 카드를 더 받았습니다.")
     }
     
-    static func printWinOrLoseTitle() {
-        print("## 최종 승패")
+    static func printProfitTitle() {
+        print("## 최종 수익")
     }
     
     static func printWinOrLose(player: Playable) {
-        print("\(player.giveName()): \(player.giveWinLoseRecord())")
+        print("\(player.giveName()): \(player.profit())")
     }
 }
