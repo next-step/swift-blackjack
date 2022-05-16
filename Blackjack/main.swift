@@ -9,9 +9,16 @@ import Foundation
 func main() {
     let rawParticipansts = InputView.readParticipants()
     let nameOfParticipants = StringUtiltity.splitParticipantsName(to: rawParticipansts)
+    var profileOfParticipant: [ProfileOfParticipant] = []
+    
+    nameOfParticipants.forEach { name in
+        let bettingAmount = InputView.readBettingAmount(to: name)
+        profileOfParticipant.append((name, bettingAmount))
+    }
+    
     guard let cardDeck = CardDeck(cards: CardDeckGenerator.generate()) else { return }
     cardDeck.shuffle()
-    guard let players = Players(with: nameOfParticipants, cardDeck: cardDeck) else { return }
+    guard let players = Players(with: profileOfParticipant, cardDeck: cardDeck) else { return }
     
     let game = BlackjackGame(players: players)
     let controller = BlackjackGameContrller(with: game)
@@ -29,12 +36,10 @@ func main() {
         ResultView.printGameResult(player: player)
     }
     
-    ResultView.printWinOrLoseTitle()
+    ResultView.printProfitTitle()
     controller.noticeWinnerOfGame { player in
         ResultView.printWinOrLose(player: player)
     }
 }
 
 main()
-
-
