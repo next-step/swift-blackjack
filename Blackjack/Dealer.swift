@@ -11,11 +11,13 @@ class Dealer: Playable {
     private let name: String
     private var hand: HandProtocol
     private var state: Statable
+    private var profitAmount: Int
     
-    init(hand: HandProtocol = Hand(), state: Statable = State()) {
+    init(hand: HandProtocol = Hand(), state: Statable = State(bettingAmount: 0)) {
         self.hand = hand
         self.name = "딜러"
         self.state = state
+        self.profitAmount = 0
     }
     
     func giveName() -> String {
@@ -50,6 +52,16 @@ class Dealer: Playable {
         state.record(winLose)
     }
     
+    func record(_ winLose: WinLose, amount: Int?) {
+        state.record(winLose)
+        guard let amount = amount else { return }
+        if winLose == .win {
+            profitAmount += amount
+        } else {
+            profitAmount -= amount
+        }
+    }
+    
     func giveWinLoseRecord() -> String {
         var isWinCount: Int = 0
         var isLoseCount: Int = 0
@@ -60,5 +72,13 @@ class Dealer: Playable {
         
         let winLoseMessage = "\(isWinCount)승 \(isLoseCount)패"
         return winLoseMessage
+    }
+    
+    func profit() -> Int {
+        profitAmount
+    }
+    
+    func betting() -> Int {
+        0
     }
 }

@@ -12,10 +12,10 @@ class Participant: Playable {
     private var hand: HandProtocol
     private var state: Statable
     
-    init(hand: HandProtocol = Hand(), name: String, state: Statable = State()) {
+    init(hand: HandProtocol = Hand(), name: String, bettingAmount: Int) {
         self.hand = hand
         self.name = name
-        self.state = state
+        self.state = State(bettingAmount: bettingAmount)
     }
     
     func giveName() -> String {
@@ -40,18 +40,45 @@ class Participant: Playable {
     
     func takeAFirstHand(_ hand: HandProtocol) {
         self.hand = hand
+        
+        if score() == hand.giveWinningScore() {
+            state.firstHandBlackjack()
+        }
     }
     
     func score() -> Int {
         hand.score()
     }
     
-    func record(_ winLose: WinLose) {
+    func record(_ winLose: WinLose, amount: Int?) {
         state.record(winLose)
     }
     
     func giveWinLoseRecord() -> String {
         guard let winLose = state.giveWinLoseRecord().last else { return "" }
         return winLose == .win ? "승" : "패"
+    }
+    
+    func betting() -> Int {
+        state.bettingAmount()
+    }
+    
+    func profit() -> Int {
+        state.profit(isWin: isWin(),
+                     isFirstHandBlackjack: isFirstHandBlackjack(),
+                     isExceedWinningScore: isExceedWinningScore())
+    }
+    
+    private func isWin() -> Bool {
+        guard let winLose = state.giveWinLoseRecord().last else { return false }
+        return winLose == .win ? true : false
+    }
+    
+    private func isExceedWinningScore() -> Bool {
+        hand.isExceedWinningScore()
+    }
+    
+    private func isFirstHandBlackjack() -> Bool {
+        state.giveIsFirstHandBlackjack()
     }
 }
