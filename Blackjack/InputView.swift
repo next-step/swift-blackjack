@@ -22,4 +22,8 @@ struct InputView {
         let yesOrNo = read(with: "\(participant.giveName())는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)")
         return yesOrNo == "y" ? true : false
     }
+    
+    static func readBettingAmount(to name: String) -> Int {
+        return Int(read(with: "\(name)의 배팅 금액은?")) ?? 0
+    }
 }
