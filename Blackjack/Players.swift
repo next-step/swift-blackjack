@@ -48,10 +48,7 @@ class Players: PlayersProtocol {
         players.forEach { player in
             var currentTurnToPlayer: Playable? = nil
 
-            if turnToHit?.giveIsHit() == true && turnToHit?.giveName() == player.giveName() {
-                turnToHit?.hit(card: cardDeck.handOutCard())
-                return behavior(player)
-            }
+            hitPlayer(player: player, behavior: behavior)
 
             guard turnToHit?.giveIsHit() == true else {
                 turnToHit = player
@@ -61,6 +58,13 @@ class Players: PlayersProtocol {
             guard let turnPlayer = currentTurnToPlayer else { return }
             currentTurnToPlayer = player
             behavior(turnPlayer)
+        }
+    }
+    
+    private func hitPlayer(player: Playable, behavior: (Playable) -> ()) {
+        if turnToHit?.giveIsHit() == true && turnToHit?.giveName() == player.giveName() {
+            turnToHit?.hit(card: cardDeck.handOutCard())
+            return behavior(player)
         }
     }
 }
