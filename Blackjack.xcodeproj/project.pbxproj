@@ -51,6 +51,7 @@
 		2D04DA8C2827CA88005B85C4 /* StateTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8B2827CA88005B85C4 /* StateTest.swift */; };
 		2D04DA8D2827D679005B85C4 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8528274647005B85C4 /* Dealer.swift */; };
 		2D04DA8E2827D67B005B85C4 /* State.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA892827C9F4005B85C4 /* State.swift */; };
+		2DFB3DB62829F74E00150B1C /* Betting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFB3DB52829F74E00150B1C /* Betting.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		2D04DA872827C5DA005B85C4 /* DealerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerTest.swift; sourceTree = "<group>"; };
 		2D04DA892827C9F4005B85C4 /* State.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = State.swift; sourceTree = "<group>"; };
 		2D04DA8B2827CA88005B85C4 /* StateTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateTest.swift; sourceTree = "<group>"; };
+		2DFB3DB52829F74E00150B1C /* Betting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Betting.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +173,7 @@
 				2D04DA8028253BC1005B85C4 /* StringUtiltity.swift */,
 				2D04DA8528274647005B85C4 /* Dealer.swift */,
 				2D04DA892827C9F4005B85C4 /* State.swift */,
+				2DFB3DB52829F74E00150B1C /* Betting.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -308,6 +311,7 @@
 				2D04DA4F28228D6B005B85C4 /* CardDeckGenerator.swift in Sources */,
 				2D04DA432821E862005B85C4 /* CardDeck.swift in Sources */,
 				2D04DA8A2827C9F4005B85C4 /* State.swift in Sources */,
+				2DFB3DB62829F74E00150B1C /* Betting.swift in Sources */,
 				2D04DA8128253BC1005B85C4 /* StringUtiltity.swift in Sources */,
 				2D04DA3F2821E66D005B85C4 /* Card.swift in Sources */,
 				2D04DA7B2825302A005B85C4 /* BlackjackGameController.swift in Sources */,
