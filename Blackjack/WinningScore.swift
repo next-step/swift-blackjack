@@ -8,5 +8,5 @@
 import Foundation
 
 struct WinningScore {
-    let number: Int = 21
+    static let number: Int = 21
 }

@@ -15,11 +15,9 @@ protocol HandProtocol {
 
 class Hand: HandProtocol {
     private var cards: [Card]
-    private let winningScore: WinningScore
     
-    init(cards: [Card] = [], winningScore: WinningScore = WinningScore()) {
+    init(cards: [Card] = []) {
         self.cards = cards
-        self.winningScore = winningScore
     }
     
     func giveHandDescription() -> String {
@@ -53,15 +51,15 @@ class Hand: HandProtocol {
     
     func selectScore(firstSelectableScore: Int, lastSelectableScore: Int) -> Int {
         guard firstSelectableScore != lastSelectableScore else { return firstSelectableScore }
-        guard firstSelectableScore < winningScore.number && lastSelectableScore > winningScore.number else {
+        guard firstSelectableScore < WinningScore.number && lastSelectableScore > WinningScore.number else {
             return lastSelectableScore
         }
-        guard lastSelectableScore < winningScore.number && firstSelectableScore > winningScore.number else {
+        guard lastSelectableScore < WinningScore.number && firstSelectableScore > WinningScore.number else {
             return firstSelectableScore
         }
         
-        let compareNuber: Int = winningScore.number - firstSelectableScore
-        return (winningScore.number - lastSelectableScore) > compareNuber ? firstSelectableScore : lastSelectableScore
+        let compareNuber: Int = WinningScore.number - firstSelectableScore
+        return (WinningScore.number - lastSelectableScore) > compareNuber ? firstSelectableScore : lastSelectableScore
     }
 }
 
