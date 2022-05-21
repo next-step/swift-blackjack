@@ -9,10 +9,6 @@ import Foundation
 
 struct CardCalculator {
     
-    private enum Constants {
-        static let threshold: Int = 21
-    }
-    
     func calcuate(of cards: [Card]) -> Int {
         let totalPoint: Int = totalPoint(of: cards)
         let result: Int = totalPoint + additionalPoint(in: cards)
@@ -39,7 +35,7 @@ struct CardCalculator {
         
         let totalPoint: Int = totalPoint(of: cards)
         let addablePointForAce: Int = Denomination.ace.addablePoint
-        let isAddedPointUnderThreshold: Bool = totalPoint + addablePointForAce <= Constants.threshold
+        let isAddedPointUnderThreshold: Bool = totalPoint + addablePointForAce <= ThresholdChecker.Constants.threshold
         let additionalPoint: Int = isAddedPointUnderThreshold ? addablePointForAce : 0
         return additionalPoint
     }
