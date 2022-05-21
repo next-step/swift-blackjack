@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3BB8BC052839492400036CB7 /* BlackjackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC042839492400036CB7 /* BlackjackTests.swift */; };
+		3BB8BC052839492400036CB7 /* CardCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */; };
+		3BB8BC0A28394FAC00036CB7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC0928394FAC00036CB7 /* Card.swift */; };
+		3BB8BC0D28394FCF00036CB7 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC0C28394FCF00036CB7 /* Suit.swift */; };
+		3BB8BC0E28394FD900036CB7 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC0C28394FCF00036CB7 /* Suit.swift */; };
+		3BB8BC0F28394FDC00036CB7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC0928394FAC00036CB7 /* Card.swift */; };
+		3BB8BC1128394FE500036CB7 /* Denomination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC1028394FE500036CB7 /* Denomination.swift */; };
+		3BB8BC152839500D00036CB7 /* CardCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC142839500D00036CB7 /* CardCalculator.swift */; };
+		3BB8BC162839502500036CB7 /* Denomination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC1028394FE500036CB7 /* Denomination.swift */; };
+		3BB8BC172839502900036CB7 /* CardCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC142839500D00036CB7 /* CardCalculator.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +33,11 @@
 
 /* Begin PBXFileReference section */
 		3BB8BC022839492400036CB7 /* BlackjackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		3BB8BC042839492400036CB7 /* BlackjackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTests.swift; sourceTree = "<group>"; };
+		3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCalculatorTests.swift; sourceTree = "<group>"; };
+		3BB8BC0928394FAC00036CB7 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		3BB8BC0C28394FCF00036CB7 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		3BB8BC1028394FE500036CB7 /* Denomination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Denomination.swift; sourceTree = "<group>"; };
+		3BB8BC142839500D00036CB7 /* CardCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCalculator.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -51,9 +63,20 @@
 		3BB8BC032839492400036CB7 /* BlackjackTests */ = {
 			isa = PBXGroup;
 			children = (
-				3BB8BC042839492400036CB7 /* BlackjackTests.swift */,
+				3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */,
 			);
 			path = BlackjackTests;
+			sourceTree = "<group>";
+		};
+		3BB8BC0B28394FB700036CB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8BC1028394FE500036CB7 /* Denomination.swift */,
+				3BB8BC0C28394FCF00036CB7 /* Suit.swift */,
+				3BB8BC0928394FAC00036CB7 /* Card.swift */,
+				3BB8BC142839500D00036CB7 /* CardCalculator.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C7F86E0D273AAF7900FAA669 = {
@@ -77,6 +100,7 @@
 		C7F86E18273AAF7900FAA669 /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
+				3BB8BC0B28394FB700036CB7 /* Model */,
 				C7F86E19273AAF7900FAA669 /* main.swift */,
 			);
 			path = Blackjack;
@@ -171,7 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BB8BC052839492400036CB7 /* BlackjackTests.swift in Sources */,
+				3BB8BC0E28394FD900036CB7 /* Suit.swift in Sources */,
+				3BB8BC0F28394FDC00036CB7 /* Card.swift in Sources */,
+				3BB8BC162839502500036CB7 /* Denomination.swift in Sources */,
+				3BB8BC052839492400036CB7 /* CardCalculatorTests.swift in Sources */,
+				3BB8BC172839502900036CB7 /* CardCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +208,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				3BB8BC0D28394FCF00036CB7 /* Suit.swift in Sources */,
+				3BB8BC1128394FE500036CB7 /* Denomination.swift in Sources */,
+				3BB8BC0A28394FAC00036CB7 /* Card.swift in Sources */,
+				3BB8BC152839500D00036CB7 /* CardCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
