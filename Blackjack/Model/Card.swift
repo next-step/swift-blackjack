@@ -10,5 +10,9 @@ import Foundation
 struct Card {
     let suit: Suit
     let denomination: Denomination
+    
+    var point: Int {
+        denomination.point
+    }
 }
 
