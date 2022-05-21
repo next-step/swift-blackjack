@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Denomination {
+enum Denomination: CaseIterable {
     case ace
     case two
     case three
