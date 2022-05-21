@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Card {
+struct Card: Equatable {
     let suit: Suit
     let denomination: Denomination
     

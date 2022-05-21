@@ -21,6 +21,8 @@
 		3BB8BC1C28395F7F00036CB7 /* ThresholdChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC1A28395F3700036CB7 /* ThresholdChecker.swift */; };
 		3BB8BC21283962E900036CB7 /* DenominationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC20283962E900036CB7 /* DenominationTests.swift */; };
 		3BB8BC232839650C00036CB7 /* Gamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC222839650C00036CB7 /* Gamer.swift */; };
+		3BB8BC252839686B00036CB7 /* GamerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC242839686B00036CB7 /* GamerTests.swift */; };
+		3BB8BC262839688F00036CB7 /* Gamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC222839650C00036CB7 /* Gamer.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,7 @@
 		3BB8BC1A28395F3700036CB7 /* ThresholdChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdChecker.swift; sourceTree = "<group>"; };
 		3BB8BC20283962E900036CB7 /* DenominationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenominationTests.swift; sourceTree = "<group>"; };
 		3BB8BC222839650C00036CB7 /* Gamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gamer.swift; sourceTree = "<group>"; };
+		3BB8BC242839686B00036CB7 /* GamerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerTests.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +78,7 @@
 				3BB8BC20283962E900036CB7 /* DenominationTests.swift */,
 				3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */,
 				3BB8BC1828395F3000036CB7 /* ThresholdCheckerTests.swift */,
+				3BB8BC242839686B00036CB7 /* GamerTests.swift */,
 			);
 			path = BlackjackTests;
 			sourceTree = "<group>";
@@ -210,6 +214,8 @@
 			files = (
 				3BB8BC0E28394FD900036CB7 /* Suit.swift in Sources */,
 				3BB8BC0F28394FDC00036CB7 /* Card.swift in Sources */,
+				3BB8BC262839688F00036CB7 /* Gamer.swift in Sources */,
+				3BB8BC252839686B00036CB7 /* GamerTests.swift in Sources */,
 				3BB8BC21283962E900036CB7 /* DenominationTests.swift in Sources */,
 				3BB8BC162839502500036CB7 /* Denomination.swift in Sources */,
 				3BB8BC052839492400036CB7 /* CardCalculatorTests.swift in Sources */,
