@@ -13,7 +13,10 @@ struct ThresholdChecker {
         static let threshold: Int = 21
     }
     
+    private let cardCalculator = CardCalculator()
+    
     func isTotalPointUnderThreshold(of cards: [Card]) -> Bool {
-        return false
+        let isTotalPointUnderThreshold: Bool = cardCalculator.calcuate(of: cards) <= Constants.threshold
+        return isTotalPointUnderThreshold
     }
 }
