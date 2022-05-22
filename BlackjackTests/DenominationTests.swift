@@ -9,6 +9,8 @@ import XCTest
 
 class DenominationTests: XCTestCase {
 
+    // MARK: - point
+    
     func test_point_ace_1() throws {
         // given
         let input = Denomination.ace
@@ -155,7 +157,7 @@ class DenominationTests: XCTestCase {
     
     func test_point_jack_10() throws {
         // given
-        let input = Denomination.king
+        let input = Denomination.jack
         
         // when
         let result = input.point
@@ -164,6 +166,8 @@ class DenominationTests: XCTestCase {
         let expectation = 10
         XCTAssertEqual(result, expectation)
     }
+    
+    // MARK: - addablePoint
     
     func test_addablePoint_ace_10() throws {
         // given
@@ -177,7 +181,7 @@ class DenominationTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
-    func test_addablePoints_exceptAce_allSatisfy_0() throws {
+    func test_addablePoints_ace_를_제외하면_모두_0() throws {
         // given
         let denominations = Denomination.allCases.filter { denomination in
             denomination != .ace
@@ -195,5 +199,71 @@ class DenominationTests: XCTestCase {
         }
         
         XCTAssertTrue(result)
+    }
+    
+    // MARK: - guideDescription
+    
+    func test_guideDescription_ace_A() throws {
+        // given
+        let input = Denomination.ace
+        
+        // when
+        let result = input.guideDescription
+        
+        // then
+        let expectation = "A"
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func test_guideDescription_king_K() throws {
+        // given
+        let input = Denomination.king
+        
+        // when
+        let result = input.guideDescription
+        
+        // then
+        let expectation = "K"
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func test_guideDescription_queen_Q() throws {
+        // given
+        let input = Denomination.queen
+        
+        // when
+        let result = input.guideDescription
+        
+        // then
+        let expectation = "Q"
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func test_guideDescription_jack_J() throws {
+        // given
+        let input = Denomination.jack
+        
+        // when
+        let result = input.guideDescription
+        
+        // then
+        let expectation = "J"
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func test_guideDescription_ace_king_queen_jack을_제외하면_point를_String으로_표현한것과_같다() throws {
+        // given
+        let notNumberDenominations: [Denomination] = [.ace, .king, .queen, .jack]
+        let numberDenominations = Denomination.allCases.filter { denomination in
+            !notNumberDenominations.contains(denomination)
+        }
+        
+        // when
+        // then
+        numberDenominations.forEach { numberDenomination in
+            let result = numberDenomination.guideDescription
+            let expectation = numberDenomination.point.description
+            XCTAssertEqual(result, expectation)
+        }
     }
 }

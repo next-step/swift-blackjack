@@ -36,6 +36,7 @@
 		3BB8BC3B283A4DE400036CB7 /* UserGuider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */; };
 		3BB8BC3D283A4E4300036CB7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3C283A4E4300036CB7 /* ErrorView.swift */; };
 		3BB8BC3F283A4E5E00036CB7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3E283A4E5E00036CB7 /* ResultView.swift */; };
+		3BB8BC41283A519800036CB7 /* UserGuider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,11 +100,11 @@
 			isa = PBXGroup;
 			children = (
 				3BB8BC20283962E900036CB7 /* DenominationTests.swift */,
-				3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */,
-				3BB8BC1828395F3000036CB7 /* ThresholdCheckerTests.swift */,
-				3BB8BC242839686B00036CB7 /* GamerTests.swift */,
 				3BB8BC38283A4C6200036CB7 /* DeckTests.swift */,
 				3BB8BC34283A46B100036CB7 /* DealerTests.swift */,
+				3BB8BC242839686B00036CB7 /* GamerTests.swift */,
+				3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */,
+				3BB8BC1828395F3000036CB7 /* ThresholdCheckerTests.swift */,
 				3BB8BC2D283A252700036CB7 /* UserInputConverterTests.swift */,
 			);
 			path = BlackjackTests;
@@ -256,6 +257,7 @@
 				3BB8BC0E28394FD900036CB7 /* Suit.swift in Sources */,
 				3BB8BC0F28394FDC00036CB7 /* Card.swift in Sources */,
 				3BB8BC36283A4A0900036CB7 /* Dealer.swift in Sources */,
+				3BB8BC41283A519800036CB7 /* UserGuider.swift in Sources */,
 				3BB8BC262839688F00036CB7 /* Gamer.swift in Sources */,
 				3BB8BC39283A4C6200036CB7 /* DeckTests.swift in Sources */,
 				3BB8BC252839686B00036CB7 /* GamerTests.swift in Sources */,
