@@ -31,6 +31,7 @@
 		3BB8BC35283A46B100036CB7 /* DealerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC34283A46B100036CB7 /* DealerTests.swift */; };
 		3BB8BC36283A4A0900036CB7 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC32283A32DC00036CB7 /* Dealer.swift */; };
 		3BB8BC37283A4A3600036CB7 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC30283A32C300036CB7 /* Deck.swift */; };
+		3BB8BC39283A4C6200036CB7 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC38283A4C6200036CB7 /* DeckTests.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -63,6 +64,7 @@
 		3BB8BC30283A32C300036CB7 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		3BB8BC32283A32DC00036CB7 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		3BB8BC34283A46B100036CB7 /* DealerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerTests.swift; sourceTree = "<group>"; };
+		3BB8BC38283A4C6200036CB7 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */,
 				3BB8BC1828395F3000036CB7 /* ThresholdCheckerTests.swift */,
 				3BB8BC242839686B00036CB7 /* GamerTests.swift */,
+				3BB8BC38283A4C6200036CB7 /* DeckTests.swift */,
 				3BB8BC34283A46B100036CB7 /* DealerTests.swift */,
 				3BB8BC2D283A252700036CB7 /* UserInputConverterTests.swift */,
 			);
@@ -234,6 +237,7 @@
 				3BB8BC0F28394FDC00036CB7 /* Card.swift in Sources */,
 				3BB8BC36283A4A0900036CB7 /* Dealer.swift in Sources */,
 				3BB8BC262839688F00036CB7 /* Gamer.swift in Sources */,
+				3BB8BC39283A4C6200036CB7 /* DeckTests.swift in Sources */,
 				3BB8BC252839686B00036CB7 /* GamerTests.swift in Sources */,
 				3BB8BC21283962E900036CB7 /* DenominationTests.swift in Sources */,
 				3BB8BC2E283A252700036CB7 /* UserInputConverterTests.swift in Sources */,
