@@ -40,11 +40,19 @@ struct ResultView {
         userGuider.printGuide(for: ResultText.distributeCards(gamers: gamers))
     }
    
+    func printCards(of gamers: [Gamer]) {
+        gamers.forEach(printCards)
+    }
+    
     func printCards(of gamer: Gamer) {
         userGuider.printGuide(for: ResultText.cards(gamer: gamer))
     }
     
-    func printScore(of gamer: Gamer) {
+    func printScore(of gamers: [Gamer]) {
+        gamers.forEach(printScore)
+    }
+    
+    private func printScore(of gamer: Gamer) {
         userGuider.printGuide(for: ResultText.score(gamer: gamer))
     }
 }
