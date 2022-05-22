@@ -44,10 +44,13 @@ struct UserInputConverter {
                   throw UserInputConverter.UserInputConverterError.invalidCardReceiveDecision
               }
         
+        let hitInput: String = "y"
+        let stayInput: String = "n"
+        
         switch input {
-        case "y":
+        case hitInput:
             return .hit
-        case "n":
+        case stayInput:
             return .stay
         default:
             throw UserInputConverter.UserInputConverterError.invalidCardReceiveDecision
