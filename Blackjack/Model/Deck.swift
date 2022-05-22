@@ -7,11 +7,23 @@
 
 import Foundation
 
-struct Deck {
-    var cards: [Card]
+class Deck {
     
-    init() {
-        cards = Denomination.allCases.reduce(into: []) { partialResult, denomination in
+    private(set) var cards: [Card]
+    
+    init(cards: [Card] = Deck.makeInitialCards()) {
+        self.cards = cards
+    }
+    
+    func removeFirst() -> Card? {
+        guard !cards.isEmpty else {
+            return nil
+        }
+        return cards.removeFirst()
+    }
+    
+    static func makeInitialCards() -> [Card] {
+        return Denomination.allCases.reduce(into: []) { partialResult, denomination in
             Suit.allCases.forEach { suit in
                 partialResult.append(Card(suit: suit, denomination: denomination))
             }

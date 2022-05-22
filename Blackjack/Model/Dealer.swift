@@ -9,12 +9,27 @@ import Foundation
 
 class Dealer {
     
-    private var deck = Deck()
-    
-    func drawCard() -> Card? {
-        guard !deck.cards.isEmpty else {
-            return nil
+    enum DealerError: LocalizedError {
+        case noCards
+        
+        var errorDescription: String? {
+            switch self {
+            case .noCards:
+                return "더 이상 뽑을 카드가 없습니다"
+            }
         }
-        return deck.cards.removeFirst()
+    }
+    
+    private var deck: Deck
+    
+    init(deck: Deck = Deck()) {
+        self.deck = deck
+    }
+    
+    func drawCard() throws -> Card {
+        guard let card = deck.removeFirst() else {
+            throw DealerError.noCards
+        }
+        return card
     }
 }
