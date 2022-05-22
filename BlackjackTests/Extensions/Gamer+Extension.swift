@@ -7,4 +7,8 @@
 
 import Foundation
 
-extension Gamer: Equatable {}
+extension Gamer: Equatable {
+    static func == (lhs: Gamer, rhs: Gamer) -> Bool {
+        lhs.name == rhs.name
+    }
+}

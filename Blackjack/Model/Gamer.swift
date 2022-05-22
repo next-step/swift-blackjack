@@ -40,10 +40,6 @@ class Gamer {
         self.state = .hit
     }
     
-    static func == (lhs: Gamer, rhs: Gamer) -> Bool {
-        lhs.name == rhs.name
-    }
-    
     func appendCard(_ card: Card) throws {
         let appendedCards: [Card] = cards + [card]
         
