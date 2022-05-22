@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum Denomination: CaseIterable {
+enum Denomination: CaseIterable, UserInformable {
+
     case ace
     case two
     case three
@@ -55,6 +56,21 @@ enum Denomination: CaseIterable {
             return 10
         default:
             return 0
+        }
+    }
+    
+    var guideDescription: String {
+        switch self {
+        case .ace:
+            return "A"
+        case .king:
+            return "K"
+        case .queen:
+            return "Q"
+        case .jack:
+            return "J"
+        default:
+            return self.point.description
         }
     }
 }
