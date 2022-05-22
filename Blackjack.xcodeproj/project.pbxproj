@@ -34,6 +34,7 @@
 		3BB8BC37283A4A3600036CB7 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC30283A32C300036CB7 /* Deck.swift */; };
 		3BB8BC39283A4C6200036CB7 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC38283A4C6200036CB7 /* DeckTests.swift */; };
 		3BB8BC3B283A4DE400036CB7 /* UserGuider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */; };
+		3BB8BC3D283A4E4300036CB7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3C283A4E4300036CB7 /* ErrorView.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -69,6 +70,7 @@
 		3BB8BC34283A46B100036CB7 /* DealerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerTests.swift; sourceTree = "<group>"; };
 		3BB8BC38283A4C6200036CB7 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
 		3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuider.swift; sourceTree = "<group>"; };
+		3BB8BC3C283A4E4300036CB7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 			children = (
 				3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */,
 				3BB8BC2928396CB600036CB7 /* InputView.swift */,
+				3BB8BC3C283A4E4300036CB7 /* ErrorView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				3BB8BC2A28396CB600036CB7 /* InputView.swift in Sources */,
 				3BB8BC232839650C00036CB7 /* Gamer.swift in Sources */,
 				3BB8BC33283A32DC00036CB7 /* Dealer.swift in Sources */,
+				3BB8BC3D283A4E4300036CB7 /* ErrorView.swift in Sources */,
 				3BB8BC152839500D00036CB7 /* CardCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
