@@ -85,53 +85,53 @@ class UserInputConverterTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
-    // MARK: - convertToIsReceiveCard
+    // MARK: - convertToHitOrStay
     
-    func test_convertToIsReceiveCard_nil이_들어오면_invalidCardReceiveDecision_에러를_throw한다() throws {
+    func test_convertToHitOrStay_nil이_들어오면_invalidCardReceiveDecision_에러를_throw한다() throws {
         // given
         let input: String? = nil
         
         // when
         // then
         let expectation = UserInputConverter.UserInputConverterError.invalidCardReceiveDecision
-        XCTAssertThrowsError(try sut.convertToIsReceiveCard(from: input)) { error in
+        XCTAssertThrowsError(try sut.convertToHitOrStay(from: input)) { error in
             XCTAssertEqual(error as? UserInputConverter.UserInputConverterError, expectation)
         }
     }
     
-    func test_convertToIsReceiveCard_y_혹은_n가_아닌_값이_들어오면_invalidCardReceiveDecision_에러를_throw한다() throws {
+    func test_convertToHitOrStay_y_혹은_n가_아닌_값이_들어오면_invalidCardReceiveDecision_에러를_throw한다() throws {
         // given
         let input = "e"
         
         // when
         // then
         let expectation = UserInputConverter.UserInputConverterError.invalidCardReceiveDecision
-        XCTAssertThrowsError(try sut.convertToIsReceiveCard(from: input)) { error in
+        XCTAssertThrowsError(try sut.convertToHitOrStay(from: input)) { error in
             XCTAssertEqual(error as? UserInputConverter.UserInputConverterError, expectation)
         }
     }
     
-    func test_convertToIsReceiveCard_y가_들어오면_true를_반환한다() throws {
+    func test_convertToHitOrStay_y가_들어오면_hit을_반환한다() throws {
         // given
         let input = "y"
         
         // when
-        let result = try sut.convertToIsReceiveCard(from: input)
+        let result = try sut.convertToHitOrStay(from: input)
         
         // then
-        let expectation = true
+        let expectation = Gamer.State.hit
         XCTAssertEqual(result, expectation)
     }
     
-    func test_convertToIsReceiveCard_n가_들어오면_false를_반환한다() throws {
+    func test_convertToHitOrStay_n가_들어오면_stay를_반환한다() throws {
         // given
         let input = "n"
         
         // when
-        let result = try sut.convertToIsReceiveCard(from: input)
+        let result = try sut.convertToHitOrStay(from: input)
         
         // then
-        let expectation = false
+        let expectation = Gamer.State.stay
         XCTAssertEqual(result, expectation)
     }
     
@@ -143,7 +143,7 @@ class UserInputConverterTests: XCTestCase {
         
         // when
         // then
-        XCTAssertThrowsError(try sut.convertToIsReceiveCard(from: input)) { error in
+        XCTAssertThrowsError(try sut.convertToHitOrStay(from: input)) { error in
             let result = (error as? UserInputConverter.UserInputConverterError)?.localizedDescription
             let expectation = "y 나 n 를 입력해주세요"
             XCTAssertEqual(result, expectation)

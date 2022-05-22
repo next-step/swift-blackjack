@@ -37,7 +37,7 @@ struct UserInputConverter {
         return gamers
     }
     
-    func convertToIsReceiveCard(from input: String?) throws -> Bool {
+    func convertToHitOrStay(from input: String?) throws -> Gamer.State {
         
         guard let input = input,
               !input.isEmpty else {
@@ -46,9 +46,9 @@ struct UserInputConverter {
         
         switch input {
         case "y":
-            return true
+            return .hit
         case "n":
-            return false
+            return .stay
         default:
             throw UserInputConverter.UserInputConverterError.invalidCardReceiveDecision
         }

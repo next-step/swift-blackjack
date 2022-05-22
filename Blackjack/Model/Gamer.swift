@@ -20,10 +20,16 @@ struct Gamer: Equatable {
         }
     }
     
+    enum State {
+        case hit
+        case stay
+    }
+    
     private let cardCalculator = CardCalculator()
     private let thresholdChecker = ThresholdChecker()
     let name: String
     var cards: [Card]
+    var state: State
     var totalPoint: Int {
         cardCalculator.calcuate(of: cards)
     }
@@ -31,6 +37,7 @@ struct Gamer: Equatable {
     init(name: String) {
         self.name = name
         self.cards = []
+        self.state = .hit
     }
     
     static func == (lhs: Gamer, rhs: Gamer) -> Bool {
