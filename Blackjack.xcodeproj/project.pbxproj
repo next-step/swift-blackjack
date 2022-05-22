@@ -23,6 +23,7 @@
 		3BB8BC232839650C00036CB7 /* Gamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC222839650C00036CB7 /* Gamer.swift */; };
 		3BB8BC252839686B00036CB7 /* GamerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC242839686B00036CB7 /* GamerTests.swift */; };
 		3BB8BC262839688F00036CB7 /* Gamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC222839650C00036CB7 /* Gamer.swift */; };
+		3BB8BC2A28396CB600036CB7 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC2928396CB600036CB7 /* InputView.swift */; };
 		3BB8BC2C283A22E300036CB7 /* UserInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC2B283A22E300036CB7 /* UserInputConverter.swift */; };
 		3BB8BC2E283A252700036CB7 /* UserInputConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC2D283A252700036CB7 /* UserInputConverterTests.swift */; };
 		3BB8BC2F283A252E00036CB7 /* UserInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC2B283A22E300036CB7 /* UserInputConverter.swift */; };
@@ -32,6 +33,7 @@
 		3BB8BC36283A4A0900036CB7 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC32283A32DC00036CB7 /* Dealer.swift */; };
 		3BB8BC37283A4A3600036CB7 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC30283A32C300036CB7 /* Deck.swift */; };
 		3BB8BC39283A4C6200036CB7 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC38283A4C6200036CB7 /* DeckTests.swift */; };
+		3BB8BC3B283A4DE400036CB7 /* UserGuider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,12 +61,14 @@
 		3BB8BC20283962E900036CB7 /* DenominationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenominationTests.swift; sourceTree = "<group>"; };
 		3BB8BC222839650C00036CB7 /* Gamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gamer.swift; sourceTree = "<group>"; };
 		3BB8BC242839686B00036CB7 /* GamerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerTests.swift; sourceTree = "<group>"; };
+		3BB8BC2928396CB600036CB7 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		3BB8BC2B283A22E300036CB7 /* UserInputConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputConverter.swift; sourceTree = "<group>"; };
 		3BB8BC2D283A252700036CB7 /* UserInputConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputConverterTests.swift; sourceTree = "<group>"; };
 		3BB8BC30283A32C300036CB7 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
 		3BB8BC32283A32DC00036CB7 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		3BB8BC34283A46B100036CB7 /* DealerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerTests.swift; sourceTree = "<group>"; };
 		3BB8BC38283A4C6200036CB7 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
+		3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuider.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -117,6 +121,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3BB8BC2828396CAF00036CB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */,
+				3BB8BC2928396CB600036CB7 /* InputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C7F86E0D273AAF7900FAA669 = {
 			isa = PBXGroup;
 			children = (
@@ -138,8 +151,9 @@
 		C7F86E18273AAF7900FAA669 /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
-				3BB8BC0B28394FB700036CB7 /* Model */,
 				C7F86E19273AAF7900FAA669 /* main.swift */,
+				3BB8BC2828396CAF00036CB7 /* View */,
+				3BB8BC0B28394FB700036CB7 /* Model */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -262,7 +276,9 @@
 				3BB8BC1B28395F3700036CB7 /* ThresholdChecker.swift in Sources */,
 				3BB8BC0D28394FCF00036CB7 /* Suit.swift in Sources */,
 				3BB8BC1128394FE500036CB7 /* Denomination.swift in Sources */,
+				3BB8BC3B283A4DE400036CB7 /* UserGuider.swift in Sources */,
 				3BB8BC0A28394FAC00036CB7 /* Card.swift in Sources */,
+				3BB8BC2A28396CB600036CB7 /* InputView.swift in Sources */,
 				3BB8BC232839650C00036CB7 /* Gamer.swift in Sources */,
 				3BB8BC33283A32DC00036CB7 /* Dealer.swift in Sources */,
 				3BB8BC152839500D00036CB7 /* CardCalculator.swift in Sources */,
