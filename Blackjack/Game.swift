@@ -14,12 +14,6 @@ class Game {
     private var dealer = Dealer()
     private (set) var gamers: [Gamer] = []
     
-    var isRemainHitGamer: Bool {
-        gamers
-            .map { $0.state }
-            .contains(.hit)
-    }
-    
     func receiveGamers() {
         let gamers: [Gamer] = inputView.receiveGamers()
         self.gamers = gamers
