@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Card: Equatable {
+struct Card: Equatable, Hashable {
     let suit: Suit
     let denomination: Denomination
     
@@ -15,4 +15,3 @@ struct Card: Equatable {
         denomination.point
     }
 }
-

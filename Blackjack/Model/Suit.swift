@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Suit {
+enum Suit: CaseIterable {
     case heart
     case diamond
     case club
