@@ -11,7 +11,7 @@ class GamerTests: XCTestCase {
     
     func test_totalPoint_아무_카드도_없으면_0을_반환한다() throws {
         // given
-        let sut = Gamer(name: "naljin", cards: [])
+        let sut = Gamer(name: "naljin")
         
         // when
         // then
@@ -22,7 +22,7 @@ class GamerTests: XCTestCase {
     
     func test_appendCard() throws {
         // given
-        var sut = Gamer(name: "naljin", cards: [])
+        var sut = Gamer(name: "naljin")
         
         // when
         let heart2 = Card(suit: .heart, denomination: .two)
@@ -38,7 +38,9 @@ class GamerTests: XCTestCase {
         // given
         let heartJ = Card(suit: .heart, denomination: .jack)
         let heartQ = Card(suit: .heart, denomination: .queen)
-        var sut = Gamer(name: "naljin", cards: [heartJ, heartQ])
+        var sut = Gamer(name: "naljin")
+        try sut.appendCard(heartJ)
+        try sut.appendCard(heartQ)
         
         // when
         // then
@@ -53,7 +55,9 @@ class GamerTests: XCTestCase {
         // given
         let heartJ = Card(suit: .heart, denomination: .jack)
         let heartQ = Card(suit: .heart, denomination: .queen)
-        var sut = Gamer(name: "naljin", cards: [heartJ, heartQ])
+        var sut = Gamer(name: "naljin")
+        try sut.appendCard(heartJ)
+        try sut.appendCard(heartQ)
         
         // when
         // then

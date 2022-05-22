@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Gamer {
+struct Gamer: Equatable {
     
     enum GamerError: LocalizedError {
         case burst
@@ -26,6 +26,15 @@ struct Gamer {
     var cards: [Card]
     var totalPoint: Int {
         cardCalculator.calcuate(of: cards)
+    }
+    
+    init(name: String) {
+        self.name = name
+        self.cards = []
+    }
+    
+    static func == (lhs: Gamer, rhs: Gamer) -> Bool {
+        lhs.name == rhs.name
     }
     
     mutating func appendCard(_ card: Card) throws {
