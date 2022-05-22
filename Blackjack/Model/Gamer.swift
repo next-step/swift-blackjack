@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Gamer: Equatable {
+class Gamer {
     
     enum GamerError: LocalizedError {
         case burst
