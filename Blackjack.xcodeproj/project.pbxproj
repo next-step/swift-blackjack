@@ -38,6 +38,7 @@
 		3BB8BC3F283A4E5E00036CB7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3E283A4E5E00036CB7 /* ResultView.swift */; };
 		3BB8BC41283A519800036CB7 /* UserGuider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */; };
 		3BB8BC43283A541000036CB7 /* SuitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC42283A541000036CB7 /* SuitTests.swift */; };
+		3BB8BC45283A552800036CB7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC44283A552800036CB7 /* Game.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		3BB8BC3C283A4E4300036CB7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		3BB8BC3E283A4E5E00036CB7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		3BB8BC42283A541000036CB7 /* SuitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuitTests.swift; sourceTree = "<group>"; };
+		3BB8BC44283A552800036CB7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -162,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F86E19273AAF7900FAA669 /* main.swift */,
+				3BB8BC44283A552800036CB7 /* Game.swift */,
 				3BB8BC2828396CAF00036CB7 /* View */,
 				3BB8BC0B28394FB700036CB7 /* Model */,
 			);
@@ -283,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				3BB8BC45283A552800036CB7 /* Game.swift in Sources */,
 				3BB8BC2C283A22E300036CB7 /* UserInputConverter.swift in Sources */,
 				3BB8BC31283A32C300036CB7 /* Deck.swift in Sources */,
 				3BB8BC1B28395F3700036CB7 /* ThresholdChecker.swift in Sources */,
