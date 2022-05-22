@@ -87,22 +87,28 @@ class UserInputConverterTests: XCTestCase {
     
     // MARK: - convertToIsReceiveCard
     
-    func test_convertToIsReceiveCard_nil이_들어오면_에러를_throw한다() throws {
+    func test_convertToIsReceiveCard_nil이_들어오면_invalidCardReceiveDecision_에러를_throw한다() throws {
         // given
         let input: String? = nil
         
         // when
         // then
-        XCTAssertThrowsError(try sut.convertToIsReceiveCard(from: input))
+        let expectation = UserInputConverter.UserInputConverterError.invalidCardReceiveDecision
+        XCTAssertThrowsError(try sut.convertToIsReceiveCard(from: input)) { error in
+            XCTAssertEqual(error as? UserInputConverter.UserInputConverterError, expectation)
+        }
     }
     
-    func test_convertToIsReceiveCard_y_혹은_n가_아닌_값이_들어오면_에러를_throw한다() throws {
+    func test_convertToIsReceiveCard_y_혹은_n가_아닌_값이_들어오면_invalidCardReceiveDecision_에러를_throw한다() throws {
         // given
         let input = "e"
         
         // when
         // then
-        XCTAssertThrowsError(try sut.convertToIsReceiveCard(from: input))
+        let expectation = UserInputConverter.UserInputConverterError.invalidCardReceiveDecision
+        XCTAssertThrowsError(try sut.convertToIsReceiveCard(from: input)) { error in
+            XCTAssertEqual(error as? UserInputConverter.UserInputConverterError, expectation)
+        }
     }
     
     func test_convertToIsReceiveCard_y가_들어오면_true를_반환한다() throws {
@@ -127,6 +133,21 @@ class UserInputConverterTests: XCTestCase {
         // then
         let expectation = false
         XCTAssertEqual(result, expectation)
+    }
+    
+    // MARK: - errorDescription
+    
+    func test_errorDescription_convertToIsReceiveCard에_y_혹은_n가_아닌_값이_들어올때() throws {
+        // given
+        let input = "e"
+        
+        // when
+        // then
+        XCTAssertThrowsError(try sut.convertToIsReceiveCard(from: input)) { error in
+            let result = (error as? UserInputConverter.UserInputConverterError)?.localizedDescription
+            let expectation = "y 나 n 를 입력해주세요"
+            XCTAssertEqual(result, expectation)
+        }
     }
 }
 
