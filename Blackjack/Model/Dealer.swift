@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Dealer {
+class Dealer {
     
     private var deck = Deck()
     
-    mutating func drawCard() -> Card? {
+    func drawCard() -> Card? {
         guard !deck.cards.isEmpty else {
             return nil
         }

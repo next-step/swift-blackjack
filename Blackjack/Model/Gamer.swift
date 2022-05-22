@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Gamer: Equatable {
+class Gamer: Equatable {
     
     enum GamerError: LocalizedError {
         case burst
@@ -44,7 +44,7 @@ struct Gamer: Equatable {
         lhs.name == rhs.name
     }
     
-    mutating func appendCard(_ card: Card) throws {
+    func appendCard(_ card: Card) throws {
         let appendedCards: [Card] = cards + [card]
         
         guard thresholdChecker.isTotalPointUnderThreshold(of: appendedCards) else {
