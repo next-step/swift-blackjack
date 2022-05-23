@@ -56,7 +56,7 @@ class TrumpCardsTest: XCTestCase {
         
         
         // then
-        XCTAssertTrue(TrumpCards.value.contains(heartAceg))
+        XCTAssertTrue(TrumpCards.value.contains(heartAce))
     }
 
 }

@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+protocol CardDeck {
+    var cards: [Card] { get }
+    func append(card: Card)
+}
+
+class BlackjackCardDeck: CardDeck {
+    private(set) var cards: [Card] = []
+
+    func append(card: Card) {
+        cards.append(card)
+    }
+}
