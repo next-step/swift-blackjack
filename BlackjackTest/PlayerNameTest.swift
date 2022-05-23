@@ -7,7 +7,7 @@
 
 import XCTest
 
-class PlayerName: XCTestCase {
+class PlayerNameTest: XCTestCase {
     func test_콤마는_playername으로_가질수없다() {
         XCTAssertNil(PlayerName(","))
     }

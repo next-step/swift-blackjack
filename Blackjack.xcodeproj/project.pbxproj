@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		2E66DB54283BD41400E582E2 /* BlackjackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB53283BD41400E582E2 /* BlackjackTest.swift */; };
 		2E66DB59283BD43400E582E2 /* PlayerName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB58283BD43400E582E2 /* PlayerName.swift */; };
-		2E66DB5B283BD45200E582E2 /* PlayerName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB5A283BD45200E582E2 /* PlayerName.swift */; };
+		2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB5A283BD45200E582E2 /* PlayerNameTest.swift */; };
+		2E66DB5C283BD55400E582E2 /* PlayerName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB58283BD43400E582E2 /* PlayerName.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +30,7 @@
 		2E66DB51283BD41400E582E2 /* BlackjackTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E66DB53283BD41400E582E2 /* BlackjackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTest.swift; sourceTree = "<group>"; };
 		2E66DB58283BD43400E582E2 /* PlayerName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerName.swift; sourceTree = "<group>"; };
-		2E66DB5A283BD45200E582E2 /* PlayerName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerName.swift; sourceTree = "<group>"; };
+		2E66DB5A283BD45200E582E2 /* PlayerNameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameTest.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				2E66DB53283BD41400E582E2 /* BlackjackTest.swift */,
-				2E66DB5A283BD45200E582E2 /* PlayerName.swift */,
+				2E66DB5A283BD45200E582E2 /* PlayerNameTest.swift */,
 			);
 			path = BlackjackTest;
 			sourceTree = "<group>";
@@ -177,8 +178,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E66DB5C283BD55400E582E2 /* PlayerName.swift in Sources */,
 				2E66DB54283BD41400E582E2 /* BlackjackTest.swift in Sources */,
-				2E66DB5B283BD45200E582E2 /* PlayerName.swift in Sources */,
+				2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

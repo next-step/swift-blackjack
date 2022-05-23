@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct PlayerName {
+    let value: String
+    
+    init?(_ value: String) {
+        if value.contains(",") { return nil }
+        self.value = value
+    }
+}
