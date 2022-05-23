@@ -23,12 +23,22 @@ class Player: Playable {
 }
 
 var deck = Deck()
-let uchan: Player = Player(name: "uchan")
+let player1: Player = Player(name: "uchan")
+let player2: Player = Player(name: "hui")
 
 for _ in 1...2 {
-    uchan.add(deck.deal())
+    player1.add(deck.deal())
 }
-print(uchan.cards)
+
+for _ in 1...2 {
+    player2.add(deck.deal())
+}
+
+print(player1.cards)
+print(player2.cards)
+
+//print("\(player1.name): \(player1.cards.sum)")
+//print("\(player2.name): \(player2.cards.sum)")
 
 import Foundation
 

@@ -6,6 +6,7 @@
 //
 
 protocol Deckable {
+    func shuffle()
     func deal() -> Card
 }
 
@@ -27,6 +28,10 @@ class Deck: Deckable, CustomDebugStringConvertible {
                 Card(type, type2)
             }
         })
+    }
+    
+    func shuffle() {
+        deck.shuffle()
     }
     
     func deal() -> Card {
