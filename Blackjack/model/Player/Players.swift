@@ -5,12 +5,8 @@
 //  Created by ycsong on 2022/05/24.
 //
 
-struct Players: CustomDebugStringConvertible {
+struct Players {
     var players: [Player]
-    
-    var debugDescription: String {
-        String(describing: players)
-    }
     
     init(_ players: [Player]) {
         self.players = players
@@ -28,6 +24,12 @@ struct Players: CustomDebugStringConvertible {
             let ask: Bool = try InputView.readDrawYesOrNo(name: player.name)
             try completion(ask, player)
         }
+    }
+}
+
+extension Players: CustomDebugStringConvertible {
+    var debugDescription: String {
+        String(describing: players)
     }
 }
 

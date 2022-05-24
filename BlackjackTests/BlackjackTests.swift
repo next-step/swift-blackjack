@@ -21,7 +21,7 @@ class BlackjackTests: XCTestCase {
     
     func test_덱이_0장_일때_드로우_검증() throws {
         // given
-        var deck: Deck = Deck()
+        let deck: Deck = Deck()
         
         // when
         for _ in 0..<deck.count {
@@ -34,39 +34,10 @@ class BlackjackTests: XCTestCase {
     
     func test_덱이_0장_이상_일때_드로우_검증() throws {
         // given
-        var deck: Deck = Deck()
+        let deck: Deck = Deck()
         
         // when/then
         XCTAssertNoThrow(try deck.drawCard())
-    }
-    
-    func test_플레이어_카드_합_21미만_카드_드로우_검증() throws {
-        // given
-        var deck = Deck()
-        
-        let 하트Queen = Card(.하트, .queen)
-        let 스페이드King = Card(.스페이드, .king)
-        let cards = Cards([하트Queen, 스페이드King])
-        
-        var player = Player(name: "Tester", cards)
-        
-        // when/then
-        XCTAssertNoThrow(try player.deal(deck.drawCard()))
-    }
-
-    func test_플레이어_카드_합_21초과_카드_드로우_검증() throws {
-        // given
-        var deck = Deck()
-        
-        let 하트Queen = Card(.하트, .queen)
-        let 스페이드King = Card(.스페이드, .king)
-        let 다이아Jack = Card(.다이아, .jack)
-        let cards = Cards([하트Queen, 스페이드King, 다이아Jack])
-        
-        var player = Player(name: "Tester", cards)
-
-        // when/then
-        XCTAssertThrowsError(try player.deal(deck.drawCard()))
     }
     
     func test_에이스_없는_게임_결과_검증() throws {

@@ -5,17 +5,11 @@
 //  Created by ycsong on 2022/05/24.
 //
 
-struct Cards: CustomDebugStringConvertible {
+struct Cards {
     var cards: [Card]
     
     var count: Int {
         cards.count
-    }
-    
-    var debugDescription: String {
-        cards.map { (card) in
-            String(describing: card)
-        }.joined(separator: ", ")
     }
     
     init(_ cards: [Card] = []) {
@@ -47,5 +41,13 @@ struct Cards: CustomDebugStringConvertible {
     
     mutating func add(_ element: Card) {
         cards.append(element)
+    }
+}
+
+extension Cards: CustomDebugStringConvertible {
+    var debugDescription: String {
+        cards.map { (card) in
+            String(describing: card)
+        }.joined(separator: ", ")
     }
 }

@@ -6,18 +6,14 @@
 //
 
 protocol Deckable {
-    func draw(cards: Cards) throws -> Card
+    func drawCard() throws -> Card
 }
 
-class Deck: CustomDebugStringConvertible {
+class Deck: Deckable {
     var deck: [Card]
     
     var count: Int {
         deck.count
-    }
-    
-    var debugDescription: String {
-        String(describing: deck)
     }
     
     init() {
@@ -33,5 +29,11 @@ class Deck: CustomDebugStringConvertible {
             throw CardError.noCards
         }
         return card
+    }
+}
+
+extension Deck: CustomDebugStringConvertible {
+    var debugDescription: String {
+        String(describing: deck)
     }
 }

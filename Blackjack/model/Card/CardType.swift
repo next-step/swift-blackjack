@@ -5,9 +5,11 @@
 //  Created by ycsong on 2022/05/24.
 //
 
-enum CardType: CaseIterable, CustomDebugStringConvertible {
+enum CardType: CaseIterable {
     case 클로버, 다이아, 하트, 스페이드
-    
+}
+
+extension CardType: CustomDebugStringConvertible {
     var debugDescription: String {
         switch self {
         case .클로버: return "♣"

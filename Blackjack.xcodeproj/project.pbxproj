@@ -28,6 +28,10 @@
 		CB94ACE2283CB495006988C7 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACE1283CB495006988C7 /* InputError.swift */; };
 		CB94ACE4283CB83F006988C7 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACE3283CB83F006988C7 /* Players.swift */; };
 		CB94ACE6283CC44F006988C7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACE5283CC44F006988C7 /* ResultView.swift */; };
+		CB94ACE7283D00FB006988C7 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACE3283CB83F006988C7 /* Players.swift */; };
+		CB94ACE8283D0101006988C7 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACDF283CB37B006988C7 /* InputView.swift */; };
+		CB94ACE9283D0103006988C7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACE5283CC44F006988C7 /* ResultView.swift */; };
+		CB94ACEA283D010B006988C7 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACE1283CB495006988C7 /* InputError.swift */; };
 		CBB8F14E283B917A007D0E0A /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535B4283A7F4A0025F099 /* Deck.swift */; };
 		CBB8F14F283B917D007D0E0A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535AE283A7F2C0025F099 /* Card.swift */; };
 		CBB8F150283B917F007D0E0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535B8283A819C0025F099 /* Constants.swift */; };
@@ -270,14 +274,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB94ACDB283CAFF7006988C7 /* CardElement.swift in Sources */,
+				CB94ACEA283D010B006988C7 /* InputError.swift in Sources */,
 				CBB8F14E283B917A007D0E0A /* Deck.swift in Sources */,
 				CB94ACD8283CAFEE006988C7 /* BlackjackGame.swift in Sources */,
 				CB94ACDC283CAFFB006988C7 /* Cards.swift in Sources */,
 				CB94ACD9283CAFF2006988C7 /* CardError.swift in Sources */,
 				CB94ACDA283CAFF4006988C7 /* CardType.swift in Sources */,
 				CBB8F14F283B917D007D0E0A /* Card.swift in Sources */,
+				CB94ACE9283D0103006988C7 /* ResultView.swift in Sources */,
 				6C2535A3283A6CFE0025F099 /* BlackjackTests.swift in Sources */,
 				CB94ACDD283CAFFF006988C7 /* Player.swift in Sources */,
+				CB94ACE8283D0101006988C7 /* InputView.swift in Sources */,
+				CB94ACE7283D00FB006988C7 /* Players.swift in Sources */,
 				CBB8F150283B917F007D0E0A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
