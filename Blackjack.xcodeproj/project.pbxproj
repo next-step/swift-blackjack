@@ -30,6 +30,8 @@
 		2E9C3B38283C797700393DEE /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B36283C797700393DEE /* String + Extension.swift */; };
 		2E9C3B3A283C79CE00393DEE /* Collection + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B39283C79CE00393DEE /* Collection + Extension.swift */; };
 		2E9C3B3B283C79CE00393DEE /* Collection + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B39283C79CE00393DEE /* Collection + Extension.swift */; };
+		2E9C3B3D283C7A7400393DEE /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B3C283C7A7400393DEE /* OutputView.swift */; };
+		2E9C3B3E283C7A7400393DEE /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B3C283C7A7400393DEE /* OutputView.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,7 @@
 		2E9C3B32283C741200393DEE /* PlayerNameParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameParserTest.swift; sourceTree = "<group>"; };
 		2E9C3B36283C797700393DEE /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		2E9C3B39283C79CE00393DEE /* Collection + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection + Extension.swift"; sourceTree = "<group>"; };
+		2E9C3B3C283C7A7400393DEE /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				2E9C3B2D283C731600393DEE /* InputView.swift */,
+				2E9C3B3C283C7A7400393DEE /* OutputView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,6 +250,7 @@
 				2E66DB6E283BD8BE00E582E2 /* CardScoreRuleTest.swift in Sources */,
 				2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */,
 				2E66DB67283BD7DE00E582E2 /* CardDeck.swift in Sources */,
+				2E9C3B3E283C7A7400393DEE /* OutputView.swift in Sources */,
 				2E9C3B34283C757200393DEE /* PlayerNameParser.swift in Sources */,
 				2E66DB64283BD65300E582E2 /* TrumpCardsTest.swift in Sources */,
 				2E9C3B38283C797700393DEE /* String + Extension.swift in Sources */,
@@ -261,6 +266,7 @@
 				2E66DB6B283BD8B500E582E2 /* CardScoreRule.swift in Sources */,
 				2E9C3B2E283C731600393DEE /* InputView.swift in Sources */,
 				2E66DB61283BD61E00E582E2 /* TrumpCards.swift in Sources */,
+				2E9C3B3D283C7A7400393DEE /* OutputView.swift in Sources */,
 				2E66DB66283BD7DE00E582E2 /* CardDeck.swift in Sources */,
 				2E9C3B31283C73ED00393DEE /* PlayerNameParser.swift in Sources */,
 				2E9C3B3A283C79CE00393DEE /* Collection + Extension.swift in Sources */,

@@ -6,5 +6,9 @@
 
 import Foundation
 
-print("Hello, World!")
+do {
+    
+} catch(let error) {
+    
+}
 
