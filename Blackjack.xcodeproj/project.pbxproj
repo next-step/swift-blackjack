@@ -26,6 +26,10 @@
 		2E9C3B31283C73ED00393DEE /* PlayerNameParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B30283C73ED00393DEE /* PlayerNameParser.swift */; };
 		2E9C3B33283C741200393DEE /* PlayerNameParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B32283C741200393DEE /* PlayerNameParserTest.swift */; };
 		2E9C3B34283C757200393DEE /* PlayerNameParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B30283C73ED00393DEE /* PlayerNameParser.swift */; };
+		2E9C3B37283C797700393DEE /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B36283C797700393DEE /* String + Extension.swift */; };
+		2E9C3B38283C797700393DEE /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B36283C797700393DEE /* String + Extension.swift */; };
+		2E9C3B3A283C79CE00393DEE /* Collection + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B39283C79CE00393DEE /* Collection + Extension.swift */; };
+		2E9C3B3B283C79CE00393DEE /* Collection + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B39283C79CE00393DEE /* Collection + Extension.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -56,6 +60,8 @@
 		2E9C3B2D283C731600393DEE /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 		2E9C3B30283C73ED00393DEE /* PlayerNameParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameParser.swift; sourceTree = "<group>"; };
 		2E9C3B32283C741200393DEE /* PlayerNameParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameParserTest.swift; sourceTree = "<group>"; };
+		2E9C3B36283C797700393DEE /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		2E9C3B39283C79CE00393DEE /* Collection + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection + Extension.swift"; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +105,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		2E9C3B35283C796400393DEE /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2E9C3B36283C797700393DEE /* String + Extension.swift */,
+				2E9C3B39283C79CE00393DEE /* Collection + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		C7F86E0D273AAF7900FAA669 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +135,7 @@
 		C7F86E18273AAF7900FAA669 /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
+				2E9C3B35283C796400393DEE /* Extension */,
 				2E9C3B2F283C731B00393DEE /* View */,
 				C7F86E19273AAF7900FAA669 /* main.swift */,
 				2E66DB58283BD43400E582E2 /* PlayerName.swift */,
@@ -226,11 +242,13 @@
 				2E9C3B33283C741200393DEE /* PlayerNameParserTest.swift in Sources */,
 				2E66DB62283BD61E00E582E2 /* TrumpCards.swift in Sources */,
 				2E66DB6C283BD8B500E582E2 /* CardScoreRule.swift in Sources */,
+				2E9C3B3B283C79CE00393DEE /* Collection + Extension.swift in Sources */,
 				2E66DB6E283BD8BE00E582E2 /* CardScoreRuleTest.swift in Sources */,
 				2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */,
 				2E66DB67283BD7DE00E582E2 /* CardDeck.swift in Sources */,
 				2E9C3B34283C757200393DEE /* PlayerNameParser.swift in Sources */,
 				2E66DB64283BD65300E582E2 /* TrumpCardsTest.swift in Sources */,
+				2E9C3B38283C797700393DEE /* String + Extension.swift in Sources */,
 				2E66DB69283BD7F900E582E2 /* CardDeckTest.swift in Sources */,
 				2E66DB5F283BD5DF00E582E2 /* Card.swift in Sources */,
 			);
@@ -245,6 +263,8 @@
 				2E66DB61283BD61E00E582E2 /* TrumpCards.swift in Sources */,
 				2E66DB66283BD7DE00E582E2 /* CardDeck.swift in Sources */,
 				2E9C3B31283C73ED00393DEE /* PlayerNameParser.swift in Sources */,
+				2E9C3B3A283C79CE00393DEE /* Collection + Extension.swift in Sources */,
+				2E9C3B37283C797700393DEE /* String + Extension.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
 				2E66DB5E283BD5DF00E582E2 /* Card.swift in Sources */,
 				2E66DB59283BD43400E582E2 /* PlayerName.swift in Sources */,

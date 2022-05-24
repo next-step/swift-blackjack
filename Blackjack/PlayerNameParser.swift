@@ -21,8 +21,9 @@ enum PlayerNameParser {
     private static let delimiter = ","
     
     static func parse(nameInput: String?) throws -> [PlayerName] {
-        guard let names = nameInput?.components(separatedBy: delimiter).filter({ $0.isEmpty == false && $0 != " " }),
-              names.isEmpty == false else {
+        guard let names = nameInput?.components(separatedBy: delimiter)
+                                    .filter({ $0.isNotEmpty && $0.isNotBlank }),
+              names.isNotEmpty else {
                   throw Error.invalid
               }
 
