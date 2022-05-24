@@ -7,6 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BB8BC052839492400036CB7 /* CardCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */; };
+		3BB8BC0A28394FAC00036CB7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC0928394FAC00036CB7 /* Card.swift */; };
+		3BB8BC0D28394FCF00036CB7 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC0C28394FCF00036CB7 /* Suit.swift */; };
+		3BB8BC0E28394FD900036CB7 /* Suit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC0C28394FCF00036CB7 /* Suit.swift */; };
+		3BB8BC0F28394FDC00036CB7 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC0928394FAC00036CB7 /* Card.swift */; };
+		3BB8BC1128394FE500036CB7 /* Denomination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC1028394FE500036CB7 /* Denomination.swift */; };
+		3BB8BC152839500D00036CB7 /* CardCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC142839500D00036CB7 /* CardCalculator.swift */; };
+		3BB8BC162839502500036CB7 /* Denomination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC1028394FE500036CB7 /* Denomination.swift */; };
+		3BB8BC172839502900036CB7 /* CardCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC142839500D00036CB7 /* CardCalculator.swift */; };
+		3BB8BC1928395F3000036CB7 /* ThresholdCheckerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC1828395F3000036CB7 /* ThresholdCheckerTests.swift */; };
+		3BB8BC1B28395F3700036CB7 /* ThresholdChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC1A28395F3700036CB7 /* ThresholdChecker.swift */; };
+		3BB8BC1C28395F7F00036CB7 /* ThresholdChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC1A28395F3700036CB7 /* ThresholdChecker.swift */; };
+		3BB8BC21283962E900036CB7 /* DenominationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC20283962E900036CB7 /* DenominationTests.swift */; };
+		3BB8BC232839650C00036CB7 /* Gamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC222839650C00036CB7 /* Gamer.swift */; };
+		3BB8BC252839686B00036CB7 /* GamerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC242839686B00036CB7 /* GamerTests.swift */; };
+		3BB8BC262839688F00036CB7 /* Gamer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC222839650C00036CB7 /* Gamer.swift */; };
+		3BB8BC2A28396CB600036CB7 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC2928396CB600036CB7 /* InputView.swift */; };
+		3BB8BC2C283A22E300036CB7 /* UserInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC2B283A22E300036CB7 /* UserInputConverter.swift */; };
+		3BB8BC2E283A252700036CB7 /* UserInputConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC2D283A252700036CB7 /* UserInputConverterTests.swift */; };
+		3BB8BC2F283A252E00036CB7 /* UserInputConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC2B283A22E300036CB7 /* UserInputConverter.swift */; };
+		3BB8BC31283A32C300036CB7 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC30283A32C300036CB7 /* Deck.swift */; };
+		3BB8BC33283A32DC00036CB7 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC32283A32DC00036CB7 /* Dealer.swift */; };
+		3BB8BC35283A46B100036CB7 /* DealerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC34283A46B100036CB7 /* DealerTests.swift */; };
+		3BB8BC36283A4A0900036CB7 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC32283A32DC00036CB7 /* Dealer.swift */; };
+		3BB8BC37283A4A3600036CB7 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC30283A32C300036CB7 /* Deck.swift */; };
+		3BB8BC39283A4C6200036CB7 /* DeckTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC38283A4C6200036CB7 /* DeckTests.swift */; };
+		3BB8BC3B283A4DE400036CB7 /* UserGuider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */; };
+		3BB8BC3D283A4E4300036CB7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3C283A4E4300036CB7 /* ErrorView.swift */; };
+		3BB8BC3F283A4E5E00036CB7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3E283A4E5E00036CB7 /* ResultView.swift */; };
+		3BB8BC41283A519800036CB7 /* UserGuider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */; };
+		3BB8BC43283A541000036CB7 /* SuitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC42283A541000036CB7 /* SuitTests.swift */; };
+		3BB8BC45283A552800036CB7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC44283A552800036CB7 /* Game.swift */; };
+		3BB8BC4A283A7EE400036CB7 /* Card+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC49283A7EE400036CB7 /* Card+Extension.swift */; };
+		3BB8BC4C283A7EF500036CB7 /* Gamer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC4B283A7EF500036CB7 /* Gamer+Extension.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,11 +57,43 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3BB8BC022839492400036CB7 /* BlackjackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCalculatorTests.swift; sourceTree = "<group>"; };
+		3BB8BC0928394FAC00036CB7 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		3BB8BC0C28394FCF00036CB7 /* Suit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Suit.swift; sourceTree = "<group>"; };
+		3BB8BC1028394FE500036CB7 /* Denomination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Denomination.swift; sourceTree = "<group>"; };
+		3BB8BC142839500D00036CB7 /* CardCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCalculator.swift; sourceTree = "<group>"; };
+		3BB8BC1828395F3000036CB7 /* ThresholdCheckerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdCheckerTests.swift; sourceTree = "<group>"; };
+		3BB8BC1A28395F3700036CB7 /* ThresholdChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThresholdChecker.swift; sourceTree = "<group>"; };
+		3BB8BC20283962E900036CB7 /* DenominationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenominationTests.swift; sourceTree = "<group>"; };
+		3BB8BC222839650C00036CB7 /* Gamer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gamer.swift; sourceTree = "<group>"; };
+		3BB8BC242839686B00036CB7 /* GamerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerTests.swift; sourceTree = "<group>"; };
+		3BB8BC2928396CB600036CB7 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		3BB8BC2B283A22E300036CB7 /* UserInputConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputConverter.swift; sourceTree = "<group>"; };
+		3BB8BC2D283A252700036CB7 /* UserInputConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInputConverterTests.swift; sourceTree = "<group>"; };
+		3BB8BC30283A32C300036CB7 /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		3BB8BC32283A32DC00036CB7 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
+		3BB8BC34283A46B100036CB7 /* DealerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerTests.swift; sourceTree = "<group>"; };
+		3BB8BC38283A4C6200036CB7 /* DeckTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckTests.swift; sourceTree = "<group>"; };
+		3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGuider.swift; sourceTree = "<group>"; };
+		3BB8BC3C283A4E4300036CB7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		3BB8BC3E283A4E5E00036CB7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		3BB8BC42283A541000036CB7 /* SuitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuitTests.swift; sourceTree = "<group>"; };
+		3BB8BC44283A552800036CB7 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
+		3BB8BC49283A7EE400036CB7 /* Card+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Card+Extension.swift"; sourceTree = "<group>"; };
+		3BB8BC4B283A7EF500036CB7 /* Gamer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gamer+Extension.swift"; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3BB8BBFF2839492400036CB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F86E13273AAF7900FAA669 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,10 +104,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BB8BC032839492400036CB7 /* BlackjackTests */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8BC48283A7EDA00036CB7 /* Extensions */,
+				3BB8BC20283962E900036CB7 /* DenominationTests.swift */,
+				3BB8BC42283A541000036CB7 /* SuitTests.swift */,
+				3BB8BC38283A4C6200036CB7 /* DeckTests.swift */,
+				3BB8BC34283A46B100036CB7 /* DealerTests.swift */,
+				3BB8BC242839686B00036CB7 /* GamerTests.swift */,
+				3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */,
+				3BB8BC1828395F3000036CB7 /* ThresholdCheckerTests.swift */,
+				3BB8BC2D283A252700036CB7 /* UserInputConverterTests.swift */,
+			);
+			path = BlackjackTests;
+			sourceTree = "<group>";
+		};
+		3BB8BC0B28394FB700036CB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8BC2B283A22E300036CB7 /* UserInputConverter.swift */,
+				3BB8BC1028394FE500036CB7 /* Denomination.swift */,
+				3BB8BC0C28394FCF00036CB7 /* Suit.swift */,
+				3BB8BC0928394FAC00036CB7 /* Card.swift */,
+				3BB8BC30283A32C300036CB7 /* Deck.swift */,
+				3BB8BC32283A32DC00036CB7 /* Dealer.swift */,
+				3BB8BC222839650C00036CB7 /* Gamer.swift */,
+				3BB8BC142839500D00036CB7 /* CardCalculator.swift */,
+				3BB8BC1A28395F3700036CB7 /* ThresholdChecker.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3BB8BC2828396CAF00036CB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */,
+				3BB8BC2928396CB600036CB7 /* InputView.swift */,
+				3BB8BC3E283A4E5E00036CB7 /* ResultView.swift */,
+				3BB8BC3C283A4E4300036CB7 /* ErrorView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3BB8BC48283A7EDA00036CB7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3BB8BC49283A7EE400036CB7 /* Card+Extension.swift */,
+				3BB8BC4B283A7EF500036CB7 /* Gamer+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		C7F86E0D273AAF7900FAA669 = {
 			isa = PBXGroup;
 			children = (
 				C7F86E18273AAF7900FAA669 /* Blackjack */,
+				3BB8BC032839492400036CB7 /* BlackjackTests */,
 				C7F86E17273AAF7900FAA669 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F86E16273AAF7900FAA669 /* Blackjack */,
+				3BB8BC022839492400036CB7 /* BlackjackTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,6 +178,9 @@
 			isa = PBXGroup;
 			children = (
 				C7F86E19273AAF7900FAA669 /* main.swift */,
+				3BB8BC44283A552800036CB7 /* Game.swift */,
+				3BB8BC2828396CAF00036CB7 /* View */,
+				3BB8BC0B28394FB700036CB7 /* Model */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -65,6 +188,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3BB8BC012839492400036CB7 /* BlackjackTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3BB8BC082839492400036CB7 /* Build configuration list for PBXNativeTarget "BlackjackTests" */;
+			buildPhases = (
+				3BB8BBFE2839492400036CB7 /* Sources */,
+				3BB8BBFF2839492400036CB7 /* Frameworks */,
+				3BB8BC002839492400036CB7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlackjackTests;
+			productName = BlackjackTests;
+			productReference = 3BB8BC022839492400036CB7 /* BlackjackTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C7F86E15273AAF7900FAA669 /* Blackjack */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7F86E1D273AAF7900FAA669 /* Build configuration list for PBXNativeTarget "Blackjack" */;
@@ -89,9 +229,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					3BB8BC012839492400036CB7 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					C7F86E15273AAF7900FAA669 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -111,22 +254,106 @@
 			projectRoot = "";
 			targets = (
 				C7F86E15273AAF7900FAA669 /* Blackjack */,
+				3BB8BC012839492400036CB7 /* BlackjackTests */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		3BB8BC002839492400036CB7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		3BB8BBFE2839492400036CB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BB8BC0E28394FD900036CB7 /* Suit.swift in Sources */,
+				3BB8BC0F28394FDC00036CB7 /* Card.swift in Sources */,
+				3BB8BC36283A4A0900036CB7 /* Dealer.swift in Sources */,
+				3BB8BC41283A519800036CB7 /* UserGuider.swift in Sources */,
+				3BB8BC4C283A7EF500036CB7 /* Gamer+Extension.swift in Sources */,
+				3BB8BC4A283A7EE400036CB7 /* Card+Extension.swift in Sources */,
+				3BB8BC262839688F00036CB7 /* Gamer.swift in Sources */,
+				3BB8BC39283A4C6200036CB7 /* DeckTests.swift in Sources */,
+				3BB8BC252839686B00036CB7 /* GamerTests.swift in Sources */,
+				3BB8BC21283962E900036CB7 /* DenominationTests.swift in Sources */,
+				3BB8BC2E283A252700036CB7 /* UserInputConverterTests.swift in Sources */,
+				3BB8BC162839502500036CB7 /* Denomination.swift in Sources */,
+				3BB8BC35283A46B100036CB7 /* DealerTests.swift in Sources */,
+				3BB8BC052839492400036CB7 /* CardCalculatorTests.swift in Sources */,
+				3BB8BC172839502900036CB7 /* CardCalculator.swift in Sources */,
+				3BB8BC1C28395F7F00036CB7 /* ThresholdChecker.swift in Sources */,
+				3BB8BC43283A541000036CB7 /* SuitTests.swift in Sources */,
+				3BB8BC37283A4A3600036CB7 /* Deck.swift in Sources */,
+				3BB8BC2F283A252E00036CB7 /* UserInputConverter.swift in Sources */,
+				3BB8BC1928395F3000036CB7 /* ThresholdCheckerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F86E12273AAF7900FAA669 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				3BB8BC45283A552800036CB7 /* Game.swift in Sources */,
+				3BB8BC2C283A22E300036CB7 /* UserInputConverter.swift in Sources */,
+				3BB8BC31283A32C300036CB7 /* Deck.swift in Sources */,
+				3BB8BC1B28395F3700036CB7 /* ThresholdChecker.swift in Sources */,
+				3BB8BC0D28394FCF00036CB7 /* Suit.swift in Sources */,
+				3BB8BC3F283A4E5E00036CB7 /* ResultView.swift in Sources */,
+				3BB8BC1128394FE500036CB7 /* Denomination.swift in Sources */,
+				3BB8BC3B283A4DE400036CB7 /* UserGuider.swift in Sources */,
+				3BB8BC0A28394FAC00036CB7 /* Card.swift in Sources */,
+				3BB8BC2A28396CB600036CB7 /* InputView.swift in Sources */,
+				3BB8BC232839650C00036CB7 /* Gamer.swift in Sources */,
+				3BB8BC33283A32DC00036CB7 /* Dealer.swift in Sources */,
+				3BB8BC3D283A4E4300036CB7 /* ErrorView.swift in Sources */,
+				3BB8BC152839500D00036CB7 /* CardCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		3BB8BC062839492400036CB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y4XABUQ539;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sujinnaljin.BlackjackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		3BB8BC072839492400036CB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Y4XABUQ539;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sujinnaljin.BlackjackTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		C7F86E1B273AAF7900FAA669 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -263,6 +490,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3BB8BC082839492400036CB7 /* Build configuration list for PBXNativeTarget "BlackjackTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3BB8BC062839492400036CB7 /* Debug */,
+				3BB8BC072839492400036CB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C7F86E11273AAF7900FAA669 /* Build configuration list for PBXProject "Blackjack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
