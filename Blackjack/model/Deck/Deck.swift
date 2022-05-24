@@ -9,7 +9,7 @@ protocol Deckable {
     func draw(cards: Cards) throws -> Card
 }
 
-struct Deck: CustomDebugStringConvertible {
+class Deck: CustomDebugStringConvertible {
     var deck: [Card]
     
     var count: Int {
@@ -28,7 +28,7 @@ struct Deck: CustomDebugStringConvertible {
         }.shuffled()
     }
     
-    mutating func drawCard() throws -> Card {
+    func drawCard() throws -> Card {
         guard let card = deck.popLast() else {
             throw CardError.noCards
         }
