@@ -6,13 +6,11 @@
 //
 
 protocol Deckable {
-    func shuffle()
-    func deal() -> Card
+    func draw(cards: Cards) throws -> Card
 }
 
-class Deck: Deckable, CustomDebugStringConvertible {
-    let deck: Cards
-    var removedDeck: Cards = Cards()
+struct Deck: CustomDebugStringConvertible {
+    var deck: [Card]
     
     var count: Int {
         deck.count
@@ -23,20 +21,14 @@ class Deck: Deckable, CustomDebugStringConvertible {
     }
     
     init() {
-        self.deck = Cards(CardType.allCases.flatMap { (type) in
-            CardElement.allCases.map { (type2) in
-                Card(type, type2)
+        self.deck = CardType.allCases.flatMap { (cardType) in
+            CardElement.allCases.map { (cardElement) in
+                Card(cardType, cardElement)
             }
-        })
+        }.shuffled()
     }
     
-    func shuffle() {
-        deck.shuffle()
-    }
-    
-    func deal() -> Card {
-        let drawCard = deck.random
-        removedDeck.append(drawCard)
-        return drawCard
+    mutating func drawCard() throws -> Card {
+        return deck.removeLast()
     }
 }
