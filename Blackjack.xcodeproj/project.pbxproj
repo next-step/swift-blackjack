@@ -12,6 +12,10 @@
 		6C2535B5283A7F4A0025F099 /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535B4283A7F4A0025F099 /* Deck.swift */; };
 		6C2535B9283A819C0025F099 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535B8283A819C0025F099 /* Constants.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
+		CB94ACC9283CAA31006988C7 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACC8283CAA31006988C7 /* Cards.swift */; };
+		CB94ACCC283CAA85006988C7 /* CardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACCB283CAA85006988C7 /* CardError.swift */; };
+		CB94ACCE283CAA94006988C7 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACCD283CAA94006988C7 /* CardType.swift */; };
+		CB94ACD0283CAAAC006988C7 /* CardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACCF283CAAAC006988C7 /* CardElement.swift */; };
 		CBB8F14E283B917A007D0E0A /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535B4283A7F4A0025F099 /* Deck.swift */; };
 		CBB8F14F283B917D007D0E0A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535AE283A7F2C0025F099 /* Card.swift */; };
 		CBB8F150283B917F007D0E0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535B8283A819C0025F099 /* Constants.swift */; };
@@ -38,6 +42,10 @@
 		6C2535B8283A819C0025F099 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CB94ACC8283CAA31006988C7 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
+		CB94ACCB283CAA85006988C7 /* CardError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardError.swift; sourceTree = "<group>"; };
+		CB94ACCD283CAA94006988C7 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		CB94ACCF283CAAAC006988C7 /* CardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,9 +78,8 @@
 		6C2535AD283A7F210025F099 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				CB94ACCA283CAA6F006988C7 /* Card */,
 				6C2535B8283A819C0025F099 /* Constants.swift */,
-				6C2535AE283A7F2C0025F099 /* Card.swift */,
-				6C2535B4283A7F4A0025F099 /* Deck.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -102,6 +109,19 @@
 				C7F86E19273AAF7900FAA669 /* main.swift */,
 			);
 			path = Blackjack;
+			sourceTree = "<group>";
+		};
+		CB94ACCA283CAA6F006988C7 /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				CB94ACCB283CAA85006988C7 /* CardError.swift */,
+				CB94ACCD283CAA94006988C7 /* CardType.swift */,
+				CB94ACCF283CAAAC006988C7 /* CardElement.swift */,
+				6C2535AE283A7F2C0025F099 /* Card.swift */,
+				CB94ACC8283CAA31006988C7 /* Cards.swift */,
+				6C2535B4283A7F4A0025F099 /* Deck.swift */,
+			);
+			path = Card;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,7 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB94ACD0283CAAAC006988C7 /* CardElement.swift in Sources */,
+				CB94ACC9283CAA31006988C7 /* Cards.swift in Sources */,
 				6C2535B5283A7F4A0025F099 /* Deck.swift in Sources */,
+				CB94ACCC283CAA85006988C7 /* CardError.swift in Sources */,
+				CB94ACCE283CAA94006988C7 /* CardType.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
 				6C2535AF283A7F2C0025F099 /* Card.swift in Sources */,
 				6C2535B9283A819C0025F099 /* Constants.swift in Sources */,
