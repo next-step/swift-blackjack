@@ -42,8 +42,8 @@
 		2D04DA7C2825302A005B85C4 /* BlackjackGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA7A2825302A005B85C4 /* BlackjackGameController.swift */; };
 		2D04DA7E2825376B005B85C4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA7D2825376B005B85C4 /* InputView.swift */; };
 		2D04DA7F2825376B005B85C4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA7D2825376B005B85C4 /* InputView.swift */; };
-		2D04DA8128253BC1005B85C4 /* StringUtiltity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8028253BC1005B85C4 /* StringUtiltity.swift */; };
-		2D04DA8228253BC1005B85C4 /* StringUtiltity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8028253BC1005B85C4 /* StringUtiltity.swift */; };
+		2D04DA8128253BC1005B85C4 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8028253BC1005B85C4 /* StringUtility.swift */; };
+		2D04DA8228253BC1005B85C4 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8028253BC1005B85C4 /* StringUtility.swift */; };
 		2D04DA842826C639005B85C4 /* PlayersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA832826C639005B85C4 /* PlayersTest.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
@@ -82,7 +82,7 @@
 		2D04DA7728240C66005B85C4 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		2D04DA7A2825302A005B85C4 /* BlackjackGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackGameController.swift; sourceTree = "<group>"; };
 		2D04DA7D2825376B005B85C4 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		2D04DA8028253BC1005B85C4 /* StringUtiltity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtiltity.swift; sourceTree = "<group>"; };
+		2D04DA8028253BC1005B85C4 /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		2D04DA832826C639005B85C4 /* PlayersTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTest.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -156,7 +156,7 @@
 				2D04DA742824076C005B85C4 /* Players.swift */,
 				2D04DA7728240C66005B85C4 /* ResultView.swift */,
 				2D04DA7D2825376B005B85C4 /* InputView.swift */,
-				2D04DA8028253BC1005B85C4 /* StringUtiltity.swift */,
+				2D04DA8028253BC1005B85C4 /* StringUtility.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -251,7 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D04DA5128228FBB005B85C4 /* Rank.swift in Sources */,
-				2D04DA8228253BC1005B85C4 /* StringUtiltity.swift in Sources */,
+				2D04DA8228253BC1005B85C4 /* StringUtility.swift in Sources */,
 				2D04DA3A282158EA005B85C4 /* BlackjackTest.swift in Sources */,
 				2D04DA5C2822B2A7005B85C4 /* Participant.swift in Sources */,
 				2D04DA622822B972005B85C4 /* Hand.swift in Sources */,
@@ -288,7 +288,7 @@
 				2D04DA7828240C66005B85C4 /* ResultView.swift in Sources */,
 				2D04DA4F28228D6B005B85C4 /* CardDeckGenerator.swift in Sources */,
 				2D04DA432821E862005B85C4 /* CardDeck.swift in Sources */,
-				2D04DA8128253BC1005B85C4 /* StringUtiltity.swift in Sources */,
+				2D04DA8128253BC1005B85C4 /* StringUtility.swift in Sources */,
 				2D04DA3F2821E66D005B85C4 /* Card.swift in Sources */,
 				2D04DA7B2825302A005B85C4 /* BlackjackGameController.swift in Sources */,
 				2D04DA5B2822B2A7005B85C4 /* Participant.swift in Sources */,
