@@ -79,4 +79,38 @@ class BlackjackTests: XCTestCase {
         // then
         XCTAssertTrue(cards.result() == result)
     }
+    
+    func test_플레이어_카드분배_검증() {
+        // given
+        let deck: Deck = Deck()
+        let player1 = Player(name: "player1")
+        let player2 = Player(name: "player2")
+        let players = Players([player1, player2])
+        
+        // when/then
+        XCTAssertNoThrow(try players.handoutAllPlayers(deck: deck))
+    }
+    
+    func test_플레이어_커스텀_맵_검증() {
+        let player1 = Player(name: "player1")
+        let player2 = Player(name: "player2")
+        let players = Players([player1, player2])
+        
+        // when
+        let result: [String] = ["player1", "player2"]
+        
+        XCTAssertTrue(result == players.customMap { $0.name })
+    }
+    
+    func test_플레이어_커스텀_필터_검증() {
+        let player1 = Player(name: "player1")
+        let player2 = Player(name: "player2")
+        let players = Players([player1, player2])
+        
+        // when
+        let filter = "player1"
+        let result = 1
+        
+        XCTAssertTrue(result == players.customFilter { $0.name == filter }.count)
+    }
 }
