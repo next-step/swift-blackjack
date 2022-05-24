@@ -14,7 +14,7 @@ struct Card: CustomDebugStringConvertible {
     }
     
     var debugDescription: String {
-        cardElement.rawValue + cardType.rawValue
+        return String(describing: cardType) + String(describing: cardElement)
     }
     
     init(_ cardType: CardType, _ cardElement: CardElement) {
