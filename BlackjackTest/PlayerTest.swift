@@ -20,4 +20,20 @@ class PlayerTest: XCTestCase {
         // then
         XCTAssertTrue(player.cardDeck.cards.contains(card))
     }
+    
+    func test_countScore() {
+        // given
+        let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
+        let cardOne = Card(id: .ace, symbol: .heart)
+        let cardTwo = Card(id: .ten, symbol: .diamond)
+        let cardThree = Card(id: .jack, symbol: .diamond)
+        
+        player.receive(cards: [cardOne, cardTwo, cardThree])
+
+        // when
+        let score = player.countScore()
+        
+        // then
+        XCTAssertTrue(score == 21)
+    }
 }

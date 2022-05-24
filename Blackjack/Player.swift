@@ -19,4 +19,8 @@ class Player {
     func receive(cards: [Card]) {
         cards.forEach { cardDeck.append(card: $0) }
     }
+    
+    func countScore() -> Int {
+        return cardDeck.countScore()
+    }
 }
