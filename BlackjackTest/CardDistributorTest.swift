@@ -21,8 +21,8 @@ class CardDistributorTest: XCTestCase {
         let firstCard = Card(id: .ace, symbol: .heart)
         let secondCard = Card(id: .ace, symbol: .diamond)
         let stubCardPickStrategy = StubCardPickStrategy(card: firstCard)
-    
-        let cardDistributor = NonDuplicateCardDistirbutor(cards: [firstCard, secondCard], cardPickStrategy: stubCardPickStrategy())
+        
+        let cardDistributor = NonDuplicateCardDistributor(cards: [firstCard, secondCard], cardPickStrategy: stubCardPickStrategy)
     
         // when
         let _ = cardDistributor.distribute(count: 1)
