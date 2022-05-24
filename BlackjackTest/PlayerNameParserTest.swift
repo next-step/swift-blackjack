@@ -9,15 +9,14 @@ import XCTest
 
 class PlayerNameParserTest: XCTestCase {
 
-    func test_콤마를_기준으로_이름을_분리한다() {
+    func test_콤마를_기준으로_이름을_분리한다() throws {
         // given
         let nameInput = "yagom,coma"
         // when
-        let names = PlayerNameParser.parse(nameInput: nameInput)
+        let names = try PlayerNameParser.parse(nameInput: nameInput)
         
         // then
-        XCTAssertTrue(names.contains(Name("yagom")))
-        XCTAssertTrue(names.contains(Name("coma")))
+        XCTAssertTrue(names.contains { $0.value == "yagom" })
+        XCTAssertTrue(names.contains { $0.value == "coma" })
     }
-
 }

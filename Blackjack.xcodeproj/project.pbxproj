@@ -25,6 +25,7 @@
 		2E9C3B2E283C731600393DEE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B2D283C731600393DEE /* InputView.swift */; };
 		2E9C3B31283C73ED00393DEE /* PlayerNameParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B30283C73ED00393DEE /* PlayerNameParser.swift */; };
 		2E9C3B33283C741200393DEE /* PlayerNameParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B32283C741200393DEE /* PlayerNameParserTest.swift */; };
+		2E9C3B34283C757200393DEE /* PlayerNameParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B30283C73ED00393DEE /* PlayerNameParser.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -228,6 +229,7 @@
 				2E66DB6E283BD8BE00E582E2 /* CardScoreRuleTest.swift in Sources */,
 				2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */,
 				2E66DB67283BD7DE00E582E2 /* CardDeck.swift in Sources */,
+				2E9C3B34283C757200393DEE /* PlayerNameParser.swift in Sources */,
 				2E66DB64283BD65300E582E2 /* TrumpCardsTest.swift in Sources */,
 				2E66DB69283BD7F900E582E2 /* CardDeckTest.swift in Sources */,
 				2E66DB5F283BD5DF00E582E2 /* Card.swift in Sources */,
