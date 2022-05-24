@@ -78,8 +78,9 @@
 		6C2535AD283A7F210025F099 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				CB94ACCA283CAA6F006988C7 /* Card */,
 				6C2535B8283A819C0025F099 /* Constants.swift */,
+				CB94ACCA283CAA6F006988C7 /* Card */,
+				CB94ACD1283CAC31006988C7 /* Deck */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -119,9 +120,16 @@
 				CB94ACCF283CAAAC006988C7 /* CardElement.swift */,
 				6C2535AE283A7F2C0025F099 /* Card.swift */,
 				CB94ACC8283CAA31006988C7 /* Cards.swift */,
-				6C2535B4283A7F4A0025F099 /* Deck.swift */,
 			);
 			path = Card;
+			sourceTree = "<group>";
+		};
+		CB94ACD1283CAC31006988C7 /* Deck */ = {
+			isa = PBXGroup;
+			children = (
+				6C2535B4283A7F4A0025F099 /* Deck.swift */,
+			);
+			path = Deck;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
