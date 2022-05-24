@@ -21,6 +21,6 @@ struct Card {
 
 extension Card: CustomDebugStringConvertible {
     var debugDescription: String {
-        return String(describing: cardType) + String(describing: cardElement)
+        return String(describing: cardElement) + String(describing: cardType)
     }
 }
