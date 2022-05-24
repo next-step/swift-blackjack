@@ -1,0 +1,36 @@
+//
+//  BlackjackGame.swift
+//  Blackjack
+//
+//  Created by nylah.j on 2022/05/24.
+//
+
+import Foundation
+
+struct BlackjackGame {
+    let players: [Player]
+    let cardDistributor: CardDistributor
+    let readAnswerDelegate: ReadAnswerDelegate
+    let gameStateDelegate: GameStateDelegate?
+    
+    init(players: [Player],
+         cardDistributor: CardDistributor,
+         answerReaderDelegate: ReadAnswerDelegate,
+         gameStateDelegate: GameStateDelegate? = nil) {
+        
+        self.players = players
+        self.cardDistributor = cardDistributor
+        self.readAnswerDelegate = answerReaderDelegate
+        self.gameStateDelegate = gameStateDelegate
+        
+        initPlayer()
+        gameStateDelegate?.afterInit(players: players)
+    }
+    
+    private func initPlayer() {
+        players.forEach { player in
+            let cards = cardDistributor.distribute(count: 2)
+            player.receive(cards: cards)
+        }
+    }
+}

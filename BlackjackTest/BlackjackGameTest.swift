@@ -8,13 +8,19 @@
 import XCTest
 @testable import Blackjack
 
+struct StubAnswerReader: ReadAnswerDelegate {
+    let answer: Answer
+
+    func readAnswer(player: Player) throws -> Answer {
+        return answer
+    }
+}
+
 class BlackjackGameTest: XCTestCase {
     var cardDistributor: CardDistributor!
-    var readAnswerDelegate: ReadAnswerDelegate
     
     override func setUpWithError() throws {
         cardDistributor = NonDuplicateCardDistributor(cards: TrumpCards.value, cardPickStrategy: RandomCardPickStrategy())
-        readAnswerDelegate = BlackjackAnswerReader()
     }
     
     override func tearDownWithError() throws {
@@ -23,13 +29,14 @@ class BlackjackGameTest: XCTestCase {
 
     func test_init_모든_player에게_카드를_2장씩_배부한다() {
         // given
-        let playerOne = Player(name: PlayerName("kim"), cardDeck: BlackjackCardDeck())
-        let playerTwo = Player(name: PlayerName("lee"), cardDeck: BlackjackCardDeck())
+        let playerOne = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
+        let playerTwo = Player(name: PlayerName("lee")!, cardDeck: BlackjackCardDeck())
+        let answerReader = StubAnswerReader(answer: .yes)
         
         // when
-        let blackjackGame = BlackjackGame(players: [playerOne, playerTwo],
-             cardDistributor: cardDistributor,
-             answerReaderDelegate: readAnswerDelegate)
+        _ = BlackjackGame(players: [playerOne, playerTwo],
+                                         cardDistributor: cardDistributor,
+                                         answerReaderDelegate: answerReader)
         
         // then
         XCTAssertTrue(playerOne.cardDeck.cards.count == 2)
