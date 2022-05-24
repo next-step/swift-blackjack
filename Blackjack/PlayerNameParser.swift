@@ -18,15 +18,15 @@ enum PlayerNameParser {
         }
     }
     
-    private static let comma = ","
+    private static let delimiter = ","
     
     static func parse(nameInput: String?) throws -> [PlayerName] {
-        guard let names = nameInput?.components(separatedBy: comma),
+        guard let names = nameInput?.components(separatedBy: delimiter).filter({ $0.isEmpty == false && $0 != " " }),
               names.isEmpty == false else {
                   throw Error.invalid
               }
 
-        
+        print("names: \(names)")
         return names.compactMap { PlayerName($0) }
     }
 }
