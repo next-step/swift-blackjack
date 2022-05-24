@@ -7,4 +7,5 @@
 
 struct Constants {
     static let cardRange: Range = 0..<52
+    static let winningNumber: Int = 21
 }
