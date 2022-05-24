@@ -32,6 +32,8 @@
 		2E9C3B3B283C79CE00393DEE /* Collection + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B39283C79CE00393DEE /* Collection + Extension.swift */; };
 		2E9C3B3D283C7A7400393DEE /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B3C283C7A7400393DEE /* OutputView.swift */; };
 		2E9C3B3E283C7A7400393DEE /* OutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B3C283C7A7400393DEE /* OutputView.swift */; };
+		2E9C3B40283C7C9700393DEE /* CardPickStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B3F283C7C9700393DEE /* CardPickStrategy.swift */; };
+		2E9C3B41283C7C9700393DEE /* CardPickStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B3F283C7C9700393DEE /* CardPickStrategy.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +67,7 @@
 		2E9C3B36283C797700393DEE /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		2E9C3B39283C79CE00393DEE /* Collection + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection + Extension.swift"; sourceTree = "<group>"; };
 		2E9C3B3C283C7A7400393DEE /* OutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputView.swift; sourceTree = "<group>"; };
+		2E9C3B3F283C7C9700393DEE /* CardPickStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPickStrategy.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -148,6 +151,7 @@
 				2E66DB65283BD7DE00E582E2 /* CardDeck.swift */,
 				2E66DB6A283BD8B500E582E2 /* CardScoreRule.swift */,
 				2E9C3B30283C73ED00393DEE /* PlayerNameParser.swift */,
+				2E9C3B3F283C7C9700393DEE /* CardPickStrategy.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -246,6 +250,7 @@
 				2E9C3B33283C741200393DEE /* PlayerNameParserTest.swift in Sources */,
 				2E66DB62283BD61E00E582E2 /* TrumpCards.swift in Sources */,
 				2E66DB6C283BD8B500E582E2 /* CardScoreRule.swift in Sources */,
+				2E9C3B41283C7C9700393DEE /* CardPickStrategy.swift in Sources */,
 				2E9C3B3B283C79CE00393DEE /* Collection + Extension.swift in Sources */,
 				2E66DB6E283BD8BE00E582E2 /* CardScoreRuleTest.swift in Sources */,
 				2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */,
@@ -272,6 +277,7 @@
 				2E9C3B3A283C79CE00393DEE /* Collection + Extension.swift in Sources */,
 				2E9C3B37283C797700393DEE /* String + Extension.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				2E9C3B40283C7C9700393DEE /* CardPickStrategy.swift in Sources */,
 				2E66DB5E283BD5DF00E582E2 /* Card.swift in Sources */,
 				2E66DB59283BD43400E582E2 /* PlayerName.swift in Sources */,
 			);
