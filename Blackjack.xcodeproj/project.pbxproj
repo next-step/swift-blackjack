@@ -54,6 +54,7 @@
 		2E9C3B62283CC41400393DEE /* GameStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B58283CA22A00393DEE /* GameStateDelegate.swift */; };
 		2E9C3B63283CC49500393DEE /* AnswerReadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B56283C895200393DEE /* AnswerReadDelegate.swift */; };
 		2E9C3B64283CC53C00393DEE /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B2D283C731600393DEE /* InputView.swift */; };
+		2E9C3B66283CC5EE00393DEE /* BlackjackScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B65283CC5EE00393DEE /* BlackjackScore.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		2E9C3B5A283CA3A200393DEE /* PlayerFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerFormatter.swift; sourceTree = "<group>"; };
 		2E9C3B5C283CA88B00393DEE /* BlackjackGameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackGameTest.swift; sourceTree = "<group>"; };
 		2E9C3B5F283CADF100393DEE /* BlackjackGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackGame.swift; sourceTree = "<group>"; };
+		2E9C3B65283CC5EE00393DEE /* BlackjackScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackScore.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +198,7 @@
 				2E9C3B56283C895200393DEE /* AnswerReadDelegate.swift */,
 				2E9C3B58283CA22A00393DEE /* GameStateDelegate.swift */,
 				2E9C3B5A283CA3A200393DEE /* PlayerFormatter.swift */,
+				2E9C3B65283CC5EE00393DEE /* BlackjackScore.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				2E9C3B5B283CA3A200393DEE /* PlayerFormatter.swift in Sources */,
 				2E9C3B4F283C86F400393DEE /* AnswerParser.swift in Sources */,
 				2E66DB66283BD7DE00E582E2 /* CardDeck.swift in Sources */,
+				2E9C3B66283CC5EE00393DEE /* BlackjackScore.swift in Sources */,
 				2E9C3B53283C881C00393DEE /* Answer.swift in Sources */,
 				2E9C3B31283C73ED00393DEE /* PlayerNameParser.swift in Sources */,
 				2E9C3B43283C7CBE00393DEE /* CardDistributor.swift in Sources */,
