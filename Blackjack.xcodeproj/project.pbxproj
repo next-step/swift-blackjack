@@ -19,6 +19,9 @@
 		2E66DB66283BD7DE00E582E2 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB65283BD7DE00E582E2 /* CardDeck.swift */; };
 		2E66DB67283BD7DE00E582E2 /* CardDeck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB65283BD7DE00E582E2 /* CardDeck.swift */; };
 		2E66DB69283BD7F900E582E2 /* CardDeckTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB68283BD7F900E582E2 /* CardDeckTest.swift */; };
+		2E66DB6B283BD8B500E582E2 /* CardScoreRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB6A283BD8B500E582E2 /* CardScoreRule.swift */; };
+		2E66DB6C283BD8B500E582E2 /* CardScoreRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB6A283BD8B500E582E2 /* CardScoreRule.swift */; };
+		2E66DB6E283BD8BE00E582E2 /* CardScoreRuleTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB6D283BD8BE00E582E2 /* CardScoreRuleTest.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +47,8 @@
 		2E66DB63283BD65300E582E2 /* TrumpCardsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrumpCardsTest.swift; sourceTree = "<group>"; };
 		2E66DB65283BD7DE00E582E2 /* CardDeck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeck.swift; sourceTree = "<group>"; };
 		2E66DB68283BD7F900E582E2 /* CardDeckTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDeckTest.swift; sourceTree = "<group>"; };
+		2E66DB6A283BD8B500E582E2 /* CardScoreRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScoreRule.swift; sourceTree = "<group>"; };
+		2E66DB6D283BD8BE00E582E2 /* CardScoreRuleTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardScoreRuleTest.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +78,7 @@
 				2E66DB5A283BD45200E582E2 /* PlayerNameTest.swift */,
 				2E66DB63283BD65300E582E2 /* TrumpCardsTest.swift */,
 				2E66DB68283BD7F900E582E2 /* CardDeckTest.swift */,
+				2E66DB6D283BD8BE00E582E2 /* CardScoreRuleTest.swift */,
 			);
 			path = BlackjackTest;
 			sourceTree = "<group>";
@@ -103,6 +109,7 @@
 				2E66DB5D283BD5DF00E582E2 /* Card.swift */,
 				2E66DB60283BD61E00E582E2 /* TrumpCards.swift */,
 				2E66DB65283BD7DE00E582E2 /* CardDeck.swift */,
+				2E66DB6A283BD8B500E582E2 /* CardScoreRule.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -199,6 +206,8 @@
 				2E66DB5C283BD55400E582E2 /* PlayerName.swift in Sources */,
 				2E66DB54283BD41400E582E2 /* BlackjackTest.swift in Sources */,
 				2E66DB62283BD61E00E582E2 /* TrumpCards.swift in Sources */,
+				2E66DB6C283BD8B500E582E2 /* CardScoreRule.swift in Sources */,
+				2E66DB6E283BD8BE00E582E2 /* CardScoreRuleTest.swift in Sources */,
 				2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */,
 				2E66DB67283BD7DE00E582E2 /* CardDeck.swift in Sources */,
 				2E66DB64283BD65300E582E2 /* TrumpCardsTest.swift in Sources */,
@@ -211,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E66DB6B283BD8B500E582E2 /* CardScoreRule.swift in Sources */,
 				2E66DB61283BD61E00E582E2 /* TrumpCards.swift in Sources */,
 				2E66DB66283BD7DE00E582E2 /* CardDeck.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
