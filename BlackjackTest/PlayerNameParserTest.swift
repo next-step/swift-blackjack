@@ -19,5 +19,14 @@ class PlayerNameParserTest: XCTestCase {
         XCTAssertTrue(names.contains { $0.value == "yagom" })
         XCTAssertTrue(names.contains { $0.value == "coma" })
     }
+    
+    func test_콤마를_기준으로_이름을_분리했을때_이름이_존재하지_않을경우_error를_throw한다() {
+        // given
+        let nameInput = " , "
+            
+        // when
+        // then
+        XCTAssertThrowsError(try PlayerNameParser.parse(nameInput: nameInput))
+    }
 
 }
