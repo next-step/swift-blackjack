@@ -16,4 +16,8 @@ enum OutputView {
         
         Swift.print(error.localizedDescription)
     }
+    
+    static func print(initialPlayers: String) {
+        Swift.print(initialPlayers)
+    }
 }
