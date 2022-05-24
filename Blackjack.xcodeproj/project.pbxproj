@@ -46,6 +46,7 @@
 		2E9C3B54283C884000393DEE /* AnswerParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B4E283C86F400393DEE /* AnswerParser.swift */; };
 		2E9C3B55283C884700393DEE /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B52283C881C00393DEE /* Answer.swift */; };
 		2E9C3B57283C895200393DEE /* AnswerReadDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B56283C895200393DEE /* AnswerReadDelegate.swift */; };
+		2E9C3B59283CA22A00393DEE /* GameStateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B58283CA22A00393DEE /* GameStateDelegate.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		2E9C3B50283C86FD00393DEE /* AnswerParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerParserTest.swift; sourceTree = "<group>"; };
 		2E9C3B52283C881C00393DEE /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		2E9C3B56283C895200393DEE /* AnswerReadDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerReadDelegate.swift; sourceTree = "<group>"; };
+		2E9C3B58283CA22A00393DEE /* GameStateDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStateDelegate.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +182,7 @@
 				2E9C3B4E283C86F400393DEE /* AnswerParser.swift */,
 				2E9C3B52283C881C00393DEE /* Answer.swift */,
 				2E9C3B56283C895200393DEE /* AnswerReadDelegate.swift */,
+				2E9C3B58283CA22A00393DEE /* GameStateDelegate.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
 				2E9C3B40283C7C9700393DEE /* CardPickStrategy.swift in Sources */,
 				2E66DB5E283BD5DF00E582E2 /* Card.swift in Sources */,
+				2E9C3B59283CA22A00393DEE /* GameStateDelegate.swift in Sources */,
 				2E9C3B57283C895200393DEE /* AnswerReadDelegate.swift in Sources */,
 				2E66DB59283BD43400E582E2 /* PlayerName.swift in Sources */,
 			);
