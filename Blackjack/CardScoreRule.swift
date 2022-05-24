@@ -52,11 +52,11 @@ enum BlackjackScoreRule: CardScoreRule {
         let minGap = min(gapWhereAceOne, gapWhereAceEleven)
         
         if minGap == gapWhereAceOne {
-            if gapWhereAceOne > 0 { return sumWhereAceOne }
+            if gapWhereAceOne >= 0 { return sumWhereAceOne }
             return sumWhereAceEleven
         }
         
-        if gapWhereAceEleven > 0 { return sumWhereAceEleven }
+        if gapWhereAceEleven >= 0 { return sumWhereAceEleven }
         return sumWhereAceOne
     }
 }
