@@ -33,4 +33,28 @@ struct BlackjackGame {
             player.receive(cards: cards)
         }
     }
+    
+    func start() throws -> [BlackjackScore] {
+        try players.forEach { try askAboutCard(to: $0) }
+        let finalScores = players.map {
+            BlackjackScore(whos: $0, score: $0.countScore())
+        }
+        return finalScores
+    }
+    
+    private func askAboutCard(to player: Player) throws {
+    while true {
+        let answer = try readAnswerDelegate.readAnswer(player: player)
+        
+        switch answer {
+        case .yes:
+            let card = cardDistributor.distribute(count: 1)
+            player.receive(cards: card)
+            
+            gameStateDelegate?.afterReceiveCard(player: player)
+        case .no:
+            return
+        }
+        }
+    }
 }
