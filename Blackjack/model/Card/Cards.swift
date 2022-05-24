@@ -13,7 +13,9 @@ struct Cards: CustomDebugStringConvertible {
     }
     
     var debugDescription: String {
-        String(describing: cards)
+        cards.map { (card) in
+            String(describing: card)
+        }.joined(separator: ", ")
     }
     
     init(_ cards: [Card] = []) {
