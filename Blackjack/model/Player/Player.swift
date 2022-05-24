@@ -6,22 +6,29 @@
 //
 
 protocol Playable {
-    mutating func deal(_ element: Card) throws
+    mutating func deal(_ element: Card)
 }
 
-struct Player: Playable {
+class Player: Playable, CustomDebugStringConvertible {
     let name: String
     var cards: Cards
+    var playing: Bool
+    
+    var result: Int {
+        cards.result()
+    }
+    
+    var debugDescription: String {
+        "\(name)카드: \(cards)"
+    }
     
     init(name: String, _ cards: Cards = Cards()) {
         self.name = name
         self.cards = cards
+        self.playing = true
     }
     
-    mutating func deal(_ element: Card) throws {
-        guard cards.result() <= Constants.winningNumber else {
-            throw CardError.outOfValue
-        }
+    func deal(_ element: Card) {
         cards.add(element)
     }
 }
