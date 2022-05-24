@@ -42,8 +42,8 @@ class BlackjackTests: XCTestCase {
     
     func test_에이스_없는_게임_결과_검증() throws {
         // given
-        let 하트10 = Card(.하트, .ten)
-        let 스페이드King = Card(.스페이드, .king)
+        let 하트10 = Card(.heart, .ten)
+        let 스페이드King = Card(.spade, .king)
         let cards = Cards([하트10, 스페이드King])
         
         // when
@@ -55,8 +55,8 @@ class BlackjackTests: XCTestCase {
     
     func test_에이스_11로_계산되는지_검증() throws {
         // given
-        let 하트Ace = Card(.하트, .ace)
-        let 스페이드King = Card(.스페이드, .king)
+        let 하트Ace = Card(.heart, .ace)
+        let 스페이드King = Card(.spade, .king)
         let cards = Cards([하트Ace, 스페이드King])
         
         // when
@@ -68,9 +68,9 @@ class BlackjackTests: XCTestCase {
     
     func test_에이스_1로_계산되는지_검증() throws {
         // given
-        let 하트Ace = Card(.하트, .ace)
-        let 스페이드Ten = Card(.스페이드, .ten)
-        let 다이아Jack = Card(.다이아, .jack)
+        let 하트Ace = Card(.heart, .ace)
+        let 스페이드Ten = Card(.spade, .ten)
+        let 다이아Jack = Card(.diamond, .jack)
         let cards = Cards([하트Ace, 스페이드Ten, 다이아Jack])
         
         // when

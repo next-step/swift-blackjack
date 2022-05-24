@@ -6,16 +6,16 @@
 //
 
 enum CardType: CaseIterable {
-    case 클로버, 다이아, 하트, 스페이드
+    case clover, diamond, heart, spade
 }
 
 extension CardType: CustomDebugStringConvertible {
     var debugDescription: String {
         switch self {
-        case .클로버: return "클로버"
-        case .다이아: return "다이아"
-        case .하트: return "하트"
-        case .스페이드: return "스페이드"
+        case .clover: return "클로버"
+        case .diamond: return "다이아"
+        case .heart: return "하트"
+        case .spade: return "스페이드"
         }
     }
 }
