@@ -42,6 +42,9 @@
 		2E9C3B4D283C817D00393DEE /* PlayerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B4C283C817D00393DEE /* PlayerTest.swift */; };
 		2E9C3B4F283C86F400393DEE /* AnswerParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B4E283C86F400393DEE /* AnswerParser.swift */; };
 		2E9C3B51283C86FD00393DEE /* AnswerParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B50283C86FD00393DEE /* AnswerParserTest.swift */; };
+		2E9C3B53283C881C00393DEE /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B52283C881C00393DEE /* Answer.swift */; };
+		2E9C3B54283C884000393DEE /* AnswerParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B4E283C86F400393DEE /* AnswerParser.swift */; };
+		2E9C3B55283C884700393DEE /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B52283C881C00393DEE /* Answer.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +85,7 @@
 		2E9C3B4C283C817D00393DEE /* PlayerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTest.swift; sourceTree = "<group>"; };
 		2E9C3B4E283C86F400393DEE /* AnswerParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerParser.swift; sourceTree = "<group>"; };
 		2E9C3B50283C86FD00393DEE /* AnswerParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerParserTest.swift; sourceTree = "<group>"; };
+		2E9C3B52283C881C00393DEE /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +176,7 @@
 				2E9C3B42283C7CBE00393DEE /* CardDistributor.swift */,
 				2E9C3B49283C813400393DEE /* Player.swift */,
 				2E9C3B4E283C86F400393DEE /* AnswerParser.swift */,
+				2E9C3B52283C881C00393DEE /* Answer.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				2E9C3B3B283C79CE00393DEE /* Collection + Extension.swift in Sources */,
 				2E66DB6E283BD8BE00E582E2 /* CardScoreRuleTest.swift in Sources */,
 				2E9C3B4D283C817D00393DEE /* PlayerTest.swift in Sources */,
+				2E9C3B55283C884700393DEE /* Answer.swift in Sources */,
 				2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */,
 				2E66DB67283BD7DE00E582E2 /* CardDeck.swift in Sources */,
 				2E9C3B3E283C7A7400393DEE /* OutputView.swift in Sources */,
@@ -285,6 +291,7 @@
 				2E9C3B4B283C813400393DEE /* Player.swift in Sources */,
 				2E9C3B51283C86FD00393DEE /* AnswerParserTest.swift in Sources */,
 				2E66DB5F283BD5DF00E582E2 /* Card.swift in Sources */,
+				2E9C3B54283C884000393DEE /* AnswerParser.swift in Sources */,
 				2E9C3B48283C7D9300393DEE /* CardDistributorTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +307,7 @@
 				2E9C3B4A283C813400393DEE /* Player.swift in Sources */,
 				2E9C3B4F283C86F400393DEE /* AnswerParser.swift in Sources */,
 				2E66DB66283BD7DE00E582E2 /* CardDeck.swift in Sources */,
+				2E9C3B53283C881C00393DEE /* Answer.swift in Sources */,
 				2E9C3B31283C73ED00393DEE /* PlayerNameParser.swift in Sources */,
 				2E9C3B43283C7CBE00393DEE /* CardDistributor.swift in Sources */,
 				2E9C3B3A283C79CE00393DEE /* Collection + Extension.swift in Sources */,

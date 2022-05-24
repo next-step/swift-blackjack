@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import Blackjack
 
 class AnswerParserTest: XCTestCase {
     func test_parse_yes() throws {
@@ -13,7 +14,7 @@ class AnswerParserTest: XCTestCase {
         let answerInput = "y"
         
         // when
-        let answer = AnswerParser.parse(answerInput: answerInput)
+        let answer = try AnswerParser.parse(answerInput: answerInput)
         
         // then
         XCTAssertEqual(answer, Answer.yes)
@@ -24,7 +25,7 @@ class AnswerParserTest: XCTestCase {
         let answerInput = "n"
         
         // when
-        let answer = AnswerParser.parse(answerInput: answerInput)
+        let answer = try AnswerParser.parse(answerInput: answerInput)
         
         // then
         XCTAssertEqual(answer, Answer.no)
