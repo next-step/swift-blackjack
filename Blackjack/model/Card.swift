@@ -5,29 +5,31 @@
 //  Created by ycsong on 2022/05/22.
 //
 
+enum CardError: Error {
+    case outOfValue
+}
+
 enum CardType: String, CaseIterable {
     case 클로버, 다이아, 하트, 스페이드
 }
 
 enum CardElement: String, CaseIterable {
+    case two = "2"
+    case three = "3"
+    case four = "4"
+    case five = "5"
+    case six = "6"
+    case seven = "7"
+    case eight = "8"
+    case nine = "9"
+    case ten = "10"
     case king = "K"
     case queen = "Q"
     case jack = "J"
     case ace = "A"
-    case ten = "10"
-    case nine = "9"
-    case eight = "8"
-    case seven = "7"
-    case six = "6"
-    case five = "5"
-    case four = "4"
-    case three = "3"
-    case two = "2"
     
-    func point(aceFlag: Bool = false) -> Int {
+    var point: Int {
         switch self {
-        case .ace where aceFlag:
-            return 1
         case .two:
             return 2
         case .three:
@@ -57,7 +59,7 @@ struct Card: CustomDebugStringConvertible {
     let cardElement: CardElement
     
     var point: Int {
-        cardElement.point()
+        cardElement.point
     }
     
     var debugDescription: String {
@@ -84,27 +86,31 @@ class Cards: CustomDebugStringConvertible {
     init(_ cards: [Card] = []) {
         self.cards = cards
     }
-    
-    var random: Card {
-        cards[Int.random(in: Constants.cardRange)]
-    }
-    
-    func shuffle() {
-        cards.shuffle()
-    }
-    
-    func totalSum() -> Int {
-        let aceCount = cards.map {
+
+    private var aceCount: Int {
+        cards.filter {
             $0.cardElement == .ace
         }.count
-        
-        return cards.map {
+    }
+    
+    private var sum: Int {
+        cards.map {
             $0.point
         }.reduce(0, +)
     }
-
     
-    func append(_ element: Card) {
+    func result() -> Int {
+        func findNearWinningNumber(count aceCount: Int, expectedResult: Int) -> Int {
+            if aceCount == 0 || Constants.winningNumber >= expectedResult {
+                return expectedResult
+            }
+            return findNearWinningNumber(count: aceCount - 1, expectedResult: expectedResult - 10)
+        }
+
+        return findNearWinningNumber(count: aceCount, expectedResult: sum)
+    }
+    
+    func add(_ element: Card) {
         cards.append(element)
     }
 }
