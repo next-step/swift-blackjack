@@ -17,6 +17,17 @@
 		CB94ACCE283CAA94006988C7 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACCD283CAA94006988C7 /* CardType.swift */; };
 		CB94ACD0283CAAAC006988C7 /* CardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACCF283CAAAC006988C7 /* CardElement.swift */; };
 		CB94ACD4283CAC7C006988C7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACD3283CAC7C006988C7 /* Player.swift */; };
+		CB94ACD7283CACF1006988C7 /* BlackjackGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACD6283CACF1006988C7 /* BlackjackGame.swift */; };
+		CB94ACD8283CAFEE006988C7 /* BlackjackGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACD6283CACF1006988C7 /* BlackjackGame.swift */; };
+		CB94ACD9283CAFF2006988C7 /* CardError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACCB283CAA85006988C7 /* CardError.swift */; };
+		CB94ACDA283CAFF4006988C7 /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACCD283CAA94006988C7 /* CardType.swift */; };
+		CB94ACDB283CAFF7006988C7 /* CardElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACCF283CAAAC006988C7 /* CardElement.swift */; };
+		CB94ACDC283CAFFB006988C7 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACC8283CAA31006988C7 /* Cards.swift */; };
+		CB94ACDD283CAFFF006988C7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACD3283CAC7C006988C7 /* Player.swift */; };
+		CB94ACE0283CB37B006988C7 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACDF283CB37B006988C7 /* InputView.swift */; };
+		CB94ACE2283CB495006988C7 /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACE1283CB495006988C7 /* InputError.swift */; };
+		CB94ACE4283CB83F006988C7 /* Players.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACE3283CB83F006988C7 /* Players.swift */; };
+		CB94ACE6283CC44F006988C7 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB94ACE5283CC44F006988C7 /* ResultView.swift */; };
 		CBB8F14E283B917A007D0E0A /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535B4283A7F4A0025F099 /* Deck.swift */; };
 		CBB8F14F283B917D007D0E0A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535AE283A7F2C0025F099 /* Card.swift */; };
 		CBB8F150283B917F007D0E0A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2535B8283A819C0025F099 /* Constants.swift */; };
@@ -48,6 +59,11 @@
 		CB94ACCD283CAA94006988C7 /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
 		CB94ACCF283CAAAC006988C7 /* CardElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardElement.swift; sourceTree = "<group>"; };
 		CB94ACD3283CAC7C006988C7 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		CB94ACD6283CACF1006988C7 /* BlackjackGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackGame.swift; sourceTree = "<group>"; };
+		CB94ACDF283CB37B006988C7 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		CB94ACE1283CB495006988C7 /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
+		CB94ACE3283CB83F006988C7 /* Players.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Players.swift; sourceTree = "<group>"; };
+		CB94ACE5283CC44F006988C7 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +126,8 @@
 			isa = PBXGroup;
 			children = (
 				6C2535AD283A7F210025F099 /* model */,
+				CB94ACDE283CB34D006988C7 /* view */,
+				CB94ACD5283CACE2006988C7 /* controller */,
 				C7F86E19273AAF7900FAA669 /* main.swift */,
 			);
 			path = Blackjack;
@@ -139,8 +157,27 @@
 			isa = PBXGroup;
 			children = (
 				CB94ACD3283CAC7C006988C7 /* Player.swift */,
+				CB94ACE3283CB83F006988C7 /* Players.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		CB94ACD5283CACE2006988C7 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB94ACD6283CACF1006988C7 /* BlackjackGame.swift */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		CB94ACDE283CB34D006988C7 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				CB94ACE1283CB495006988C7 /* InputError.swift */,
+				CB94ACDF283CB37B006988C7 /* InputView.swift */,
+				CB94ACE5283CC44F006988C7 /* ResultView.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +269,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB94ACDB283CAFF7006988C7 /* CardElement.swift in Sources */,
 				CBB8F14E283B917A007D0E0A /* Deck.swift in Sources */,
+				CB94ACD8283CAFEE006988C7 /* BlackjackGame.swift in Sources */,
+				CB94ACDC283CAFFB006988C7 /* Cards.swift in Sources */,
+				CB94ACD9283CAFF2006988C7 /* CardError.swift in Sources */,
+				CB94ACDA283CAFF4006988C7 /* CardType.swift in Sources */,
 				CBB8F14F283B917D007D0E0A /* Card.swift in Sources */,
 				6C2535A3283A6CFE0025F099 /* BlackjackTests.swift in Sources */,
+				CB94ACDD283CAFFF006988C7 /* Player.swift in Sources */,
 				CBB8F150283B917F007D0E0A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,12 +287,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB94ACD0283CAAAC006988C7 /* CardElement.swift in Sources */,
+				CB94ACE2283CB495006988C7 /* InputError.swift in Sources */,
+				CB94ACE4283CB83F006988C7 /* Players.swift in Sources */,
 				CB94ACC9283CAA31006988C7 /* Cards.swift in Sources */,
 				6C2535B5283A7F4A0025F099 /* Deck.swift in Sources */,
+				CB94ACE6283CC44F006988C7 /* ResultView.swift in Sources */,
 				CB94ACCC283CAA85006988C7 /* CardError.swift in Sources */,
 				CB94ACCE283CAA94006988C7 /* CardType.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				CB94ACD7283CACF1006988C7 /* BlackjackGame.swift in Sources */,
 				6C2535AF283A7F2C0025F099 /* Card.swift in Sources */,
+				CB94ACE0283CB37B006988C7 /* InputView.swift in Sources */,
 				CB94ACD4283CAC7C006988C7 /* Player.swift in Sources */,
 				6C2535B9283A819C0025F099 /* Constants.swift in Sources */,
 			);
