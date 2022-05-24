@@ -41,7 +41,3 @@ struct BlackjackStateDelegate: GameStateDelegate {
         OutputView.printIntialState(players: formattedPlayer, names: formattedNames)
     }
 }
-
-
-
-

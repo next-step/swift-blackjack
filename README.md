@@ -23,6 +23,3 @@ NEXTSTEP with yagom-academy
 - 카드 수령이 yes 이면 player에게 카드를 1장배분한다.
 - 카드 수령 상태를 출력한다. -  Blackjack이 게임 상태 Delegate (`GameStateDelegate`)에게 상태 출력을 요청한다.
 - 모든 사용자의 카드 수령이 끝나면 결과를 반환한다.
-    
- 
-
