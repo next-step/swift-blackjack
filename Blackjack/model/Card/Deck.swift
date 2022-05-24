@@ -29,6 +29,9 @@ struct Deck: CustomDebugStringConvertible {
     }
     
     mutating func drawCard() throws -> Card {
-        return deck.removeLast()
+        guard let card = deck.popLast() else {
+            throw CardError.noCards
+        }
+        return card
     }
 }
