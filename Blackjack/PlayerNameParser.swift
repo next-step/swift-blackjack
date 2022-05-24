@@ -17,8 +17,11 @@ enum PlayerNameParser {
             }
         }
     }
+    
+    private static let comma = ","
+    
     static func parse(nameInput: String?) throws -> [PlayerName] {
-        guard let names = nameInput?.components(separatedBy: ","),
+        guard let names = nameInput?.components(separatedBy: comma),
               names.isEmpty == false else {
                   throw Error.invalid
               }

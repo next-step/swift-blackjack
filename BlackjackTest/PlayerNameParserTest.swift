@@ -19,4 +19,5 @@ class PlayerNameParserTest: XCTestCase {
         XCTAssertTrue(names.contains { $0.value == "yagom" })
         XCTAssertTrue(names.contains { $0.value == "coma" })
     }
+
 }
