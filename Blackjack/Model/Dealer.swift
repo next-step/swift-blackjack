@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Dealer {
+class Dealer: Gamer {
     
     enum DealerError: LocalizedError {
         case noCards
@@ -20,10 +20,15 @@ class Dealer {
         }
     }
     
+    private enum Constants {
+        static let name: String = "딜러"
+    }
+    
     private var deck: Deck
     
     init(deck: Deck = Deck()) {
         self.deck = deck
+        super.init(name: Constants.name)
     }
     
     func drawCard() throws -> Card {
