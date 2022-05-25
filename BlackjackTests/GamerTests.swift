@@ -87,4 +87,20 @@ class GamerTests: XCTestCase {
         let result = sut.isBurst
         XCTAssertEqual(result, expectation)
     }
+    
+    func test_cardsDescription_쉼표로_카드를_구분하고_끗수와_슈트_순서로_카드를_표현한다() throws {
+        // given
+        let sut = Gamer(name: "naljin")
+        let heart2 = Card(suit: .diamond, denomination: .two)
+        let heartJ = Card(suit: .heart, denomination: .jack)
+        
+        //when
+        sut.appendCard(heart2)
+        sut.appendCard(heartJ)
+        
+        // then
+        let expectation = "2다이아몬드, J하트"
+        let result = sut.cardsDescription
+        XCTAssertEqual(result, expectation)
+    }
 }
