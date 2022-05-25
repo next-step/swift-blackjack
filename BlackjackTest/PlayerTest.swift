@@ -34,6 +34,6 @@ class PlayerTest: XCTestCase {
         let score = player.countScore()
         
         // then
-        XCTAssertTrue(score == 21)
+        XCTAssertEqual(score, 21)
     }
 }
