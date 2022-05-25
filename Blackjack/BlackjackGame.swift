@@ -37,7 +37,7 @@ struct BlackjackGame {
     func start() throws -> [BlackjackScore] {
         try players.forEach { try askAboutCard(to: $0) }
         let finalScores = players.map {
-            BlackjackScore(whos: $0, score: $0.countScore())
+            BlackjackScore(player: $0, score: $0.countScore())
         }
         return finalScores
     }
