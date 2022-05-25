@@ -8,6 +8,6 @@
 import Foundation
 
 struct BlackjackScore {
-    let whos: Player
+    let player: Player
     let score: Int
 }
