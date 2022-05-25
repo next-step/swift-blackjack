@@ -9,7 +9,9 @@ import XCTest
 
 class GamerResultTests: XCTestCase {
 
-    func test_description_유일한_최고_점수이면_win을_리턴한다() throws {
+    // MARK: - outcome
+    
+    func test_outcome_유일한_최고_점수이면_win을_리턴한다() throws {
         // given
         let dealer = Dealer()
         let heart2 = Card(suit: .heart, denomination: .two)
@@ -28,14 +30,14 @@ class GamerResultTests: XCTestCase {
         let sut = GamerResult(dealer: dealer, gamers: gamers)
         
         // when
-        let result = sut.description(of: highPointGamer)
+        let result = sut.outcome(of: highPointGamer)
         
         // then
-        let expectation: String = "승"
+        let expectation: GamerResult.Outcome = .win
         XCTAssertEqual(result, expectation)
     }
     
-    func test_description_동률이_있는_최고_점수를_얻었을때_그_사람이_딜러가_아니면_win을_리턴한다() throws {
+    func test_outcome_동률이_있는_최고_점수를_얻었을때_그_사람이_딜러가_아니면_win을_리턴한다() throws {
         // given
         let dealer = Dealer()
         let heart2 = Card(suit: .heart, denomination: .two)
@@ -54,14 +56,14 @@ class GamerResultTests: XCTestCase {
         let sut = GamerResult(dealer: dealer, gamers: gamers)
         
         // when
-        let result = sut.description(of: samePointGamer2)
+        let result = sut.outcome(of: samePointGamer2)
         
         // then
-        let expectation: String = "승"
+        let expectation: GamerResult.Outcome = .win
         XCTAssertEqual(result, expectation)
     }
     
-    func test_description_동률이_있는_최고_점수를_얻었을때_그_사람이_딜러이면_draw을_리턴한다() throws {
+    func test_outcome_동률이_있는_최고_점수를_얻었을때_그_사람이_딜러이면_draw을_리턴한다() throws {
         // given
         let dealer = Dealer()
         let heart3 = Card(suit: .heart, denomination: .three)
@@ -80,14 +82,14 @@ class GamerResultTests: XCTestCase {
         let sut = GamerResult(dealer: dealer, gamers: gamers)
         
         // when
-        let result = sut.description(of: highPointGamer)
+        let result = sut.outcome(of: highPointGamer)
         
         // then
-        let expectation: String = "무"
+        let expectation: GamerResult.Outcome = .draw
         XCTAssertEqual(result, expectation)
     }
     
-    func test_description_최고_점수가_아니면_lose을_리턴한다() throws {
+    func test_outcome_최고_점수가_아니면_lose을_리턴한다() throws {
         // given
         let dealer = Dealer()
         let heart2 = Card(suit: .heart, denomination: .two)
@@ -106,14 +108,14 @@ class GamerResultTests: XCTestCase {
         let sut = GamerResult(dealer: dealer, gamers: gamers)
         
         // when
-        let result = sut.description(of: lowPointGamer)
+        let result = sut.outcome(of: lowPointGamer)
         
         // then
-        let expectation: String = "패"
+        let expectation: GamerResult.Outcome = .lose
         XCTAssertEqual(result, expectation)
     }
     
-    func test_description_최고_점수가_아니어도_burst한_게이머들을_제외할때_최고_점수이면_win을_리턴한다() throws {
+    func test_outcome_최고_점수가_아니어도_burst한_게이머들을_제외할때_최고_점수이면_win을_리턴한다() throws {
         // given
         let dealer = Dealer()
         let heart2 = Card(suit: .heart, denomination: .two)
@@ -136,14 +138,14 @@ class GamerResultTests: XCTestCase {
         let sut = GamerResult(dealer: dealer, gamers: gamers)
         
         // when
-        let result = sut.description(of: lowPointGamer)
+        let result = sut.outcome(of: lowPointGamer)
         
         // then
-        let expectation: String = "승"
+        let expectation: GamerResult.Outcome = .win
         XCTAssertEqual(result, expectation)
     }
     
-    func test_description_burst면_lose을_리턴한다() throws {
+    func test_outcome_burst면_lose을_리턴한다() throws {
         // given
         let dealer = Dealer()
         let heart2 = Card(suit: .heart, denomination: .two)
@@ -166,10 +168,10 @@ class GamerResultTests: XCTestCase {
         let sut = GamerResult(dealer: dealer, gamers: gamers)
         
         // when
-        let result = sut.description(of: burstGamer)
+        let result = sut.outcome(of: burstGamer)
         
         // then
-        let expectation: String = "패"
+        let expectation: GamerResult.Outcome = .lose
         XCTAssertEqual(result, expectation)
     }
     
@@ -194,10 +196,10 @@ class GamerResultTests: XCTestCase {
         let sut = GamerResult(dealer: burstDealer, gamers: gamers)
         
         // when
-        let result = sut.description(of: burstGamer)
+        let result = sut.outcome(of: burstGamer)
         
         // then
-        let expectation: String = "승"
+        let expectation: GamerResult.Outcome = .win
         XCTAssertEqual(result, expectation)
     }
 }
