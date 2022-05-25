@@ -9,7 +9,7 @@ import XCTest
 
 class DealerResultTests: XCTestCase {
 
-    func test_outcome() throws {
+    func test_description() throws {
         // given
         let dealer = Dealer()
         let heart3 = Card(suit: .heart, denomination: .three)
@@ -32,18 +32,14 @@ class DealerResultTests: XCTestCase {
         let sut = DealerResult(dealer: dealer, gamers: gamers)
         
         // when
-        let result = sut.outcome
+        let result = sut.description
         
         // then
-        let winningExpectation = 1
-        let drawExpectation = 1
-        let loseExpectation = 1
-        XCTAssertEqual(result.winningCount, winningExpectation)
-        XCTAssertEqual(result.drawCount, drawExpectation)
-        XCTAssertEqual(result.loseCount, loseExpectation)
+        let expectation = "1승 1무 1패"
+        XCTAssertEqual(result, expectation)
     }
     
-    func test_outcome_딜러가_더_높은_점수를_얻어도_burst_딜러라면_lose로_count한다() throws {
+    func test_description_딜러가_더_높은_점수를_얻어도_burst_딜러라면_lose로_count한다() throws {
         // given
         let heartJ = Card(suit: .heart, denomination: .jack)
         let heartQ = Card(suit: .heart, denomination: .queen)
@@ -71,18 +67,14 @@ class DealerResultTests: XCTestCase {
         let sut = DealerResult(dealer: burstDealer, gamers: gamers)
         
         // when
-        let result = sut.outcome
+        let result = sut.description
         
         // then
-        let winningExpectation = 0
-        let drawExpectation = 0
-        let loseExpectation = 3
-        XCTAssertEqual(result.winningCount, winningExpectation)
-        XCTAssertEqual(result.drawCount, drawExpectation)
-        XCTAssertEqual(result.loseCount, loseExpectation)
+        let expectation = "0승 0무 3패"
+        XCTAssertEqual(result, expectation)
     }
     
-    func test_outcome_게이머가_더_높은_점수를_얻어도_burst_게이머라면_win로_count한다() throws {
+    func test_description_게이머가_더_높은_점수를_얻어도_burst_게이머라면_win로_count한다() throws {
         // given
         let dealer = Dealer()
         let heart3 = Card(suit: .heart, denomination: .three)
@@ -109,18 +101,14 @@ class DealerResultTests: XCTestCase {
         let sut = DealerResult(dealer: dealer, gamers: gamers)
         
         // when
-        let result = sut.outcome
+        let result = sut.description
         
         // then
-        let winningExpectation = 2
-        let drawExpectation = 1
-        let loseExpectation = 0
-        XCTAssertEqual(result.winningCount, winningExpectation)
-        XCTAssertEqual(result.drawCount, drawExpectation)
-        XCTAssertEqual(result.loseCount, loseExpectation)
+        let expectation = "2승 1무 0패"
+        XCTAssertEqual(result, expectation)
     }
     
-    func test_outcome_게이머가_없으면_딜러의_점수도_없다() throws {
+    func test_description_게이머가_없으면_딜러의_점수도_없다() throws {
         // given
         let dealer = Dealer()
         let heart3 = Card(suit: .heart, denomination: .three)
@@ -129,14 +117,10 @@ class DealerResultTests: XCTestCase {
         let sut = DealerResult(dealer: dealer, gamers: [])
         
         // when
-        let result = sut.outcome
+        let result = sut.description
         
         // then
-        let winningExpectation = 0
-        let drawExpectation = 0
-        let loseExpectation = 0
-        XCTAssertEqual(result.winningCount, winningExpectation)
-        XCTAssertEqual(result.drawCount, drawExpectation)
-        XCTAssertEqual(result.loseCount, loseExpectation)
+        let expectation = "0승 0무 0패"
+        XCTAssertEqual(result, expectation)
     }
 }

@@ -47,6 +47,7 @@
 		3BB8BC55283E7D1200036CB7 /* DealerResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC54283E7D1200036CB7 /* DealerResultTests.swift */; };
 		3BB8BC57283E7E4B00036CB7 /* DealerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */; };
 		3BB8BC58283E7E5700036CB7 /* DealerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */; };
+		3BB8BC5A283E82AB00036CB7 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC59283E82AB00036CB7 /* GameResult.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		3BB8BC4F283E6CD200036CB7 /* GamerResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerResultTests.swift; sourceTree = "<group>"; };
 		3BB8BC54283E7D1200036CB7 /* DealerResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerResultTests.swift; sourceTree = "<group>"; };
 		3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerResult.swift; sourceTree = "<group>"; };
+		3BB8BC59283E82AB00036CB7 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -144,6 +146,7 @@
 				3BB8BC222839650C00036CB7 /* Gamer.swift */,
 				3BB8BC142839500D00036CB7 /* CardCalculator.swift */,
 				3BB8BC1A28395F3700036CB7 /* ThresholdChecker.swift */,
+				3BB8BC59283E82AB00036CB7 /* GameResult.swift */,
 				3BB8BC4D283E6CC000036CB7 /* GamerResult.swift */,
 				3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */,
 			);
@@ -327,6 +330,7 @@
 				3BB8BC1B28395F3700036CB7 /* ThresholdChecker.swift in Sources */,
 				3BB8BC0D28394FCF00036CB7 /* Suit.swift in Sources */,
 				3BB8BC3F283A4E5E00036CB7 /* ResultView.swift in Sources */,
+				3BB8BC5A283E82AB00036CB7 /* GameResult.swift in Sources */,
 				3BB8BC1128394FE500036CB7 /* Denomination.swift in Sources */,
 				3BB8BC3B283A4DE400036CB7 /* UserGuider.swift in Sources */,
 				3BB8BC0A28394FAC00036CB7 /* Card.swift in Sources */,
