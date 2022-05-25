@@ -9,7 +9,7 @@ import XCTest
 
 class PlayerTest: XCTestCase {
 
-    func test_receive() {
+    func test_receive_카드를_수령하면_player의_카드덱에_담긴다() {
         // given
         let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
         let card = Card(id: .ace, symbol: .heart)
