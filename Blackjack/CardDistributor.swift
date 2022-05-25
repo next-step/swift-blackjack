@@ -22,11 +22,11 @@ class NonDuplicateCardDistributor: CardDistributor {
         }
         
     }
-    private(set) var cards: [Card]
+    private(set) var cards: Set<Card>
     let cardPickStrategy: CardPickStrategy
     
     init(cards: [Card], cardPickStrategy: CardPickStrategy) {
-        self.cards = Array(cards)
+        self.cards = Set(cards)
         self.cardPickStrategy = cardPickStrategy
     }
     
@@ -35,9 +35,10 @@ class NonDuplicateCardDistributor: CardDistributor {
             return try pickCard()
         }
         
-        pickedCards.forEach { card in
-            cards.removeAll { $0 == card }
+        pickedCards.forEach {
+            cards.remove($0)
         }
+        
         return pickedCards
     }
     
