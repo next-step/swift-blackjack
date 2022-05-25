@@ -31,7 +31,7 @@ enum PlayerFormatter {
         
     }
     
-    private static func format(cardSymbol: CardSymbol) -> String {
+    private static func format(cardSymbol: Card.CardSymbol) -> String {
         switch cardSymbol {
         case .heart: return "하트"
         case .spade: return "스페이드"
@@ -40,7 +40,7 @@ enum PlayerFormatter {
         }
     }
     
-    private static func format(cardId: Rank) -> String {
+    private static func format(cardId: Card.Rank) -> String {
         switch cardId {
         case .ace: return "A"
         case .two: return "2"
