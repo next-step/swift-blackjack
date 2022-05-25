@@ -114,12 +114,7 @@ class HandTest: XCTestCase {
         XCTAssertEqual(hand.score(), 16)
     }
     
-    func testHand_give_winningScore() {
-        let cards = [Card(rank: .A, suit: .clubs),
-                    Card(rank: .two, suit: .hearts)]
-        let winningScore = WinningScore()
-        let hand = Hand(cards: cards, winningScore: winningScore)
-        
-        XCTAssertEqual(hand.giveWinningScore(), 21)
+    func testHand_winningScore() {
+        XCTAssertEqual(WinningScore.number, 21)
     }
 }

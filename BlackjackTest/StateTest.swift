@@ -17,8 +17,7 @@ class StateTest: XCTestCase {
     func testState_basicStory_for_participant() {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
-        let winningScore = WinningScore()
-        let hand = Hand(cards: cards, winningScore: winningScore)
+        let hand = Hand(cards: cards)
         let state = State()
         let participant = Participant(hand: hand, name: "만사", state: state)
         participant.hitOrStay(true)
@@ -37,8 +36,7 @@ class StateTest: XCTestCase {
     func testState_basicStory_for_dealer() {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
-        let winningScore = WinningScore()
-        let hand = Hand(cards: cards, winningScore: winningScore)
+        let hand = Hand(cards: cards)
         let state = State()
         let dealer = Dealer(hand: hand, state: state)
         
