@@ -9,7 +9,7 @@ import Foundation
 
 struct Card: Hashable {
     let rank: Rank
-    let symbol: CardSymbol
+    let suit: Suit
     
     enum Rank: CaseIterable {
         case ace
@@ -27,7 +27,7 @@ struct Card: Hashable {
         case king
     }
 
-    enum CardSymbol: CaseIterable {
+    enum Suit: CaseIterable {
         case heart, spade, diamond, club
     }
 }

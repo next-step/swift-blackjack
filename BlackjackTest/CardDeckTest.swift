@@ -13,7 +13,7 @@ class CardDeckTest: XCTestCase {
     func test_append_추가한카드를_보관한다() {
         // given
         let cardDeck = BlackjackCardDeck()
-        let card = Card(rank: .king, symbol: .diamond)
+        let card = Card(rank: .king, suit: .diamond)
         
         // when
         cardDeck.append(card: card)
@@ -25,8 +25,8 @@ class CardDeckTest: XCTestCase {
     func test_countScore_자신이_가진_cardScoreRule에_따라서_카드점수를_집계한다() {
         // given
         let cardDeck = BlackjackCardDeck()
-        let firstCard = Card(rank: .king, symbol: .diamond)
-        let secondCard = Card(rank: .ace, symbol: .heart)
+        let firstCard = Card(rank: .king, suit: .diamond)
+        let secondCard = Card(rank: .ace, suit: .heart)
         
         cardDeck.append(card: firstCard)
         cardDeck.append(card: secondCard)

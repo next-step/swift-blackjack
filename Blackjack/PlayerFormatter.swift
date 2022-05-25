@@ -26,12 +26,12 @@ enum PlayerFormatter {
     
     static func format(cardDeck: [Card]) -> String {
         return cardDeck.reduce("") { partialResult, card in
-            partialResult + format(cardId: card.rank) + format(cardSymbol: card.symbol) + ","
+            partialResult + format(cardId: card.rank) + format(cardSymbol: card.suit) + ","
         }
         
     }
     
-    private static func format(cardSymbol: Card.CardSymbol) -> String {
+    private static func format(cardSymbol: Card.Suit) -> String {
         switch cardSymbol {
         case .heart: return "하트"
         case .spade: return "스페이드"
