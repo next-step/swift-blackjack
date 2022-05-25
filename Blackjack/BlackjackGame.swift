@@ -16,20 +16,20 @@ struct BlackjackGame {
     init(players: [Player],
          cardDistributor: CardDistributor,
          answerReaderDelegate: ReadAnswerDelegate,
-         gameStateDelegate: GameStateDelegate? = nil) {
+         gameStateDelegate: GameStateDelegate? = nil) throws {
         
         self.players = players
         self.cardDistributor = cardDistributor
         self.readAnswerDelegate = answerReaderDelegate
         self.gameStateDelegate = gameStateDelegate
         
-        initPlayer()
+        try initPlayer()
         gameStateDelegate?.afterInit(players: players)
     }
     
-    private func initPlayer() {
-        players.forEach { player in
-            let cards = cardDistributor.distribute(count: 2)
+    private func initPlayer() throws {
+        try players.forEach { player in
+            let cards = try cardDistributor.distribute(count: 2)
             player.receive(cards: cards)
         }
     }
@@ -48,7 +48,7 @@ struct BlackjackGame {
             
             switch answer {
             case .yes:
-                let card = cardDistributor.distribute(count: 1)
+                let card = try cardDistributor.distribute(count: 1)
                 player.receive(cards: card)
                 
                 gameStateDelegate?.afterReceiveCard(player: player)

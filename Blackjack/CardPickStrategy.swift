@@ -8,14 +8,13 @@
 import Foundation
 
 protocol CardPickStrategy {
-    func pick(among cards: [Card]) -> Card
+    func pick<Cards>(among cards: Cards) -> Card?
+    where Cards: Collection, Cards.Element == Card
 }
 
 
 struct RandomCardPickStrategy: CardPickStrategy {
-    func pick(among cards: [Card]) -> Card {
-        let range = cards.startIndex..<cards.endIndex
-        let randomIndex = Int.random(in: range)
-        return cards[randomIndex]
+    func pick<Cards>(among cards: Cards) -> Card? where Cards : Collection, Cards.Element == Card {
+        return cards.randomElement()
     }
 }

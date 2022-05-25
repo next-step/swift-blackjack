@@ -30,14 +30,14 @@ class BlackjackGameTest: XCTestCase {
         cardDistributor = nil
     }
 
-    func test_init_모든_player에게_카드를_2장씩_배부한다() {
+    func test_init_모든_player에게_카드를_2장씩_배부한다() throws {
         // given
         let playerOne = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
         let playerTwo = Player(name: PlayerName("lee")!, cardDeck: BlackjackCardDeck())
         let answerReader = StubAnswerReader()
         
         // when
-        _ = BlackjackGame(players: [playerOne, playerTwo],
+        _ = try BlackjackGame(players: [playerOne, playerTwo],
                                          cardDistributor: cardDistributor,
                                          answerReaderDelegate: answerReader)
         
@@ -53,7 +53,7 @@ class BlackjackGameTest: XCTestCase {
         let answerReader = StubAnswerReader()
         answerReader.answer = [.yes, .yes, .no, .yes, .yes, .yes, .no]
         
-        let blackjackGame = BlackjackGame(players: [playerOne, playerTwo],
+        let blackjackGame = try BlackjackGame(players: [playerOne, playerTwo],
                                          cardDistributor: cardDistributor,
                                          answerReaderDelegate: answerReader)
         // when

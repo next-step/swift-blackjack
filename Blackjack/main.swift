@@ -16,7 +16,7 @@ do {
     let answerReader = BlackjackAnswerReader()
     let gameStateDelegate = BlackjackStateDelegate()
     
-    let blackjack = BlackjackGame(players: players,
+    let blackjack = try BlackjackGame(players: players,
                               cardDistributor: cardDistributor,
                               answerReaderDelegate: answerReader,
                               gameStateDelegate: gameStateDelegate)
