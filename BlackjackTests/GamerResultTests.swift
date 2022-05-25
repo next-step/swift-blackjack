@@ -202,4 +202,37 @@ class GamerResultTests: XCTestCase {
         let expectation: GamerResult.Outcome = .win
         XCTAssertEqual(result, expectation)
     }
+    
+    func test_outcome_guideDescription_win_승() throws {
+        //given
+        let input = GamerResult.Outcome.win
+        
+        //when
+        let result = input.guideDescription
+        
+        let expectation = "승"
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func test_outcome_guideDescription_draw_무() throws {
+        //given
+        let input = GamerResult.Outcome.draw
+        
+        //when
+        let result = input.guideDescription
+        
+        let expectation = "무"
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func test_outcome_guideDescription_lost_패() throws {
+        //given
+        let input = GamerResult.Outcome.lose
+        
+        //when
+        let result = input.guideDescription
+        
+        let expectation = "패"
+        XCTAssertEqual(result, expectation)
+    }
 }
