@@ -16,7 +16,7 @@ protocol CardDeck {
 
 class BlackjackCardDeck: CardDeck {
     private(set) var cards: [Card] = []
-    var cardScoreRule: CardScoreRule.Type = BlackjackScoreRule.self
+    let cardScoreRule: CardScoreRule.Type = BlackjackScoreRule.self
 
     func append(card: Card) {
         cards.append(card)
