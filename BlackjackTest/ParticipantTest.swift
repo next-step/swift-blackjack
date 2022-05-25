@@ -23,8 +23,7 @@ class ParticipantTest: XCTestCase {
     func testParticipant_handDescription() {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
-        let winningScore = WinningScore()
-        let hand = Hand(cards: cards, winningScore: winningScore)
+        let hand = Hand(cards: cards)
         let participant = Participant(hand: hand, name: "Mansa")
         
         XCTAssertEqual(participant.giveHandDescription(), "A♣, 2♥")
@@ -43,8 +42,7 @@ class ParticipantTest: XCTestCase {
     func testParticipant_score() {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
-        let winningScore = WinningScore()
-        let hand = Hand(cards: cards, winningScore: winningScore)
+        let hand = Hand(cards: cards)
         let participant = Participant(hand: hand, name: "Mansa")
         
         XCTAssertEqual(participant.score(), 13)
@@ -53,8 +51,7 @@ class ParticipantTest: XCTestCase {
     func testParticipant_takeAFirstHand() {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
-        let winningScore = WinningScore()
-        let hand = Hand(cards: cards, winningScore: winningScore)
+        let hand = Hand(cards: cards)
         let participant = Participant(name: "Mansa")
         participant.takeAFirstHand(hand)
         
@@ -65,8 +62,7 @@ class ParticipantTest: XCTestCase {
         //hand_score가 21이 넘지 않을 떄
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
-        let winningScore = WinningScore()
-        let hand = Hand(cards: cards, winningScore: winningScore)
+        let hand = Hand(cards: cards)
         let participant = Participant(hand: hand, name: "Mansa")
         let card = Card(rank: .seven, suit: .spades)
         

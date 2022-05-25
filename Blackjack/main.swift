@@ -8,10 +8,10 @@ import Foundation
 
 func main() {
     let rawParticipansts = InputView.readParticipants()
-    let nameOfParticipants = StringUtiltity.splitParticipantsName(to: rawParticipansts)
+    let participantNames = StringUtility.splitWithComma(to: rawParticipansts)
     guard let cardDeck = CardDeck(cards: CardDeckGenerator.generate()) else { return }
     cardDeck.shuffle()
-    guard let players = Players(with: nameOfParticipants, cardDeck: cardDeck) else { return }
+    guard let players = Players(with: participantNames, cardDeck: cardDeck) else { return }
     
     let game = BlackjackGame(players: players)
     let controller = BlackjackGameContrller(with: game)
