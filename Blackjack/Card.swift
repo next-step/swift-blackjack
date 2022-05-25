@@ -8,11 +8,11 @@
 import Foundation
 
 struct Card: Hashable {
-    let id: CardId
+    let rank: Rank
     let symbol: CardSymbol
 }
 
-enum CardId: CaseIterable {
+enum Rank: CaseIterable {
     case ace
     case two
     case three

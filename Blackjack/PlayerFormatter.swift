@@ -26,7 +26,7 @@ enum PlayerFormatter {
     
     static func format(cardDeck: [Card]) -> String {
         return cardDeck.reduce("") { partialResult, card in
-            partialResult + format(cardId: card.id) + format(cardSymbol: card.symbol) + ","
+            partialResult + format(cardId: card.rank) + format(cardSymbol: card.symbol) + ","
         }
         
     }
@@ -40,7 +40,7 @@ enum PlayerFormatter {
         }
     }
     
-    private static func format(cardId: CardId) -> String {
+    private static func format(cardId: Rank) -> String {
         switch cardId {
         case .ace: return "A"
         case .two: return "2"

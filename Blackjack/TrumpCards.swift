@@ -9,16 +9,16 @@ import Foundation
 
 enum TrumpCards {
     static var value: [Card] {
-        return CardId.allCases
+        return Rank.allCases
             .map { cardId in
                 allCards(with: cardId, cardSymbols: CardSymbol.allCases)
             }
             .flatMap { $0 }
     }
     
-    private static func allCards(with cardId: CardId, cardSymbols: [CardSymbol]) -> [Card] {
+    private static func allCards(with cardId: Rank, cardSymbols: [CardSymbol]) -> [Card] {
         return cardSymbols.map { symbol in
-            Card(id: cardId, symbol: symbol)
+            Card(rank: cardId, symbol: symbol)
         }
     }
 }

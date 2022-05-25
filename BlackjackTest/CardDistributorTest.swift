@@ -18,8 +18,8 @@ class CardDistributorTest: XCTestCase {
 
     func test_NonDuplicateCardDistributor_뽑은카드는_더이상_CardDistributor에서_앞으로_반환할_카드_대상에_포함되지않는다() {
         // given
-        let firstCard = Card(id: .ace, symbol: .heart)
-        let secondCard = Card(id: .ace, symbol: .diamond)
+        let firstCard = Card(rank: .ace, symbol: .heart)
+        let secondCard = Card(rank: .ace, symbol: .diamond)
         let stubCardPickStrategy = StubCardPickStrategy(card: firstCard)
         
         let cardDistributor = NonDuplicateCardDistributor(cards: [firstCard, secondCard], cardPickStrategy: stubCardPickStrategy)

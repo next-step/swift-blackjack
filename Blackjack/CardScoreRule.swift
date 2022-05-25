@@ -27,7 +27,7 @@ enum BlackjackScoreRule: CardScoreRule {
     }
     
     private static func cardScore(card: Card, isAceBigger: Bool = true) -> Int {
-        switch card.id {
+        switch card.rank {
         case .ace where isAceBigger: return 11
         case .ace: return 1
         case .two: return 2
