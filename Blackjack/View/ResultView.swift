@@ -12,8 +12,8 @@ struct ResultView {
     private enum ResultText: UserInformable {
         case score(gamer: Gamer)
         case finalOutcome
-        case dealerOutcome(description: String)
-        case gamerOutcome(name: String, description: String)
+        case dealerOutcome(outcome: DealerResult.Outcome)
+        case gamerOutcome(name: String, outcome: GamerResult.Outcome)
         
         var guideDescription: String {
             switch self {
@@ -21,10 +21,10 @@ struct ResultView {
                 return "\(gamer.name)카드: \(gamer.cardsDescription) - 결과: \(gamer.totalPoint)"
             case .finalOutcome:
                 return "## 최종 승패"
-            case let .dealerOutcome(description):
-                return "딜러 \(description)"
-            case let .gamerOutcome(name, description):
-                return "\(name): \(description)"
+            case let .dealerOutcome(outcome):
+                return "딜러 \(outcome.winningCount)승 \(outcome.drawCount)무 \(outcome.loseCount)패"
+            case let .gamerOutcome(name, outcome):
+                return "\(name): \(outcome.guideDescription)"
             }
         }
     }
@@ -53,8 +53,8 @@ struct ResultView {
     }
     
     private func printDealerOutcome() {
-        let description: String = gameResult.dealerDescription
-        userGuider.printGuide(for: ResultText.dealerOutcome(description: description))
+        let dealerOutCome: DealerResult.Outcome = gameResult.dealerOutCome
+        userGuider.printGuide(for: ResultText.dealerOutcome(outcome: dealerOutCome))
     }
     
     private func printGamersOutcome(_ gamers: [Gamer]) {
@@ -62,8 +62,8 @@ struct ResultView {
     }
     
     private func printGamerOutcome(_ gamer: Gamer) {
-        let description: String = gameResult.gamerDescription(gamer)
+        let gamerOutcome: GamerResult.Outcome = gameResult.gamerOutcome(gamer)
         userGuider.printGuide(for: ResultText.gamerOutcome(name: gamer.name,
-                                                           description: description))
+                                                           outcome: gamerOutcome))
     }
 }

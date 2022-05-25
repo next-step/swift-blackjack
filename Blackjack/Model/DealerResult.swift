@@ -23,11 +23,7 @@ struct DealerResult {
         self.gamers = gamers
     }
     
-    var description: String {
-        "\(outcome.winningCount)승 \(outcome.drawCount)무 \(outcome.loseCount)패"
-    }
-    
-    private var outcome: Outcome {
+    var outcome: Outcome {
         
         guard !dealer.isBurst else {
             return Outcome(winningCount: 0,

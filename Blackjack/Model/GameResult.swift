@@ -17,11 +17,11 @@ struct GameResult {
         self.dealerResult = DealerResult(dealer: dealer, gamers: gamers)
     }
     
-    var dealerDescription: String {
-        return dealerResult.description
+    var dealerOutCome: DealerResult.Outcome  {
+        return dealerResult.outcome
     }
     
-    func gamerDescription(_ gamer: Gamer) -> String {
-        return gamerResult.description(of: gamer)
+    func gamerOutcome(_ gamer: Gamer) -> GamerResult.Outcome {
+        return gamerResult.outcome(of: gamer)
     }
 }

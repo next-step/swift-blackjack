@@ -9,10 +9,21 @@ import Foundation
 
 struct GamerResult {
     
-    enum OutCome: String {
-        case win = "승"
-        case draw = "무"
-        case lose = "패"
+    enum Outcome: UserInformable {
+        case win
+        case draw
+        case lose
+        
+        var guideDescription: String {
+            switch self {
+            case .win:
+                return "승"
+            case .draw:
+                return "무"
+            case .lose:
+                return "패"
+            }
+        }
     }
     
     private let dealer: Dealer
@@ -32,11 +43,7 @@ struct GamerResult {
         self.gamers = gamers
     }
     
-    func description(of gamer: Gamer) -> String {
-        return outcome(of: gamer).rawValue
-    }
-    
-    private func outcome(of gamer: Gamer) -> OutCome {
+    func outcome(of gamer: Gamer) -> Outcome {
         guard !dealer.isBurst else {
             return .win
         }
