@@ -8,10 +8,10 @@
 import Foundation
 
 struct BlackjackGame {
-    let players: [Player]
-    let cardDistributor: CardDistributor
-    let readAnswerDelegate: ReadAnswerDelegate
-    let gameStateDelegate: GameStateDelegate?
+    private let players: [Player]
+    private let cardDistributor: CardDistributor
+    private let readAnswerDelegate: ReadAnswerDelegate
+    private let gameStateDelegate: GameStateDelegate?
     
     init(players: [Player],
          cardDistributor: CardDistributor,
