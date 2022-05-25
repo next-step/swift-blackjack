@@ -11,7 +11,7 @@ struct GamePlayView {
     private enum GamePlayText: UserInformable {
         case distributeCards(gamers: [Gamer])
         case cards(gamer: Gamer)
-        case a
+        case moreCardToDealer
         
         var guideDescription: String {
             switch self {
@@ -19,7 +19,7 @@ struct GamePlayView {
                 return "\(gamers.map { $0.name }.joined(separator: ", ") )에게 2장씩 나누었습니다."
             case let .cards(gamer):
                 return "\(gamer.name)카드: \(gamer.cardsDescription)"
-            case .a:
+            case .moreCardToDealer:
                 return "딜러는 \(Dealer.Constants.getMoreCardThreshold)이하라 한장의 카드를 더 받았습니다."
             }
             
@@ -40,7 +40,7 @@ struct GamePlayView {
         userGuider.printGuide(for: GamePlayText.cards(gamer: gamer))
     }
     
-    func printDealer() {
-        userGuider.printGuide(for: GamePlayText.a)
+    func printMoreCardToDealer() {
+        userGuider.printGuide(for: GamePlayText.moreCardToDealer)
     }
 }

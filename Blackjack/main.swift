@@ -25,7 +25,7 @@ do {
     }
     
     if game.dealer.isNeedToGetMoreCard {
-        gamePlayView.printDealer()
+        gamePlayView.printMoreCardToDealer()
         try game.distributeCardToDealder()
     }
     
