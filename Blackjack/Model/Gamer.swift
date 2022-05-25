@@ -25,6 +25,13 @@ class Gamer {
     var totalPoint: Int {
         cardCalculator.calcuate(of: cards)
     }
+    var cardsDescription: String {
+        cards.map { card in
+            let denomination: String = card.denomination.guideDescription
+            let suit: String = card.suit.guideDescription
+            return denomination + suit
+        }.joined(separator: ", ")
+    }
     
     init(name: String) {
         self.name = name

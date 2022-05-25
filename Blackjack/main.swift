@@ -11,16 +11,18 @@ do {
     game.receiveGamers()
     
     let resultView = ResultView()
-    resultView.printDistributeCards(to: game.gamers)
     
     try game.distributeTwoCardsToEachGamer()
-    resultView.printCards(of: game.gamers)
+    let gamePlayView = GamePlayView()
+   gamePlayView.printDistributeCards(to: game.allPlayers)
+
+   gamePlayView.printCards(of: game.allPlayers)
    
     try game.gamers.forEach { gamer in
         while gamer.state == .hit {
             try game.decideToHitOrStay(of: gamer)
             try game.distributeCardIfStateIsHit(to: gamer)
-            resultView.printCards(of: gamer)
+            gamePlayView.printCards(of: gamer)
         }
     }
     

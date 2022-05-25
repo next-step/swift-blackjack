@@ -48,6 +48,7 @@
 		3BB8BC57283E7E4B00036CB7 /* DealerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */; };
 		3BB8BC58283E7E5700036CB7 /* DealerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */; };
 		3BB8BC5A283E82AB00036CB7 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC59283E82AB00036CB7 /* GameResult.swift */; };
+		3BB8BC5C283E89EF00036CB7 /* GamePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC5B283E89EF00036CB7 /* GamePlayView.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,6 +95,7 @@
 		3BB8BC54283E7D1200036CB7 /* DealerResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerResultTests.swift; sourceTree = "<group>"; };
 		3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerResult.swift; sourceTree = "<group>"; };
 		3BB8BC59283E82AB00036CB7 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
+		3BB8BC5B283E89EF00036CB7 /* GamePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayView.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +160,7 @@
 			children = (
 				3BB8BC3A283A4DE400036CB7 /* UserGuider.swift */,
 				3BB8BC2928396CB600036CB7 /* InputView.swift */,
+				3BB8BC5B283E89EF00036CB7 /* GamePlayView.swift */,
 				3BB8BC3E283A4E5E00036CB7 /* ResultView.swift */,
 				3BB8BC3C283A4E4300036CB7 /* ErrorView.swift */,
 			);
@@ -327,6 +330,7 @@
 				3BB8BC2C283A22E300036CB7 /* UserInputConverter.swift in Sources */,
 				3BB8BC31283A32C300036CB7 /* Deck.swift in Sources */,
 				3BB8BC4E283E6CC000036CB7 /* GamerResult.swift in Sources */,
+				3BB8BC5C283E89EF00036CB7 /* GamePlayView.swift in Sources */,
 				3BB8BC1B28395F3700036CB7 /* ThresholdChecker.swift in Sources */,
 				3BB8BC0D28394FCF00036CB7 /* Suit.swift in Sources */,
 				3BB8BC3F283A4E5E00036CB7 /* ResultView.swift in Sources */,
