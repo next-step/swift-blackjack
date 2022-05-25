@@ -20,7 +20,7 @@ struct GamePlayView {
             case let .cards(gamer):
                 return "\(gamer.name)카드: \(gamer.cardsDescription)"
             case .a:
-                return "딜러는 16이하라 한장의 카드를 더 받았습니다."
+                return "딜러는 \(Dealer.Constants.getMoreCardThreshold)이하라 한장의 카드를 더 받았습니다."
             }
             
         }

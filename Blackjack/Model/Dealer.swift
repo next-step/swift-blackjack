@@ -20,11 +20,15 @@ class Dealer: Gamer {
         }
     }
     
-    private enum Constants {
+    enum Constants {
         static let name: String = "딜러"
+        static let getMoreCardThreshold: Int = 16
     }
     
     private var deck: Deck
+    var isNeedToGetMoreCard: Bool {
+        totalPoint <= Constants.getMoreCardThreshold
+    }
     
     init(deck: Deck = Deck()) {
         self.deck = deck

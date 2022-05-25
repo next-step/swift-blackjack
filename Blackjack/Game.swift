@@ -11,19 +11,29 @@ class Game {
     
     private let inputView = InputView()
 
-    private var dealer = Dealer()
+    let dealer = Dealer()
     private (set) var gamers: [Gamer] = []
+    var allPlayers: [Gamer] {
+        return [dealer] + gamers
+    }
     
     func receiveGamers() {
         let gamers: [Gamer] = inputView.receiveGamers()
         self.gamers = gamers
     }
     
-    func distributeTwoCardsToEachGamer() throws {
-        try gamers.forEach { gamer in
-            try distributeCard(to: gamer)
-            try distributeCard(to: gamer)
-        }
+    func distributeTwoCardsToEveryone() throws {
+        try distributeTwoCards(to: dealer)
+        try gamers.forEach(distributeTwoCards)
+    }
+    
+    private func distributeTwoCards(to gamer: Gamer) throws {
+        try distributeCard(to: gamer)
+        try distributeCard(to: gamer)
+    }
+    
+    func distributeCardToDealder() throws {
+        try distributeCard(to: dealer)
     }
     
     private func distributeCard(to gamer: Gamer) throws {
