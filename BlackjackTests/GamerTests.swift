@@ -34,6 +34,26 @@ class GamerTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
+    func test_appendCard_카드의_총_합이_21을_넘은_상태이면_더_이상_카드를_추가하지_않는다() throws {
+        // given
+        let sut = Gamer(name: "naljin")
+        let heartJ = Card(suit: .heart, denomination: .jack)
+        let heartQ = Card(suit: .heart, denomination: .queen)
+        let heartK = Card(suit: .heart, denomination: .king)
+        sut.appendCard(heartJ)
+        sut.appendCard(heartQ)
+        sut.appendCard(heartK)
+        
+        // when
+        let heartA = Card(suit: .heart, denomination: .ace)
+        sut.appendCard(heartA)
+        
+        // then
+        let expectation = false
+        let result = sut.cards.contains(heartA)
+        XCTAssertEqual(result, expectation)
+    }
+    
     func test_isBurst_카드의_총_합이_21을_넘지않으면_false를_리턴한다() throws {
         // given
         let sut = Gamer(name: "naljin")
