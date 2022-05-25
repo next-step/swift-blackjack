@@ -23,6 +23,45 @@ struct GameResult {
     
     private let dealer: Dealer
     private let gamers: [Gamer]
+    private var winningPoint: Int {
+        let allPlayers: [Gamer] = gamers + [dealer]
+        let winningPoint: Int = allPlayers
+            .filter { gamer in
+                ThresholdChecker().isTotalPointUnderThreshold(of: gamer.cards)
+            }
+            .map { $0.totalPoint }.max() ?? 0
+        return winningPoint
+    }
+    
+    var dealerOutcome: DealerOutcome {
+        
+        guard !dealer.isBurst else {
+            return DealerOutcome(winningCount: 0,
+                                 drawCount: 0,
+                                 loseCount: gamers.count)
+        }
+        
+        let winningCount: Int = gamers.filter { gamer in
+            let isGamerBurst: Bool = gamer.isBurst
+            let isHigherPointDealer: Bool = gamer.totalPoint < dealer.totalPoint
+            return isGamerBurst || isHigherPointDealer
+        }.count
+        
+        let drawCount: Int = gamers.filter { gamer in
+            let isSamePointDealer: Bool = gamer.totalPoint == dealer.totalPoint
+            return isSamePointDealer
+        }.count
+        
+        let loseCount: Int = gamers.filter { gamer in
+            let isGamerBurst: Bool = gamer.isBurst
+            let isLowerPointDealer: Bool = gamer.totalPoint > dealer.totalPoint
+            return isLowerPointDealer && !isGamerBurst
+        }.count
+        
+        return DealerOutcome(winningCount: winningCount,
+                             drawCount: drawCount,
+                             loseCount: loseCount)
+    }
     
     init(dealer: Dealer, gamers: [Gamer]) {
         self.dealer = dealer
@@ -30,15 +69,24 @@ struct GameResult {
     }
     
     func outcome(of gamer: Gamer) -> OutCome {
-        return .win
-    }
-   
-    var dealerOutcome: DealerOutcome {
-        let winningCount: Int = 0
-        let drawCount: Int = 0
-        let loseCount: Int = 0
-        return DealerOutcome(winningCount: winningCount,
-                             drawCount: drawCount,
-                             loseCount: loseCount)
+        guard !dealer.isBurst else {
+            return .win
+        }
+        
+        guard !gamer.isBurst else {
+            return .lose
+        }
+        
+        let isGamerPointOverWinningPoint: Bool = gamer.totalPoint >= winningPoint
+        if isGamerPointOverWinningPoint {
+            let isGamerPointSameWithDealer: Bool = dealer.totalPoint == gamer.totalPoint
+            if isGamerPointSameWithDealer {
+                return .draw
+            } else {
+                return .win
+            }
+        } else {
+            return .lose
+        }
     }
 }
