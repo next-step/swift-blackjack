@@ -43,18 +43,18 @@ struct BlackjackGame {
     }
     
     private func askAboutCard(to player: Player) throws {
-    while true {
-        let answer = try readAnswerDelegate.readAnswer(player: player)
-        
-        switch answer {
-        case .yes:
-            let card = cardDistributor.distribute(count: 1)
-            player.receive(cards: card)
+        while true {
+            let answer = try readAnswerDelegate.readAnswer(player: player)
             
-            gameStateDelegate?.afterReceiveCard(player: player)
-        case .no:
-            return
-        }
+            switch answer {
+            case .yes:
+                let card = cardDistributor.distribute(count: 1)
+                player.receive(cards: card)
+                
+                gameStateDelegate?.afterReceiveCard(player: player)
+            case .no:
+                return
+            }
         }
     }
 }
