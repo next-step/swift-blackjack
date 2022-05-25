@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct StringUtiltity {
+struct StringUtility {
     static func splitParticipantsName(to convertedExpression: String) -> [String] {
         convertedExpression.components(separatedBy: ",")
     }

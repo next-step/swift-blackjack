@@ -8,7 +8,7 @@ import Foundation
 
 func main() {
     let rawParticipansts = InputView.readParticipants()
-    let participantNames = StringUtility.splitWithComma(to: rawParticipansts)
+    let participantNames = StringUtility.splitParticipantsName(to: rawParticipansts)
     guard let cardDeck = CardDeck(cards: CardDeckGenerator.generate()) else { return }
     cardDeck.shuffle()
     guard let players = Players(with: participantNames, cardDeck: cardDeck) else { return }
