@@ -9,17 +9,6 @@ import Foundation
 
 class Gamer {
     
-    enum GamerError: LocalizedError {
-        case burst
-        
-        var errorDescription: String? {
-            switch self {
-            case .burst:
-                return "총 합이 21을 초과했습니다"
-            }
-        }
-    }
-    
     enum State {
         case hit
         case stay
@@ -30,6 +19,9 @@ class Gamer {
     let name: String
     var cards: [Card]
     var state: State
+    var isBurst: Bool {
+        !thresholdChecker.isTotalPointUnderThreshold(of: cards)
+    }
     var totalPoint: Int {
         cardCalculator.calcuate(of: cards)
     }
@@ -40,13 +32,11 @@ class Gamer {
         self.state = .hit
     }
     
-    func appendCard(_ card: Card) throws {
-        let appendedCards: [Card] = cards + [card]
-        
-        guard thresholdChecker.isTotalPointUnderThreshold(of: appendedCards) else {
-            throw GamerError.burst
+    func appendCard(_ card: Card) {
+        guard !isBurst else {
+            return
         }
-        
+        let appendedCards: [Card] = cards + [card]
         cards = appendedCards
     }
 }

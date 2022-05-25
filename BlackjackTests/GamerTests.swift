@@ -22,11 +22,11 @@ class GamerTests: XCTestCase {
     
     func test_appendCard() throws {
         // given
-        var sut = Gamer(name: "naljin")
+        let sut = Gamer(name: "naljin")
         
         // when
         let heart2 = Card(suit: .heart, denomination: .two)
-        try sut.appendCard(heart2)
+        sut.appendCard(heart2)
         
         // then
         let result = sut.cards
@@ -34,38 +34,37 @@ class GamerTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
-    func test_appendCard_카드의_총_합이_21을_넘으면_burt_에러를_throw한다() throws {
+    func test_isBurst_카드의_총_합이_21을_넘지않으면_false를_리턴한다() throws {
         // given
+        let sut = Gamer(name: "naljin")
         let heartJ = Card(suit: .heart, denomination: .jack)
         let heartQ = Card(suit: .heart, denomination: .queen)
-        var sut = Gamer(name: "naljin")
-        try sut.appendCard(heartJ)
-        try sut.appendCard(heartQ)
         
         // when
+        sut.appendCard(heartJ)
+        sut.appendCard(heartQ)
+        
         // then
-        let heartK = Card(suit: .heart, denomination: .king)
-        let expectation = Gamer.GamerError.burst
-        XCTAssertThrowsError(try sut.appendCard(heartK)) { error in
-            XCTAssertEqual(error as? Gamer.GamerError, expectation)
-        }
+        let expectation = false
+        let result = sut.isBurst
+        XCTAssertEqual(result, expectation)
     }
     
-    func test_errorDescription_카드의_총_합이_21을_넘을때() throws {
+    func test_isBurst_카드의_총_합이_21을_넘으면_true를_리턴한다() throws {
         // given
+        let sut = Gamer(name: "naljin")
         let heartJ = Card(suit: .heart, denomination: .jack)
         let heartQ = Card(suit: .heart, denomination: .queen)
-        var sut = Gamer(name: "naljin")
-        try sut.appendCard(heartJ)
-        try sut.appendCard(heartQ)
+        let heartK = Card(suit: .heart, denomination: .king)
         
         // when
+        sut.appendCard(heartJ)
+        sut.appendCard(heartQ)
+        sut.appendCard(heartK)
+        
         // then
-        let heartK = Card(suit: .heart, denomination: .king)
-        XCTAssertThrowsError(try sut.appendCard(heartK)) { error in
-            let result = (error as? Gamer.GamerError)?.localizedDescription
-            let expectation = "총 합이 21을 초과했습니다"
-            XCTAssertEqual(result, expectation)
-        }
+        let expectation = true
+        let result = sut.isBurst
+        XCTAssertEqual(result, expectation)
     }
 }

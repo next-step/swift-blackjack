@@ -28,7 +28,7 @@ class Game {
     
     private func distributeCard(to gamer: Gamer) throws {
         let card = try dealer.drawCard()
-        try gamer.appendCard(card)
+        gamer.appendCard(card)
     }
     
     func decideToHitOrStay(of gamer: Gamer) throws {
