@@ -59,6 +59,9 @@
 		2E9C3B96283FC4D700393DEE /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B95283FC4D700393DEE /* Dealer.swift */; };
 		2E9C3B97283FC4D700393DEE /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B95283FC4D700393DEE /* Dealer.swift */; };
 		2E9C3B99283FC55900393DEE /* BlackjackAnswerReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B98283FC55900393DEE /* BlackjackAnswerReader.swift */; };
+		2E9C3B9E283FCB3E00393DEE /* WinLoseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B9D283FCB3E00393DEE /* WinLoseResult.swift */; };
+		2E9C3B9F283FCB3E00393DEE /* WinLoseResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3B9D283FCB3E00393DEE /* WinLoseResult.swift */; };
+		2E9C3BA1283FCBAB00393DEE /* WinLoseResultTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9C3BA0283FCBAB00393DEE /* WinLoseResultTest.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +111,8 @@
 		2E9C3B68283CFF3E00393DEE /* BlackjackScoreFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackScoreFormatter.swift; sourceTree = "<group>"; };
 		2E9C3B95283FC4D700393DEE /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		2E9C3B98283FC55900393DEE /* BlackjackAnswerReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackAnswerReader.swift; sourceTree = "<group>"; };
+		2E9C3B9D283FCB3E00393DEE /* WinLoseResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinLoseResult.swift; sourceTree = "<group>"; };
+		2E9C3BA0283FCBAB00393DEE /* WinLoseResultTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinLoseResultTest.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,6 +148,7 @@
 				2E9C3B50283C86FD00393DEE /* AnswerParserTest.swift */,
 				2E9C3B5C283CA88B00393DEE /* BlackjackGameTest.swift */,
 				2E9C3B98283FC55900393DEE /* BlackjackAnswerReader.swift */,
+				2E9C3BA0283FCBAB00393DEE /* WinLoseResultTest.swift */,
 			);
 			path = BlackjackTest;
 			sourceTree = "<group>";
@@ -207,6 +213,7 @@
 				2E9C3B65283CC5EE00393DEE /* BlackjackScore.swift */,
 				2E9C3B68283CFF3E00393DEE /* BlackjackScoreFormatter.swift */,
 				2E9C3B95283FC4D700393DEE /* Dealer.swift */,
+				2E9C3B9D283FCB3E00393DEE /* WinLoseResult.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -311,12 +318,14 @@
 				2E9C3B3B283C79CE00393DEE /* Collection + Extension.swift in Sources */,
 				2E9C3B67283CC75700393DEE /* BlackjackScore.swift in Sources */,
 				2E9C3B63283CC49500393DEE /* AnswerReadDelegate.swift in Sources */,
+				2E9C3B9F283FCB3E00393DEE /* WinLoseResult.swift in Sources */,
 				2E9C3B62283CC41400393DEE /* GameStateDelegate.swift in Sources */,
 				2E66DB6E283BD8BE00E582E2 /* CardScoreRuleTest.swift in Sources */,
 				2E9C3B4D283C817D00393DEE /* PlayerTest.swift in Sources */,
 				2E9C3B55283C884700393DEE /* Answer.swift in Sources */,
 				2E9C3B5D283CA88B00393DEE /* BlackjackGameTest.swift in Sources */,
 				2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */,
+				2E9C3BA1283FCBAB00393DEE /* WinLoseResultTest.swift in Sources */,
 				2E66DB67283BD7DE00E582E2 /* CardDeck.swift in Sources */,
 				2E9C3B3E283C7A7400393DEE /* OutputView.swift in Sources */,
 				2E9C3B34283C757200393DEE /* PlayerNameParser.swift in Sources */,
@@ -359,6 +368,7 @@
 				2E9C3B59283CA22A00393DEE /* GameStateDelegate.swift in Sources */,
 				2E9C3B57283C895200393DEE /* AnswerReadDelegate.swift in Sources */,
 				2E9C3B60283CADF100393DEE /* BlackjackGame.swift in Sources */,
+				2E9C3B9E283FCB3E00393DEE /* WinLoseResult.swift in Sources */,
 				2E66DB59283BD43400E582E2 /* PlayerName.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
