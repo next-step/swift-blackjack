@@ -8,9 +8,9 @@
 import Foundation
 
 struct Blackjack {
-    var participants: [String]
+    var participants: [Participant]
     
     init(participantNames: [String]) {
-        self.participants = participantNames
+        self.participants = participantNames.compactMap(Participant.init)
     }
 }
