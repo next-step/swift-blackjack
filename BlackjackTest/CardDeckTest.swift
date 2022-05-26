@@ -35,10 +35,10 @@ class CardDeckTest: XCTestCase {
         let cardDeckBeforeShuffle = CardDeck(cards: CardDeckGenerator.generate())
         let cardDeckAfterShuffle = CardDeck(cards: CardDeckGenerator.generate())
         
-        XCTAssertEqual(cardDeckBeforeShuffle, cardDeckAfterShuffle)
+        XCTAssertEqual(cardDeckBeforeShuffle?.handOutCard(), cardDeckAfterShuffle?.handOutCard())
         
         cardDeckAfterShuffle?.shuffle()
         
-        XCTAssertNotEqual(cardDeckBeforeShuffle, cardDeckAfterShuffle)
+        XCTAssertNotEqual(cardDeckBeforeShuffle?.handOutCard(), cardDeckAfterShuffle?.handOutCard())
     }
 }

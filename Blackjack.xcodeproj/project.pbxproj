@@ -42,8 +42,8 @@
 		2D04DA7C2825302A005B85C4 /* BlackjackGameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA7A2825302A005B85C4 /* BlackjackGameController.swift */; };
 		2D04DA7E2825376B005B85C4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA7D2825376B005B85C4 /* InputView.swift */; };
 		2D04DA7F2825376B005B85C4 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA7D2825376B005B85C4 /* InputView.swift */; };
-		2D04DA8128253BC1005B85C4 /* StringUtiltity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8028253BC1005B85C4 /* StringUtiltity.swift */; };
-		2D04DA8228253BC1005B85C4 /* StringUtiltity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8028253BC1005B85C4 /* StringUtiltity.swift */; };
+		2D04DA8128253BC1005B85C4 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8028253BC1005B85C4 /* StringUtility.swift */; };
+		2D04DA8228253BC1005B85C4 /* StringUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8028253BC1005B85C4 /* StringUtility.swift */; };
 		2D04DA842826C639005B85C4 /* PlayersTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA832826C639005B85C4 /* PlayersTest.swift */; };
 		2D04DA8628274647005B85C4 /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA8528274647005B85C4 /* Dealer.swift */; };
 		2D04DA882827C5DA005B85C4 /* DealerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA872827C5DA005B85C4 /* DealerTest.swift */; };
@@ -89,7 +89,7 @@
 		2D04DA7728240C66005B85C4 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		2D04DA7A2825302A005B85C4 /* BlackjackGameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackGameController.swift; sourceTree = "<group>"; };
 		2D04DA7D2825376B005B85C4 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
-		2D04DA8028253BC1005B85C4 /* StringUtiltity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtiltity.swift; sourceTree = "<group>"; };
+		2D04DA8028253BC1005B85C4 /* StringUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtility.swift; sourceTree = "<group>"; };
 		2D04DA832826C639005B85C4 /* PlayersTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayersTest.swift; sourceTree = "<group>"; };
 		2D04DA8528274647005B85C4 /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		2D04DA872827C5DA005B85C4 /* DealerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerTest.swift; sourceTree = "<group>"; };

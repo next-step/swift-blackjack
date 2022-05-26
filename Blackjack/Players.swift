@@ -102,4 +102,11 @@ class Players: PlayersProtocol {
             behavior(turnPlayer)
         }
     }
+    
+    private func hitPlayer(player: Playable, behavior: (Playable) -> ()) {
+        if turnToHit?.giveIsHit() == true && turnToHit?.giveName() == player.giveName() {
+            turnToHit?.hit(card: cardDeck.handOutCard())
+            return behavior(player)
+        }
+    }
 }

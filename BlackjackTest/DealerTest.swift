@@ -23,16 +23,14 @@ class DealerTest: XCTestCase {
     
     func testDealer_handDescription() {
         let dealer = Dealer(hand: Hand(cards: [Card(rank: .J, suit: .clubs),
-                                               Card(rank: .four, suit: .hearts)],
-                                       winningScore: WinningScore()))
+                                               Card(rank: .four, suit: .hearts)]))
         
         XCTAssertEqual(dealer.giveHandDescription(), "J♣, 4♥")
     }
     
     func testDealer_hit_success() {
         let dealer = Dealer(hand: Hand(cards: [Card(rank: .J, suit: .clubs),
-                                               Card(rank: .four, suit: .hearts)],
-                                       winningScore: WinningScore()))
+                                               Card(rank: .four, suit: .hearts)]))
         dealer.hitOrStay(true)
         dealer.hit(card: Card(rank: .A, suit: .hearts))
         
@@ -41,8 +39,7 @@ class DealerTest: XCTestCase {
     
     func testDealer_giveIsHit() {
         let dealer = Dealer(hand: Hand(cards: [Card(rank: .J, suit: .clubs),
-                                               Card(rank: .four, suit: .hearts)],
-                                       winningScore: WinningScore()))
+                                               Card(rank: .four, suit: .hearts)]))
         
         XCTAssert(dealer.giveIsHit())
         
@@ -54,8 +51,7 @@ class DealerTest: XCTestCase {
     func testDealer_score() {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
-        let winningScore = WinningScore()
-        let hand = Hand(cards: cards, winningScore: winningScore)
+        let hand = Hand(cards: cards)
         let dealer = Dealer(hand: hand)
         
         XCTAssertEqual(dealer.score(), 13)
@@ -64,8 +60,7 @@ class DealerTest: XCTestCase {
     func testDealer_takeAFirstHand() {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
-        let winningScore = WinningScore()
-        let hand = Hand(cards: cards, winningScore: winningScore)
+        let hand = Hand(cards: cards)
         let dealer = Dealer()
         dealer.takeAFirstHand(hand)
         
