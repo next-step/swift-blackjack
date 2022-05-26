@@ -53,10 +53,47 @@ class TrumpCardsTest: XCTestCase {
         let diamondQueen = Card(rank: .queen, suit: .diamond)
         let diamondKing = Card(rank: .king, suit: .diamond)
         
-        
-        
         // then
         XCTAssertTrue(TrumpCards.value.contains(heartAce))
+        XCTAssertTrue(TrumpCards.value.contains(heartTwo))
+        XCTAssertTrue(TrumpCards.value.contains(heartThree))
+        XCTAssertTrue(TrumpCards.value.contains(heartFour))
+        XCTAssertTrue(TrumpCards.value.contains(heartFive))
+        XCTAssertTrue(TrumpCards.value.contains(heartSix))
+        XCTAssertTrue(TrumpCards.value.contains(heartSeven))
+        XCTAssertTrue(TrumpCards.value.contains(heartEight))
+        XCTAssertTrue(TrumpCards.value.contains(heartNine))
+        XCTAssertTrue(TrumpCards.value.contains(heartTen))
+        XCTAssertTrue(TrumpCards.value.contains(heartJack))
+        XCTAssertTrue(TrumpCards.value.contains(heartQueen))
+        XCTAssertTrue(TrumpCards.value.contains(heartKing))
+        
+        XCTAssertTrue(TrumpCards.value.contains(clubAce))
+        XCTAssertTrue(TrumpCards.value.contains(clubTwo))
+        XCTAssertTrue(TrumpCards.value.contains(clubThree))
+        XCTAssertTrue(TrumpCards.value.contains(clubFour))
+        XCTAssertTrue(TrumpCards.value.contains(clubFive))
+        XCTAssertTrue(TrumpCards.value.contains(clubSix))
+        XCTAssertTrue(TrumpCards.value.contains(clubSeven))
+        XCTAssertTrue(TrumpCards.value.contains(clubEight))
+        XCTAssertTrue(TrumpCards.value.contains(clubNine))
+        XCTAssertTrue(TrumpCards.value.contains(clubTen))
+        XCTAssertTrue(TrumpCards.value.contains(clubJack))
+        XCTAssertTrue(TrumpCards.value.contains(clubQueen))
+        XCTAssertTrue(TrumpCards.value.contains(clubKing))
+        
+        XCTAssertTrue(TrumpCards.value.contains(diamondAce))
+        XCTAssertTrue(TrumpCards.value.contains(diamondTwo))
+        XCTAssertTrue(TrumpCards.value.contains(diamondThree))
+        XCTAssertTrue(TrumpCards.value.contains(diamondFour))
+        XCTAssertTrue(TrumpCards.value.contains(diamondFive))
+        XCTAssertTrue(TrumpCards.value.contains(diamondSix))
+        XCTAssertTrue(TrumpCards.value.contains(diamondSeven))
+        XCTAssertTrue(TrumpCards.value.contains(diamondEight))
+        XCTAssertTrue(TrumpCards.value.contains(diamondNine))
+        XCTAssertTrue(TrumpCards.value.contains(diamondTen))
+        XCTAssertTrue(TrumpCards.value.contains(diamondJack))
+        XCTAssertTrue(TrumpCards.value.contains(diamondQueen))
+        XCTAssertTrue(TrumpCards.value.contains(diamondKing))
     }
-
 }
