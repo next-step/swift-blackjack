@@ -9,4 +9,5 @@ import Foundation
 
 enum BlackjackError: Error {
     case failedGenerateCard
+    case invalidInput
 }

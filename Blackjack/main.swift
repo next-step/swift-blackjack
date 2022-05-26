@@ -6,5 +6,10 @@
 
 import Foundation
 
-print("Hello, World!")
+let blackjackController = BlackjackController()
 
+do {
+    try blackjackController.startGame()
+} catch {
+    print("Error! \(error)")
+}

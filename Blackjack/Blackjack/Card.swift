@@ -11,6 +11,10 @@ struct Card {
     let shape: CardShape
     let number: CardNumber
     
+    var description: String {
+        return "\(number.description)\(shape.description)"
+    }
+    
     static func generateRandomCard() throws -> Card {
         let randomShapePool: [CardShape] = CardShape.allCases
         let randomNumberPool: [CardNumber] = CardNumber.allCases
@@ -46,4 +50,21 @@ enum CardNumber: CaseIterable {
     case ace
     case two, three, four, five, six, seven, eight, nine
     case jack, queen, king
+    
+    var description: String {
+        switch self {
+        case .ace: return "A"
+        case .two: return "2"
+        case .three: return "3"
+        case .four: return "4"
+        case .five: return "5"
+        case .six: return "6"
+        case .seven: return "7"
+        case .eight: return "8"
+        case .nine: return "9"
+        case .jack: return "J"
+        case .queen: return "Q"
+        case .king: return "K"
+        }
+    }
 }

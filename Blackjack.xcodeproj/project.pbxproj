@@ -16,6 +16,9 @@
 		A5C55B5C283FB57200FBEC4D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5A283FB57200FBEC4D /* Card.swift */; };
 		A5C55B5E283FB7D800FBEC4D /* BlackjackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */; };
 		A5C55B5F283FB7D800FBEC4D /* BlackjackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */; };
+		A5C55B62283FCB2F00FBEC4D /* BlackjackOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B61283FCB2F00FBEC4D /* BlackjackOutputView.swift */; };
+		A5C55B65283FD40200FBEC4D /* BlackjackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B64283FD40200FBEC4D /* BlackjackController.swift */; };
+		A5C55B67283FD43A00FBEC4D /* BlackjackInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B66283FD43A00FBEC4D /* BlackjackInputView.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,9 @@
 		A5C55B57283FB0BC00FBEC4D /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
 		A5C55B5A283FB57200FBEC4D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackError.swift; sourceTree = "<group>"; };
+		A5C55B61283FCB2F00FBEC4D /* BlackjackOutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackOutputView.swift; sourceTree = "<group>"; };
+		A5C55B64283FD40200FBEC4D /* BlackjackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackController.swift; sourceTree = "<group>"; };
+		A5C55B66283FD43A00FBEC4D /* BlackjackInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackInputView.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,12 +77,31 @@
 		A5C55B53283FB04000FBEC4D /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
+				A5C55B63283FD3F300FBEC4D /* Controller */,
+				A5C55B60283FCB1900FBEC4D /* View */,
 				A5C55B54283FB05100FBEC4D /* Blackjack.swift */,
 				A5C55B57283FB0BC00FBEC4D /* Participant.swift */,
 				A5C55B5A283FB57200FBEC4D /* Card.swift */,
 				A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */,
 			);
 			path = Blackjack;
+			sourceTree = "<group>";
+		};
+		A5C55B60283FCB1900FBEC4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A5C55B61283FCB2F00FBEC4D /* BlackjackOutputView.swift */,
+				A5C55B66283FD43A00FBEC4D /* BlackjackInputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A5C55B63283FD3F300FBEC4D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A5C55B64283FD40200FBEC4D /* BlackjackController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		C7F86E0D273AAF7900FAA669 = {
@@ -208,9 +233,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C55B55283FB05100FBEC4D /* Blackjack.swift in Sources */,
+				A5C55B67283FD43A00FBEC4D /* BlackjackInputView.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				A5C55B65283FD40200FBEC4D /* BlackjackController.swift in Sources */,
 				A5C55B5E283FB7D800FBEC4D /* BlackjackError.swift in Sources */,
 				A5C55B58283FB0BC00FBEC4D /* Participant.swift in Sources */,
+				A5C55B62283FCB2F00FBEC4D /* BlackjackOutputView.swift in Sources */,
 				A5C55B5B283FB57200FBEC4D /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
