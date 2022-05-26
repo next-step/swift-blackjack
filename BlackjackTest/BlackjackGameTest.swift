@@ -38,8 +38,8 @@ class BlackjackGameTest: XCTestCase {
         
         // when
         _ = try BlackjackGame(players: [playerOne, playerTwo],
-                                         cardDistributor: cardDistributor,
-                                         answerReaderDelegate: answerReader)
+                              cardDistributor: cardDistributor,
+                              answerReaderDelegate: answerReader)
         
         // then
         XCTAssertTrue(playerOne.cardDeck.cards.count == 2)
@@ -54,8 +54,8 @@ class BlackjackGameTest: XCTestCase {
         answerReader.answer = [.yes, .yes, .no, .yes, .yes, .yes, .no]
         
         let blackjackGame = try BlackjackGame(players: [playerOne, playerTwo],
-                                         cardDistributor: cardDistributor,
-                                         answerReaderDelegate: answerReader)
+                                              cardDistributor: cardDistributor,
+                                              answerReaderDelegate: answerReader)
         // when
         _ = try blackjackGame.start()
         
