@@ -7,11 +7,15 @@
 
 import Foundation
 
-struct Participant {
+class Participant {
     let name: String
     var cards: [Card] = []
     
-    mutating func add(card: Card) {
+    init(name: String) {
+        self.name = name
+    }
+    
+    func add(card: Card) {
         cards.append(card)
     }
 }

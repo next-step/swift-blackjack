@@ -15,9 +15,13 @@ struct Blackjack {
     }
     
     mutating func start() throws {
-        for index in 0..<participants.count {
-            participants[index].add(card: try Card.generateRandomCard())
-            participants[index].add(card: try Card.generateRandomCard())
+        for participant in participants {
+            participant.add(card: try Card.generateRandomCard())
+            participant.add(card: try Card.generateRandomCard())
         }
+    }
+    
+    func playOneMoreRound(participant: Participant) throws {
+        participant.add(card: try Card.generateRandomCard())
     }
 }

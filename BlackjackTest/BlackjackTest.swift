@@ -28,13 +28,13 @@ class BlackjackTest: XCTestCase {
         XCTAssertEqual(participant.cards.count, expected)
     }
     
-    func test_블랙잭_시작후_한라운드를_더_진행할_시_카드는_3개여야한다() {
+    func test_블랙잭_시작후_라운드를_더_진행하면_카드_수가_1장씩_증가() {
         let participantNames = ["sut1"]
         var blackjack = Blackjack(participantNames: participantNames)
-        var participant = blackjack.participants.first!
+        let participant = blackjack.participants.first!
         
         try? blackjack.start()
-        blackjack.playOneMoreRound(participant: participant)
+        try? blackjack.playOneMoreRound(participant: participant)
         
         let expected: Int = 3
         
