@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A5C55B4F283FAF2200FBEC4D /* BlackjackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B4E283FAF2200FBEC4D /* BlackjackTest.swift */; };
+		A5C55B55283FB05100FBEC4D /* Blackjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B54283FB05100FBEC4D /* Blackjack.swift */; };
+		A5C55B56283FB05100FBEC4D /* Blackjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B54283FB05100FBEC4D /* Blackjack.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,7 @@
 /* Begin PBXFileReference section */
 		A5C55B4C283FAF2200FBEC4D /* BlackjackTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5C55B4E283FAF2200FBEC4D /* BlackjackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTest.swift; sourceTree = "<group>"; };
+		A5C55B54283FB05100FBEC4D /* Blackjack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blackjack.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,6 +59,14 @@
 			path = BlackjackTest;
 			sourceTree = "<group>";
 		};
+		A5C55B53283FB04000FBEC4D /* Blackjack */ = {
+			isa = PBXGroup;
+			children = (
+				A5C55B54283FB05100FBEC4D /* Blackjack.swift */,
+			);
+			path = Blackjack;
+			sourceTree = "<group>";
+		};
 		C7F86E0D273AAF7900FAA669 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +88,7 @@
 		C7F86E18273AAF7900FAA669 /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
+				A5C55B53283FB04000FBEC4D /* Blackjack */,
 				C7F86E19273AAF7900FAA669 /* main.swift */,
 			);
 			path = Blackjack;
@@ -171,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C55B56283FB05100FBEC4D /* Blackjack.swift in Sources */,
 				A5C55B4F283FAF2200FBEC4D /* BlackjackTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C55B55283FB05100FBEC4D /* Blackjack.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
