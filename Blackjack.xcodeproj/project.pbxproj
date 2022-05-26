@@ -12,6 +12,10 @@
 		A5C55B56283FB05100FBEC4D /* Blackjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B54283FB05100FBEC4D /* Blackjack.swift */; };
 		A5C55B58283FB0BC00FBEC4D /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B57283FB0BC00FBEC4D /* Participant.swift */; };
 		A5C55B59283FB0BC00FBEC4D /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B57283FB0BC00FBEC4D /* Participant.swift */; };
+		A5C55B5B283FB57200FBEC4D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5A283FB57200FBEC4D /* Card.swift */; };
+		A5C55B5C283FB57200FBEC4D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5A283FB57200FBEC4D /* Card.swift */; };
+		A5C55B5E283FB7D800FBEC4D /* BlackjackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */; };
+		A5C55B5F283FB7D800FBEC4D /* BlackjackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +36,8 @@
 		A5C55B4E283FAF2200FBEC4D /* BlackjackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTest.swift; sourceTree = "<group>"; };
 		A5C55B54283FB05100FBEC4D /* Blackjack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blackjack.swift; sourceTree = "<group>"; };
 		A5C55B57283FB0BC00FBEC4D /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		A5C55B5A283FB57200FBEC4D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackError.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +73,8 @@
 			children = (
 				A5C55B54283FB05100FBEC4D /* Blackjack.swift */,
 				A5C55B57283FB0BC00FBEC4D /* Participant.swift */,
+				A5C55B5A283FB57200FBEC4D /* Card.swift */,
+				A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -189,7 +197,9 @@
 			files = (
 				A5C55B56283FB05100FBEC4D /* Blackjack.swift in Sources */,
 				A5C55B4F283FAF2200FBEC4D /* BlackjackTest.swift in Sources */,
+				A5C55B5F283FB7D800FBEC4D /* BlackjackError.swift in Sources */,
 				A5C55B59283FB0BC00FBEC4D /* Participant.swift in Sources */,
+				A5C55B5C283FB57200FBEC4D /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +209,9 @@
 			files = (
 				A5C55B55283FB05100FBEC4D /* Blackjack.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				A5C55B5E283FB7D800FBEC4D /* BlackjackError.swift in Sources */,
 				A5C55B58283FB0BC00FBEC4D /* Participant.swift in Sources */,
+				A5C55B5B283FB57200FBEC4D /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

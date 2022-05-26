@@ -14,10 +14,10 @@ struct Blackjack {
         self.participants = participantNames.compactMap({ Participant.init(name: $0) })
     }
     
-    mutating func start() {
+    mutating func start() throws {
         for index in 0..<participants.count {
-            participants[index].add(card: 1)
-            participants[index].add(card: 2)
+            participants[index].add(card: try Card.generateRandomCard())
+            participants[index].add(card: try Card.generateRandomCard())
         }
     }
 }
