@@ -17,7 +17,7 @@ enum BlackjackScoreRule: CardScoreRule {
     static func countScore(cardDeck: CardDeck) -> Int {
         let sumWhereAceOne = totalScore(cardDeck: cardDeck, isAceEleven: false)
         let sumWhereAceEleven = totalScore(cardDeck: cardDeck, isAceEleven: true)
-        return bestScore(sumWhereAceOne: sumWhereAceOne, sumWhereAceEleven: sumWhereAceEleven)
+        return idealScore(sumWhereAceOne: sumWhereAceOne, sumWhereAceEleven: sumWhereAceEleven)
     }
     
     private static func totalScore(cardDeck: CardDeck, isAceEleven: Bool = true) -> Int {
@@ -45,7 +45,7 @@ enum BlackjackScoreRule: CardScoreRule {
         }
     }
     
-    private static func bestScore(sumWhereAceOne: Int, sumWhereAceEleven: Int) -> Int {
+    private static func idealScore(sumWhereAceOne: Int, sumWhereAceEleven: Int) -> Int {
         let validScores = validScores(sumWhereAceOne, sumWhereAceEleven)
         if validScores.count == 2 {
             return validScores.max()!
