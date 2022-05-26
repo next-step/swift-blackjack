@@ -12,12 +12,12 @@ protocol CardScoreRule {
 }
 
 enum BlackjackScoreRule: CardScoreRule {
-    private static let standard = 21
+    private static let twentyOne = 21
     
     static func countScore(cardDeck: CardDeck) -> Int {
         let sumWhereAceOne = totalScore(cardDeck: cardDeck, isAceEleven: false)
-        let sumeWhereAceEleven = totalScore(cardDeck: cardDeck, isAceEleven: true)
-        return bestScore(sumWhereAceOne: sumWhereAceOne, sumWhereAceEleven: sumeWhereAceEleven)
+        let sumWhereAceEleven = totalScore(cardDeck: cardDeck, isAceEleven: true)
+        return bestScore(sumWhereAceOne: sumWhereAceOne, sumWhereAceEleven: sumWhereAceEleven)
     }
     
     private static func totalScore(cardDeck: CardDeck, isAceEleven: Bool = true) -> Int {
@@ -46,17 +46,19 @@ enum BlackjackScoreRule: CardScoreRule {
     }
     
     private static func bestScore(sumWhereAceOne: Int, sumWhereAceEleven: Int) -> Int {
-        let gapWhereAceOne = standard - sumWhereAceOne
-        let gapWhereAceEleven = standard - sumWhereAceEleven
-        
-        let minGap = min(gapWhereAceOne, gapWhereAceEleven)
-        
-        if minGap == gapWhereAceOne {
-            if gapWhereAceOne >= 0 { return sumWhereAceOne }
-            return sumWhereAceEleven
+        let validScores = validScores(sumWhereAceOne, sumWhereAceEleven)
+        if validScores.count == 2 {
+            return validScores.max()!
         }
         
-        if gapWhereAceEleven >= 0 { return sumWhereAceEleven }
+        if validScores.count == 1 {
+            return validScores[0]
+        }
+        
         return sumWhereAceOne
+    }
+    
+    private static func validScores(_ scores: Int...) -> [Int] {
+        return scores.filter { $0 <= twentyOne }
     }
 }
