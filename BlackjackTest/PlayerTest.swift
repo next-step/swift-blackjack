@@ -21,7 +21,7 @@ class PlayerTest: XCTestCase {
         XCTAssertTrue(player.cardDeck.cards.contains(card))
     }
     
-    func test_countScore() {
+    func test_countScore_player가_가진_카드의_접수합계를_반환한다() {
         // given
         let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
         let cardOne = Card(rank: .ace, suit: .heart)
