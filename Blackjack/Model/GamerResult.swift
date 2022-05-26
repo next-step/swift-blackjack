@@ -51,17 +51,17 @@ struct GamerResult {
         guard !gamer.isBurst else {
             return .lose
         }
-        
-        let isGamerPointOverWinningPoint: Bool = gamer.totalPoint >= winningPoint
-        if isGamerPointOverWinningPoint {
-            let isGamerPointSameWithDealer: Bool = dealer.totalPoint == gamer.totalPoint
-            if isGamerPointSameWithDealer {
-                return .draw
-            } else {
-                return .win
-            }
-        } else {
+
+        let isGamerHasWinningPoint: Bool =  gamer.totalPoint == winningPoint
+        guard isGamerHasWinningPoint else {
             return .lose
+        }
+        
+        let isDealerHasWinningPoint: Bool = dealer.totalPoint == winningPoint
+        if isDealerHasWinningPoint {
+            return .draw
+        } else {
+            return .win
         }
     }
 }
