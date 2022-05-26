@@ -19,11 +19,12 @@ class BlackjackTest: XCTestCase {
     
     func test_블랙잭이_시작할때_참가자에게_카드_두개를_분배() {
         let participantNames = ["sut1"]
-        let blackjack = Blackjack(participantNames: participantNames)
+        var blackjack = Blackjack(participantNames: participantNames)
         blackjack.start()
         
+        let participant = blackjack.participants.first!
         let expected: Int = 2
         
-        XCTAssertEqual(blackjack.participants.first!.cards.count, expected)
+        XCTAssertEqual(participant.cards.count, expected)
     }
 }

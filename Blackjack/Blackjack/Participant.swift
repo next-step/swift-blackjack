@@ -9,4 +9,9 @@ import Foundation
 
 struct Participant {
     let name: String
+    var cards: [Int] = []
+    
+    mutating func add(card: Int) {
+        cards.append(card)
+    }
 }
