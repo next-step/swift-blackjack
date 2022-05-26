@@ -11,4 +11,9 @@ class Dealer: Player {
     init(cardDeck: CardDeck) {
         super.init(name: PlayerName("딜러")!, cardDeck: cardDeck)
     }
+    
+    func answer() {
+        countScore()
+    }
+    
 }
