@@ -23,7 +23,7 @@ class NonDuplicateCardDistributor: CardDistributor {
         
     }
     private(set) var cards: Set<Card>
-    let cardPickStrategy: CardPickStrategy
+    private let cardPickStrategy: CardPickStrategy
     
     init(cards: [Card], cardPickStrategy: CardPickStrategy) {
         self.cards = Set(cards)
