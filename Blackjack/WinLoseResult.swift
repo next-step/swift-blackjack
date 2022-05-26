@@ -8,11 +8,13 @@
 import Foundation
 
 struct WinLoseResult{
+    private let zero = 0
+    
     let winCount: Int
     let loseCount: Int
     
     init?(winCount: Int, loseCount: Int) {
-        guard winCount > 0, loseCount > 0 else { return nil }
+        guard winCount > zero, loseCount > zero else { return nil }
         self.winCount = winCount
         self.loseCount = loseCount
     }
