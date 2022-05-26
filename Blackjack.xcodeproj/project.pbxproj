@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E66DB54283BD41400E582E2 /* BlackjackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB53283BD41400E582E2 /* BlackjackTest.swift */; };
 		2E66DB59283BD43400E582E2 /* PlayerName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB58283BD43400E582E2 /* PlayerName.swift */; };
 		2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB5A283BD45200E582E2 /* PlayerNameTest.swift */; };
 		2E66DB5C283BD55400E582E2 /* PlayerName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB58283BD43400E582E2 /* PlayerName.swift */; };
@@ -74,7 +73,6 @@
 
 /* Begin PBXFileReference section */
 		2E66DB51283BD41400E582E2 /* BlackjackTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E66DB53283BD41400E582E2 /* BlackjackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTest.swift; sourceTree = "<group>"; };
 		2E66DB58283BD43400E582E2 /* PlayerName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerName.swift; sourceTree = "<group>"; };
 		2E66DB5A283BD45200E582E2 /* PlayerNameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameTest.swift; sourceTree = "<group>"; };
 		2E66DB5D283BD5DF00E582E2 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 		2E66DB52283BD41400E582E2 /* BlackjackTest */ = {
 			isa = PBXGroup;
 			children = (
-				2E66DB53283BD41400E582E2 /* BlackjackTest.swift */,
 				2E66DB5A283BD45200E582E2 /* PlayerNameTest.swift */,
 				2E66DB63283BD65300E582E2 /* TrumpCardsTest.swift */,
 				2E66DB68283BD7F900E582E2 /* CardDeckTest.swift */,
@@ -298,7 +295,6 @@
 			files = (
 				2E66DB5C283BD55400E582E2 /* PlayerName.swift in Sources */,
 				2E9C3B64283CC53C00393DEE /* InputView.swift in Sources */,
-				2E66DB54283BD41400E582E2 /* BlackjackTest.swift in Sources */,
 				2E9C3B61283CAEE100393DEE /* BlackjackGame.swift in Sources */,
 				2E9C3B33283C741200393DEE /* PlayerNameParserTest.swift in Sources */,
 				2E66DB62283BD61E00E582E2 /* TrumpCards.swift in Sources */,
