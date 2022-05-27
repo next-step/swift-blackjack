@@ -21,7 +21,6 @@ enum OutputView {
         Swift.print("\n")
         Swift.print( "\(names)에게 2장씩 나누었습니다.")
         Swift.print(players)
-        Swift.print("\n")
     }
     
     static func print(player: String) {
