@@ -28,16 +28,17 @@ class BlackjackGameJudgeTest: XCTestCase {
         let playerTwoScore = BlackjackScore(player: playerTwo, score: 20)
         
         let dealerResult = WinLoseResult(player: dealer, winCount: 1, loseCount: 1)
-        let playerOneResult = WinLoseResult(player: playerOne, winCount: 1, loseCount: 0)
-        let playerTwoResult = WinLoseResult(player: playerTwo, winCount: 0, loseCount: 1)
+        let playerOneResult = WinLoseResult(player: playerOne, winCount: 1, loseCount: 0)!
+        let playerTwoResult = WinLoseResult(player: playerTwo, winCount: 0, loseCount: 1)!
         
         // when
         let winLoseResults = gameJudge.winLoseResults(of: [playerOneScore, playerTwoScore], comparingWith: dealerScore)
         
         // then
-        XCTAssertEqual(winLoseResults[dealer], dealerResult)
-        XCTAssertEqual(winLoseResults[playerOne], playerOneResult)
-        XCTAssertEqual(winLoseResults[playerTwo], playerTwoResult)
+        
+        XCTAssertEqual(winLoseResults.standardResult, dealerResult)
+        XCTAssertTrue(winLoseResults.playerResults.contains(playerOneResult))
+        XCTAssertTrue(winLoseResults.playerResults.contains(playerTwoResult))
     }
     
     func test_winLoseResultScores_승패계산의_기준이되는_점수거_21을_넘을경우_나머지_참가자들이_무조건_이긴것으로_취급한다() {
@@ -56,7 +57,7 @@ class BlackjackGameJudgeTest: XCTestCase {
         let winLoseResults = gameJudge.winLoseResults(of: [playerScore], comparingWith: dealerScore)
         
         // then
-        XCTAssertEqual(winLoseResults[dealer], dealerResult)
-        XCTAssertEqual(winLoseResults[player], playerResult)
+        XCTAssertEqual(winLoseResults.standardResult, dealerResult)
+        XCTAssertTrue(winLoseResults.playerResults.contains(playerResult!))
     }
 }

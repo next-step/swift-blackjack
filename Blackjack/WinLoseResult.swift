@@ -23,11 +23,6 @@ struct WinLoseResult{
 }
 
 struct WinLoseResults {
-    let value: [WinLoseResult]
-    
-    subscript(player: Player) -> WinLoseResult? {
-        value.filter { result in
-            result.player == player
-        }.first
-    }
+    let standardResult: WinLoseResult
+    let playerResults: [WinLoseResult]
 }

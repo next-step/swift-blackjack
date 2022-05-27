@@ -20,7 +20,7 @@ struct BlackjackGameJudge: GameJudge {
         
         let counterpartResult = winLoseResultOf(counterpart: counterpartScore, with: winLoseResults)
         
-        return WinLoseResults(value: [counterpartResult] + winLoseResults)
+        return WinLoseResults(standardResult: counterpartResult, playerResults: winLoseResults)
     }
     
     private func winLoseResultOf(counterpart: BlackjackScore, with winLoseResults: [WinLoseResult]) -> WinLoseResult {
