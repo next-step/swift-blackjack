@@ -19,7 +19,7 @@ class BlackjackTest: XCTestCase {
     
     func test_블랙잭이_시작할때_참가자에게_카드_두개를_분배() {
         let participantNames = ["sut1"]
-        var blackjack = Blackjack(participantNames: participantNames)
+        let blackjack = Blackjack(participantNames: participantNames)
         try? blackjack.start()
         
         let participant = blackjack.participants.first!
@@ -30,7 +30,7 @@ class BlackjackTest: XCTestCase {
     
     func test_블랙잭_시작후_라운드를_더_진행하면_카드_수가_1장씩_증가() {
         let participantNames = ["sut1"]
-        var blackjack = Blackjack(participantNames: participantNames)
+        let blackjack = Blackjack(participantNames: participantNames)
         let participant = blackjack.participants.first!
         
         try? blackjack.start()

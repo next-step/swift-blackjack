@@ -77,12 +77,9 @@
 		A5C55B53283FB04000FBEC4D /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
+				A5C55B6828405E1000FBEC4D /* Domain */,
 				A5C55B63283FD3F300FBEC4D /* Controller */,
 				A5C55B60283FCB1900FBEC4D /* View */,
-				A5C55B54283FB05100FBEC4D /* Blackjack.swift */,
-				A5C55B57283FB0BC00FBEC4D /* Participant.swift */,
-				A5C55B5A283FB57200FBEC4D /* Card.swift */,
-				A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -102,6 +99,17 @@
 				A5C55B64283FD40200FBEC4D /* BlackjackController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		A5C55B6828405E1000FBEC4D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A5C55B54283FB05100FBEC4D /* Blackjack.swift */,
+				A5C55B57283FB0BC00FBEC4D /* Participant.swift */,
+				A5C55B5A283FB57200FBEC4D /* Card.swift */,
+				A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */,
+			);
+			path = Domain;
 			sourceTree = "<group>";
 		};
 		C7F86E0D273AAF7900FAA669 = {

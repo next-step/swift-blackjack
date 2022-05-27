@@ -9,7 +9,7 @@ import Foundation
 let blackjackController = BlackjackController()
 
 do {
-    try blackjackController.startGame()
+    try blackjackController.playGame()
 } catch {
     print("Error! \(error)")
 }

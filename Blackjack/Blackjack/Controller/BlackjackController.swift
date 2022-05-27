@@ -8,10 +8,10 @@
 import Foundation
 
 struct BlackjackController {
-    let inputView = BlackjackInputView()
-    let outputView = BlackjackOutputView()
+    private let inputView = BlackjackInputView()
+    private let outputView = BlackjackOutputView()
     
-    func startGame() throws {
+    func playGame() throws {
         guard let participantNames = inputView.readParticipantNames() else { throw BlackjackError.invalidInput }
         let blackjack = Blackjack(participantNames: participantNames)
         try blackjack.start()
