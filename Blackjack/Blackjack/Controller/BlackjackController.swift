@@ -17,7 +17,20 @@ struct BlackjackController {
         try blackjack.start()
         outputView.printStartStat(of: blackjack)
         
+        for participant in blackjack.participants {
+            try playExternalRounds(at: blackjack, participant: participant)
+        }
+    }
+    
+    private func playExternalRounds(at game: Blackjack, participant: Participant) throws {
+        while let answer = inputView.readIsOneMoreRound(participantName: participant.name), answer == "y" {
+            try game.playOneMoreRound(participant: participant)
+            outputView.printCards(of: participant)
+        }
         
+        if participant.cards.count == 2 {
+            outputView.printCards(of: participant)
+        }
     }
     
 }

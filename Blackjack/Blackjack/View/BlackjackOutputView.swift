@@ -18,6 +18,7 @@ struct BlackjackOutputView {
         game.participants.forEach {
             printCards(of: $0)
         }
+        print()
     }
     
     func printCards(of participant: Participant) {
