@@ -18,6 +18,7 @@ enum OutputView {
     }
     
     static func printIntialState(players: String, names: String) {
+        Swift.print("\n")
         Swift.print( "\(names)에게 2장씩 나누었습니다.")
         Swift.print(players)
         Swift.print("\n")
