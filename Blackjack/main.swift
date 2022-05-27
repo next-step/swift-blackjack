@@ -23,14 +23,11 @@ do {
                               gameStateDelegate: gameStateDelegate)
     
     let scores = try blackjack.start()
-    let playerScores = scores.filter { ($0.player is Dealer) == false }
-    let dealerScore = scores.filter { $0.player is Dealer }.first!
-    
     let formattedScores = BlackjackScoreFormatter.format(scores: scores)
     OutputView.print(playerScore: formattedScores)
     
     
-    let winLoseResults = BlackjackGameJudge().winLoseResults(of: playerScores, comparingWith: dealerScore)
+    let winLoseResults = BlackjackGameJudge().winLoseResults(of: scores.playerScores, comparingWith: scores.dealerScore!)
     let formattedResults = WinLoseResultFormatter.format(winLoseResults: winLoseResults)
     OutputView.print(winLoseResults: formattedResults)
 } catch(let error) {

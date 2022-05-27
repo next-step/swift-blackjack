@@ -59,7 +59,6 @@ class BlackjackScoreTest: XCTestCase {
         
         // when
         // then
-        XCTAssertTrue(blackjackScores.playerScores.contains(dealerScore))
-        XCTAssertFalse(blackjackScores.playerScores.contains(playerScore))
+        XCTAssertEqual(blackjackScores.dealerScore, dealerScore)
     }
 }

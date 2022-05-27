@@ -8,7 +8,8 @@
 import Foundation
 
 struct BlackjackScores {
-    private let value: [BlackjackScore]
+    let value: [BlackjackScore]
+    
     var playerScores: [BlackjackScore] {
         value.filter { ($0.player is Dealer) == false }
     }
