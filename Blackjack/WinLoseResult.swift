@@ -21,3 +21,13 @@ struct WinLoseResult{
         self.loseCount = loseCount
     }
 }
+
+struct WinLoseResults {
+    private let value: [WinLoseResult]
+    
+    subscript(player: Player) -> WinLoseResult? {
+        value.filter { result in
+            result.player == player
+        }.first
+    }
+}
