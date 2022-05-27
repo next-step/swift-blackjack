@@ -13,8 +13,19 @@ class Participant {
     
     var score: Int {
         var value: Int = 0
-        for card in cards {
+        for card in cards.filter({ $0.number != .ace }) {
             value += card.value
+        }
+        
+        for card in cards.filter({ $0.number == .ace }) {
+            let lessValue = value + 1
+            let moreValue = value + 11
+            
+            if abs(moreValue - 21) < abs(lessValue - 21) {
+                value = moreValue
+            } else {
+                value = lessValue
+            }
         }
         return value
     }
