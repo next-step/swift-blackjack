@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WinLoseFormatter {
+struct WinLoseResultFormatter {
     static func format(winLoseResults: WinLoseResults) -> String {
         return winLoseResults.value.map { result in
             if result.winCount == 0 &&  result.loseCount == 1 {

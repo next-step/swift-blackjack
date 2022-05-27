@@ -31,7 +31,7 @@ do {
     
     
     let winLoseResults = BlackjackGameJudge().winLoseResults(of: playerScores, comparingWith: dealerScore)
-    let formattedResults = WinLoseFormatter.format(winLoseResults: winLoseResults)
+    let formattedResults = WinLoseResultFormatter.format(winLoseResults: winLoseResults)
     OutputView.print(winLoseResults: formattedResults)
 } catch(let error) {
     OutputView.print(error: error)
