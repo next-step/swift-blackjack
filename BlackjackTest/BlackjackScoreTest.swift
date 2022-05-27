@@ -30,17 +30,22 @@ class BlackjackScoreTest: XCTestCase {
         let result = blackjackScore.isBigger(than: 21)
         
         // then
-        XCTAssertFalseg(result)
+        XCTAssertFalse(result)
     }
     
     func test_BlackjackScores_playerScores_딜러를_제외한_참가자들의_점수배열만_반환한다() {
         // given
         let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
+        let dealer = Dealer(cardDeck: BlackjackCardDeck())
+        
         let playerScore = BlackjackScore(player: player, score: 20)
-        let blackjackScores = BlackjackScores([playerScore])
+        let dealerScore = BlackjackScore(player: dealer, score: 20)
+        let blackjackScores = BlackjackScores([playerScore, dealerScore])
         
         // when
         // then
+        print(blackjackScores.playerScores)
+        XCTAssertFalse(blackjackScores.playerScores.contains(dealerScore))
         XCTAssertTrue(blackjackScores.playerScores.contains(playerScore))
     }
 }

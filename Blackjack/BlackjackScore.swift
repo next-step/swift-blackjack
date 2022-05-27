@@ -9,6 +9,13 @@ import Foundation
 
 struct BlackjackScores {
     private let value: [BlackjackScore]
+    var playerScores: [BlackjackScore] {
+        value.filter { ($0.player is Dealer) == false }
+    }
+    
+    var dealerScore: BlackjackScore? {
+        value.filter { $0.player is Dealer }.first
+    }
     
     init(_ value: [BlackjackScore]) {
         self.value = value
@@ -21,7 +28,8 @@ struct BlackjackScore: Comparable {
     }
     
     static func == (lhs: BlackjackScore, rhs: BlackjackScore) -> Bool {
-        lhs.score == rhs.score
+        return lhs.player == rhs.player
+            && lhs.score == rhs.score
     }
     
     let player: Player
