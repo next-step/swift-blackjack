@@ -32,4 +32,15 @@ class BlackjackScoreTest: XCTestCase {
         // then
         XCTAssertFalseg(result)
     }
+    
+    func test_BlackjackScores_playerScores_딜러를_제외한_참가자들의_점수배열만_반환한다() {
+        // given
+        let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
+        let playerScore = BlackjackScore(player: player, score: 20)
+        let blackjackScores = BlackjackScores([playerScore])
+        
+        // when
+        // then
+        XCTAssertTrue(blackjackScores.playerScores.contains(playerScore))
+    }
 }
