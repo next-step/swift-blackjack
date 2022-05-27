@@ -91,4 +91,15 @@ class ParticipantTest: XCTestCase {
         
         XCTAssertEqual(participant.giveWinLoseRecord(), "패")
     }
+    
+    func testParticipant_firstHandBlackjack_success() {
+        let cards = [Card(rank: .A, suit: .clubs),
+                     Card(rank: .Q, suit: .hearts)]
+        let hand = Hand(cards: cards)
+        let participant = Participant(name: "Mansa", bettingAmount: 1000)
+        participant.takeAFirstHand(hand)
+        participant.record(.win, amount: participant.betting())
+        
+        XCTAssertEqual(participant.profit(), 1500)
+    }
 }
