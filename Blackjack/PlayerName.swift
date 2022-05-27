@@ -16,3 +16,5 @@ struct PlayerName {
         self.value = value
     }
 }
+
+extension PlayerName: Hashable {}

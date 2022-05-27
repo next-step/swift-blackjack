@@ -24,3 +24,13 @@ class Player {
         return cardDeck.countScore()
     }
 }
+
+extension Player: Hashable {
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        lhs.name == rhs.name
+    }
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(name)
+    }
+}
