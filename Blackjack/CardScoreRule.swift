@@ -12,7 +12,7 @@ protocol CardScoreRule {
 }
 
 enum BlackjackScoreRule: CardScoreRule {
-    private static let twentyOne = 21
+    static let twentyOne = 21
     
     static func countScore(cardDeck: CardDeck) -> Int {
         let sumWhereAceOne = totalScore(cardDeck: cardDeck, isAceEleven: false)

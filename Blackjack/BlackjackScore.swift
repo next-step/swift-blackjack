@@ -18,4 +18,8 @@ struct BlackjackScore: Comparable {
     
     let player: Player
     let score: Int
+    
+    func isBigger(than score: Int) -> Bool {
+        self.score > score
+    }
 }

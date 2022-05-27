@@ -40,7 +40,7 @@ struct BlackjackGameJudge: GameJudge {
     func winLoseResult(of score: BlackjackScore, comparingWith counterpartScore: BlackjackScore) -> WinLoseResult {
         let player = score.player
         
-        if counterpartScore.score > 21 {
+        if counterpartScore.isBigger(than: BlackjackScoreRule.twentyOne) {
             return WinLoseResult(player: player, winCount: 1, loseCount: 0)!
         }
         
