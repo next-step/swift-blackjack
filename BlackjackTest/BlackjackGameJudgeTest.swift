@@ -48,7 +48,7 @@ class BlackjackGameJudgeTest: XCTestCase {
         let playerTwoResult = WinLoseResult(player: playerTwo, winCount: 0, loseCount: 1)
         
         // when
-        let winLoseResults = gameJudge.winLoseResults(with: [playerOneScore, playerTwoScore], comparingWith: dealerScore)
+        let winLoseResults = gameJudge.winLoseResults(of: [playerOneScore, playerTwoScore], comparingWith: dealerScore)
         
         // then
         XCTAssertEqual(winLoseResults[dealer], dealerResult)

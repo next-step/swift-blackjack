@@ -8,10 +8,12 @@
 import Foundation
 
 protocol GameJudge {
+    func winLoseResults(of scores: [BlackjackScore], comparingWith counterpartScore: BlackjackScore) -> WinLoseResults
     func winLoseResult(of score: BlackjackScore, comparingWith counterpartScore: BlackjackScore) -> WinLoseResult
 }
+
 struct BlackjackGameJudge: GameJudge {
-    func winLoseResults(with scores: [BlackjackScore], comparingWith counterpartScore: BlackjackScore) -> WinLoseResults {
+    func winLoseResults(of scores: [BlackjackScore], comparingWith counterpartScore: BlackjackScore) -> WinLoseResults {
         let winLoseResults = scores.map { score in
             winLoseResult(of: score, comparingWith: counterpartScore)
         }
