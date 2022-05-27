@@ -36,6 +36,40 @@ class DealerTests: XCTestCase {
         }
     }
     
+    func test_isNeedToGetMoreCard_보유한_카드의_합이_16_이하이면_true를_반환한다() throws {
+        // given
+        let deck = Deck(cards: [])
+        let sut = Dealer(deck: deck)
+        let heart2 = Card(suit: .heart, denomination: .two)
+        let heart3 = Card(suit: .heart, denomination: .three)
+        sut.appendCard(heart2)
+        sut.appendCard(heart3)
+        
+        // when
+        let result = sut.isNeedToGetMoreCard
+        
+        // then
+        let expectation = true
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func test_isNeedToGetMoreCard_보유한_카드의_합이_16_초과이면_false를_반환한다() throws {
+        // given
+        let deck = Deck(cards: [])
+        let sut = Dealer(deck: deck)
+        let heartJ = Card(suit: .heart, denomination: .jack)
+        let heartQ = Card(suit: .heart, denomination: .queen)
+        sut.appendCard(heartJ)
+        sut.appendCard(heartQ)
+        
+        // when
+        let result = sut.isNeedToGetMoreCard
+        
+        // then
+        let expectation = false
+        XCTAssertEqual(result, expectation)
+    }
+    
     func test_errorDescription_카드가_비어있을때() throws {
         // given
         let deck = Deck(cards: [])

@@ -8,44 +8,33 @@
 import Foundation
 
 struct ResultView {
-
+    
     private enum ResultText: UserInformable {
-        case distributeCards(gamers: [Gamer])
-        case cards(gamer: Gamer)
         case score(gamer: Gamer)
+        case finalOutcome
+        case dealerOutcome(outcome: DealerResult.Outcome)
+        case gamerOutcome(name: String, outcome: GamerResult.Outcome)
         
         var guideDescription: String {
             switch self {
-            case let .distributeCards(gamers):
-                return "\(gamers.map { $0.name }.joined(separator: ",") )에게 2장씩 나누었습니다."
-            case let .cards(gamer):
-                return "\(gamer.name)카드: \(cardDescriptions(of: gamer.cards))"
             case let .score(gamer):
-                return "\(gamer.name)카드: \(cardDescriptions(of: gamer.cards)) - 결과: \(gamer.totalPoint)"
+                return "\(gamer.name)카드: \(gamer.cardsDescription) - 결과: \(gamer.totalPoint)"
+            case .finalOutcome:
+                return "## 최종 승패"
+            case let .dealerOutcome(outcome):
+                return "딜러 \(outcome.winningCount)승 \(outcome.drawCount)무 \(outcome.loseCount)패"
+            case let .gamerOutcome(name, outcome):
+                return "\(name): \(outcome.guideDescription)"
             }
         }
-        
-        private func cardDescriptions(of cards: [Card]) -> String {
-            cards.map { card in
-                let denomination: String = card.denomination.guideDescription
-                let suit: String = card.suit.guideDescription
-                return denomination + suit
-            }.joined(separator: ", ")
-        }
     }
+
     
     private let userGuider = UserGuider()
+    private var gameResult: GameResult
     
-    func printDistributeCards(to gamers: [Gamer]) {
-        userGuider.printGuide(for: ResultText.distributeCards(gamers: gamers))
-    }
-   
-    func printCards(of gamers: [Gamer]) {
-        gamers.forEach(printCards)
-    }
-    
-    func printCards(of gamer: Gamer) {
-        userGuider.printGuide(for: ResultText.cards(gamer: gamer))
+    init(gameResult: GameResult) {
+        self.gameResult = gameResult
     }
     
     func printScore(of gamers: [Gamer]) {
@@ -54,5 +43,27 @@ struct ResultView {
     
     private func printScore(of gamer: Gamer) {
         userGuider.printGuide(for: ResultText.score(gamer: gamer))
+    }
+    
+    func printFinalOutcome(with gamers: [Gamer]) {
+        userGuider.printGuide(for: ResultText.finalOutcome)
+        
+        printDealerOutcome()
+        printGamersOutcome(gamers)
+    }
+    
+    private func printDealerOutcome() {
+        let dealerOutCome: DealerResult.Outcome = gameResult.dealerOutCome
+        userGuider.printGuide(for: ResultText.dealerOutcome(outcome: dealerOutCome))
+    }
+    
+    private func printGamersOutcome(_ gamers: [Gamer]) {
+        gamers.forEach(printGamerOutcome)
+    }
+    
+    private func printGamerOutcome(_ gamer: Gamer) {
+        let gamerOutcome: GamerResult.Outcome = gameResult.gamerOutcome(gamer)
+        userGuider.printGuide(for: ResultText.gamerOutcome(name: gamer.name,
+                                                           outcome: gamerOutcome))
     }
 }

@@ -10,21 +10,29 @@ do {
     let game = Game()
     game.receiveGamers()
     
-    let resultView = ResultView()
-    resultView.printDistributeCards(to: game.gamers)
+    let gamePlayView = GamePlayView()
+    gamePlayView.printDistributeCards(to: game.allPlayers)
     
-    try game.distributeTwoCardsToEachGamer()
-    resultView.printCards(of: game.gamers)
-   
+    try game.distributeTwoCardsToEveryone()
+    gamePlayView.printCards(of: game.allPlayers)
+    
     try game.gamers.forEach { gamer in
-        while gamer.state == .hit {
+        while gamer.state == .hit && !gamer.isBurst {
             try game.decideToHitOrStay(of: gamer)
             try game.distributeCardIfStateIsHit(to: gamer)
-            resultView.printCards(of: gamer)
+            gamePlayView.printCards(of: gamer)
         }
     }
     
-    resultView.printScore(of: game.gamers)
+    if game.dealer.isNeedToGetMoreCard {
+        gamePlayView.printMoreCardToDealer()
+        try game.distributeCardToDealder()
+    }
+    
+    let gameResult = GameResult(dealer: game.dealer, gamers: game.gamers)
+    let resultView = ResultView(gameResult: gameResult)
+    resultView.printScore(of: game.allPlayers)
+    resultView.printFinalOutcome(with: game.gamers)
 } catch {
     let errorView = ErrorView()
     errorView.printError(for: error)
