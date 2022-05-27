@@ -11,6 +11,14 @@ class Participant {
     let name: String
     var cards: [Card] = []
     
+    var score: Int {
+        var value: Int = 0
+        for card in cards {
+            value += card.value
+        }
+        return value
+    }
+    
     init(name: String) {
         self.name = name
     }
