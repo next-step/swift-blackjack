@@ -14,7 +14,7 @@ struct Blackjack {
         self.participants = participantNames.compactMap({ Participant.init(name: $0) })
     }
     
-    mutating func start() throws {
+    func start() throws {
         for participant in participants {
             participant.add(card: try Card.generateRandomCard())
             participant.add(card: try Card.generateRandomCard())

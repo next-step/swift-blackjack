@@ -51,4 +51,15 @@ class BlackjackTest: XCTestCase {
         
         XCTAssertEqual(participant.score, expected)
     }
+    
+    func test_블랙잭_참가자가_에이스를_가지고_있고_11로_계산해야_유리할때_점수_계산() {
+        let participant = Participant(name: "sut")
+        
+        participant.add(card: Card(shape: .spade, number: .ace))
+        participant.add(card: Card(shape: .spade, number: .eight))
+        
+        let expected = 19
+        
+        XCTAssertEqual(participant.score, expected)
+    }
 }
