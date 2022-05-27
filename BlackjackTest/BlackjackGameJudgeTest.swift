@@ -16,22 +16,6 @@ extension WinLoseResult: Equatable {
 }
 
 class BlackjackGameJudgeTest: XCTestCase {
-    func test_judge_여러BlackjackScore를_가지고_WinLoseResult를_반환한다() {
-        // given
-        let gameJudge = BlackjackGameJudge()
-        let dealer = Dealer(cardDeck: BlackjackCardDeck())
-        let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
-        
-        let dealerScore = BlackjackScore(player: dealer, score: 21)
-        let playerScore = BlackjackScore(player: player, score: 21)
-        
-        // when
-        let winLoseResult = gameJudge.winLoseResult(of: playerScore, comparingWith: dealerScore)
-        
-        // then
-        XCTAssertEqual(winLoseResult.winCount, 1)
-    }
-    
     func test_winLoseResultScores_게임참가자들의_게임점수를_가지고_실패결과에_해당하는_WinLoseResults를_반환한다() {
         // given
         let gameJudge = BlackjackGameJudge()
@@ -54,5 +38,25 @@ class BlackjackGameJudgeTest: XCTestCase {
         XCTAssertEqual(winLoseResults[dealer], dealerResult)
         XCTAssertEqual(winLoseResults[playerOne], playerOneResult)
         XCTAssertEqual(winLoseResults[playerTwo], playerTwoResult)
+    }
+    
+    func test_winLoseResultScores_승패계산의_기준이되는_점수거_21을_넘을경우_나머지_참가자들이_무조건_이긴것으로_취급한다() {
+        // given
+        let gameJudge = BlackjackGameJudge()
+        let dealer = Dealer(cardDeck: BlackjackCardDeck())
+        let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
+        
+        let dealerScore = BlackjackScore(player: dealer, score: 22)
+        let playerScore = BlackjackScore(player: player, score: 21)
+        
+        let dealerResult = WinLoseResult(player: dealer, winCount: 0, loseCount: 1)
+        let playerResult = WinLoseResult(player: player, winCount: 1, loseCount: 0)
+        
+        // when
+        let winLoseResults = gameJudge.winLoseResults(of: [playerScore], comparingWith: dealerScore)
+        
+        // then
+        XCTAssertEqual(winLoseResults[dealer], dealerResult)
+        XCTAssertEqual(winLoseResults[player], playerResult)
     }
 }
