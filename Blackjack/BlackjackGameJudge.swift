@@ -16,6 +16,12 @@ struct BlackjackGameJudge: GameJudge {
             winLoseResult(of: score, comparingWith: counterpartScore)
         }
         
+        let counterpartResult = winLoseResultOf(counterpart: counterpartScore, with: winLoseResults)
+        
+        return WinLoseResults(value: [counterpartResult] + winLoseResults)
+    }
+    
+    private func winLoseResultOf(counterpart: BlackjackScore, with winLoseResults: [WinLoseResult]) -> WinLoseResult {
         let totalWinCount = winLoseResults.reduce(0, { partialResult, result in
             partialResult + result.winCount
         })
@@ -24,9 +30,9 @@ struct BlackjackGameJudge: GameJudge {
             partialResult + result.loseCount
         })
         
-        let counterpartResult = WinLoseResult(player: counterpartScore.player, winCount: totalLoseCount, loseCount: totalWinCount)!
+        let counterpartResult = WinLoseResult(player: counterpart.player, winCount: totalLoseCount, loseCount: totalWinCount)!
         
-        return WinLoseResults(value: [counterpartResult] + winLoseResults)
+        return counterpartResult
     }
     
     func winLoseResult(of score: BlackjackScore, comparingWith counterpartScore: BlackjackScore) -> WinLoseResult {
