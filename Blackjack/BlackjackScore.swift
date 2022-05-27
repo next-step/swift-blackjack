@@ -7,7 +7,15 @@
 
 import Foundation
 
-struct BlackjackScore {
+struct BlackjackScore: Comparable {
+    static func < (lhs: BlackjackScore, rhs: BlackjackScore) -> Bool {
+        lhs.score < rhs.score
+    }
+    
+    static func == (lhs: BlackjackScore, rhs: BlackjackScore) -> Bool {
+        lhs.score == rhs.score
+    }
+    
     let player: Player
     let score: Int
 }
