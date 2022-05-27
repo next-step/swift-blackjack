@@ -40,4 +40,15 @@ class BlackjackTest: XCTestCase {
         
         XCTAssertEqual(participant.cards.count, expected)
     }
+    
+    func test_블랙잭_참가자가_에이스_카드가_없을때_점수_계산() {
+        let participant = Participant(name: "sut")
+        
+        participant.add(card: Card(shape: .spade, number: .two))
+        participant.add(card: Card(shape: .spade, number: .eight))
+        
+        let expected = 10
+        
+        XCTAssertEqual(participant.score, expected)
+    }
 }
