@@ -31,6 +31,11 @@ do {
 
 struct BlackjackStateDelegate: GameStateDelegate {
     func afterReceiveCard(player: Player) {
+        if player is Dealer {
+            OutputView.printDealerReceiveCard()
+            return
+        }
+        
         let formattedPlayer = PlayerFormatter.format(player: player)
         OutputView.print(player: formattedPlayer)
      }
