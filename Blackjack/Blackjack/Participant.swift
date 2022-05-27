@@ -12,22 +12,8 @@ class Participant {
     var cards: [Card] = []
     
     var score: Int {
-        var value: Int = 0
-        for card in cards.filter({ $0.number != .ace }) {
-            value += card.value
-        }
-        
-        for card in cards.filter({ $0.number == .ace }) {
-            let lessValue = value + 1
-            let moreValue = value + 11
-            
-            if abs(moreValue - 21) < abs(lessValue - 21) {
-                value = moreValue
-            } else {
-                value = lessValue
-            }
-        }
-        return value
+        let currentScore = calculateScoreWithoutAce()
+        return calculateAceScore(startAt: currentScore)
     }
     
     init(name: String) {
@@ -36,5 +22,22 @@ class Participant {
     
     func add(card: Card) {
         cards.append(card)
+    }
+    
+    private func calculateScoreWithoutAce() -> Int {
+        return cards.filter({ $0.number != .ace })
+            .reduce(0, { $0 + $1.value })
+    }
+    
+    private func calculateAceScore(startAt score: Int) -> Int {
+        var now = score
+        for _ in cards.filter({ $0.number == .ace }) {
+            now = selectSuperiorScore(lhs: now + 1, rhs: now + 11)
+        }
+        return now
+    }
+    
+    private func selectSuperiorScore(lhs: Int, rhs: Int) -> Int {
+        return abs(lhs - 21) < abs(rhs - 21) ? lhs : rhs
     }
 }
