@@ -7,6 +7,14 @@
 
 import XCTest
 
+extension WinLoseResult: Equatable {
+    static func == (lhs: WinLoseResult, rhs: WinLoseResult) -> Bool {
+        return lhs.player.name == rhs.player.name
+        && lhs.loseCount == rhs.loseCount
+        && rhs.winCount == rhs.winCount
+    }
+}
+
 class BlackjackGameJudgeTest: XCTestCase {
     func test_judge_여러BlackjackScore를_가지고_WinLoseResult를_반환한다() {
         // given
@@ -38,7 +46,8 @@ class BlackjackGameJudgeTest: XCTestCase {
         let dealerResult = WinLoseResult(player: dealer, winCount: 1, loseCount: 1)
         let playerOneResult = WinLoseResult(player: playerOne, winCount: 1, loseCount: 0)
         let playerTwoResult = WinLoseResult(player: playerTwo, winCount: 0, loseCount: 1)
-            // when
+        
+        // when
         let winLoseResults = gameJudge.winLoseResults(with: [playerOneScore, playerTwoScore], comparingWith: dealerScore)
         
         // then
