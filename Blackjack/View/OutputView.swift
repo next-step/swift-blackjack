@@ -32,4 +32,9 @@ enum OutputView {
         Swift.print(playerScore)
         Swift.print("\n")
     }
+    
+    static func printDealerReceiveCard() {
+        Swift.print("딜러는 16이하라 한장의 카드를 더 받았습니다.")
+        Swift.print("\n")
+    }
 }
