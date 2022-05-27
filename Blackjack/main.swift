@@ -8,7 +8,7 @@ import Foundation
 
 func main() {
     let rawParticipansts = InputView.readParticipants()
-    let nameOfParticipants = StringUtiltity.splitParticipantsName(to: rawParticipansts)
+    let nameOfParticipants = StringUtility.splitParticipantsName(to: rawParticipansts)
     var profileOfParticipant: [ProfileOfParticipant] = []
     
     nameOfParticipants.forEach { name in

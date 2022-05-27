@@ -11,6 +11,7 @@ protocol HandProtocol {
     func score() -> Int
     func hit(card: Card)
     func giveHandDescription() -> String
+    func isExceedWinningScore() -> Bool
 }
 
 class Hand: HandProtocol {
@@ -46,7 +47,7 @@ class Hand: HandProtocol {
     }
     
     func isExceedWinningScore() -> Bool {
-        score() > winningScore.number
+        score() > WinningScore.number
     }
     
     func hit(card: Card) {
