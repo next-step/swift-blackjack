@@ -22,19 +22,25 @@ class DealerTest: XCTestCase {
     }
     
     func testDealer_handDescription() {
-        let dealer = Dealer(hand: Hand(cards: [Card(rank: .J, suit: .clubs),
-                                               Card(rank: .four, suit: .hearts)]))
+        let cards = [Card(rank: .A, suit: .clubs),
+                    Card(rank: .two, suit: .hearts)]
+        let hand = Hand(cards: cards)
+        let dealer = Dealer()
+        dealer.takeAFirstHand(hand)
         
-        XCTAssertEqual(dealer.giveHandDescription(), "J♣, 4♥")
+        XCTAssertEqual(dealer.giveHandDescription(), "A♣, 2♥")
     }
     
     func testDealer_hit_success() {
-        let dealer = Dealer(hand: Hand(cards: [Card(rank: .J, suit: .clubs),
-                                               Card(rank: .four, suit: .hearts)]))
+        let cards = [Card(rank: .A, suit: .clubs),
+                    Card(rank: .two, suit: .hearts)]
+        let hand = Hand(cards: cards)
+        let dealer = Dealer()
+        dealer.takeAFirstHand(hand)
         dealer.hitOrStay(true)
         dealer.hit(card: Card(rank: .A, suit: .hearts))
         
-        XCTAssertEqual(dealer.giveHandDescription(), "J♣, 4♥, A♥")
+        XCTAssertEqual(dealer.giveHandDescription(), "A♣, 2♥, A♥")
     }
     
     func testDealer_giveIsHit() {
@@ -53,6 +59,7 @@ class DealerTest: XCTestCase {
                     Card(rank: .two, suit: .hearts)]
         let hand = Hand(cards: cards)
         let dealer = Dealer(hand: hand)
+        dealer.takeAFirstHand(hand)
         
         XCTAssertEqual(dealer.score(), 13)
     }

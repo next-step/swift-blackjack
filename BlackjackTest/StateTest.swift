@@ -9,17 +9,13 @@ import XCTest
 
 class StateTest: XCTestCase {
     func testState_make_success() {
-        let state = State()
+        let state = State(bettingAmount: 1000)
         
         XCTAssertNotNil(state)
     }
     
     func testState_basicStory_for_participant() {
-        let cards = [Card(rank: .A, suit: .clubs),
-                    Card(rank: .two, suit: .hearts)]
-        let hand = Hand(cards: cards)
-        let state = State()
-        let participant = Participant(hand: hand, name: "만사", state: state)
+        let participant = Participant(name: "만사", bettingAmount: 1000)
         participant.hitOrStay(true)
         
         XCTAssertTrue(participant.giveIsHit())
@@ -28,7 +24,7 @@ class StateTest: XCTestCase {
         
         XCTAssertFalse(participant.giveIsHit())
         
-        participant.record(.win)
+        participant.record(.win, amount: 1000)
         
         XCTAssertEqual(participant.giveWinLoseRecord(), "승")
     }
@@ -37,7 +33,7 @@ class StateTest: XCTestCase {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
         let hand = Hand(cards: cards)
-        let state = State()
+        let state = State(bettingAmount: 1000)
         let dealer = Dealer(hand: hand, state: state)
         
         dealer.hitOrStay(true)

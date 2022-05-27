@@ -10,7 +10,8 @@ import XCTest
 class BlackjackTest: XCTestCase {
     func testBlackjack_make_success() {
         let cardDeck = CardDeck(cards: CardDeckGenerator.generate())!
-        let players = Players(with: ["mansa","zombie"], cardDeck: cardDeck)
+        let players = Players(with: [("mansa", 1000), ("zombie", 2000)],
+                              cardDeck: cardDeck)
         let game = BlackjackGame(players: players!)
         
         XCTAssertNotNil(game)
@@ -18,7 +19,8 @@ class BlackjackTest: XCTestCase {
     
     func testBlackjack_handOutFirstHand() {
         let cardDeck = CardDeck(cards: CardDeckGenerator.generate())!
-        let players = Players(with: ["mansa","zombie"], cardDeck: cardDeck)
+        let players = Players(with: [("mansa", 1000), ("zombie", 2000)],
+                              cardDeck: cardDeck)
         let game = BlackjackGame(players: players!)
         game.handOutFirstHand()
         guard let turnToPlayer = players?.turnToPlayer() else { return }
@@ -28,7 +30,8 @@ class BlackjackTest: XCTestCase {
     
     func testBlackjack_make_turnToPlayer() {
         let cardDeck = CardDeck(cards: CardDeckGenerator.generate())!
-        let players = Players(with: ["mansa","zombie"], cardDeck: cardDeck)
+        let players = Players(with: [("mansa", 1000), ("zombie", 2000)],
+                              cardDeck: cardDeck)
         let game = BlackjackGame(players: players!)
         
         XCTAssertEqual(game.turnToPlayer()!.giveName(), "mansa")
@@ -36,7 +39,8 @@ class BlackjackTest: XCTestCase {
     
     func testBlackjack_make_dealer() {
         let cardDeck = CardDeck(cards: CardDeckGenerator.generate())!
-        let players = Players(with: ["mansa","zombie"], cardDeck: cardDeck)
+        let players = Players(with: [("mansa", 1000), ("zombie", 2000)],
+                              cardDeck: cardDeck)
         let game = BlackjackGame(players: players!)
         
         XCTAssertEqual(game.dealer()!.giveName(), "딜러")
@@ -44,7 +48,8 @@ class BlackjackTest: XCTestCase {
     
     func testBlackjack_make_winOrLoseForPlayer() {
         let cardDeck = CardDeck(cards: CardDeckGenerator.generate())!
-        let players = Players(with: ["mansa","zombie"], cardDeck: cardDeck)
+        let players = Players(with: [("mansa", 1000), ("zombie", 2000)],
+                              cardDeck: cardDeck)
         let game = BlackjackGame(players: players!)
         var results: [String] = []
         
@@ -57,7 +62,8 @@ class BlackjackTest: XCTestCase {
     
     func testBlackjack_story_isPlayingGame() {
         let cardDeck = CardDeck(cards: CardDeckGenerator.generate())!
-        let players = Players(with: ["mansa","zombie"], cardDeck: cardDeck)
+        let players = Players(with: [("mansa", 1000), ("zombie", 2000)],
+                              cardDeck: cardDeck)
         let game = BlackjackGame(players: players!)
         
         XCTAssertEqual(game.isPlayingGame(), true)
