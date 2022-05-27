@@ -37,4 +37,9 @@ enum OutputView {
         Swift.print("딜러는 16이하라 한장의 카드를 더 받았습니다.")
         Swift.print("\n")
     }
+    
+    static func print(winLoseResults: String) {
+        Swift.print("## 최종 승패")
+        Swift.print(winLoseResults)
+    }
 }
