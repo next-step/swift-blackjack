@@ -16,12 +16,17 @@ struct Blackjack {
     
     func start() throws {
         for participant in participants {
-            participant.add(card: try Card.generateRandomCard())
-            participant.add(card: try Card.generateRandomCard())
+            try giveCard(to: participant, count: 2)
         }
     }
     
     func playOneMoreRound(participant: Participant) throws {
-        participant.add(card: try Card.generateRandomCard())
+        try giveCard(to: participant, count: 1)
+    }
+    
+    private func giveCard(to participant: Participant, count: Int) throws {
+        for _ in 0..<count {
+            participant.add(card: try Card.generateRandomCard())
+        }
     }
 }
