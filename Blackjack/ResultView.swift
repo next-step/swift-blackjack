@@ -12,11 +12,11 @@ struct ResultView {
         print("딜러와 \(nameOfParticipants)에게 2장씩 나누었습니다.")
     }
     
-    static func printPlayer(player: Playable) {
+    static func printPlayer(player: Player) {
         print("\(player.giveName())의 카드: \(player.giveHandDescription())")
     }
     
-    static func printGameResult(player: Playable) {
+    static func printGameResult(player: Player) {
         print("\(player.giveName())의 카드: \(player.giveHandDescription()) - 결과: \(player.score())")
     }
     
@@ -28,7 +28,7 @@ struct ResultView {
         print("## 최종 수익")
     }
     
-    static func printWinOrLose(player: Playable) {
+    static func printWinOrLose(player: Player) {
         print("\(player.giveName()): \(player.profit())")
     }
 }

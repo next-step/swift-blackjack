@@ -9,22 +9,22 @@ import Foundation
 
 protocol PlayersProtocol {
     func handOutFirstHand()
-    func forEachPlayers(behavior: (Playable) -> ())
-    func turnForPlayer(behavior: (Playable) -> ())
-    func turnToPlayer() -> Playable?
-    func winOrLoseForPlayer(behavior: (Playable) -> ())
-    func turnTodealer() -> Playable?
+    func forEachPlayers(behavior: (Player) -> ())
+    func turnForPlayer(behavior: (Player) -> ())
+    func turnToPlayer() -> Player?
+    func winOrLoseForPlayer(behavior: (Player) -> ())
+    func turnTodealer() -> Player?
 }
 
 typealias ProfileOfParticipant = (name: String, bettingAmount: Int)
 
 class Players: PlayersProtocol {
-    private var players: [Playable] = []
+    private var players: [Player] = []
     private let cardDeck: CardDeckProtocol
-    private lazy var turnToHit: Playable? = players.first
-    private lazy var dealer: Playable? = players.last
+    private lazy var turnToHit: Player? = players.first
+    private lazy var dealer: Player? = players.last
     
-    init?(with profiles: [ProfileOfParticipant], with dealer: Playable = Dealer(), cardDeck: CardDeckProtocol) {
+    init?(with profiles: [ProfileOfParticipant], with dealer: Player = Dealer(), cardDeck: CardDeckProtocol) {
         self.cardDeck = cardDeck
         guard profiles.count > 0 || cardDeck.count() > 0 else { return nil }
         
@@ -42,55 +42,46 @@ class Players: PlayersProtocol {
         }
     }
     
-    func forEachPlayers(behavior: (Playable) -> ()) {
+    func forEachPlayers(behavior: (Player) -> ()) {
         players.forEach(behavior)
     }
     
-    func turnToPlayer() -> Playable? {
+    func turnToPlayer() -> Player? {
         turnToHit
     }
     
-    func turnTodealer() -> Playable? {
+    func turnTodealer() -> Player? {
         dealer
     }
     
-    func winOrLoseForPlayer(behavior: (Playable) -> ()) {
-        //FIXME: - 리팩터링 필요
+    func winOrLoseForPlayer(behavior: (Player) -> ()) {
         players.forEach { player in
             guard player.giveName() != dealer?.giveName() else { return behavior(player) }
             
-            guard (dealer?.score() ?? 0) <= 21 else {
-                player.record(.win, amount: player.betting())
-                dealer?.record(.lose, amount: player.betting())
-                return behavior(player)
+            guard (dealer?.score() ?? 0) <= WinningScore.number else {
+                judgeWinLose(participantWinLose: .win, dealerWinLose: .lose, player: player, behavior: behavior)
+                return
             }
             
-            guard player.score() <= 21 else {
-                player.record(.lose, amount: player.betting())
-                dealer?.record(.win, amount: player.betting())
-                return behavior(player)
+            guard player.score() <= WinningScore.number else {
+                judgeWinLose(participantWinLose: .lose, dealerWinLose: .win, player: player, behavior: behavior)
+                return
             }
             
             guard player.score() >= dealer?.score() ?? 0 else {
-                player.record(.lose, amount: player.betting())
-                dealer?.record(.win, amount: player.betting())
-                return behavior(player)
+                judgeWinLose(participantWinLose: .lose, dealerWinLose: .win, player: player, behavior: behavior)
+                return
             }
-            player.record(.win, amount: player.betting())
-            dealer?.record(.lose, amount: player.betting())
-            behavior(player)
+            
+            judgeWinLose(participantWinLose: .win, dealerWinLose: .lose, player: player, behavior: behavior)
         }
     }
     
-    //FIXME: - 리팩터링 필요
-    func turnForPlayer(behavior: (Playable) -> ()) {
+    func turnForPlayer(behavior: (Player) -> ()) {
         players.forEach { player in
-            var currentTurnToPlayer: Playable? = nil
+            var currentTurnToPlayer: Player? = nil
             
-            if turnToHit?.giveIsHit() == true && turnToHit?.giveName() == player.giveName() {
-                turnToHit?.hit(card: cardDeck.handOutCard())
-                return behavior(player)
-            }
+            hitPlayer(player: player, behavior: behavior)
             
             guard turnToHit?.giveIsHit() == true else {
                 turnToHit = player
@@ -103,10 +94,16 @@ class Players: PlayersProtocol {
         }
     }
     
-    private func hitPlayer(player: Playable, behavior: (Playable) -> ()) {
+    private func hitPlayer(player: Player, behavior: (Player) -> ()) {
         if turnToHit?.giveIsHit() == true && turnToHit?.giveName() == player.giveName() {
             turnToHit?.hit(card: cardDeck.handOutCard())
             return behavior(player)
         }
+    }
+    
+    private func judgeWinLose(participantWinLose: WinLose, dealerWinLose: WinLose, player: Player, behavior: (Player) -> ()) {
+        player.record(participantWinLose, amount: player.betting())
+        dealer?.record(dealerWinLose, amount: player.betting())
+        return behavior(player)
     }
 }

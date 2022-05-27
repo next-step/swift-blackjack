@@ -8,12 +8,12 @@
 import Foundation
 
 protocol BlackjackGameable {
-    func forEachPlayers(behavior: (Playable) -> ())
-    func turnForPlayer(behavior: (Playable) -> ())
+    func forEachPlayers(behavior: (Player) -> ())
+    func turnForPlayer(behavior: (Player) -> ())
     func isPlayingGame() -> Bool
-    func turnToPlayer() -> Playable?
-    func winOrLoseForPlayer(behavior: (Playable) -> ())
-    func dealer() -> Playable?
+    func turnToPlayer() -> Player?
+    func winOrLoseForPlayer(behavior: (Player) -> ())
+    func dealer() -> Player?
 }
 
 struct BlackjackGame: BlackjackGameable {
@@ -28,19 +28,19 @@ struct BlackjackGame: BlackjackGameable {
         players.handOutFirstHand()
     }
     
-    func forEachPlayers(behavior: (Playable) -> ()) {
+    func forEachPlayers(behavior: (Player) -> ()) {
         players.forEachPlayers(behavior: behavior)
     }
     
-    func turnForPlayer(behavior: (Playable) -> ()) {
+    func turnForPlayer(behavior: (Player) -> ()) {
         players.turnForPlayer(behavior: behavior)
     }
     
-    func turnToPlayer() -> Playable? {
+    func turnToPlayer() -> Player? {
         players.turnToPlayer()
     }
     
-    func dealer() -> Playable? {
+    func dealer() -> Player? {
         players.turnTodealer()
     }
     
@@ -54,7 +54,7 @@ struct BlackjackGame: BlackjackGameable {
         return isPlayingGame
     }
     
-    func winOrLoseForPlayer(behavior: (Playable) -> ()) {
+    func winOrLoseForPlayer(behavior: (Player) -> ()) {
         players.winOrLoseForPlayer(behavior: behavior)
     }
 }

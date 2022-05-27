@@ -14,17 +14,17 @@ struct BlackjackGameContrller {
         self.game = game
     }
     
-    func noticeHandOfPlayers(gameHandler: (Playable) -> ()) {
+    func noticeHandOfPlayers(gameHandler: (Player) -> ()) {
         game.forEachPlayers(behavior: gameHandler)
     }
     
-    func noticeTurnOfGame(gameHandler: (Playable) -> ()) {
+    func noticeTurnOfGame(gameHandler: (Player) -> ()) {
         while game.isPlayingGame() {
             turn(behavior: gameHandler)
         }
     }
     
-    private func turn(behavior: (Playable) -> ()) {
+    private func turn(behavior: (Player) -> ()) {
         if isDealer() {
             turnForDealer()
         } else {
@@ -61,11 +61,11 @@ struct BlackjackGameContrller {
         return turnToPlayer.giveName() == delar.giveName()
     }
     
-    func noticeResultOfGame(gameHandler: (Playable) -> ()) {
+    func noticeResultOfGame(gameHandler: (Player) -> ()) {
         game.forEachPlayers(behavior: gameHandler)
     }
     
-    func noticeWinnerOfGame(gameHandler: (Playable) -> ()) {
+    func noticeWinnerOfGame(gameHandler: (Player) -> ()) {
         game.winOrLoseForPlayer(behavior: gameHandler)
     }
 }
