@@ -9,24 +9,26 @@ import Foundation
 
 struct Blackjack {
     var participants: [Participant]
+    private var cardPool: CardPool
     
-    init(participantNames: [String]) {
+    init(participantNames: [String], cardPool: CardPool) {
         self.participants = participantNames.compactMap({ Participant.init(name: $0) })
+        self.cardPool = cardPool
     }
     
-    func start() throws {
+    mutating func start() throws {
         for participant in participants {
             try giveCard(to: participant, count: 2)
         }
     }
     
-    func playOneMoreRound(participant: Participant) throws {
+    mutating func playOneMoreRound(participant: Participant) throws {
         try giveCard(to: participant, count: 1)
     }
     
-    private func giveCard(to participant: Participant, count: Int) throws {
+    private mutating func giveCard(to participant: Participant, count: Int) throws {
         for _ in 0..<count {
-            participant.add(card: try Card.generateRandomCard())
+            participant.add(card: try cardPool.generateRandomCard())
         }
     }
 }

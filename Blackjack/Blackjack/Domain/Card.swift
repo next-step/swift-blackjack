@@ -9,6 +9,13 @@ import Foundation
 
 struct Card {
     static let additionalAceScore: Int = 10
+    static var allCards: [Card] {
+        var cards: [Card] = []
+        CardShape.allCases.forEach { cardShape in
+            cards += generateAllCards(with: cardShape)
+        }
+        return cards
+    }
     
     let shape: CardShape
     let number: CardNumber
@@ -32,14 +39,8 @@ struct Card {
         }
     }
     
-    static func generateRandomCard() throws -> Card {
-        let randomShapePool: [CardShape] = CardShape.allCases
-        let randomNumberPool: [CardNumber] = CardNumber.allCases
-        
-        guard let randomShape = randomShapePool.randomElement() else { throw BlackjackError.failedGenerateCard }
-        guard let randomNumber = randomNumberPool.randomElement() else { throw BlackjackError.failedGenerateCard }
-        
-        return Card(shape: randomShape, number: randomNumber)
+    private static func generateAllCards(with shape: CardShape) -> [Card] {
+        return CardNumber.allCases.map({ Card(shape: shape, number: $0) })
     }
 }
 

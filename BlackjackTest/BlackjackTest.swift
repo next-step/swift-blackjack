@@ -10,7 +10,7 @@ import XCTest
 class BlackjackTest: XCTestCase {
     func test_블랙잭에_참가자가_참가() {
         let participantNames: [String] = ["sut1", "sut2"]
-        let blackjack = Blackjack(participantNames: participantNames)
+        let blackjack = Blackjack(participantNames: participantNames, cardPool: CardPool())
         
         let expected: Int = 2
         
@@ -19,7 +19,7 @@ class BlackjackTest: XCTestCase {
     
     func test_블랙잭이_시작할때_참가자에게_카드_두개를_분배() {
         let participantNames = ["sut1"]
-        let blackjack = Blackjack(participantNames: participantNames)
+        var blackjack = Blackjack(participantNames: participantNames, cardPool: CardPool())
         try? blackjack.start()
         
         let participant = blackjack.participants.first!
@@ -30,7 +30,7 @@ class BlackjackTest: XCTestCase {
     
     func test_블랙잭_시작후_라운드를_더_진행하면_카드_수가_1장씩_증가() {
         let participantNames = ["sut1"]
-        let blackjack = Blackjack(participantNames: participantNames)
+        var blackjack = Blackjack(participantNames: participantNames, cardPool: CardPool())
         let participant = blackjack.participants.first!
         
         try? blackjack.start()

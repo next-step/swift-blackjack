@@ -13,18 +13,18 @@ struct BlackjackController {
     
     func playGame() throws {
         guard let participantNames = inputView.readParticipantNames() else { throw BlackjackError.invalidInput }
-        let blackjack = Blackjack(participantNames: participantNames)
+        var blackjack = Blackjack(participantNames: participantNames, cardPool: CardPool())
         try blackjack.start()
         outputView.printStartStat(of: blackjack)
         
         for participant in blackjack.participants {
-            try playExternalRounds(at: blackjack, participant: participant)
+            try playExternalRounds(at: &blackjack, participant: participant)
         }
         
         outputView.printResults(of: blackjack)
     }
     
-    private func playExternalRounds(at game: Blackjack, participant: Participant) throws {
+    private func playExternalRounds(at game: inout Blackjack, participant: Participant) throws {
         while let answer = inputView.readIsOneMoreRound(participantName: participant.name), answer == "y" {
             try game.playOneMoreRound(participant: participant)
             outputView.printCards(of: participant)
