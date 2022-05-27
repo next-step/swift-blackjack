@@ -21,11 +21,19 @@ struct BlackjackOutputView {
         print()
     }
     
-    func printCards(of participant: Participant) {
+    func printCards(of participant: Participant, isNewLine: Bool = true) {
         let name = participant.name
         let cardDescriptions = participant.cards
             .compactMap({ $0.description })
         
-        print("\(name)카드: \(cardDescriptions.joined(separator: ", "))")
+        print("\(name)카드: \(cardDescriptions.joined(separator: ", "))", terminator: isNewLine ? "\n" : " ")
+    }
+    
+    func printResults(of game: Blackjack) {
+        print()
+        game.participants.forEach {
+            printCards(of: $0, isNewLine: false)
+            print("- 결과: \($0.score)")
+        }
     }
 }
