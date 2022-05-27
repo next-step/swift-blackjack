@@ -9,16 +9,16 @@ import Foundation
 
 protocol Statable {
     func hitOrStay(_ isHit: Bool)
-    func record(_ winLose: WinLose)
+    func record(_ winLose: PlayersGameResult)
     func giveIsHit() -> Bool
-    func giveWinLoseRecord() -> [WinLose]
+    func giveWinLoseRecord() -> [PlayersGameResult]
     func profit(isWin: Bool, isFirstHandBlackjack: Bool, isExceedWinningScore: Bool) -> Int
     func firstHandBlackjack()
     func giveIsFirstHandBlackjack() -> Bool
     func bettingAmount() -> Int
 }
 
-enum WinLose {
+enum PlayersGameResult {
     case win
     case lose
 }
@@ -26,12 +26,12 @@ enum WinLose {
 class State: Statable {
     private var isHit: Bool
     private var isFirstHandBlackjack: Bool
-    private var winLoseRecord: [WinLose]
+    private var playersGameResultRecord: [PlayersGameResult]
     private var betting: BettingProtocol
     
-    init(isHit: Bool = true, winLoseRecord: [WinLose] = [], bettingAmount: Int) {
+    init(isHit: Bool = true, playersGameResultRecord: [PlayersGameResult] = [], bettingAmount: Int) {
         self.isHit = isHit
-        self.winLoseRecord = winLoseRecord
+        self.playersGameResultRecord = playersGameResultRecord
         self.betting = Betting(amount: bettingAmount)
         self.isFirstHandBlackjack = false
     }
@@ -40,16 +40,16 @@ class State: Statable {
         self.isHit = isHit
     }
     
-    func record(_ winLose: WinLose) {
-        winLoseRecord.append(winLose)
+    func record(_ winLose: PlayersGameResult) {
+        playersGameResultRecord.append(winLose)
     }
     
     func giveIsHit() -> Bool {
         isHit
     }
     
-    func giveWinLoseRecord() -> [WinLose] {
-        winLoseRecord
+    func giveWinLoseRecord() -> [PlayersGameResult] {
+        playersGameResultRecord
     }
     
     func bettingAmount() -> Int {

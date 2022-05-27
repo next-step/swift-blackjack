@@ -48,7 +48,7 @@ class Player {
         hand.score()
     }
     
-    func record(_ winLose: WinLose, amount: Int?) {
+    func record(_ winLose: PlayersGameResult, amount: Int?) {
         state.record(winLose)
     }
     

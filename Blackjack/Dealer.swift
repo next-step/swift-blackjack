@@ -19,7 +19,7 @@ class Dealer: Player {
         super.hand = hand
     }
     
-    override func record(_ winLose: WinLose, amount: Int? = nil) {
+    override func record(_ winLose: PlayersGameResult, amount: Int? = nil) {
         super.state.record(winLose)
         guard let amount = amount else { return }
         if winLose == .win {

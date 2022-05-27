@@ -101,7 +101,7 @@ class Players: PlayersProtocol {
         }
     }
     
-    private func judgeWinLose(participantWinLose: WinLose, dealerWinLose: WinLose, player: Player, behavior: (Player) -> ()) {
+    private func judgeWinLose(participantWinLose: PlayersGameResult, dealerWinLose: PlayersGameResult, player: Player, behavior: (Player) -> ()) {
         player.record(participantWinLose, amount: player.betting())
         dealer?.record(dealerWinLose, amount: player.betting())
         return behavior(player)
