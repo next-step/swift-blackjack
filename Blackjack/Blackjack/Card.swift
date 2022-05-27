@@ -8,6 +8,8 @@
 import Foundation
 
 struct Card {
+    static let additionalAceScore: Int = 10
+    
     let shape: CardShape
     let number: CardNumber
     
