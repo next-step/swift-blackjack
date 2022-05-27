@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E2F9A892840666100D0F0C2 /* BlackjackGameJudgeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F9A882840666100D0F0C2 /* BlackjackGameJudgeTest.swift */; };
 		2E66DB59283BD43400E582E2 /* PlayerName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB58283BD43400E582E2 /* PlayerName.swift */; };
 		2E66DB5B283BD45200E582E2 /* PlayerNameTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB5A283BD45200E582E2 /* PlayerNameTest.swift */; };
 		2E66DB5C283BD55400E582E2 /* PlayerName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E66DB58283BD43400E582E2 /* PlayerName.swift */; };
@@ -78,6 +79,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2E2F9A882840666100D0F0C2 /* BlackjackGameJudgeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackGameJudgeTest.swift; sourceTree = "<group>"; };
 		2E66DB51283BD41400E582E2 /* BlackjackTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E66DB58283BD43400E582E2 /* PlayerName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerName.swift; sourceTree = "<group>"; };
 		2E66DB5A283BD45200E582E2 /* PlayerNameTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNameTest.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				2E9C3B5C283CA88B00393DEE /* BlackjackGameTest.swift */,
 				2E9C3B98283FC55900393DEE /* BlackjackAnswerReader.swift */,
 				2E9C3BA0283FCBAB00393DEE /* WinLoseResultTest.swift */,
+				2E2F9A882840666100D0F0C2 /* BlackjackGameJudgeTest.swift */,
 			);
 			path = BlackjackTest;
 			sourceTree = "<group>";
@@ -312,6 +315,7 @@
 				2E9C3B61283CAEE100393DEE /* BlackjackGame.swift in Sources */,
 				2E9C3B99283FC55900393DEE /* BlackjackAnswerReader.swift in Sources */,
 				2E9C3B33283C741200393DEE /* PlayerNameParserTest.swift in Sources */,
+				2E2F9A892840666100D0F0C2 /* BlackjackGameJudgeTest.swift in Sources */,
 				2E66DB62283BD61E00E582E2 /* TrumpCards.swift in Sources */,
 				2E66DB6C283BD8B500E582E2 /* CardScoreRule.swift in Sources */,
 				2E9C3B41283C7C9700393DEE /* CardPickStrategy.swift in Sources */,
