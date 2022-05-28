@@ -15,7 +15,7 @@ do {
     let gamePlayView = GamePlayView()
     gamePlayView.printDistributeCards(to: game.allPlayers)
     
-    try game.distributeTwoCardsToEveryone()
+    try game.distributeCardsToEveryoneAtFirst()
     gamePlayView.printCards(of: game.allPlayers)
     
     try game.gamers.forEach { gamer in

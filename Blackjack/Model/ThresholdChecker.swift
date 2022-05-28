@@ -10,7 +10,7 @@ import Foundation
 struct ThresholdChecker {
     
     enum Constants {
-        static let threshold: Int = 21
+        static let threshold: Int = Game.Constants.blackjack
     }
     
     private let cardCalculator = CardCalculator()

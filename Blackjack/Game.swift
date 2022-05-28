@@ -34,14 +34,15 @@ class Game {
         }
     }
     
-    func distributeTwoCardsToEveryone() throws {
-        try distributeTwoCards(to: dealer)
-        try gamers.forEach(distributeTwoCards)
+    func distributeCardsToEveryoneAtFirst() throws {
+        try distributeCardsAtFirst(to: dealer)
+        try gamers.forEach(distributeCardsAtFirst)
     }
     
-    private func distributeTwoCards(to gamer: Gamer) throws {
-        try distributeCard(to: gamer)
-        try distributeCard(to: gamer)
+    private func distributeCardsAtFirst(to gamer: Gamer) throws {
+        try (0..<Constants.cardCountToDistributeAtFirst).forEach { _ in
+            try distributeCard(to: gamer)
+        }
     }
     
     func distributeCardToDealder() throws {
