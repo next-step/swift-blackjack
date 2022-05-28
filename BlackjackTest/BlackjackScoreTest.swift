@@ -48,7 +48,7 @@ class BlackjackScoreTest: XCTestCase {
         XCTAssertTrue(blackjackScores.playerScores.contains(playerScore))
     }
     
-    func test_BlackjackSCores_dealerScore_딜러의_점수를_반환한다() {
+    func test_BlackjackScores_dealerScore_딜러의_점수를_반환한다() {
         // given
         let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
         let dealer = Dealer(cardDeck: BlackjackCardDeck())
