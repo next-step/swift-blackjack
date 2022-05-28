@@ -31,12 +31,10 @@ class NonDuplicateCardDistributor: CardDistributor {
     }
     
     func distribute(count: Int = 1) throws -> [Card] {
-        let pickedCards = try (0..<count).map { _  in
-            return try pickCard()
-        }
-        
-        pickedCards.forEach {
-            cards.remove($0)
+        let pickedCards = try (0..<count).map { _  -> Card in
+            let card = try pickCard()
+            cards.remove(card)
+            return card
         }
         
         return pickedCards
