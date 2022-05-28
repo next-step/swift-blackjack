@@ -25,7 +25,7 @@ struct ProfitCalculator {
     
     func calculateProfit(of gamer: Gamer) -> Double {
         let isGamerBlackjackAtFirst: Bool = {
-            let isGamerBlackjack: Bool = gamer.totalPoint == Game.Constants.blackjack
+            let isGamerBlackjack: Bool = gamer.cards.totalPoint == Game.Constants.blackjack
             let isGamerStayAtFirst: Bool = gamer.cards.count == Game.Constants.cardCountToDistributeAtFirst
             return isGamerBlackjack && isGamerStayAtFirst
         }()

@@ -19,7 +19,7 @@ do {
     gamePlayView.printCards(of: game.allPlayers)
     
     try game.gamers.forEach { gamer in
-        while gamer.state == .hit && !gamer.isBurst {
+        while gamer.state == .hit && !gamer.cards.isBurst {
             try game.decideToHitOrStay(of: gamer)
             try game.distributeCardIfStateIsHit(to: gamer)
             gamePlayView.printCards(of: gamer)

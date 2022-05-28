@@ -32,9 +32,9 @@ struct GamerOutcomeCalculator {
         let allPlayers: [Gamer] = gamers + [dealer]
         let winningPoint: Int = allPlayers
             .filter { gamer in
-                ThresholdChecker().isTotalPointUnderThreshold(of: gamer.cards)
+                ThresholdChecker().isTotalPointUnderThreshold(of: gamer.cards.cards)
             }
-            .map { $0.totalPoint }.max() ?? 0
+            .map { $0.cards.totalPoint }.max() ?? 0
         return winningPoint
     }
     
@@ -44,20 +44,20 @@ struct GamerOutcomeCalculator {
     }
     
     func outcome(of gamer: Gamer) -> Outcome {
-        guard !dealer.isBurst else {
+        guard !dealer.cards.isBurst else {
             return .win
         }
         
-        guard !gamer.isBurst else {
+        guard !gamer.cards.isBurst else {
             return .lose
         }
 
-        let isGamerHasWinningPoint: Bool =  gamer.totalPoint == winningPoint
+        let isGamerHasWinningPoint: Bool =  gamer.cards.totalPoint == winningPoint
         guard isGamerHasWinningPoint else {
             return .lose
         }
         
-        let isDealerHasWinningPoint: Bool = dealer.totalPoint == winningPoint
+        let isDealerHasWinningPoint: Bool = dealer.cards.totalPoint == winningPoint
         if isDealerHasWinningPoint {
             return .draw
         } else {

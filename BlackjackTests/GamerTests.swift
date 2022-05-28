@@ -15,7 +15,7 @@ class GamerTests: XCTestCase {
         
         // when
         // then
-        let result = sut.totalPoint
+        let result = sut.cards.totalPoint
         let expectation = 0
         XCTAssertEqual(result, expectation)
     }
@@ -29,7 +29,7 @@ class GamerTests: XCTestCase {
         sut.appendCard(heart2)
         
         // then
-        let result = sut.cards
+        let result = sut.cards.cards
         let expectation = [heart2]
         XCTAssertEqual(result, expectation)
     }
@@ -50,7 +50,7 @@ class GamerTests: XCTestCase {
         
         // then
         let expectation = false
-        let result = sut.cards.contains(heartA)
+        let result = sut.cards.cards.contains(heartA)
         XCTAssertEqual(result, expectation)
     }
     
@@ -66,7 +66,7 @@ class GamerTests: XCTestCase {
         
         // then
         let expectation = false
-        let result = sut.isBurst
+        let result = sut.cards.isBurst
         XCTAssertEqual(result, expectation)
     }
     
@@ -84,7 +84,7 @@ class GamerTests: XCTestCase {
         
         // then
         let expectation = true
-        let result = sut.isBurst
+        let result = sut.cards.isBurst
         XCTAssertEqual(result, expectation)
     }
     
@@ -100,7 +100,7 @@ class GamerTests: XCTestCase {
         
         // then
         let expectation = "2다이아몬드, J하트"
-        let result = sut.cardsDescription
+        let result = sut.cards.description
         XCTAssertEqual(result, expectation)
     }
 }

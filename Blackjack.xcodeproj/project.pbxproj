@@ -50,6 +50,8 @@
 		3BB8BC61284221A200036CB7 /* ProfitCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC5D28421A1C00036CB7 /* ProfitCalculator.swift */; };
 		3BB8BC6228422B2900036CB7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC44283A552800036CB7 /* Game.swift */; };
 		3BB8BC6328422B4300036CB7 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC2928396CB600036CB7 /* InputView.swift */; };
+		3BB8BC65284236FE00036CB7 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC64284236FE00036CB7 /* Cards.swift */; };
+		3BB8BC662842370C00036CB7 /* Cards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC64284236FE00036CB7 /* Cards.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,7 @@
 		3BB8BC5B283E89EF00036CB7 /* GamePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayView.swift; sourceTree = "<group>"; };
 		3BB8BC5D28421A1C00036CB7 /* ProfitCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitCalculator.swift; sourceTree = "<group>"; };
 		3BB8BC5F2842218300036CB7 /* ProfitCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitCalculatorTests.swift; sourceTree = "<group>"; };
+		3BB8BC64284236FE00036CB7 /* Cards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cards.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +149,7 @@
 				3BB8BC30283A32C300036CB7 /* Deck.swift */,
 				3BB8BC32283A32DC00036CB7 /* Dealer.swift */,
 				3BB8BC222839650C00036CB7 /* Gamer.swift */,
+				3BB8BC64284236FE00036CB7 /* Cards.swift */,
 				3BB8BC142839500D00036CB7 /* CardCalculator.swift */,
 				3BB8BC1A28395F3700036CB7 /* ThresholdChecker.swift */,
 				3BB8BC4D283E6CC000036CB7 /* GamerOutcomeCalculator.swift */,
@@ -296,6 +300,7 @@
 				3BB8BC50283E6CD200036CB7 /* GamerOutcomeCalculatorTests.swift in Sources */,
 				3BB8BC0E28394FD900036CB7 /* Suit.swift in Sources */,
 				3BB8BC0F28394FDC00036CB7 /* Card.swift in Sources */,
+				3BB8BC662842370C00036CB7 /* Cards.swift in Sources */,
 				3BB8BC36283A4A0900036CB7 /* Dealer.swift in Sources */,
 				3BB8BC41283A519800036CB7 /* UserGuider.swift in Sources */,
 				3BB8BC4C283A7EF500036CB7 /* Gamer+Extension.swift in Sources */,
@@ -342,6 +347,7 @@
 				3BB8BC2A28396CB600036CB7 /* InputView.swift in Sources */,
 				3BB8BC232839650C00036CB7 /* Gamer.swift in Sources */,
 				3BB8BC33283A32DC00036CB7 /* Dealer.swift in Sources */,
+				3BB8BC65284236FE00036CB7 /* Cards.swift in Sources */,
 				3BB8BC3D283A4E4300036CB7 /* ErrorView.swift in Sources */,
 				3BB8BC152839500D00036CB7 /* CardCalculator.swift in Sources */,
 			);

@@ -18,7 +18,7 @@ struct ResultView {
         var guideDescription: String {
             switch self {
             case let .score(gamer):
-                return "\(gamer.name)카드: \(gamer.cardsDescription) - 결과: \(gamer.totalPoint)"
+                return "\(gamer.name)카드: \(gamer.cards.description) - 결과: \(gamer.cards.totalPoint)"
             case .finalProfit:
                 return "## 최종 수익"
             case let .dealerProfit(profit):

@@ -18,7 +18,7 @@ struct GamePlayView {
             case let .distributeCards(gamers):
                 return "\(gamers.map { $0.name }.joined(separator: ", ") )에게 2장씩 나누었습니다."
             case let .cards(gamer):
-                return "\(gamer.name)카드: \(gamer.cardsDescription)"
+                return "\(gamer.name)카드: \(gamer.cards.description)"
             case .moreCardToDealer:
                 return "딜러는 \(Dealer.Constants.getMoreCardThreshold)이하라 한장의 카드를 더 받았습니다."
             }

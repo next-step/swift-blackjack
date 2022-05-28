@@ -27,7 +27,7 @@ class Dealer: Gamer {
     
     private var deck: Deck
     var isNeedToGetMoreCard: Bool {
-        totalPoint <= Constants.getMoreCardThreshold
+        cards.totalPoint <= Constants.getMoreCardThreshold
     }
     
     init(deck: Deck = Deck()) {
