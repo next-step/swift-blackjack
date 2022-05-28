@@ -44,10 +44,6 @@
 		3BB8BC4E283E6CC000036CB7 /* GamerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC4D283E6CC000036CB7 /* GamerResult.swift */; };
 		3BB8BC50283E6CD200036CB7 /* GamerResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC4F283E6CD200036CB7 /* GamerResultTests.swift */; };
 		3BB8BC51283E6CF700036CB7 /* GamerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC4D283E6CC000036CB7 /* GamerResult.swift */; };
-		3BB8BC55283E7D1200036CB7 /* DealerResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC54283E7D1200036CB7 /* DealerResultTests.swift */; };
-		3BB8BC57283E7E4B00036CB7 /* DealerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */; };
-		3BB8BC58283E7E5700036CB7 /* DealerResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */; };
-		3BB8BC5A283E82AB00036CB7 /* GameResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC59283E82AB00036CB7 /* GameResult.swift */; };
 		3BB8BC5C283E89EF00036CB7 /* GamePlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC5B283E89EF00036CB7 /* GamePlayView.swift */; };
 		3BB8BC5E28421A1C00036CB7 /* ProfitCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC5D28421A1C00036CB7 /* ProfitCalculator.swift */; };
 		3BB8BC602842218300036CB7 /* ProfitCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC5F2842218300036CB7 /* ProfitCalculatorTests.swift */; };
@@ -97,9 +93,6 @@
 		3BB8BC4B283A7EF500036CB7 /* Gamer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gamer+Extension.swift"; sourceTree = "<group>"; };
 		3BB8BC4D283E6CC000036CB7 /* GamerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerResult.swift; sourceTree = "<group>"; };
 		3BB8BC4F283E6CD200036CB7 /* GamerResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamerResultTests.swift; sourceTree = "<group>"; };
-		3BB8BC54283E7D1200036CB7 /* DealerResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerResultTests.swift; sourceTree = "<group>"; };
-		3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerResult.swift; sourceTree = "<group>"; };
-		3BB8BC59283E82AB00036CB7 /* GameResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameResult.swift; sourceTree = "<group>"; };
 		3BB8BC5B283E89EF00036CB7 /* GamePlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayView.swift; sourceTree = "<group>"; };
 		3BB8BC5D28421A1C00036CB7 /* ProfitCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitCalculator.swift; sourceTree = "<group>"; };
 		3BB8BC5F2842218300036CB7 /* ProfitCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitCalculatorTests.swift; sourceTree = "<group>"; };
@@ -137,7 +130,6 @@
 				3BB8BC1828395F3000036CB7 /* ThresholdCheckerTests.swift */,
 				3BB8BC042839492400036CB7 /* CardCalculatorTests.swift */,
 				3BB8BC4F283E6CD200036CB7 /* GamerResultTests.swift */,
-				3BB8BC54283E7D1200036CB7 /* DealerResultTests.swift */,
 				3BB8BC2D283A252700036CB7 /* UserInputConverterTests.swift */,
 				3BB8BC5F2842218300036CB7 /* ProfitCalculatorTests.swift */,
 			);
@@ -156,9 +148,7 @@
 				3BB8BC222839650C00036CB7 /* Gamer.swift */,
 				3BB8BC142839500D00036CB7 /* CardCalculator.swift */,
 				3BB8BC1A28395F3700036CB7 /* ThresholdChecker.swift */,
-				3BB8BC59283E82AB00036CB7 /* GameResult.swift */,
 				3BB8BC4D283E6CC000036CB7 /* GamerResult.swift */,
-				3BB8BC56283E7E4B00036CB7 /* DealerResult.swift */,
 				3BB8BC5D28421A1C00036CB7 /* ProfitCalculator.swift */,
 			);
 			path = Model;
@@ -322,8 +312,6 @@
 				3BB8BC602842218300036CB7 /* ProfitCalculatorTests.swift in Sources */,
 				3BB8BC6228422B2900036CB7 /* Game.swift in Sources */,
 				3BB8BC052839492400036CB7 /* CardCalculatorTests.swift in Sources */,
-				3BB8BC55283E7D1200036CB7 /* DealerResultTests.swift in Sources */,
-				3BB8BC58283E7E5700036CB7 /* DealerResult.swift in Sources */,
 				3BB8BC172839502900036CB7 /* CardCalculator.swift in Sources */,
 				3BB8BC1C28395F7F00036CB7 /* ThresholdChecker.swift in Sources */,
 				3BB8BC43283A541000036CB7 /* SuitTests.swift in Sources */,
@@ -348,7 +336,6 @@
 				3BB8BC1B28395F3700036CB7 /* ThresholdChecker.swift in Sources */,
 				3BB8BC0D28394FCF00036CB7 /* Suit.swift in Sources */,
 				3BB8BC3F283A4E5E00036CB7 /* ResultView.swift in Sources */,
-				3BB8BC5A283E82AB00036CB7 /* GameResult.swift in Sources */,
 				3BB8BC1128394FE500036CB7 /* Denomination.swift in Sources */,
 				3BB8BC3B283A4DE400036CB7 /* UserGuider.swift in Sources */,
 				3BB8BC0A28394FAC00036CB7 /* Card.swift in Sources */,
@@ -357,7 +344,6 @@
 				3BB8BC33283A32DC00036CB7 /* Dealer.swift in Sources */,
 				3BB8BC3D283A4E4300036CB7 /* ErrorView.swift in Sources */,
 				3BB8BC152839500D00036CB7 /* CardCalculator.swift in Sources */,
-				3BB8BC57283E7E4B00036CB7 /* DealerResult.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -31,10 +31,9 @@ do {
         try game.distributeCardToDealder()
     }
     
-    let gameResult = GameResult(dealer: game.dealer, gamers: game.gamers)
-    let resultView = ResultView(gameResult: gameResult)
+    let resultView = ResultView(dealer: game.dealer, gamers: game.gamers)
     resultView.printScore(of: game.allPlayers)
-    resultView.printFinalOutcome(with: game.gamers)
+    resultView.printFinalProfit(with: game.gamers)
 } catch {
     let errorView = ErrorView()
     errorView.printError(for: error)

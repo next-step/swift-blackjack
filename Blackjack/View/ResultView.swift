@@ -11,30 +11,30 @@ struct ResultView {
     
     private enum ResultText: UserInformable {
         case score(gamer: Gamer)
-        case finalOutcome
-        case dealerOutcome(outcome: DealerResult.Outcome)
-        case gamerOutcome(name: String, outcome: GamerResult.Outcome)
+        case finalProfit
+        case dealerProfit(profit: Double)
+        case gamerProfit(name: String, profit: Double)
         
         var guideDescription: String {
             switch self {
             case let .score(gamer):
                 return "\(gamer.name)카드: \(gamer.cardsDescription) - 결과: \(gamer.totalPoint)"
-            case .finalOutcome:
-                return "## 최종 승패"
-            case let .dealerOutcome(outcome):
-                return "딜러 \(outcome.winningCount)승 \(outcome.drawCount)무 \(outcome.loseCount)패"
-            case let .gamerOutcome(name, outcome):
-                return "\(name): \(outcome.guideDescription)"
+            case .finalProfit:
+                return "## 최종 수익"
+            case let .dealerProfit(profit):
+                return "딜러: \(profit)"
+            case let .gamerProfit(name, profit):
+                return "\(name): \(profit)"
             }
         }
     }
 
     
     private let userGuider = UserGuider()
-    private var gameResult: GameResult
+    private var profitCalculator: ProfitCalculator
     
-    init(gameResult: GameResult) {
-        self.gameResult = gameResult
+    init(dealer: Dealer, gamers: [Gamer]) {
+        self.profitCalculator = ProfitCalculator(dealer: dealer, gamers: gamers)
     }
     
     func printScore(of gamers: [Gamer]) {
@@ -45,25 +45,25 @@ struct ResultView {
         userGuider.printGuide(for: ResultText.score(gamer: gamer))
     }
     
-    func printFinalOutcome(with gamers: [Gamer]) {
-        userGuider.printGuide(for: ResultText.finalOutcome)
+    func printFinalProfit(with gamers: [Gamer]) {
+        userGuider.printGuide(for: ResultText.finalProfit)
         
-        printDealerOutcome()
-        printGamersOutcome(gamers)
+        printDealerProfit()
+        printGamersProfit(gamers)
     }
     
-    private func printDealerOutcome() {
-        let dealerOutCome: DealerResult.Outcome = gameResult.dealerOutCome
-        userGuider.printGuide(for: ResultText.dealerOutcome(outcome: dealerOutCome))
+    private func printDealerProfit() {
+        let profit: Double = profitCalculator.calculateDealerProfit()
+        userGuider.printGuide(for: ResultText.dealerProfit(profit: profit))
     }
     
-    private func printGamersOutcome(_ gamers: [Gamer]) {
-        gamers.forEach(printGamerOutcome)
+    private func printGamersProfit(_ gamers: [Gamer]) {
+        gamers.forEach(printGamerProfit)
     }
     
-    private func printGamerOutcome(_ gamer: Gamer) {
-        let gamerOutcome: GamerResult.Outcome = gameResult.gamerOutcome(gamer)
-        userGuider.printGuide(for: ResultText.gamerOutcome(name: gamer.name,
-                                                           outcome: gamerOutcome))
+    private func printGamerProfit(_ gamer: Gamer) {
+        let profit: Double = profitCalculator.calculateProfit(of: gamer)
+        userGuider.printGuide(for: ResultText.gamerProfit(name: gamer.name,
+                                                          profit: profit))
     }
 }
