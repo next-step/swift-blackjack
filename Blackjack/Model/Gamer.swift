@@ -17,6 +17,7 @@ class Gamer {
     private let cardCalculator = CardCalculator()
     private let thresholdChecker = ThresholdChecker()
     let name: String
+    var bettingMoney: Double
     var cards: [Card]
     var state: State
     var isBurst: Bool {
@@ -35,6 +36,7 @@ class Gamer {
     
     init(name: String) {
         self.name = name
+        self.bettingMoney = 0
         self.cards = []
         self.state = .hit
     }
