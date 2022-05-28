@@ -13,38 +13,40 @@ protocol GameJudge {
 }
 
 struct BlackjackGameJudge: GameJudge {
-    func winLoseResults(of scores: [BlackjackScore], comparingWith counterpartScore: BlackjackScore) -> WinLoseResults {
+    func winLoseResults(of scores: [BlackjackScore], comparingWith standardScore: BlackjackScore) -> WinLoseResults {
         let winLoseResults = scores.map { score in
-            winLoseResult(of: score, comparingWith: counterpartScore)
+            winLoseResult(of: score, comparingWith: standardScore)
         }
         
-        let counterpartResult = winLoseResultOf(counterpart: counterpartScore, with: winLoseResults)
+        let winLoseResultOfStandard = winLoseResultOf(standardScore: standardScore, comparingWith: winLoseResults)
         
-        return WinLoseResults(standardResult: counterpartResult, playerResults: winLoseResults)
+        return WinLoseResults(standardResult: winLoseResultOfStandard, playerResults: winLoseResults)
     }
     
-    private func winLoseResultOf(counterpart: BlackjackScore, with winLoseResults: [WinLoseResult]) -> WinLoseResult {
-        let totalWinCount = winLoseResults.reduce(0, { partialResult, result in
+    private func winLoseResultOf(standardScore: BlackjackScore, comparingWith winLoseResults: [WinLoseResult]) -> WinLoseResult {
+        let loseCountOfStandard = winLoseResults.reduce(0, { partialResult, result in
             partialResult + result.winCount
         })
         
-        let totalLoseCount = winLoseResults.reduce(0, { partialResult, result in
+        let winCountOfStandard = winLoseResults.reduce(0, { partialResult, result in
             partialResult + result.loseCount
         })
         
-        let counterpartResult = WinLoseResult(player: counterpart.player, winCount: totalLoseCount, loseCount: totalWinCount)!
+        let winLoseResultOfStandard = WinLoseResult(player: standardScore.player,
+                                                    winCount: winCountOfStandard,
+                                                    loseCount: loseCountOfStandard)!
         
-        return counterpartResult
+        return winLoseResultOfStandard
     }
     
-    func winLoseResult(of score: BlackjackScore, comparingWith counterpartScore: BlackjackScore) -> WinLoseResult {
+    func winLoseResult(of score: BlackjackScore, comparingWith standardScore: BlackjackScore) -> WinLoseResult {
         let player = score.player
         
-        if counterpartScore.isBigger(than: BlackjackScoreRule.twentyOne) {
+        if standardScore.isBigger(than: BlackjackScoreRule.twentyOne) {
             return WinLoseResult(player: player, winCount: 1, loseCount: 0)!
         }
         
-        if score >= counterpartScore {
+        if score >= standardScore {
             return WinLoseResult(player: player, winCount: 1, loseCount: 0)!
         }
         return WinLoseResult(player: player, winCount: 0, loseCount: 1)!
