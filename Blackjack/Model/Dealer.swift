@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Dealer: Gamer {
+final class Dealer: Gamer {
     
     enum DealerError: LocalizedError {
         case noCards

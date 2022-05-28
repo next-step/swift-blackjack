@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Deck {
+final class Deck {
     
     private(set) var cards: [Card]
     

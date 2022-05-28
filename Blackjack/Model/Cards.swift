@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Cards {
+final class Cards {
     
     private (set) var cards: [Card]
     private let cardCalculator = CardCalculator()

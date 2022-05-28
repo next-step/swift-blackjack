@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Game {
+final class Game {
     
     enum Constants {
         static let blackjack: Int = 21
