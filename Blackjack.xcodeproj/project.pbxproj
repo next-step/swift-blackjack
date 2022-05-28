@@ -52,6 +52,8 @@
 		3BB8BC5E28421A1C00036CB7 /* ProfitCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC5D28421A1C00036CB7 /* ProfitCalculator.swift */; };
 		3BB8BC602842218300036CB7 /* ProfitCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC5F2842218300036CB7 /* ProfitCalculatorTests.swift */; };
 		3BB8BC61284221A200036CB7 /* ProfitCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC5D28421A1C00036CB7 /* ProfitCalculator.swift */; };
+		3BB8BC6228422B2900036CB7 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC44283A552800036CB7 /* Game.swift */; };
+		3BB8BC6328422B4300036CB7 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB8BC2928396CB600036CB7 /* InputView.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -314,9 +316,11 @@
 				3BB8BC51283E6CF700036CB7 /* GamerResult.swift in Sources */,
 				3BB8BC21283962E900036CB7 /* DenominationTests.swift in Sources */,
 				3BB8BC2E283A252700036CB7 /* UserInputConverterTests.swift in Sources */,
+				3BB8BC6328422B4300036CB7 /* InputView.swift in Sources */,
 				3BB8BC162839502500036CB7 /* Denomination.swift in Sources */,
 				3BB8BC35283A46B100036CB7 /* DealerTests.swift in Sources */,
 				3BB8BC602842218300036CB7 /* ProfitCalculatorTests.swift in Sources */,
+				3BB8BC6228422B2900036CB7 /* Game.swift in Sources */,
 				3BB8BC052839492400036CB7 /* CardCalculatorTests.swift in Sources */,
 				3BB8BC55283E7D1200036CB7 /* DealerResultTests.swift in Sources */,
 				3BB8BC58283E7E5700036CB7 /* DealerResult.swift in Sources */,

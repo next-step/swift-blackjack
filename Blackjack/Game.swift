@@ -9,6 +9,11 @@ import Foundation
 
 class Game {
     
+    enum Constants {
+        static let blackjack: Int = 21
+        static let cardCountToDistributeAtFirst: Int = 2
+    }
+    
     private let inputView = InputView()
 
     let dealer = Dealer()

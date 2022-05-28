@@ -24,10 +24,29 @@ struct ProfitCalculator {
     }
     
     func calculateProfit(of gamer: Gamer) -> Double {
-        return 0
+        let isGamerBlackjackAtFirst: Bool = {
+            let isGamerBlackjack: Bool = gamer.totalPoint == Game.Constants.blackjack
+            let isGamerStayAtFirst: Bool = gamer.cards.count == Game.Constants.cardCountToDistributeAtFirst
+            return isGamerBlackjack && isGamerStayAtFirst
+        }()
+        
+        let gamerOutcome: GamerResult.Outcome = gamerOutcomeCalculator.outcome(of: gamer)
+        switch gamerOutcome {
+        case .win where isGamerBlackjackAtFirst:
+            return gamer.bettingMoney * Constants.blackjackAtFirstMultiplier
+        case .win:
+            return gamer.bettingMoney
+        case .draw:
+            return 0
+        case .lose:
+            return -gamer.bettingMoney
+        }
     }
     
     func calculateDealerProfit() -> Double {
-        return 0
+        let totalGamerProfit: Double = gamers.map(calculateProfit)
+            .reduce(0, +)
+        let dealerProfit: Double = -totalGamerProfit
+        return dealerProfit
     }
 }
