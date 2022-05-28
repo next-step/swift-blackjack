@@ -56,7 +56,7 @@ class Players: PlayersProtocol {
     
     func winOrLoseForPlayer(behavior: (Player) -> ()) {
         players.forEach { player in
-            guard player.giveName() != dealer?.giveName() else { return behavior(player) }
+            guard player.name != dealer?.name else { return behavior(player) }
             
             guard (dealer?.score() ?? 0) <= WinningScore.number else {
                 judgeWinLose(participantWinLose: .win, dealerWinLose: .lose, player: player, behavior: behavior)
@@ -95,7 +95,7 @@ class Players: PlayersProtocol {
     }
     
     private func hitPlayer(player: Player, behavior: (Player) -> ()) {
-        if turnToHit?.giveIsHit() == true && turnToHit?.giveName() == player.giveName() {
+        if turnToHit?.giveIsHit() == true && turnToHit?.name == player.name {
             turnToHit?.hit(card: cardDeck.handOutCard())
             return behavior(player)
         }
