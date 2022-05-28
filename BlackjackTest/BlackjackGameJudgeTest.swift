@@ -16,7 +16,7 @@ extension WinLoseResult: Equatable {
 }
 
 class BlackjackGameJudgeTest: XCTestCase {
-    func test_winLoseResultScores_게임참가자들의_게임점수를_가지고_실패결과에_해당하는_WinLoseResults를_반환한다() {
+    func test_winLoseResultScores_게임참가자들의_게임점수를_가지고_승패결과에_해당하는_WinLoseResults인스턴스를_반환한다() {
         // given
         let gameJudge = BlackjackGameJudge()
         let dealer = Dealer(cardDeck: BlackjackCardDeck())
