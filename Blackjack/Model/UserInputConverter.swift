@@ -11,11 +11,14 @@ struct UserInputConverter {
     
     enum UserInputConverterError: LocalizedError {
         case invalidCardReceiveDecision
+        case invalidBettingMoney
         
         var errorDescription: String? {
             switch self {
             case .invalidCardReceiveDecision:
                 return "y 나 n 를 입력해주세요"
+            case .invalidBettingMoney:
+                return "유효하지 않은 배팅금액입니다. 0 이상의 수를 입력해주세요."
             }
         }
     }
@@ -55,6 +58,15 @@ struct UserInputConverter {
         default:
             throw UserInputConverter.UserInputConverterError.invalidCardReceiveDecision
         }
+    }
+    
+    func convertToBettingMoney(from input: String?) throws -> Double {
+        guard let input = input,
+              let result = Double(input),
+              result > 0 else {
+                  throw UserInputConverter.UserInputConverterError.invalidBettingMoney
+              }
+        return result
     }
 }
 

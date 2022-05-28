@@ -135,6 +135,69 @@ class UserInputConverterTests: XCTestCase {
         XCTAssertEqual(result, expectation)
     }
     
+    // MARK: - convertToBettingMoney
+    
+    func test_convertToBettingMoney_1이_들어오면_Double_1을_반환한다() throws {
+        // given
+        let input = "1"
+        
+        // when
+        let result = try sut.convertToBettingMoney(from: input)
+        
+        // then
+        let expectation: Double = 1
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func test_convertToBettingMoney_실수가_들어오면_실수를_반환한다() throws {
+        // given
+        let input = "1.2"
+        
+        // when
+        let result = try sut.convertToBettingMoney(from: input)
+        
+        // then
+        let expectation = 1.2
+        XCTAssertEqual(result, expectation)
+    }
+    
+    func test_convertToBettingMoney_0이_들어오면_invalidBettingMoney_에러를_throw한다() throws {
+        // given
+        let input = "0"
+        
+        // when
+        // then
+        let expectation = UserInputConverter.UserInputConverterError.invalidBettingMoney
+        XCTAssertThrowsError(try sut.convertToBettingMoney(from: input)) { error in
+            XCTAssertEqual(error as? UserInputConverter.UserInputConverterError, expectation)
+        }
+    }
+    
+    func test_convertToBettingMoney_음수가_들어오면_invalidBettingMoney_에러를_throw한다() throws {
+        // given
+        let input = "-1"
+        
+        // when
+        // then
+        let expectation = UserInputConverter.UserInputConverterError.invalidBettingMoney
+        XCTAssertThrowsError(try sut.convertToBettingMoney(from: input)) { error in
+            XCTAssertEqual(error as? UserInputConverter.UserInputConverterError, expectation)
+        }
+    }
+    
+    func test_convertToBettingMoney_숫자가_아닌_인풋이_들어오면_invalidBettingMoney_에러를_throw한다() throws {
+        // given
+        let input = "e"
+        
+        // when
+        // then
+        let expectation = UserInputConverter.UserInputConverterError.invalidBettingMoney
+        XCTAssertThrowsError(try sut.convertToBettingMoney(from: input)) { error in
+            XCTAssertEqual(error as? UserInputConverter.UserInputConverterError, expectation)
+        }
+    }
+    
+    
     // MARK: - errorDescription
     
     func test_errorDescription_convertToIsReceiveCard에_y_혹은_n가_아닌_값이_들어올때() throws {
@@ -146,6 +209,19 @@ class UserInputConverterTests: XCTestCase {
         XCTAssertThrowsError(try sut.convertToHitOrStay(from: input)) { error in
             let result = (error as? UserInputConverter.UserInputConverterError)?.localizedDescription
             let expectation = "y 나 n 를 입력해주세요"
+            XCTAssertEqual(result, expectation)
+        }
+    }
+    
+    func test_errorDescription_convertToBettingMoney에_양수가_아닌_값이_들어올때() throws {
+        // given
+        let input = "e"
+        
+        // when
+        // then
+        XCTAssertThrowsError(try sut.convertToBettingMoney(from: input)) { error in
+            let result = (error as? UserInputConverter.UserInputConverterError)?.localizedDescription
+            let expectation = "유효하지 않은 배팅금액입니다. 0 이상의 수를 입력해주세요."
             XCTAssertEqual(result, expectation)
         }
     }
