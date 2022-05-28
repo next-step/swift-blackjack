@@ -45,7 +45,7 @@ class Dealer: Player {
         profitAmount
     }
     
-    override func betting() -> Int {
-        0
+    override func betting() -> Int? {
+        nil
     }
 }

@@ -29,8 +29,7 @@ class Betting: BettingProtocol {
     }
     
     func profit(isWin: Bool, isExceedWinningScore: Bool) -> Int {
-        guard !isExceedWinningScore else { return -amount }
-        guard isWin else { return -amount }
+        guard !isExceedWinningScore, isWin else { return -amount }
         return amount
     }
 }
