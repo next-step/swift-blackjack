@@ -18,9 +18,9 @@ do {
     let gameStateDelegate = BlackjackStateDelegate()
     
     let blackjack = try BlackjackGame(players: blackjackPlayers,
-                              cardDistributor: cardDistributor,
-                              answerReaderDelegate: answerReader,
-                              gameStateDelegate: gameStateDelegate)
+                                      cardDistributor: cardDistributor,
+                                      answerReaderDelegate: answerReader,
+                                      gameStateDelegate: gameStateDelegate)
     
     let scores = try blackjack.start()
     let formattedScores = BlackjackScoreFormatter.format(scores: scores)
@@ -43,7 +43,7 @@ struct BlackjackStateDelegate: GameStateDelegate {
         
         let formattedPlayer = PlayerFormatter.format(player: player)
         OutputView.print(player: formattedPlayer)
-     }
+    }
     
     func afterInit(players: [Player]) {
         let formattedPlayer = PlayerFormatter.format(players: players)
