@@ -41,7 +41,7 @@ class BlackjackGameJudgeTest: XCTestCase {
         XCTAssertTrue(winLoseResults.playerResults.contains(playerTwoResult))
     }
     
-    func test_winLoseResultScores_승패계산의_기준이되는_점수거_21을_넘을경우_나머지_참가자들이_무조건_이긴것으로_취급한다() {
+    func test_winLoseResultScores_승패계산의_기준이되는_점수가_21을_넘을경우_나머지_참가자들이_무조건_이긴것으로_취급한다() {
         // given
         let gameJudge = BlackjackGameJudge()
         let dealer = Dealer(cardDeck: BlackjackCardDeck())
