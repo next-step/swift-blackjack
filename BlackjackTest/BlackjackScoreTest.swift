@@ -59,6 +59,7 @@ class BlackjackScoreTest: XCTestCase {
         
         // when
         // then
-        XCTAssertEqual(blackjackScores.dealerScore, dealerScore)
+햐        XCTAssertEqual(blackjackScores.dealerScore, dealerScore)
+        XCTAssertNotEqual(blackjackScores.dealerScore, playerScore)
     }
 }
