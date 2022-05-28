@@ -1,5 +1,5 @@
 //
-//  GamerResultTests.swift
+//  GamerOutcomeCalculatorTests.swift
 //  BlackjackTests
 //
 //  Created by 강수진 on 2022/05/25.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-class GamerResultTests: XCTestCase {
+class GamerOutcomeCalculatorTests: XCTestCase {
 
     // MARK: - outcome
     
@@ -27,13 +27,13 @@ class GamerResultTests: XCTestCase {
         
         let gamers: [Gamer] = [lowPointGamer, highPointGamer]
         
-        let sut = GamerResult(dealer: dealer, gamers: gamers)
+        let sut = GamerOutcomeCalculator(dealer: dealer, gamers: gamers)
         
         // when
         let result = sut.outcome(of: highPointGamer)
         
         // then
-        let expectation: GamerResult.Outcome = .win
+        let expectation: GamerOutcomeCalculator.Outcome = .win
         XCTAssertEqual(result, expectation)
     }
     
@@ -53,13 +53,13 @@ class GamerResultTests: XCTestCase {
         
         let gamers: [Gamer] = [samePointGamer1, samePointGamer2]
         
-        let sut = GamerResult(dealer: dealer, gamers: gamers)
+        let sut = GamerOutcomeCalculator(dealer: dealer, gamers: gamers)
         
         // when
         let result = sut.outcome(of: samePointGamer2)
         
         // then
-        let expectation: GamerResult.Outcome = .win
+        let expectation: GamerOutcomeCalculator.Outcome = .win
         XCTAssertEqual(result, expectation)
     }
     
@@ -79,13 +79,13 @@ class GamerResultTests: XCTestCase {
         
         let gamers: [Gamer] = [lowPointGamer, highPointGamer]
         
-        let sut = GamerResult(dealer: dealer, gamers: gamers)
+        let sut = GamerOutcomeCalculator(dealer: dealer, gamers: gamers)
         
         // when
         let result = sut.outcome(of: highPointGamer)
         
         // then
-        let expectation: GamerResult.Outcome = .draw
+        let expectation: GamerOutcomeCalculator.Outcome = .draw
         XCTAssertEqual(result, expectation)
     }
     
@@ -105,13 +105,13 @@ class GamerResultTests: XCTestCase {
         
         let gamers: [Gamer] = [lowPointGamer, highPointGamer]
         
-        let sut = GamerResult(dealer: dealer, gamers: gamers)
+        let sut = GamerOutcomeCalculator(dealer: dealer, gamers: gamers)
         
         // when
         let result = sut.outcome(of: lowPointGamer)
         
         // then
-        let expectation: GamerResult.Outcome = .lose
+        let expectation: GamerOutcomeCalculator.Outcome = .lose
         XCTAssertEqual(result, expectation)
     }
     
@@ -135,13 +135,13 @@ class GamerResultTests: XCTestCase {
         
         let gamers: [Gamer] = [lowPointGamer, burstGamer]
         
-        let sut = GamerResult(dealer: dealer, gamers: gamers)
+        let sut = GamerOutcomeCalculator(dealer: dealer, gamers: gamers)
         
         // when
         let result = sut.outcome(of: lowPointGamer)
         
         // then
-        let expectation: GamerResult.Outcome = .win
+        let expectation: GamerOutcomeCalculator.Outcome = .win
         XCTAssertEqual(result, expectation)
     }
     
@@ -165,13 +165,13 @@ class GamerResultTests: XCTestCase {
         
         let gamers: [Gamer] = [burstGamer, highPointGamer]
         
-        let sut = GamerResult(dealer: dealer, gamers: gamers)
+        let sut = GamerOutcomeCalculator(dealer: dealer, gamers: gamers)
         
         // when
         let result = sut.outcome(of: burstGamer)
         
         // then
-        let expectation: GamerResult.Outcome = .lose
+        let expectation: GamerOutcomeCalculator.Outcome = .lose
         XCTAssertEqual(result, expectation)
     }
     
@@ -193,19 +193,19 @@ class GamerResultTests: XCTestCase {
         
         let gamers: [Gamer] = [burstGamer]
         
-        let sut = GamerResult(dealer: burstDealer, gamers: gamers)
+        let sut = GamerOutcomeCalculator(dealer: burstDealer, gamers: gamers)
         
         // when
         let result = sut.outcome(of: burstGamer)
         
         // then
-        let expectation: GamerResult.Outcome = .win
+        let expectation: GamerOutcomeCalculator.Outcome = .win
         XCTAssertEqual(result, expectation)
     }
     
     func test_outcome_guideDescription_win_승() throws {
         //given
-        let input = GamerResult.Outcome.win
+        let input = GamerOutcomeCalculator.Outcome.win
         
         //when
         let result = input.guideDescription
@@ -216,7 +216,7 @@ class GamerResultTests: XCTestCase {
     
     func test_outcome_guideDescription_draw_무() throws {
         //given
-        let input = GamerResult.Outcome.draw
+        let input = GamerOutcomeCalculator.Outcome.draw
         
         //when
         let result = input.guideDescription
@@ -227,7 +227,7 @@ class GamerResultTests: XCTestCase {
     
     func test_outcome_guideDescription_lost_패() throws {
         //given
-        let input = GamerResult.Outcome.lose
+        let input = GamerOutcomeCalculator.Outcome.lose
         
         //when
         let result = input.guideDescription

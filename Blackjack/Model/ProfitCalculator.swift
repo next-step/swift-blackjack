@@ -15,12 +15,12 @@ struct ProfitCalculator {
     
     private let dealer: Dealer
     private let gamers: [Gamer]
-    private let gamerOutcomeCalculator: GamerResult
+    private let gamerOutcomeCalculator: GamerOutcomeCalculator
     
     init(dealer: Dealer, gamers: [Gamer]) {
         self.dealer = dealer
         self.gamers = gamers
-        self.gamerOutcomeCalculator = GamerResult(dealer: dealer, gamers: gamers)
+        self.gamerOutcomeCalculator = GamerOutcomeCalculator(dealer: dealer, gamers: gamers)
     }
     
     func calculateProfit(of gamer: Gamer) -> Double {
@@ -30,7 +30,7 @@ struct ProfitCalculator {
             return isGamerBlackjack && isGamerStayAtFirst
         }()
         
-        let gamerOutcome: GamerResult.Outcome = gamerOutcomeCalculator.outcome(of: gamer)
+        let gamerOutcome: GamerOutcomeCalculator.Outcome = gamerOutcomeCalculator.outcome(of: gamer)
         switch gamerOutcome {
         case .win where isGamerBlackjackAtFirst:
             return gamer.bettingMoney * Constants.blackjackAtFirstMultiplier

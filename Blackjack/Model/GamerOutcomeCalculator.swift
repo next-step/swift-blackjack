@@ -1,5 +1,5 @@
 //
-//  GamerResult.swift
+//  GamerOutcomeCalculator.swift
 //  Blackjack
 //
 //  Created by 강수진 on 2022/05/25.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GamerResult {
+struct GamerOutcomeCalculator {
     
     enum Outcome: UserInformable {
         case win
