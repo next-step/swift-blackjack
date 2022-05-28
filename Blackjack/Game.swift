@@ -22,6 +22,13 @@ class Game {
         self.gamers = gamers
     }
     
+    func receiveBettingMoneyForGamers() throws {
+        try gamers.forEach { gamer in
+            let bettingMoney: Double = try inputView.receiveBettingMoney(of: gamer)
+            gamer.bettingMoney = bettingMoney
+        }
+    }
+    
     func distributeTwoCardsToEveryone() throws {
         try distributeTwoCards(to: dealer)
         try gamers.forEach(distributeTwoCards)

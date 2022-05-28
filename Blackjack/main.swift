@@ -10,6 +10,8 @@ do {
     let game = Game()
     game.receiveGamers()
     
+    try game.receiveBettingMoneyForGamers()
+    
     let gamePlayView = GamePlayView()
     gamePlayView.printDistributeCards(to: game.allPlayers)
     
