@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WinLoseResult{
+struct WinLoseResult {
     private let zero = 0
     
     let player: Player
