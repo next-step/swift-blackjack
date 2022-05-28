@@ -13,11 +13,11 @@ struct ResultView {
     }
     
     static func printPlayer(player: Player) {
-        print("\(player.giveName())의 카드: \(player.giveHandDescription())")
+        print("\(player.name)의 카드: \(player.giveHandDescription())")
     }
     
     static func printGameResult(player: Player) {
-        print("\(player.giveName())의 카드: \(player.giveHandDescription()) - 결과: \(player.score())")
+        print("\(player.name)의 카드: \(player.giveHandDescription()) - 결과: \(player.score())")
     }
     
     static func printHitDlear() {
@@ -29,6 +29,6 @@ struct ResultView {
     }
     
     static func printWinOrLose(player: Player) {
-        print("\(player.giveName()): \(player.profit())")
+        print("\(player.name): \(player.profit())")
     }
 }

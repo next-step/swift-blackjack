@@ -58,7 +58,7 @@ struct BlackjackGameContrller {
         guard let turnToPlayer = game.turnToPlayer() else { return false }
         guard let delar = game.dealer() else { return false }
         
-        return turnToPlayer.giveName() == delar.giveName()
+        return turnToPlayer.name == delar.name
     }
     
     func noticeResultOfGame(gameHandler: (Player) -> ()) {

@@ -6,7 +6,7 @@
 //
 
 class Player {
-    private let name: String
+    private(set) var name: String
     var hand: HandProtocol
     var state: Statable
     
@@ -14,10 +14,6 @@ class Player {
         self.hand = hand
         self.name = name
         self.state = State(bettingAmount: bettingAmount)
-    }
-    
-    func giveName() -> String {
-        name
     }
     
     func giveHandDescription() -> String {
@@ -57,7 +53,7 @@ class Player {
         return winLose == .win ? "승" : "패"
     }
     
-    func betting() -> Int {
+    func betting() -> Int? {
         state.bettingAmount()
     }
     
