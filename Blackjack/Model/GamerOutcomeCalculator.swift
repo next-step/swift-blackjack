@@ -28,11 +28,12 @@ struct GamerOutcomeCalculator {
     
     private let dealer: Dealer
     private let gamers: [Gamer]
+    private let thresholdChecker = ThresholdChecker()
     private var winningPoint: Int {
         let allPlayers: [Gamer] = gamers + [dealer]
         let winningPoint: Int = allPlayers
             .filter { gamer in
-                ThresholdChecker().isTotalPointUnderThreshold(of: gamer.cards.cards)
+                thresholdChecker.isTotalPointUnderThreshold(of: gamer.cards.cards)
             }
             .map { $0.cards.totalPoint }.max() ?? 0
         return winningPoint
