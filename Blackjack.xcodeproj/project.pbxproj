@@ -7,6 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5C55B4F283FAF2200FBEC4D /* BlackjackTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B4E283FAF2200FBEC4D /* BlackjackTest.swift */; };
+		A5C55B55283FB05100FBEC4D /* Blackjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B54283FB05100FBEC4D /* Blackjack.swift */; };
+		A5C55B56283FB05100FBEC4D /* Blackjack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B54283FB05100FBEC4D /* Blackjack.swift */; };
+		A5C55B58283FB0BC00FBEC4D /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B57283FB0BC00FBEC4D /* Participant.swift */; };
+		A5C55B59283FB0BC00FBEC4D /* Participant.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B57283FB0BC00FBEC4D /* Participant.swift */; };
+		A5C55B5B283FB57200FBEC4D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5A283FB57200FBEC4D /* Card.swift */; };
+		A5C55B5C283FB57200FBEC4D /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5A283FB57200FBEC4D /* Card.swift */; };
+		A5C55B5E283FB7D800FBEC4D /* BlackjackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */; };
+		A5C55B5F283FB7D800FBEC4D /* BlackjackError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */; };
+		A5C55B62283FCB2F00FBEC4D /* BlackjackOutputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B61283FCB2F00FBEC4D /* BlackjackOutputView.swift */; };
+		A5C55B65283FD40200FBEC4D /* BlackjackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B64283FD40200FBEC4D /* BlackjackController.swift */; };
+		A5C55B67283FD43A00FBEC4D /* BlackjackInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B66283FD43A00FBEC4D /* BlackjackInputView.swift */; };
+		A5C55B6A28412E0400FBEC4D /* CardPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B6928412E0400FBEC4D /* CardPool.swift */; };
+		A5C55B6B2841314200FBEC4D /* CardPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B6928412E0400FBEC4D /* CardPool.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -23,11 +37,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A5C55B4C283FAF2200FBEC4D /* BlackjackTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlackjackTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A5C55B4E283FAF2200FBEC4D /* BlackjackTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackTest.swift; sourceTree = "<group>"; };
+		A5C55B54283FB05100FBEC4D /* Blackjack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blackjack.swift; sourceTree = "<group>"; };
+		A5C55B57283FB0BC00FBEC4D /* Participant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Participant.swift; sourceTree = "<group>"; };
+		A5C55B5A283FB57200FBEC4D /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackError.swift; sourceTree = "<group>"; };
+		A5C55B61283FCB2F00FBEC4D /* BlackjackOutputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackOutputView.swift; sourceTree = "<group>"; };
+		A5C55B64283FD40200FBEC4D /* BlackjackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackController.swift; sourceTree = "<group>"; };
+		A5C55B66283FD43A00FBEC4D /* BlackjackInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackInputView.swift; sourceTree = "<group>"; };
+		A5C55B6928412E0400FBEC4D /* CardPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPool.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A5C55B49283FAF2200FBEC4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F86E13273AAF7900FAA669 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -38,10 +69,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A5C55B4D283FAF2200FBEC4D /* BlackjackTest */ = {
+			isa = PBXGroup;
+			children = (
+				A5C55B4E283FAF2200FBEC4D /* BlackjackTest.swift */,
+			);
+			path = BlackjackTest;
+			sourceTree = "<group>";
+		};
+		A5C55B53283FB04000FBEC4D /* Blackjack */ = {
+			isa = PBXGroup;
+			children = (
+				A5C55B6828405E1000FBEC4D /* Domain */,
+				A5C55B63283FD3F300FBEC4D /* Controller */,
+				A5C55B60283FCB1900FBEC4D /* View */,
+			);
+			path = Blackjack;
+			sourceTree = "<group>";
+		};
+		A5C55B60283FCB1900FBEC4D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A5C55B61283FCB2F00FBEC4D /* BlackjackOutputView.swift */,
+				A5C55B66283FD43A00FBEC4D /* BlackjackInputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A5C55B63283FD3F300FBEC4D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A5C55B64283FD40200FBEC4D /* BlackjackController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A5C55B6828405E1000FBEC4D /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				A5C55B54283FB05100FBEC4D /* Blackjack.swift */,
+				A5C55B57283FB0BC00FBEC4D /* Participant.swift */,
+				A5C55B5A283FB57200FBEC4D /* Card.swift */,
+				A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */,
+				A5C55B6928412E0400FBEC4D /* CardPool.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		C7F86E0D273AAF7900FAA669 = {
 			isa = PBXGroup;
 			children = (
 				C7F86E18273AAF7900FAA669 /* Blackjack */,
+				A5C55B4D283FAF2200FBEC4D /* BlackjackTest */,
 				C7F86E17273AAF7900FAA669 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				C7F86E16273AAF7900FAA669 /* Blackjack */,
+				A5C55B4C283FAF2200FBEC4D /* BlackjackTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,6 +137,7 @@
 		C7F86E18273AAF7900FAA669 /* Blackjack */ = {
 			isa = PBXGroup;
 			children = (
+				A5C55B53283FB04000FBEC4D /* Blackjack */,
 				C7F86E19273AAF7900FAA669 /* main.swift */,
 			);
 			path = Blackjack;
@@ -65,6 +146,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A5C55B4B283FAF2200FBEC4D /* BlackjackTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A5C55B52283FAF2200FBEC4D /* Build configuration list for PBXNativeTarget "BlackjackTest" */;
+			buildPhases = (
+				A5C55B48283FAF2200FBEC4D /* Sources */,
+				A5C55B49283FAF2200FBEC4D /* Frameworks */,
+				A5C55B4A283FAF2200FBEC4D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlackjackTest;
+			productName = BlackjackTest;
+			productReference = A5C55B4C283FAF2200FBEC4D /* BlackjackTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C7F86E15273AAF7900FAA669 /* Blackjack */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7F86E1D273AAF7900FAA669 /* Build configuration list for PBXNativeTarget "Blackjack" */;
@@ -89,9 +187,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1300;
+				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
+					A5C55B4B283FAF2200FBEC4D = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
 					C7F86E15273AAF7900FAA669 = {
 						CreatedOnToolsVersion = 13.0;
 					};
@@ -111,22 +212,86 @@
 			projectRoot = "";
 			targets = (
 				C7F86E15273AAF7900FAA669 /* Blackjack */,
+				A5C55B4B283FAF2200FBEC4D /* BlackjackTest */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		A5C55B4A283FAF2200FBEC4D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		A5C55B48283FAF2200FBEC4D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5C55B56283FB05100FBEC4D /* Blackjack.swift in Sources */,
+				A5C55B6B2841314200FBEC4D /* CardPool.swift in Sources */,
+				A5C55B4F283FAF2200FBEC4D /* BlackjackTest.swift in Sources */,
+				A5C55B5F283FB7D800FBEC4D /* BlackjackError.swift in Sources */,
+				A5C55B59283FB0BC00FBEC4D /* Participant.swift in Sources */,
+				A5C55B5C283FB57200FBEC4D /* Card.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7F86E12273AAF7900FAA669 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5C55B55283FB05100FBEC4D /* Blackjack.swift in Sources */,
+				A5C55B67283FD43A00FBEC4D /* BlackjackInputView.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				A5C55B65283FD40200FBEC4D /* BlackjackController.swift in Sources */,
+				A5C55B5E283FB7D800FBEC4D /* BlackjackError.swift in Sources */,
+				A5C55B58283FB0BC00FBEC4D /* Participant.swift in Sources */,
+				A5C55B62283FCB2F00FBEC4D /* BlackjackOutputView.swift in Sources */,
+				A5C55B6A28412E0400FBEC4D /* CardPool.swift in Sources */,
+				A5C55B5B283FB57200FBEC4D /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		A5C55B50283FAF2200FBEC4D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QF5QAKW287;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woosub.BlackjackTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A5C55B51283FAF2200FBEC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QF5QAKW287;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.1;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.woosub.BlackjackTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		C7F86E1B273AAF7900FAA669 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -263,6 +428,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A5C55B52283FAF2200FBEC4D /* Build configuration list for PBXNativeTarget "BlackjackTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A5C55B50283FAF2200FBEC4D /* Debug */,
+				A5C55B51283FAF2200FBEC4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C7F86E11273AAF7900FAA669 /* Build configuration list for PBXProject "Blackjack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
