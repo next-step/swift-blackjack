@@ -12,12 +12,12 @@ struct Money {
         return lhs.value / rhs.value
     }
     
-    static func * (lhs: Money, rhs: Money) -> Int {
+    static func * (lhs: Money, rhs: Money) -> Money {
         return lhs.value * rhs.value
     }
     
     static func + (lhs: Money, rhs: Money) -> Money {
-        return Money(lhs.value + rhs.value)
+        return Money(lhs.value + rhs.value)!
     }
     
     static let zero = Money(.zero)!
