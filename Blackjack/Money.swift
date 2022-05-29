@@ -16,8 +16,8 @@ struct Money {
         return lhs.value * rhs.value
     }
     
-    static func + (lhs: Money, rhs: Money) -> Int {
-        return lhs.value + rhs.value
+    static func + (lhs: Money, rhs: Money) -> Money {
+        return Money(lhs.value + rhs.value)
     }
     
     static let zero = Money(.zero)!
