@@ -18,8 +18,6 @@ do {
     let dealer = Dealer(cardDeck: BlackjackCardDeck())
     let blackjackPlayers = players + [dealer]
     
-    
-    
     let cardDistributor = NonDuplicateCardDistributor(cards: TrumpCards.value, cardPickStrategy: RandomCardPickStrategy())
     let answerReader = BlackjackAnswerReader()
     let gameStateDelegate = BlackjackStateDelegate()
