@@ -29,7 +29,30 @@ class ProfitCalculatorTest: XCTestCase {
         let profits = try ProfitCalculator.calculate(with: scores)
         
         // then
+        XCTAssertEqual(profits.value.filter { $0.player == dealer }.first?.money, dealerProfit.money)
+        XCTAssertEqual(profits.value.filter { $0.player == player }.first?.money, playerProfit.money)
+    }
+    
+    func test_딜러와_참가자_둘다_블랙잭일때_참가자는_베팅금액을_돌려받아서_수익이_0이다() throws {
+        // given
+        let dealer = Dealer(cardDeck: BlackjackCardDeck())
+        let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck(), bettingMoney: Money(10000)!)
+        let blackjackCards = [Card(rank: .ace, suit: .club), Card(rank: .king, suit: .club)]
         
+        dealer.receive(cards: blackjackCards)
+        player.receive(cards: blackjackCards)
+        
+        let dealerScore = BlackjackScore(player: dealer, score: dealer.countScore())
+        let playerScore = BlackjackScore(player: player, score: player.countScore())
+        let scores = BlackjackScores([dealerScore, playerScore])
+        
+        let dealerProfit = ZeroProfit(player: dealer)
+        let playerProfit = ZeroProfit(player: player)
+        
+        // when
+        let profits = try ProfitCalculator.calculate(with: scores)
+        
+        // then
         XCTAssertEqual(profits.value.filter { $0.player == dealer }.first?.money, dealerProfit.money)
         XCTAssertEqual(profits.value.filter { $0.player == player }.first?.money, playerProfit.money)
     }
