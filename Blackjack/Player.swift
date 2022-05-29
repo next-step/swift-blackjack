@@ -15,6 +15,7 @@ class Player {
     init(name: PlayerName, cardDeck: CardDeck, bettingMoney: Money = .zero) {
         self.name = name
         self.cardDeck = cardDeck
+        self.bettingMoney = bettingMoney
     }
     
     func receive(cards: [Card]) {
