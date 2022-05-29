@@ -37,4 +37,36 @@ class CardDeckTest: XCTestCase {
         // then
         XCTAssertEqual(score, 21)
     }
+    
+    func test_isBlackjack_블랙잭이면_true반환() {
+        // given
+        let cardDeck = BlackjackCardDeck()
+        let firstCard = Card(rank: .king, suit: .diamond)
+        let secondCard = Card(rank: .ace, suit: .heart)
+        
+        cardDeck.append(card: firstCard)
+        cardDeck.append(card: secondCard)
+        
+        // when
+        let result = cardDeck.isBlackjack()
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_isBlackjack_블랙잭아니면_false반환() {
+        // given
+        let cardDeck = BlackjackCardDeck()
+        let firstCard = Card(rank: .ace, suit: .diamond)
+        let secondCard = Card(rank: .ace, suit: .heart)
+        
+        cardDeck.append(card: firstCard)
+        cardDeck.append(card: secondCard)
+        
+        // when
+        let result = cardDeck.isBlackjack()
+        
+        // then
+        XCTAssertFalse(result)
+    }
 }
