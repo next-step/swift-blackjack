@@ -12,6 +12,10 @@ struct Money {
         return lhs.value / rhs.value
     }
     
+    static func * (lhs: Money, rhs: Money) -> Int {
+        return lhs.value * rhs.value
+    }
+    
     let value: Int
     
     init?(value: Int) {
