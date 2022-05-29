@@ -22,7 +22,7 @@ struct MoneyParser {
     static func parse(_ input: String?) throws -> Money {
         guard let input = input,
               let moneyValue = Int(input),
-              let money = Money(value: moneyValue) else {
+              let money = Money(moneyValue) else {
                   throw Error.invalidInput(input)
         }
         return money

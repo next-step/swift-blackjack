@@ -18,7 +18,7 @@ struct Money {
     
     let value: Int
     
-    init?(value: Int) {
+    init?(_ value: Int) {
         if value < .zero { return nil }
         self.value = value
     }
