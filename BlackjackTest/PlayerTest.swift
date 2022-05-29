@@ -36,4 +36,28 @@ class PlayerTest: XCTestCase {
         // then
         XCTAssertEqual(score, 21)
     }
+    
+    func test_isBlackjack_플레이어가_가진_카드가_블랙잭이면_true() {
+        // given
+        let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
+        player.receive(cards: [Card(rank: .ace, suit: .heart), Card(rank: .king, suit: .heart)])
+        
+        // when
+        let result = player.isBlackjack()
+        
+        // then
+        XCTAssertTrue(result)
+    }
+    
+    func test_isBlackjack_플레이어가_가진_카드가_블랙잭이아니면_false() {
+        // given
+        let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck())
+        player.receive(cards: [Card(rank: .ace, suit: .heart), Card(rank: .ace, suit: .diamond)])
+        
+        // when
+        let result = player.isBlackjack()
+        
+        // then
+        XCTAssertFalse(result)
+    }
 }
