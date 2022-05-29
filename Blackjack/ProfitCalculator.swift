@@ -21,56 +21,63 @@ struct ProfitCalculator {
             }
         }
     }
-    static func calculate(with scores: BlackjackScores) throws -> Profits {
-        let playerScores = scores.playerScores
-        guard let dealerScore = scores.dealerScore else {
-            throw Error.playerNotExist
-        }
+    
+    static func calculate(with winLoseResults: WinLoseResults) throws -> Profits {
+        let playerResults = winLoseResults.playerResults
+        let players = playerResults.map { $0.player }
         
-        let dealer = dealerScore.player
-        let blackjackPlayers = playerScores.map { $0.player }
-            .filter { $0.isBlackjack() }
-        let nonBlackjackPlayers = playerScores.map { $0.player }
-            .filter { $0.isBlackjack() == false }
+        let dealerResult = winLoseResults.standardResult
+        let dealer = dealerResult.player
         
         if dealer.isBlackjack() {
-            let zeroProfits = zeroProfits(of: blackjackPlayers)
-            let minusProfits = minusProfits(of: nonBlackjackPlayers)
-            
-            let dealerProfitMoney = sumBettingMoneyOf(players: nonBlackjackPlayers)
-            let dealerProfit = PlusProfit(player: dealer, money: dealerProfitMoney)
-            
-            return Profits(value: [dealerProfit] + zeroProfits + minusProfits)
+            return profitWith(blackjackDealer: dealer, players: players)
         }
-        
-        let nonBlackjackScores = scores.value.filter { nonBlackjackPlayers.contains($0.player) }
-        let blackjackProfits = blackjackProfits(of: blackjackPlayers)
-        let winLoseResults = BlackjackGameJudge().winLoseResults(of: nonBlackjackScores, comparingWith: dealerScore)
-        
-        let winPlayers = winLoseResults.playerResults.filter { $0.winCount > $0.loseCount }.map { $0.player }
-        let losePlayers = winLoseResults.playerResults.filter { $0.winCount > $0.loseCount }.map { $0.player }
-        
-        let winPlayersProfit = plusProfits(of: winPlayers)
-        let losePlayersProfit = minusProfits(of: losePlayers)
-        
-        
-        let lhs = plusProfits(of: losePlayers).reduce(ZeroProfit(player: dealer) as Profit) { partialResult, profit in
-            partialResult.plus(profit)
-        }
-        
-        let rhs = plusProfits(of: winPlayers).reduce(ZeroProfit(player: dealer) as Profit) { partialResult, profit in
-            partialResult.plus(profit)
-        }
-        let sumblackjackProfits = plusProfits(of: blackjackPlayers).reduce(ZeroProfit(player: dealer) as Profit) { partialResult, profit in
-            partialResult.plus(profit)
-        }
-        
-        let dealerProfit = lhs.minus(rhs).minus(sumblackjackProfits)
-        
-        return Profits(value: [dealerProfit] + winPlayersProfit + losePlayersProfit + blackjackProfits)
+        return profitWith(nonBlackjackDealer: dealer, using: playerResults)
     }
+    
+    static func profitWith(blackjackDealer: Player, players: [Player]) -> Profits {
+        let blackjackPlayer = players.filter { $0.isBlackjack() }
+        let nonBlackjackPlayer = players.filter { $0.isBlackjack() == false }
         
+        let profitsOfBlackjack = zeroProfits(of: blackjackPlayer)
+        let profitsOfNonBlackjack = minusProfits(of: nonBlackjackPlayer)
         
+      
+        let dealerProfit = profitsOfNonBlackjack.reduce(ZeroProfit(player: blackjackDealer) as Profit) { partialResult, profit in
+            partialResult.plus(profit)
+        }
+        
+        return Profits(value: [dealerProfit] + profitsOfBlackjack + profitsOfNonBlackjack)
+    }
+    
+    static func profitWith(nonBlackjackDealer dealer: Player, using playerResults: [WinLoseResult]) -> Profits {
+        let blackjackPlayer = playerResults.map { $0.player }
+            .filter { $0.isBlackjack() }
+        
+        let winPlayers = playerResults.filter { $0.winCount > $0.loseCount }
+            .map { $0.player }
+            .filter { $0.isBlackjack() == false}
+        
+        let losePlayers = playerResults.filter { $0.winCount < $0.loseCount }.map { $0.player }
+        
+        let winPlayersProfits = plusProfits(of: winPlayers)
+        let losePlayersProfits = minusProfits(of: losePlayers)
+        let blackjackPlayersProfit = blackjackProfits(of: blackjackPlayer)
+        
+        let dealerProfit = ZeroProfit(player: dealer)
+            .minus(sum(player: dealer, blackjackPlayersProfit))
+            .minus(sum(player: dealer, winPlayersProfits))
+            .plus(sum(player: dealer, losePlayersProfits))
+        
+        return Profits(value: [dealerProfit] + winPlayersProfits + losePlayersProfits + blackjackPlayersProfit)
+    }
+    
+    static func sum(player: Player, _ profits: [Profit]) -> Profit {
+        profits.reduce(ZeroProfit(player: player)) { partialResult, profit in
+            partialResult.plus(profit)
+        }
+    }
+    
     private static func plusProfits(of players: [Player]) -> [Profit] {
         players.map { PlusProfit(player: $0, money: $0.bettingMoney) }
     }
@@ -81,12 +88,6 @@ struct ProfitCalculator {
     
     private static func minusProfits(of players: [Player]) -> [Profit] {
         players.map { MinusProfit(player: $0, money: $0.bettingMoney) }
-    }
-    
-    private static func sumBettingMoneyOf(players: [Player]) -> Money {
-        players.reduce(Money.zero) { partialResult, player in
-            partialResult + player.bettingMoney
-        }
     }
     
     private static func blackjackProfits(of players: [Player]) -> [Profit] {

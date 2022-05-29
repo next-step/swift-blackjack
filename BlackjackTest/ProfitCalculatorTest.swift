@@ -20,13 +20,14 @@ class ProfitCalculatorTest: XCTestCase {
         
         let dealerScore = BlackjackScore(player: dealer, score: dealer.countScore())
         let playerScore = BlackjackScore(player: player, score: player.countScore())
-        let scores = BlackjackScores([dealerScore, playerScore])
         
         let dealerProfit = PlusProfit(player: dealer, money: player.bettingMoney)
         let playerProfit = MinusProfit(player: player, money: player.bettingMoney)
         
+        let winLoseResults = BlackjackGameJudge().winLoseResults(of: [playerScore], comparingWith: dealerScore)
+
         // when
-        let profits = try ProfitCalculator.calculate(with: scores)
+        let profits = try ProfitCalculator.calculate(with: winLoseResults)
         
         // then
         XCTAssertEqual(profits.value.filter { $0.player == dealer }.first?.money, dealerProfit.money)
@@ -44,13 +45,14 @@ class ProfitCalculatorTest: XCTestCase {
         
         let dealerScore = BlackjackScore(player: dealer, score: dealer.countScore())
         let playerScore = BlackjackScore(player: player, score: player.countScore())
-        let scores = BlackjackScores([dealerScore, playerScore])
         
         let dealerProfit = ZeroProfit(player: dealer)
         let playerProfit = ZeroProfit(player: player)
         
+        let winLoseResults = BlackjackGameJudge().winLoseResults(of: [playerScore], comparingWith: dealerScore)
+
         // when
-        let profits = try ProfitCalculator.calculate(with: scores)
+        let profits = try ProfitCalculator.calculate(with: winLoseResults)
         
         // then
         XCTAssertEqual(profits.value.filter { $0.player == dealer }.first?.money, dealerProfit.money)
@@ -66,17 +68,18 @@ class ProfitCalculatorTest: XCTestCase {
         player.receive(cards: [Card(rank: .ace, suit: .club), Card(rank: .king, suit: .club)])
         
         let dealerScore = BlackjackScore(player: dealer, score: dealer.countScore())
-        let playerOneScore = BlackjackScore(player: player, score: player.countScore())
-        let scores = BlackjackScores([dealerScore, playerOneScore])
+        let playerScore = BlackjackScore(player: player, score: player.countScore())
         
-        let dealerProfit = PlusProfit(player: dealer, money: player.bettingMoney)
-        let playerOneProfit = PlusProfit(player: player, money: player.bettingMoney * 1.5 ?? .zero)
+        let playerProfit = PlusProfit(player: player, money: player.bettingMoney * 1.5 ?? .zero)
+        let dealerProfit = ZeroProfit(player: dealer).minus(playerProfit)
+        
+        let winLoseResults = BlackjackGameJudge().winLoseResults(of: [playerScore], comparingWith: dealerScore)
         
         // when
-        let profits = try ProfitCalculator.calculate(with: scores)
+        let profits = try ProfitCalculator.calculate(with: winLoseResults)
         
         // then
         XCTAssertEqual(profits.value.filter { $0.player == dealer }.first?.money, dealerProfit.money)
-        XCTAssertEqual(profits.value.filter { $0.player == player }.first?.money, playerOneProfit.money)
+        XCTAssertEqual(profits.value.filter { $0.player == player }.first?.money, playerProfit.money)
     }
 }
