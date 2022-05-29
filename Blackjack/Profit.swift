@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct Profits {
+    let value: [Profit]
+}
+
 struct Profit {
     let player: Player
     let money: Money
