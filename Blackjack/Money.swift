@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct Money {
+    let value: Int
+    
+    init?(value: Int) {
+        if value < .zero { return nil }
+        self.value = value
+    }
+}
