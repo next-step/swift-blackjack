@@ -18,4 +18,15 @@ class MoneyTest: XCTestCase {
         // then
         XCTAssertNil(money)
     }
+    
+    func test_나누기는_두_moneyValue값을_나눈_몫에해당하는_정수를_반환한다() {
+        // given
+        let lhsMoney = Money(value: 111)!
+        let rhsMoney = Money(value: 10)!
+        
+        // when
+        let result = lhsMoney / rhsMoney
+        
+        XCTAssertEqual(result, 111 / 10)
+    }
 }
