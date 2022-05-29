@@ -8,7 +8,7 @@
 import Foundation
 
 struct StringUtility {
-    static func splitWithComma(to convertedExpression: String) -> [String] {
+    static func splitParticipantsName(to convertedExpression: String) -> [String] {
         convertedExpression.components(separatedBy: ",")
     }
 }

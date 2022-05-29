@@ -113,4 +113,8 @@ class HandTest: XCTestCase {
         XCTAssertEqual(hand.giveHandDescription(), "A♣, 2♥, 3♠")
         XCTAssertEqual(hand.score(), 16)
     }
+    
+    func testHand_winningScore() {
+        XCTAssertEqual(WinningScore.number, 21)
+    }
 }

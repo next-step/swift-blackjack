@@ -18,7 +18,8 @@ class PlayersTest: XCTestCase {
     
     func testPlayers_make_success() {
         let cardDeck = CardDeck(cards: CardDeckGenerator.generate())!
-        let players = Players(with: ["mansa","zombie"], cardDeck: cardDeck)
+        let players = Players(with: [("mansa", 1000), ("zombie", 2000)],
+                              cardDeck: cardDeck)
         
         XCTAssertNotNil(players)
     }
@@ -32,7 +33,8 @@ class PlayersTest: XCTestCase {
     
     func testPlayers_handOutFirstHand() {
         let cardDeck = CardDeck(cards: CardDeckGenerator.generate())!
-        let players = Players(with: ["mansa","zombie"], cardDeck: cardDeck)
+        let players = Players(with: [("mansa", 1000), ("zombie", 2000)],
+                              cardDeck: cardDeck)
         players?.handOutFirstHand()
         
         guard let participant = players?.turnToPlayer() else { return }
@@ -43,7 +45,8 @@ class PlayersTest: XCTestCase {
     
     func testPlayers_turnToPlayer() {
         let cardDeck = CardDeck(cards: CardDeckGenerator.generate())!
-        let players = Players(with: ["mansa","zombie"], cardDeck: cardDeck)
+        let players = Players(with: [("mansa", 1000), ("zombie", 2000)],
+                              cardDeck: cardDeck)
         players?.handOutFirstHand()
         guard let participant = players?.turnToPlayer() else { return }
         

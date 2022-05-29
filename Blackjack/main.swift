@@ -8,10 +8,17 @@ import Foundation
 
 func main() {
     let rawParticipansts = InputView.readParticipants()
-    let participantNames = StringUtility.splitWithComma(to: rawParticipansts)
+    let nameOfParticipants = StringUtility.splitParticipantsName(to: rawParticipansts)
+    var profileOfParticipant: [ProfileOfParticipant] = []
+    
+    nameOfParticipants.forEach { name in
+        let bettingAmount = InputView.readBettingAmount(to: name)
+        profileOfParticipant.append((name, bettingAmount))
+    }
+    
     guard let cardDeck = CardDeck(cards: CardDeckGenerator.generate()) else { return }
     cardDeck.shuffle()
-    guard let players = Players(with: participantNames, cardDeck: cardDeck) else { return }
+    guard let players = Players(with: profileOfParticipant, cardDeck: cardDeck) else { return }
     
     let game = BlackjackGame(players: players)
     let controller = BlackjackGameContrller(with: game)
@@ -21,21 +28,18 @@ func main() {
         ResultView.printPlayer(player: participant)
     }
     
-    while game.isPlayingGame() {
-        guard let turnToPlayer = game.turnToPlayer() else { return }
-        let hitOrStay = InputView.readAskHitToParticipants(to: turnToPlayer)
-        turnToPlayer.hitOrStay(hitOrStay)
-
-        game.turnForPlayer { turnToPlayer in
-            ResultView.printPlayer(player: turnToPlayer)
-        }
+    controller.noticeTurnOfGame { participant in
+        ResultView.printPlayer(player: participant)
     }
     
-    controller.noticeResultOfGame { participant in
-        ResultView.printGameResult(player: participant)
+    controller.noticeResultOfGame { player in
+        ResultView.printGameResult(player: player)
+    }
+    
+    ResultView.printProfitTitle()
+    controller.noticeWinnerOfGame { player in
+        ResultView.printWinOrLose(player: player)
     }
 }
 
 main()
-
-

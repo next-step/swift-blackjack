@@ -14,11 +14,58 @@ struct BlackjackGameContrller {
         self.game = game
     }
     
-    func noticeHandOfPlayers(gameHandler: (Playable) -> ()) {
+    func noticeHandOfPlayers(gameHandler: (Player) -> ()) {
         game.forEachPlayers(behavior: gameHandler)
     }
     
-    func noticeResultOfGame(gameHandler: (Playable) -> ()) {
+    func noticeTurnOfGame(gameHandler: (Player) -> ()) {
+        while game.isPlayingGame() {
+            turn(behavior: gameHandler)
+        }
+    }
+    
+    private func turn(behavior: (Player) -> ()) {
+        if isDealer() {
+            turnForDealer()
+        } else {
+            turnForParticipant()
+        }
+        
+        game.turnForPlayer { turnToPlayer in
+            behavior(turnToPlayer)
+        }
+    }
+    
+    private func turnForParticipant() {
+        guard let turnToPlayer = game.turnToPlayer() else { return }
+        
+        let hitOrStay = InputView.readAskHitToParticipants(to: turnToPlayer)
+        turnToPlayer.hitOrStay(hitOrStay)
+    }
+    
+    private func turnForDealer() {
+        guard let turnToPlayer = game.turnToPlayer() else { return }
+        
+        if turnToPlayer.score() <= 17 {
+            turnToPlayer.hitOrStay(true)
+            ResultView.printHitDlear()
+        } else {
+            turnToPlayer.hitOrStay(false)
+        }
+    }
+    
+    private func isDealer() -> Bool {
+        guard let turnToPlayer = game.turnToPlayer() else { return false }
+        guard let delar = game.dealer() else { return false }
+        
+        return turnToPlayer.name == delar.name
+    }
+    
+    func noticeResultOfGame(gameHandler: (Player) -> ()) {
         game.forEachPlayers(behavior: gameHandler)
+    }
+    
+    func noticeWinnerOfGame(gameHandler: (Player) -> ()) {
+        game.winOrLoseForPlayer(behavior: gameHandler)
     }
 }

@@ -9,13 +9,13 @@ import XCTest
 
 class ParticipantTest: XCTestCase {
     func testParticipant_make_success() {
-        let participant = Participant(name: "Mansa")
+        let participant = Participant(name: "Mansa", bettingAmount: 1000)
         
         XCTAssertNotNil(participant)
     }
     
     func testParticipant_name() {
-        let participant = Participant(name: "Mansa")
+        let participant = Participant(name: "Mansa", bettingAmount: 1000)
         
         XCTAssertEqual(participant.giveName(), "Mansa")
     }
@@ -24,13 +24,18 @@ class ParticipantTest: XCTestCase {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
         let hand = Hand(cards: cards)
-        let participant = Participant(hand: hand, name: "Mansa")
+        let participant = Participant(name: "Mansa", bettingAmount: 1000)
+        participant.takeAFirstHand(hand)
         
         XCTAssertEqual(participant.giveHandDescription(), "A♣, 2♥")
     }
     
     func testParticipant_hitOrStay() {
-        let participant = Participant(name: "Mansa")
+        let cards = [Card(rank: .A, suit: .clubs),
+                    Card(rank: .two, suit: .hearts)]
+        let hand = Hand(cards: cards)
+        let participant = Participant(name: "Mansa", bettingAmount: 1000)
+        participant.takeAFirstHand(hand)
         
         XCTAssertEqual(participant.giveIsHit(), true)
         
@@ -43,7 +48,8 @@ class ParticipantTest: XCTestCase {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
         let hand = Hand(cards: cards)
-        let participant = Participant(hand: hand, name: "Mansa")
+        let participant = Participant(name: "Mansa", bettingAmount: 1000)
+        participant.takeAFirstHand(hand)
         
         XCTAssertEqual(participant.score(), 13)
     }
@@ -52,7 +58,7 @@ class ParticipantTest: XCTestCase {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
         let hand = Hand(cards: cards)
-        let participant = Participant(name: "Mansa")
+        let participant = Participant(name: "Mansa", bettingAmount: 1000)
         participant.takeAFirstHand(hand)
         
         XCTAssertEqual(participant.giveHandDescription(), "A♣, 2♥")
@@ -63,7 +69,8 @@ class ParticipantTest: XCTestCase {
         let cards = [Card(rank: .A, suit: .clubs),
                     Card(rank: .two, suit: .hearts)]
         let hand = Hand(cards: cards)
-        let participant = Participant(hand: hand, name: "Mansa")
+        let participant = Participant(name: "Mansa", bettingAmount: 1000)
+        participant.takeAFirstHand(hand)
         let card = Card(rank: .seven, suit: .spades)
         
         participant.hit(card: card)
@@ -71,15 +78,28 @@ class ParticipantTest: XCTestCase {
         XCTAssertEqual(participant.giveHandDescription(), "A♣, 2♥, 7♠")
     }
     
-    func testParticipant_hit_fail() {
-        //hand_score가 21이 넘을 때
+    func testParticipant_record_win() {
+        let participant = Participant(name: "만사", bettingAmount: 1000)
+        participant.record(.win, amount: participant.betting())
+        
+        XCTAssertEqual(participant.giveWinLoseRecord(), "승")
     }
     
-    func testParticipant_stay_success() {
-        //추가 카드를 원하지 않을 경우, 딜러는 카드의 합이 17이상이면 추가 카드 받을 수 없음
+    func testParticipant_record_lose() {
+        let participant = Participant(name: "만사", bettingAmount: 1000)
+        participant.record(.lose, amount: participant.betting())
+        
+        XCTAssertEqual(participant.giveWinLoseRecord(), "패")
     }
     
-    func testParticipant_stay_fail() {
-        //추가 카드를 원하지 않을 경우, 딜러는 카드의 합이 17이상이면 추가 카드 받을 수 없음
+    func testParticipant_firstHandBlackjack_success() {
+        let cards = [Card(rank: .A, suit: .clubs),
+                     Card(rank: .Q, suit: .hearts)]
+        let hand = Hand(cards: cards)
+        let participant = Participant(name: "Mansa", bettingAmount: 1000)
+        participant.takeAFirstHand(hand)
+        participant.record(.win, amount: participant.betting())
+        
+        XCTAssertEqual(participant.profit(), 1500)
     }
 }
