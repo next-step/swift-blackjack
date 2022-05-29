@@ -27,27 +27,44 @@ struct ProfitCalculator {
             throw Error.playerNotExist
         }
         
-        let isDealerBlackjack = dealerScore.score == BlackjackScoreRule.twentyOne && dealerScore.player.cardDeck.cards.count == 2
-        
         let dealer = dealerScore.player
         let blackjackPlayers = playerScores.map { $0.player }
-            .filter { $0.countScore() == BlackjackScoreRule.twentyOne && $0.cardDeck.cards.count == 2 }
+            .filter { $0.isBlackjack() }
         let nonBlackjackPlayers = playerScores.map { $0.player }
-            .filter { $0.countScore() != BlackjackScoreRule.twentyOne || $0.cardDeck.cards.count != 2 }
+            .filter { $0.isBlackjack() == false }
         
-//        if isDealerBlackjack {
-            let zeroProfits = blackjackPlayers.map { player in
-                ZeroProfit(player: player)
-            }
+        if dealer.isBlackjack() {
+            let zeroProfits = zeroProfits(of: blackjackPlayers)
+            let minusProfits = minusProfits(of: nonBlackjackPlayers)
             
-            let minusProfits = nonBlackjackPlayers.map { MinusProfit(player: $0, money: $0.bettingMoney) }
-            let dealerProfitMoney = nonBlackjackPlayers.reduce(Money.zero) { partialResult, player in
-                partialResult + player.bettingMoney
-            }
+            let dealerProfitMoney = sumBettingMoneyOf(players: nonBlackjackPlayers)
             let dealerProfit = PlusProfit(player: dealer, money: dealerProfitMoney)
             
             return Profits(value: [dealerProfit] + zeroProfits + minusProfits)
-//        }
+        }
         
+        let blackjackProfits = blackjackProfits(of: blackjackPlayers)
+        return Profits(value: blackjackProfits)
+    }
+    
+    private static func zeroProfits(of players: [Player]) -> [Profit] {
+        players.map { player in ZeroProfit(player: player) }
+    }
+    
+    private static func minusProfits(of players: [Player]) -> [Profit] {
+        players.map { MinusProfit(player: $0, money: $0.bettingMoney) }
+    }
+    
+    private static func sumBettingMoneyOf(players: [Player]) -> Money {
+        players.reduce(Money.zero) { partialResult, player in
+            partialResult + player.bettingMoney
+        }
+    }
+    
+    private static func blackjackProfits(of players: [Player]) -> [Profit] {
+        players.map {
+            let money = ($0.bettingMoney * 1.5) ?? Money.zero
+            return PlusProfit(player: $0, money: money)
+        }
     }
 }

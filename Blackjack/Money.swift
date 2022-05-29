@@ -8,6 +8,11 @@
 import Foundation
 
 struct Money: Equatable {
+    static func *(lhs: Money, rhs: NSNumber) -> Money? {
+        let value = Double(lhs.value) * Double(truncating: rhs)
+        return Money(Int(value))
+    }
+    
     static func * (lhs: Money, rhs: Money) -> Int {
         return lhs.value * rhs.value
     }
