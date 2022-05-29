@@ -18,8 +18,8 @@ struct ProfitsFormatter {
     
     static func text(from profit: Profit) -> String {
         if profit is MinusProfit {
-            return "\(profit.player.name): -\(profit.money.value)"
+            return "\(profit.player.name.value): -\(profit.money.value)"
         }
-        return "\(profit.player.name): \(profit.money.value)"
+        return "\(profit.player.name.value): \(profit.money.value)"
     }
 }
