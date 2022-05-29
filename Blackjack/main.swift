@@ -10,29 +10,40 @@ do {
     let nameInput = InputView.readPlayerName()
     let names = try PlayerNameParser.parse(nameInput: nameInput)
     let players = names.map { Player(name: $0, cardDeck: BlackjackCardDeck()) }
-    
+    let dealer = Dealer(cardDeck: BlackjackCardDeck())
+    let blackjackPlayers = players + [dealer]
     
     let cardDistributor = NonDuplicateCardDistributor(cards: TrumpCards.value, cardPickStrategy: RandomCardPickStrategy())
     let answerReader = BlackjackAnswerReader()
     let gameStateDelegate = BlackjackStateDelegate()
     
-    let blackjack = try BlackjackGame(players: players,
-                              cardDistributor: cardDistributor,
-                              answerReaderDelegate: answerReader,
-                              gameStateDelegate: gameStateDelegate)
+    let blackjack = try BlackjackGame(players: blackjackPlayers,
+                                      cardDistributor: cardDistributor,
+                                      answerReaderDelegate: answerReader,
+                                      gameStateDelegate: gameStateDelegate)
     
     let scores = try blackjack.start()
     let formattedScores = BlackjackScoreFormatter.format(scores: scores)
     OutputView.print(playerScore: formattedScores)
+    
+    
+    let winLoseResults = BlackjackGameJudge().winLoseResults(of: scores.playerScores, comparingWith: scores.dealerScore!)
+    let formattedResults = WinLoseResultFormatter.format(winLoseResults: winLoseResults)
+    OutputView.print(winLoseResults: formattedResults)
 } catch(let error) {
     OutputView.print(error: error)
 }
 
 struct BlackjackStateDelegate: GameStateDelegate {
     func afterReceiveCard(player: Player) {
+        if player is Dealer {
+            OutputView.printDealerReceiveCard()
+            return
+        }
+        
         let formattedPlayer = PlayerFormatter.format(player: player)
         OutputView.print(player: formattedPlayer)
-     }
+    }
     
     func afterInit(players: [Player]) {
         let formattedPlayer = PlayerFormatter.format(players: players)

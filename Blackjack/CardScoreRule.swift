@@ -12,7 +12,7 @@ protocol CardScoreRule {
 }
 
 enum BlackjackScoreRule: CardScoreRule {
-    private static let twentyOne = 21
+    static let twentyOne = 21
     
     static func countScore(cardDeck: CardDeck) -> Int {
         let sumWhereAceOne = totalScore(cardDeck: cardDeck, isAceEleven: false)
@@ -46,19 +46,6 @@ enum BlackjackScoreRule: CardScoreRule {
     }
     
     private static func idealScore(sumWhereAceOne: Int, sumWhereAceEleven: Int) -> Int {
-        let validScores = validScores(sumWhereAceOne, sumWhereAceEleven)
-        if validScores.count == 2 {
-            return validScores.max()!
-        }
-        
-        if validScores.count == 1 {
-            return validScores[0]
-        }
-        
-        return sumWhereAceOne
-    }
-    
-    private static func validScores(_ scores: Int...) -> [Int] {
-        return scores.filter { $0 <= twentyOne }
+        return sumWhereAceEleven <= twentyOne ? sumWhereAceEleven : sumWhereAceOne
     }
 }

@@ -27,7 +27,6 @@ enum PlayerNameParser {
                   throw Error.invalid
               }
 
-        print("names: \(names)")
         return names.compactMap { PlayerName($0) }
     }
 }

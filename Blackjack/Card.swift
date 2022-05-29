@@ -26,7 +26,7 @@ struct Card: Hashable {
         case queen
         case king
     }
-
+    
     enum Suit: CaseIterable {
         case heart, spade, diamond, club
     }

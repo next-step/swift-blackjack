@@ -20,9 +20,9 @@ enum AnswerParser {
     
     static func parse(answerInput: String?) throws -> Answer {
         guard let answer = Answer.allCases
-                        .filter({ $0.rawValue == answerInput })
-                        .first else { throw Error.invalid }
-                
+                .filter({ $0.rawValue == answerInput })
+                .first else { throw Error.invalid }
+        
         return answer
     }
 }

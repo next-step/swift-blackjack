@@ -24,3 +24,9 @@ class Player {
         return cardDeck.countScore()
     }
 }
+
+extension Player: Equatable {
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        lhs.name == rhs.name
+    }
+}

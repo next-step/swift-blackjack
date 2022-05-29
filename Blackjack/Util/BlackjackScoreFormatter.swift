@@ -8,8 +8,8 @@
 import Foundation
 
 enum BlackjackScoreFormatter {
-    static func format(scores: [BlackjackScore]) -> String{
-        scores.reduce("") { partialResult, score in
+    static func format(scores: BlackjackScores) -> String{
+        scores.value.reduce("") { partialResult, score in
             let formattedPlayer = PlayerFormatter.format(player: score.player)
             return partialResult + formattedPlayer + "- 결과: \(score.score)\n"
         }
