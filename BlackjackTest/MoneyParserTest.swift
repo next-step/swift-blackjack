@@ -19,4 +19,16 @@ class MoneyParserTest: XCTestCase {
         // then
         XCTAssertEqual(Int(number), money.value)
     }
+    
+    func test_parse_nil이_입력되면_에러를_발생시킨다() {
+        // given
+        let nilInput: String? = nil
+
+        // when
+        // then
+        XCTAssertThrowsError(try MoneyParser.parse(nilInput), "nil이_입력되면_에러를_발생시킨다") { error in
+            XCTAssert(error is MoneyParser.Error)
+            XCTAssert(error.localizedDescription ==  MoneyParser.Error.invalidInput(nilInput).errorDescription)
+        }
+    }
 }
