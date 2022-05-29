@@ -18,6 +18,8 @@
 		2E142CDE2843498000A9E4D3 /* ProfitCalculatorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E142CDD2843498000A9E4D3 /* ProfitCalculatorTest.swift */; };
 		2E142CE02843A14B00A9E4D3 /* Profit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E142CDF2843A14B00A9E4D3 /* Profit.swift */; };
 		2E142CE12843A14B00A9E4D3 /* Profit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E142CDF2843A14B00A9E4D3 /* Profit.swift */; };
+		2E142CE32843E87C00A9E4D3 /* ProfitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E142CE22843E87C00A9E4D3 /* ProfitsFormatter.swift */; };
+		2E142CE42843E87C00A9E4D3 /* ProfitsFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E142CE22843E87C00A9E4D3 /* ProfitsFormatter.swift */; };
 		2E2F9A892840666100D0F0C2 /* BlackjackGameJudgeTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F9A882840666100D0F0C2 /* BlackjackGameJudgeTest.swift */; };
 		2E2F9A8B2840670700D0F0C2 /* BlackjackGameJudge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F9A8A2840670700D0F0C2 /* BlackjackGameJudge.swift */; };
 		2E2F9A8C2840670700D0F0C2 /* BlackjackGameJudge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2F9A8A2840670700D0F0C2 /* BlackjackGameJudge.swift */; };
@@ -101,6 +103,7 @@
 		2E142CDA2843497600A9E4D3 /* ProfitCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitCalculator.swift; sourceTree = "<group>"; };
 		2E142CDD2843498000A9E4D3 /* ProfitCalculatorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitCalculatorTest.swift; sourceTree = "<group>"; };
 		2E142CDF2843A14B00A9E4D3 /* Profit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profit.swift; sourceTree = "<group>"; };
+		2E142CE22843E87C00A9E4D3 /* ProfitsFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitsFormatter.swift; sourceTree = "<group>"; };
 		2E2F9A882840666100D0F0C2 /* BlackjackGameJudgeTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackGameJudgeTest.swift; sourceTree = "<group>"; };
 		2E2F9A8A2840670700D0F0C2 /* BlackjackGameJudge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackjackGameJudge.swift; sourceTree = "<group>"; };
 		2E2F9A8D2840785D00D0F0C2 /* WinLoseResultFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinLoseResultFormatter.swift; sourceTree = "<group>"; };
@@ -260,6 +263,7 @@
 				2E142CD7284348BD00A9E4D3 /* MoneyParser.swift */,
 				2E142CDA2843497600A9E4D3 /* ProfitCalculator.swift */,
 				2E142CDF2843A14B00A9E4D3 /* Profit.swift */,
+				2E142CE22843E87C00A9E4D3 /* ProfitsFormatter.swift */,
 			);
 			path = Blackjack;
 			sourceTree = "<group>";
@@ -364,6 +368,7 @@
 				2E66DB6C283BD8B500E582E2 /* CardScoreRule.swift in Sources */,
 				2E9C3B41283C7C9700393DEE /* CardPickStrategy.swift in Sources */,
 				2E9C3B3B283C79CE00393DEE /* Collection + Extension.swift in Sources */,
+				2E142CE42843E87C00A9E4D3 /* ProfitsFormatter.swift in Sources */,
 				2E9C3B67283CC75700393DEE /* BlackjackScore.swift in Sources */,
 				2E9C3B63283CC49500393DEE /* AnswerReadDelegate.swift in Sources */,
 				2E2F9A8C2840670700D0F0C2 /* BlackjackGameJudge.swift in Sources */,
@@ -402,6 +407,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E142CE32843E87C00A9E4D3 /* ProfitsFormatter.swift in Sources */,
 				2E66DB6B283BD8B500E582E2 /* CardScoreRule.swift in Sources */,
 				2E9C3B2E283C731600393DEE /* InputView.swift in Sources */,
 				2E66DB61283BD61E00E582E2 /* TrumpCards.swift in Sources */,
