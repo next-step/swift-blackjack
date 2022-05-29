@@ -21,68 +21,33 @@ struct ProfitCalculator {
             }
         }
     }
-    static func calculate(of player: [Player]) throws -> Profits {
-        guard player.count >= 2 else {
+    static func calculate(with scores: BlackjackScores) throws -> Profits {
+        let playerScores = scores.playerScores
+        guard let dealerScore = scores.dealerScore else {
             throw Error.playerNotExist
         }
-        guard let dealer = player.filter({ $0 is Dealer }).first else {
-            throw Error.dealerNotExist
-        }
         
-        let players = player.filter { ($0 is Dealer) == false }
-        let blackjackPlayers = players.filter { $0.cardDeck.cards.count == 2 && $0.cardDeck.countScore() == BlackjackScoreRule.twentyOne }
-        let nonBlackjackPlayers =  players.filter { $0.cardDeck.cards.count != 2 || $0.cardDeck.countScore() != BlackjackScoreRule.twentyOne }
+        let isDealerBlackjack = dealerScore.score == BlackjackScoreRule.twentyOne && dealerScore.player.cardDeck.cards.count == 2
         
-        // 딜러가 블랙잭 && 플레이어가 블랙잭
-        if dealer.cardDeck.cards.count == 2 && dealer.countScore() == BlackjackScoreRule.twentyOne
-            && blackjackPlayers.isNotEmpty {
-            let dealerProfit = Profit(player: dealer, money: .zero)
+        let dealer = dealerScore.player
+        let blackjackPlayers = playerScores.map { $0.player }
+            .filter { $0.countScore() == BlackjackScoreRule.twentyOne && $0.cardDeck.cards.count == 2 }
+        let nonBlackjackPlayers = playerScores.map { $0.player }
+            .filter { $0.countScore() != BlackjackScoreRule.twentyOne || $0.cardDeck.cards.count != 2 }
+        
+//        if isDealerBlackjack {
+            let zeroProfits = blackjackPlayers.map { player in
+                ZeroProfit(player: player)
+            }
             
-            let playersProfit = players.map { Profit(player: $0, money: $0.bettingMoney) }
-            return Profits(value: [dealerProfit] + playersProfit)
-        }
-        
-        // 딜러만 블랙잭
-        if dealer.cardDeck.cards.count == 2 && dealer.countScore() == BlackjackScoreRule.twentyOne
-            && blackjackPlayers.isEmpty{
-            let sumBettingMoney = players.reduce(Money.zero) { partialResult, player in
+            let minusProfits = nonBlackjackPlayers.map { MinusProfit(player: $0, money: $0.bettingMoney) }
+            let dealerProfitMoney = nonBlackjackPlayers.reduce(Money.zero) { partialResult, player in
                 partialResult + player.bettingMoney
             }
-            let dealerProfit = Profit(player: dealer, money: sumBettingMoney)
-            let playersProfit = players.map { Profit(player: $0, money: .zero) }
-            return Profits(value: [dealerProfit] + playersProfit)
-        }
-        
-        // 플레이어만 블랙잭
-        if (dealer.cardDeck.cards.count == 2 && dealer.countScore() == BlackjackScoreRule.twentyOne) == false
-            && blackjackPlayers.isNotEmpty {
-            let dealerProfit = Profit(player: dealer, money: .zero)
-            let winPlayerProfit = blackjackPlayers.map { Profit(player: $0, money: Money(Int(Double($0.bettingMoney.value) * 1.5))!) }
-            let losePlayerProfit = nonBlackjackPlayers.map { Profit(player: $0, money: .zero) }
-            return Profits(value: [dealerProfit] +  winPlayerProfit + losePlayerProfit)
+            let dealerProfit = PlusProfit(player: dealer, money: dealerProfitMoney)
             
-        }
+            return Profits(value: [dealerProfit] + zeroProfits + minusProfits)
+//        }
         
-        // 딜러가 21을 초과하면 그 시점까지 남아 있던 플레이어들은 가지고 있는 패에 상관 없이 승리하여 베팅 금액을 받습니다.
-        if dealer.cardDeck.countScore() > BlackjackScoreRule.twentyOne {
-            let dealerProfit = Profit(player: dealer, money: .zero)
-            let playersProfit = players.map { Profit(player: $0, money: $0.bettingMoney) }
-            return Profits(value: [dealerProfit] + playersProfit)
-        }
-        
-        // 딜러, 플레이어 둘다 블랙잭이 아닌 경우
-        let dealerScore = BlackjackScore(player: dealer, score: dealer.countScore())
-        let scores = players.map { BlackjackScore(player: $0, score: $0.countScore()) }
-        let winLoseResults = BlackjackGameJudge().winLoseResults(of: scores, comparingWith: dealerScore)
-        let winResults = winLoseResults.playerResults.filter { $0.winCount > $0.loseCount }
-        let loseResults = winLoseResults.playerResults.filter { $0.winCount < $0.loseCount }
-        
-        let winProfits = winResults.map { Profit(player: $0.player, money: $0.player.bettingMoney) }
-        let loseProfits = loseResults.map { Profit(player: $0.player, money: .zero) }
-        let sumLoseBettingMoney = loseResults.reduce(Money.zero) { partialResult, result in
-            partialResult + result.player.bettingMoney
-        }
-        let dealerProfit = Profit(player: dealer, money: sumLoseBettingMoney)
-        return Profits(value: [dealerProfit] + winProfits + loseProfits)
     }
 }

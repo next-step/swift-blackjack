@@ -20,7 +20,7 @@ class ProfitCalculatorTest: XCTestCase {
         
         let dealerScore = BlackjackScore(player: dealer, score: dealer.countScore())
         let playerScore = BlackjackScore(player: player, score: player.countScore())
-        let scores = [dealerScore, playerScore]
+        let scores = BlackjackScores([dealerScore, playerScore])
         
         let dealerProfit = PlusProfit(player: dealer, money: player.bettingMoney)
         let playerProfit = MinusProfit(player: player, money: player.bettingMoney)
@@ -29,9 +29,8 @@ class ProfitCalculatorTest: XCTestCase {
         let profits = try ProfitCalculator.calculate(with: scores)
         
         // then
-        XCTAssertEqual(profits.value.filter { $0.player == dealer }.player, dealerProfit.player)
-        XCTAssertEqual(profits.value.filter { $0.player == dealer }.money, dealerProfit.money)
-        XCTAssertEqual(profits.value.filter { $0.player == player }.player, playerProfit.player)
-        XCTAssertEqual(profits.value.filter { $0.player == player }.money, playerProfit.money)
+        
+        XCTAssertEqual(profits.value.filter { $0.player == dealer }.first?.money, dealerProfit.money)
+        XCTAssertEqual(profits.value.filter { $0.player == player }.first?.money, playerProfit.money)
     }
 }
