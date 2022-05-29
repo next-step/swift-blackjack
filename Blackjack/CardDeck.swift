@@ -12,6 +12,7 @@ protocol CardDeck {
     var cardScoreRule: CardScoreRule.Type { get }
     func append(card: Card)
     func countScore() -> Int
+    func isBlackjack() -> Bool
 }
 
 class BlackjackCardDeck: CardDeck {
@@ -24,5 +25,9 @@ class BlackjackCardDeck: CardDeck {
     
     func countScore() -> Int {
         return cardScoreRule.countScore(cardDeck: self)
+    }
+    
+    func isBlackjack() -> Bool {
+        return cards.count == 2 && countScore() == BlackjackScoreRule.twentyOne
     }
 }
