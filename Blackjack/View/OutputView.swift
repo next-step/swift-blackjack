@@ -42,4 +42,9 @@ enum OutputView {
         Swift.print("## 최종 승패")
         Swift.print(winLoseResults)
     }
+    
+    static func print(profits: String) {
+        Swift.print("## 최종 수익")
+        Swift.print(profits)
+    }
 }
