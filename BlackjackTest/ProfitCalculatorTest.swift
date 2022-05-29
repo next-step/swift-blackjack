@@ -9,23 +9,29 @@ import XCTest
 
 class ProfitCalculatorTest: XCTestCase {
     
-    func test_참가자는의_카드점수가_21_초과할경우_베팅금액을_모두_잃는다() throws {
+    func test_딜러만_블랙잭일때_참가자들은_베팅금액을_모두_잃는다() throws {
         // given
         let dealer = Dealer(cardDeck: BlackjackCardDeck())
-        
-        let bettingMoney = Money(10000)!
-        let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck(), bettingMoney: bettingMoney)
+        let player = Player(name: PlayerName("kim")!, cardDeck: BlackjackCardDeck(), bettingMoney: Money(10000)!)
         player.receive(cards: [Card(rank: .jack, suit: .club), Card(rank: .queen, suit: .club), Card(rank: .king, suit: .club)])
-        let players = [dealer, player]
         
-        let dealerProfit = Profit(player: dealer, money: bettingMoney)
-        let playerProfit = Profit(player: player, money: .zero)
+        dealer.receive(cards: [Card(rank: .ace, suit: .club), Card(rank: .king, suit: .club)])
+        player.receive(cards: [Card(rank: .seven, suit: .club), Card(rank: .seven, suit: .diamond), Card(rank: .seven, suit: .heart)])
+        
+        let dealerScore = BlackjackScore(player: dealer, score: dealer.countScore())
+        let playerScore = BlackjackScore(player: player, score: player.countScore())
+        let scores = [dealerScore, playerScore]
+        
+        let dealerProfit = PlusProfit(player: dealer, money: player.bettingMoney)
+        let playerProfit = MinusProfit(player: player, money: player.bettingMoney)
         
         // when
-        let profits = try ProfitCalculator.calculate(of: players)
+        let profits = try ProfitCalculator.calculate(with: scores)
         
         // then
-        XCTAssertEqual(profits.value.filter { $0.player == dealer }.first?.money.value, dealerProfit.money.value)
-        XCTAssertEqual(profits.value.filter { $0.player == player }.first?.money.value, playerProfit.money.value)
+        XCTAssertEqual(profits.value.filter { $0.player == dealer }.player, dealerProfit.player)
+        XCTAssertEqual(profits.value.filter { $0.player == dealer }.money, dealerProfit.money)
+        XCTAssertEqual(profits.value.filter { $0.player == player }.player, playerProfit.player)
+        XCTAssertEqual(profits.value.filter { $0.player == player }.money, playerProfit.money)
     }
 }
