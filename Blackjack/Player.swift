@@ -25,12 +25,8 @@ class Player {
     }
 }
 
-extension Player: Hashable {
+extension Player: Equatable {
     static func == (lhs: Player, rhs: Player) -> Bool {
         lhs.name == rhs.name
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(name)
     }
 }
