@@ -11,7 +11,24 @@ struct Profits {
     let value: [Profit]
 }
 
-struct Profit {
+protocol Profit {
+    var player: Player { get }
+    var money: Money { get }
+}
+
+struct PlusProfit: Profit {
     let player: Player
     let money: Money
 }
+
+struct MinusProfit: Profit {
+    let player: Player
+    let money: Money
+}
+
+struct ZeroProfit: Profit {
+    let player: Player
+    let money: Money = .zero
+}
+
+
