@@ -25,6 +25,10 @@ class Player {
     func countScore() -> Int {
         return cardDeck.countScore()
     }
+    
+    func isBlackjack() -> Bool {
+        cardDeck.isBlackjack()
+    }
 }
 
 extension Player: Equatable {
