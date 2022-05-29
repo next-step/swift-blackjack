@@ -7,11 +7,7 @@
 
 import Foundation
 
-struct Money {
-    static func / (lhs: Money, rhs: Money) -> Int {
-        return lhs.value / rhs.value
-    }
-    
+struct Money: Equatable {
     static func * (lhs: Money, rhs: Money) -> Int {
         return lhs.value * rhs.value
     }
@@ -28,3 +24,4 @@ struct Money {
         self.value = value
     }
 }
+
