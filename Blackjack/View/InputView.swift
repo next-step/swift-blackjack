@@ -19,9 +19,9 @@ enum InputView {
         return readLine()
     }
     
-    static func readBettingMoney(of player: Player) -> String? {
+    static func readBettingMoney(of name: PlayerName) -> String? {
         print("\n")
-        print("\(player.name.value)의 배팅 금액은?")
+        print("\(name.value)의 배팅 금액은?")
         return readLine()
     }
 }
