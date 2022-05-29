@@ -43,4 +43,16 @@ class MoneyParserTest: XCTestCase {
             XCTAssert(error.localizedDescription ==  MoneyParser.Error.invalidInput(negativeNumber).errorDescription)
         }
     }
+    
+    func test_parse_숫자가_아닌값이_입력되면_에러를_발생시킨다() {
+        // given
+        let nonNumber = "*"
+
+        // when
+        // then
+        XCTAssertThrowsError(try MoneyParser.parse(nonNumber), "음의정수가_입력되면_에러를_발생시킨다") { error in
+            XCTAssert(error is MoneyParser.Error)
+            XCTAssert(error.localizedDescription ==  MoneyParser.Error.invalidInput(nonNumber).errorDescription)
+        }
+    }
 }
