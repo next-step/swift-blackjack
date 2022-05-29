@@ -16,6 +16,7 @@ struct Money {
         return lhs.value * rhs.value
     }
     
+    static let zero = Money(.zero)!
     let value: Int
     
     init?(_ value: Int) {
