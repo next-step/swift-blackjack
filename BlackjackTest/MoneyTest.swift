@@ -49,6 +49,6 @@ class MoneyTest: XCTestCase {
         // when
         let result = lhsMoney + rhsMoney
         
-        XCTAssertEqual(result, 111 + 10)
+        XCTAssertEqual(result.value, Money(111 + 10)!.value)
     }
 }
