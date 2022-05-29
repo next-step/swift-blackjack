@@ -16,6 +16,10 @@ struct Money {
         return lhs.value * rhs.value
     }
     
+    static func + (lhs: Money, rhs: Money) -> Int {
+        return lhs.value + rhs.value
+    }
+    
     static let zero = Money(.zero)!
     let value: Int
     
