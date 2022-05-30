@@ -74,4 +74,17 @@ class BlackjackTest: XCTestCase {
         
         XCTAssertEqual(participant.score, expected)
     }
+    
+    func test_블랙잭_참가자가_21을_넘으면_패배() {
+        let participant = Participant(name: "sut")
+        let dummyDealer = Dealer()
+        
+        participant.add(card: Card(shape: .spade, number: .king))
+        participant.add(card: Card(shape: .spade, number: .queen))
+        participant.add(card: Card(shape: .spade, number: .jack))
+        
+        let expected: WinningState = .defeat
+        
+        XCTAssertEqual(participant.isWin(compareWith: dummyDealer), expected)
+    }
 }

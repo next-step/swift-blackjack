@@ -49,6 +49,17 @@ class DealerTest: XCTestCase {
         let expected = 12
         
         XCTAssertEqual(dealer.score, expected)
+    }
+    
+    func test_딜러와_참가자가_모두_21을_넘지않고_딜러가_더_클때_참가자는_패배() {
+        let participant = Participant(name: "sut1")
         
+        dealer.add(card: Card(shape: .spade, number: .ace))
+        dealer.add(card: Card(shape: .spade, number: .king))
+        
+        participant.add(card: Card(shape: .spade, number: .jack))
+        participant.add(card: Card(shape: .spade, number: .queen))
+        
+        XCTAssertEqual(participant.isWin(compareWith: dealer), .defeat)
     }
 }
