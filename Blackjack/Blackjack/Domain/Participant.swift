@@ -7,36 +7,15 @@
 
 import Foundation
 
-class Participant {
-    let name: String
-    var cards: [Card] = []
+class Participant: Player {
     
-    var score: Int {
-        let currentScore = calculateScore()
-        return calculateAdditionalAceScore(current: currentScore)
-    }
-    
-    init(name: String) {
-        self.name = name
-    }
-    
-    func add(card: Card) {
-        cards.append(card)
-    }
-    
-    private func calculateScore() -> Int {
-        return cards.reduce(0, { $0 + $1.value })
-    }
-    
-    private func calculateAdditionalAceScore(current score: Int) -> Int {
-        var now = score
-        for _ in cards.filter({ $0.number == .ace }) {
-            now = selectSuperiorScore(lhs: now, rhs: now + Card.additionalAceScore)
+    func isWin(compareWith dealer: Dealer) -> WinningState {
+        guard score <= 21 else { return .defeat }
+        guard dealer.score <= 21 else { return .win }
+        
+        if dealer.score > score {
+            return .defeat
         }
-        return now
-    }
-    
-    private func selectSuperiorScore(lhs: Int, rhs: Int) -> Int {
-        return abs(lhs - 21) < abs(rhs - 21) ? lhs : rhs
+        return .win
     }
 }
