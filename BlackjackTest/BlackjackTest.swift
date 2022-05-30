@@ -74,4 +74,16 @@ class BlackjackTest: XCTestCase {
         
         XCTAssertEqual(participant.score, expected)
     }
+    
+    func test_블랙잭_딜러의_카드_총합이_16이하일때_카드를_한장_더_가져옴() {
+        let dealer = Dealer()
+        
+        dealer.add(card: Card(shape: .spade, number: .king))
+        dealer.add(card: Card(shape: .spade, number: .six))
+        
+        let expected = Dealer.State.needToCard
+        
+        
+        XCTAssertEqual(dealer.state, .needToCard)
+    }
 }
