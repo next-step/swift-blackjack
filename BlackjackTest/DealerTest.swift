@@ -40,4 +40,15 @@ class DealerTest: XCTestCase {
         
         XCTAssertEqual(dealer.score, expected)
     }
+    
+    func test_딜러는_에이스를_가지고_있을때_11로_계산해서_버스트_될경우_1로_계산한다() {
+        dealer.add(card: Card(shape: .spade, number: .ace))
+        dealer.add(card: Card(shape: .spade, number: .five))
+        dealer.add(card: Card(shape: .spade, number: .six))
+        
+        let expected = 12
+        
+        XCTAssertEqual(dealer.score, expected)
+        
+    }
 }

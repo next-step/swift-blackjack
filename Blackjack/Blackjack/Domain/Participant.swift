@@ -29,14 +29,18 @@ class Participant {
     }
     
     private func calculateAdditionalAceScore(current score: Int) -> Int {
-        var now = score
-        for _ in cards.filter({ $0.number == .ace }) {
-            now = selectSuperiorScore(lhs: now, rhs: now + Card.additionalAceScore)
-        }
-        return now
+        let aceCount = cards.filter({ $0.number == .ace }).count
+        let calcuated = selectSuperiorAceScore(now: score, count: aceCount)
+        return calcuated
     }
     
-    private func selectSuperiorScore(lhs: Int, rhs: Int) -> Int {
-        return abs(lhs - 21) < abs(rhs - 21) ? lhs : rhs
+    private func selectSuperiorAceScore(now: Int, count: Int) -> Int {
+        let remainingValue: Int = 21 - now
+        let addAvailableCount = remainingValue / 10
+        
+        if count <= addAvailableCount {
+            return now + count * 10
+        }
+        return now + addAvailableCount * 10
     }
 }
