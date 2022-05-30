@@ -18,6 +18,10 @@ class Dealer: Participant {
     }
     
     var state: State {
+        getState(by: score)
+    }
+    
+    private func getState(by score: Int) -> State {
         if score <= 16 {
             return .needToCard
         }
