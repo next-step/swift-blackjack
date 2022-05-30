@@ -24,6 +24,8 @@
 		A5C55B872843D37A00FBEC4D /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B862843D37A00FBEC4D /* Dealer.swift */; };
 		A5C55B882843D37A00FBEC4D /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B862843D37A00FBEC4D /* Dealer.swift */; };
 		A5C55B8E28444C7800FBEC4D /* DealerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B8C28444C7800FBEC4D /* DealerTest.swift */; };
+		A5C55B9028445A2B00FBEC4D /* WinningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B8F28445A2B00FBEC4D /* WinningState.swift */; };
+		A5C55B9128445A2B00FBEC4D /* WinningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B8F28445A2B00FBEC4D /* WinningState.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +54,7 @@
 		A5C55B6928412E0400FBEC4D /* CardPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPool.swift; sourceTree = "<group>"; };
 		A5C55B862843D37A00FBEC4D /* Dealer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dealer.swift; sourceTree = "<group>"; };
 		A5C55B8C28444C7800FBEC4D /* DealerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerTest.swift; sourceTree = "<group>"; };
+		A5C55B8F28445A2B00FBEC4D /* WinningState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningState.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +122,7 @@
 				A5C55B5D283FB7D800FBEC4D /* BlackjackError.swift */,
 				A5C55B6928412E0400FBEC4D /* CardPool.swift */,
 				A5C55B862843D37A00FBEC4D /* Dealer.swift */,
+				A5C55B8F28445A2B00FBEC4D /* WinningState.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -240,6 +244,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5C55B8E28444C7800FBEC4D /* DealerTest.swift in Sources */,
+				A5C55B9128445A2B00FBEC4D /* WinningState.swift in Sources */,
 				A5C55B56283FB05100FBEC4D /* Blackjack.swift in Sources */,
 				A5C55B6B2841314200FBEC4D /* CardPool.swift in Sources */,
 				A5C55B882843D37A00FBEC4D /* Dealer.swift in Sources */,
@@ -257,6 +262,7 @@
 				A5C55B55283FB05100FBEC4D /* Blackjack.swift in Sources */,
 				A5C55B67283FD43A00FBEC4D /* BlackjackInputView.swift in Sources */,
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
+				A5C55B9028445A2B00FBEC4D /* WinningState.swift in Sources */,
 				A5C55B65283FD40200FBEC4D /* BlackjackController.swift in Sources */,
 				A5C55B5E283FB7D800FBEC4D /* BlackjackError.swift in Sources */,
 				A5C55B58283FB0BC00FBEC4D /* Participant.swift in Sources */,

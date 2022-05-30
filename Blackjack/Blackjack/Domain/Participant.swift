@@ -24,6 +24,16 @@ class Participant {
         cards.append(card)
     }
     
+    func isWin(compareWith dealer: Dealer) -> WinningState {
+        guard score <= 21 else { return .defeat }
+        guard dealer.score <= 21 else { return .win }
+        
+        if dealer.score > score {
+            return .defeat
+        }
+        return .win
+    }
+    
     private func calculateScore() -> Int {
         return cards.reduce(0, { $0 + $1.value })
     }
