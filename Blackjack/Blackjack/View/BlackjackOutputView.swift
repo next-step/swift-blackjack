@@ -8,6 +8,7 @@
 import Foundation
 
 struct BlackjackOutputView {
+    typealias BlackjackResult = (participant: Participant, winningState: WinningState)
     
     func printStartStat(of game: Blackjack) {
         let dealer = game.dealer
@@ -31,12 +32,32 @@ struct BlackjackOutputView {
         print("\(name)카드: \(cardDescriptions.joined(separator: ", "))", terminator: isNewLine ? "\n" : " ")
     }
     
-    func printResults(of game: Blackjack) {
+    func printEndStat(of game: Blackjack) {
         print()
         printCardsWithScore(of: game.dealer)
         game.participants.forEach {
             printCardsWithScore(of: $0)
         }
+    }
+    
+    func printResults(of game: Blackjack) {
+        print()
+        let results: [BlackjackResult] = game.participants.compactMap({
+            return (participant: $0, winningState: $0.isWin(compareWith: game.dealer))
+        })
+        
+        printDealerResult(by: results, at: game)
+        results.forEach({
+            print("\($0.participant.name): \( $0.winningState == .win ? "승" : "패")")
+        })
+        
+    }
+    
+    private func printDealerResult(by contexts: [BlackjackResult], at game: Blackjack) {
+        let winningCount = contexts.filter({ $0.winningState == .win }).count
+        let defeatCount = contexts.filter({ $0.winningState == .defeat }).count
+        
+        print("\(game.dealer.name): \(winningCount)승 \(defeatCount)패 ")
     }
     
     private func printCardsWithScore(of participant: Participant) {

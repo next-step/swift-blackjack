@@ -24,6 +24,7 @@ struct BlackjackController {
         outputView.printDealerRound(dealer: blackjack.dealer)
         try blackjack.playDealerRound()
         
+        outputView.printEndStat(of: blackjack)
         outputView.printResults(of: blackjack)
     }
     
