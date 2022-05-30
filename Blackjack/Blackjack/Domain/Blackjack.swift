@@ -8,6 +8,8 @@
 import Foundation
 
 struct Blackjack {
+    var dealer: Dealer = Dealer()
+    
     var participants: [Participant]
     private var cardPool: CardPool
     
@@ -17,9 +19,14 @@ struct Blackjack {
     }
     
     mutating func start() throws {
+        try giveCard(to: dealer, count: 2)
         for participant in participants {
             try giveCard(to: participant, count: 2)
         }
+    }
+    
+    mutating func playDealerRound() throws {
+        try giveCard(to: dealer, count: 1)
     }
     
     mutating func playOneMoreRound(participant: Participant) throws {

@@ -10,11 +10,13 @@ import Foundation
 struct BlackjackOutputView {
     
     func printStartStat(of game: Blackjack) {
+        let dealer = game.dealer
         let names = game.participants
             .compactMap({ $0.name })
         
-        print("\(names.joined(separator: ", "))에게 2장씩 나누었습니다.")
+        print("\(dealer.name)와 \(names.joined(separator: ", "))에게 2장씩 나누었습니다.")
         
+        printCards(of: dealer)
         game.participants.forEach {
             printCards(of: $0)
         }
@@ -31,9 +33,23 @@ struct BlackjackOutputView {
     
     func printResults(of game: Blackjack) {
         print()
+        printCardsWithScore(of: game.dealer)
         game.participants.forEach {
-            printCards(of: $0, isNewLine: false)
-            print("- 결과: \($0.score)")
+            printCardsWithScore(of: $0)
         }
+    }
+    
+    private func printCardsWithScore(of participant: Participant) {
+        printCards(of: participant, isNewLine: false)
+        print("- 결과: \(participant.score)")
+    }
+    
+    func printDealerRound(dealer: Dealer) {
+        print()
+        if dealer.state == .enoughCard {
+            print("딜러는 16초과라 한장의 카드를 더 받지 않았습니다.")
+            return
+        }
+        print("딜러는 16이하라 한장의 카드를 더 받았습니다.")
     }
 }

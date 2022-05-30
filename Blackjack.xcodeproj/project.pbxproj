@@ -23,7 +23,6 @@
 		A5C55B6B2841314200FBEC4D /* CardPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B6928412E0400FBEC4D /* CardPool.swift */; };
 		A5C55B872843D37A00FBEC4D /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B862843D37A00FBEC4D /* Dealer.swift */; };
 		A5C55B882843D37A00FBEC4D /* Dealer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B862843D37A00FBEC4D /* Dealer.swift */; };
-		A5C55B8D28444C7800FBEC4D /* DealerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B8C28444C7800FBEC4D /* DealerTest.swift */; };
 		A5C55B8E28444C7800FBEC4D /* DealerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B8C28444C7800FBEC4D /* DealerTest.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
@@ -260,7 +259,6 @@
 				C7F86E1A273AAF7900FAA669 /* main.swift in Sources */,
 				A5C55B65283FD40200FBEC4D /* BlackjackController.swift in Sources */,
 				A5C55B5E283FB7D800FBEC4D /* BlackjackError.swift in Sources */,
-				A5C55B8D28444C7800FBEC4D /* DealerTest.swift in Sources */,
 				A5C55B58283FB0BC00FBEC4D /* Participant.swift in Sources */,
 				A5C55B62283FCB2F00FBEC4D /* BlackjackOutputView.swift in Sources */,
 				A5C55B6A28412E0400FBEC4D /* CardPool.swift in Sources */,
