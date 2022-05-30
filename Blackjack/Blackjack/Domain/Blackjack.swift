@@ -29,11 +29,11 @@ struct Blackjack {
         try giveCard(to: dealer, count: 1)
     }
     
-    mutating func playOneMoreRound(participant: Participant) throws {
+    mutating func playOneMoreRound(participant: Player) throws {
         try giveCard(to: participant, count: 1)
     }
     
-    private mutating func giveCard(to participant: Participant, count: Int) throws {
+    private mutating func giveCard(to participant: Player, count: Int) throws {
         for _ in 0..<count {
             participant.add(card: try cardPool.generateRandomCard())
         }

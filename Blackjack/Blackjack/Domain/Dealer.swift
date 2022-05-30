@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Dealer: Participant {
+class Dealer: Player {
     enum State {
         case needToCard
         case enoughCard

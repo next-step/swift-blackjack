@@ -24,9 +24,9 @@ struct BlackjackOutputView {
         print()
     }
     
-    func printCards(of participant: Participant, isNewLine: Bool = true) {
-        let name = participant.name
-        let cardDescriptions = participant.cards
+    func printCards(of player: Player, isNewLine: Bool = true) {
+        let name = player.name
+        let cardDescriptions = player.cards
             .compactMap({ $0.description })
         
         print("\(name)카드: \(cardDescriptions.joined(separator: ", "))", terminator: isNewLine ? "\n" : " ")
@@ -54,15 +54,15 @@ struct BlackjackOutputView {
     }
     
     private func printDealerResult(by contexts: [BlackjackResult], at game: Blackjack) {
-        let winningCount = contexts.filter({ $0.winningState == .win }).count
-        let defeatCount = contexts.filter({ $0.winningState == .defeat }).count
+        let dealerWinCount = contexts.filter({ $0.winningState == .defeat }).count
+        let dealerDefeatCount = contexts.filter({ $0.winningState == .win }).count
         
-        print("\(game.dealer.name): \(winningCount)승 \(defeatCount)패 ")
+        print("\(game.dealer.name): \(dealerWinCount)승 \(dealerDefeatCount)패 ")
     }
     
-    private func printCardsWithScore(of participant: Participant) {
-        printCards(of: participant, isNewLine: false)
-        print("- 결과: \(participant.score)")
+    private func printCardsWithScore(of player: Player) {
+        printCards(of: player, isNewLine: false)
+        print("- 결과: \(player.score)")
     }
     
     func printDealerRound(dealer: Dealer) {
