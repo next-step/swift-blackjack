@@ -44,13 +44,9 @@ struct BlackjackOutputView {
         print()
         print("## 최종 수익")
         
-        let results = participants
-            .compactMap({ (participant: $0, winningState: $0.isWin(compareWith: dealer)) })
-            .compactMap({ (participant: $0.participant, income: $0.participant.calculateIncome(winningState: $0.winningState)) })
-        
-        printDealerResult(dealer: dealer, amount: -results.reduce(0, { $0 + $1.income }))
-        results.forEach({
-            print("\($0.participant.name): \($0.income)")
+        printDealerResult(dealer: dealer, amount: dealer.calculateIncome(participants: participants))
+        participants.forEach({
+            print("\($0.name): \($0.calculateIncome(winningState: $0.isWin(compareWith: dealer)))")
         })
         
     }
