@@ -28,6 +28,7 @@
 		A5C55B9128445A2B00FBEC4D /* WinningState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B8F28445A2B00FBEC4D /* WinningState.swift */; };
 		A5C55B93284487E800FBEC4D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B92284487E800FBEC4D /* Player.swift */; };
 		A5C55B94284487E800FBEC4D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55B92284487E800FBEC4D /* Player.swift */; };
+		A5C55BAB2845C5BC00FBEC4D /* ParticipantTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5C55BAA2845C5BC00FBEC4D /* ParticipantTest.swift */; };
 		C7F86E1A273AAF7900FAA669 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F86E19273AAF7900FAA669 /* main.swift */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		A5C55B8C28444C7800FBEC4D /* DealerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealerTest.swift; sourceTree = "<group>"; };
 		A5C55B8F28445A2B00FBEC4D /* WinningState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinningState.swift; sourceTree = "<group>"; };
 		A5C55B92284487E800FBEC4D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		A5C55BAA2845C5BC00FBEC4D /* ParticipantTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantTest.swift; sourceTree = "<group>"; };
 		C7F86E16273AAF7900FAA669 /* Blackjack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Blackjack; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7F86E19273AAF7900FAA669 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 			children = (
 				A5C55B4E283FAF2200FBEC4D /* BlackjackTest.swift */,
 				A5C55B8C28444C7800FBEC4D /* DealerTest.swift */,
+				A5C55BAA2845C5BC00FBEC4D /* ParticipantTest.swift */,
 			);
 			path = BlackjackTest;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				A5C55B9128445A2B00FBEC4D /* WinningState.swift in Sources */,
 				A5C55B56283FB05100FBEC4D /* Blackjack.swift in Sources */,
 				A5C55B6B2841314200FBEC4D /* CardPool.swift in Sources */,
+				A5C55BAB2845C5BC00FBEC4D /* ParticipantTest.swift in Sources */,
 				A5C55B882843D37A00FBEC4D /* Dealer.swift in Sources */,
 				A5C55B4F283FAF2200FBEC4D /* BlackjackTest.swift in Sources */,
 				A5C55B5F283FB7D800FBEC4D /* BlackjackError.swift in Sources */,

@@ -115,13 +115,4 @@ class DealerTest: XCTestCase {
         
         XCTAssertEqual(participant.isWin(compareWith: dealer), .defeat)
     }
-    
-    func test_참가자가_10000원을_베팅하고_승리하면_수익은_10000원() {
-        let participant = Participant(name: "sut1")
-        participant.bet(amount: 10000)
-        
-        let expected = 10000
-        
-        XCTAssertEqual(participant.calculateIncome(winningState: .win), expected)
-    }
 }
