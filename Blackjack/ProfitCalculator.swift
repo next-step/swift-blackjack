@@ -35,7 +35,7 @@ struct ProfitCalculator {
         return profitWith(nonBlackjackDealer: dealer, using: playerResults)
     }
     
-    static func profitWith(blackjackDealer: Player, players: [Player]) -> Profits {
+    private static func profitWith(blackjackDealer: Player, players: [Player]) -> Profits {
         let blackjackPlayer = players.filter { $0.isBlackjack() }
         let nonBlackjackPlayer = players.filter { $0.isBlackjack() == false }
         
@@ -50,7 +50,7 @@ struct ProfitCalculator {
         return Profits(value: [dealerProfit] + profitsOfBlackjack + profitsOfNonBlackjack)
     }
     
-    static func profitWith(nonBlackjackDealer dealer: Player, using playerResults: [WinLoseResult]) -> Profits {
+    private static func profitWith(nonBlackjackDealer dealer: Player, using playerResults: [WinLoseResult]) -> Profits {
         let blackjackPlayer = playerResults.map { $0.player }
             .filter { $0.isBlackjack() }
         
@@ -72,7 +72,7 @@ struct ProfitCalculator {
         return Profits(value: [dealerProfit] + winPlayersProfits + losePlayersProfits + blackjackPlayersProfit)
     }
     
-    static func sum(player: Player, _ profits: [Profit]) -> Profit {
+    private static func sum(player: Player, _ profits: [Profit]) -> Profit {
         profits.reduce(ZeroProfit(player: player)) { partialResult, profit in
             partialResult.plus(profit)
         }
