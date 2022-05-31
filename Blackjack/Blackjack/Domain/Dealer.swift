@@ -21,6 +21,13 @@ class Dealer: Player {
         getState(by: score)
     }
     
+    func calculateIncome(participants: [Participant]) -> Int {
+        let participantsIncome: Int = participants
+            .compactMap({ $0.calculateIncome(winningState: $0.isWin(compareWith: self)) })
+            .reduce(0, +)
+        return -1 * participantsIncome
+    }
+    
     private func getState(by score: Int) -> State {
         if score <= 16 {
             return .needToCard
