@@ -8,7 +8,12 @@
 import Foundation
 
 class Participant: Player {
+    private var bettingAmount: Int = 0
+    private var winningState: WinningState = .defeat
     
+    func bet(amount: Int) {
+        self.bettingAmount = amount
+    }
     
     func isWin(compareWith dealer: Dealer) -> WinningState {
         guard score <= 21 else { return .defeat }
@@ -18,5 +23,9 @@ class Participant: Player {
             return .defeat
         }
         return .win
+    }
+    
+    func calculateIncome(winningState: WinningState) -> Int {
+        return winningState.rawValue * bettingAmount
     }
 }

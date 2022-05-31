@@ -122,6 +122,6 @@ class DealerTest: XCTestCase {
         
         let expected = 10000
         
-        XCTAssertEqual(participant.income(winningState: .win), expected)
+        XCTAssertEqual(participant.calculateIncome(winningState: .win), expected)
     }
 }

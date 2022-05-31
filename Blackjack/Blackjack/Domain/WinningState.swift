@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WinningState {
-    case win
-    case defeat
+enum WinningState: Int {
+    case win = 1
+    case defeat = -1
 }
