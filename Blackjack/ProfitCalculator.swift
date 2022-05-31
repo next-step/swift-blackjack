@@ -92,7 +92,7 @@ struct ProfitCalculator {
     
     private static func blackjackProfits(of players: [Player]) -> [Profit] {
         players.map {
-            let money = ($0.bettingMoney * 1.5) ?? Money.zero
+            let money = $0.bettingMoney.blackjackWinningMoney()
             return PlusProfit(player: $0, money: money)
         }
     }

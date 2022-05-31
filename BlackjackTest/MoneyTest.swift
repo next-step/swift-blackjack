@@ -29,4 +29,19 @@ class MoneyTest: XCTestCase {
         
         XCTAssertEqual(result.value, Money(111 + 10)!.value)
     }
+    
+    func test_blackjackWinningMoney_블랙잭일경우에_얻을수있는_일점오배의_돈을_반환한다() {
+        // given
+        guard let money = Money(111),
+              let blackjackWinningMoney = Money(166) else {
+                  XCTFail()
+                  return
+              }
+        
+        // when
+        let result = money.blackjackWinningMoney()
+        
+        // then
+        XCTAssertEqual(result, blackjackWinningMoney)
+    }
 }
