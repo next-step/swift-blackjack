@@ -9,7 +9,12 @@ import Foundation
 do {
     let nameInput = InputView.readPlayerName()
     let names = try PlayerNameParser.parse(nameInput: nameInput)
-    let players = names.map { Player(name: $0, cardDeck: BlackjackCardDeck()) }
+    
+    let moneyInputs = names.map { InputView.readBettingMoney(of: $0) }
+    let moneys = try moneyInputs.map { try MoneyParser.parse($0) }
+    
+    let players = zip(names, moneys)
+        .map { Player(name: $0, cardDeck: BlackjackCardDeck(), bettingMoney: $1) }
     let dealer = Dealer(cardDeck: BlackjackCardDeck())
     let blackjackPlayers = players + [dealer]
     
@@ -28,8 +33,9 @@ do {
     
     
     let winLoseResults = BlackjackGameJudge().winLoseResults(of: scores.playerScores, comparingWith: scores.dealerScore!)
-    let formattedResults = WinLoseResultFormatter.format(winLoseResults: winLoseResults)
-    OutputView.print(winLoseResults: formattedResults)
+    let profits = try ProfitCalculator.calculate(with: winLoseResults)
+    let formattedProfits = ProfitsFormatter.format(profits: profits)
+    OutputView.print(profits: formattedProfits)
 } catch(let error) {
     OutputView.print(error: error)
 }

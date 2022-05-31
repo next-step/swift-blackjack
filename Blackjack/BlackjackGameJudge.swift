@@ -46,6 +46,9 @@ struct BlackjackGameJudge: GameJudge {
             return WinLoseResult(player: player, winCount: 1, loseCount: 0)!
         }
         
+        if score.isBigger(than: BlackjackScoreRule.twentyOne) {
+            return WinLoseResult(player: player, winCount: 0, loseCount: 1)!
+        }
         if score >= standardScore {
             return WinLoseResult(player: player, winCount: 1, loseCount: 0)!
         }

@@ -10,10 +10,12 @@ import Foundation
 class Player {
     let name: PlayerName
     let cardDeck: CardDeck
+    let bettingMoney: Money
     
-    init(name: PlayerName, cardDeck: CardDeck) {
+    init(name: PlayerName, cardDeck: CardDeck, bettingMoney: Money = .zero) {
         self.name = name
         self.cardDeck = cardDeck
+        self.bettingMoney = bettingMoney
     }
     
     func receive(cards: [Card]) {
@@ -22,6 +24,10 @@ class Player {
     
     func countScore() -> Int {
         return cardDeck.countScore()
+    }
+    
+    func isBlackjack() -> Bool {
+        cardDeck.isBlackjack()
     }
 }
 
