@@ -13,10 +13,6 @@ struct Money: Equatable {
         return Money(Int(value))
     }
     
-    static func * (lhs: Money, rhs: Money) -> Int {
-        return lhs.value * rhs.value
-    }
-    
     static func + (lhs: Money, rhs: Money) -> Money {
         return Money(lhs.value + rhs.value)!
     }
