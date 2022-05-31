@@ -115,4 +115,19 @@ class DealerTest: XCTestCase {
         
         XCTAssertEqual(participant.isWin(compareWith: dealer), .defeat)
     }
+    
+    func test_딜러와_참가자가_주어졌을_때_딜러의_수익() {
+        let participant = Participant(name: "sut1")
+        participant.bet(amount: 10000)
+        dealer.add(card: Card(shape: .clover, number: .six))
+        dealer.add(card: Card(shape: .diamond, number: .five))
+        dealer.add(card: Card(shape: .heart, number: .king))
+        
+        participant.add(card: Card(shape: .spade, number: .six))
+        participant.add(card: Card(shape: .heart, number: .six))
+        participant.add(card: Card(shape: .spade, number: .king))
+        
+        let expected = 10000
+        XCTAssertEqual(dealer.calculateIncome(participants: [participant]), expected)
+    }
 }
