@@ -16,6 +16,13 @@ struct BlackjackInputView {
         return participantNames
     }
     
+    func readBettingAmount(participantName: String) -> Int? {
+        guard let input = readInput(with: "\(participantName)의 배팅 금액은?") else { return nil }
+        print()
+        
+        return Int(input)
+    }
+    
     func readIsOneMoreRound(participantName: String) -> String? {
         let input = readInput(with: "\(participantName)는 한장의 카드를 더 받겠습니까?(예는 y, 아니오는 n)")
         return input
