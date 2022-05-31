@@ -9,6 +9,7 @@ import Foundation
 
 class Participant: Player {
     
+    
     func isWin(compareWith dealer: Dealer) -> WinningState {
         guard score <= 21 else { return .defeat }
         guard dealer.score <= 21 else { return .win }

@@ -118,6 +118,7 @@ class DealerTest: XCTestCase {
     
     func test_참가자가_10000원을_베팅하고_승리하면_수익은_10000원() {
         let participant = Participant(name: "sut1")
+        participant.bet(amount: 10000)
         
         dealer.add(card: Card(shape: .clover, number: .six))
         dealer.add(card: Card(shape: .diamond, number: .six))
