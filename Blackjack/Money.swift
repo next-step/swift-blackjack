@@ -8,7 +8,7 @@
 import Foundation
 
 struct Money: Equatable {
-g    static func + (lhs: Money, rhs: Money) -> Money {
+    static func + (lhs: Money, rhs: Money) -> Money {
         return Money(lhs.value + rhs.value)!
     }
     
