@@ -120,15 +120,8 @@ class DealerTest: XCTestCase {
         let participant = Participant(name: "sut1")
         participant.bet(amount: 10000)
         
-        dealer.add(card: Card(shape: .clover, number: .six))
-        dealer.add(card: Card(shape: .diamond, number: .six))
-        dealer.add(card: Card(shape: .heart, number: .king))
-        
-        participant.add(card: Card(shape: .heart, number: .ace))
-        participant.add(card: Card(shape: .spade, number: .king))
-        
         let expected = 10000
         
-        XCTAssertEqual(participant.income, expected)
+        XCTAssertEqual(participant.income(winningState: .win), expected)
     }
 }
