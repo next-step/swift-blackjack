@@ -40,24 +40,23 @@ struct BlackjackOutputView {
         }
     }
     
-    func printResults(of game: Blackjack) {
+    func printResults(dealer: Dealer, participants: [Participant]) {
         print()
-        let results: [BlackjackResult] = game.participants.compactMap({
-            return (participant: $0, winningState: $0.isWin(compareWith: game.dealer))
-        })
+        print("## 최종 수익")
         
-        printDealerResult(by: results, at: game)
+        let results = participants
+            .compactMap({ (participant: $0, winningState: $0.isWin(compareWith: dealer)) })
+            .compactMap({ (participant: $0.participant, income: $0.participant.calculateIncome(winningState: $0.winningState)) })
+        
+        printDealerResult(dealer: dealer, amount: -results.reduce(0, { $0 + $1.income }))
         results.forEach({
-            print("\($0.participant.name): \( $0.winningState == .win ? "승" : "패")")
+            print("\($0.participant.name): \($0.income)")
         })
         
     }
     
-    private func printDealerResult(by contexts: [BlackjackResult], at game: Blackjack) {
-        let dealerWinCount = contexts.filter({ $0.winningState == .defeat }).count
-        let dealerDefeatCount = contexts.filter({ $0.winningState == .win }).count
-        
-        print("\(game.dealer.name): \(dealerWinCount)승 \(dealerDefeatCount)패 ")
+    private func printDealerResult(dealer: Dealer, amount: Int) {
+        print("\(dealer.name): \(amount)")
     }
     
     private func printCardsWithScore(of player: Player) {

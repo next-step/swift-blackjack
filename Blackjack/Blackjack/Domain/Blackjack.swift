@@ -26,6 +26,7 @@ struct Blackjack {
     }
     
     mutating func playDealerRound() throws {
+        guard dealer.score <= 16 else { return }
         try giveCard(to: dealer, count: 1)
     }
     

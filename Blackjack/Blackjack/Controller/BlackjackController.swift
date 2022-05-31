@@ -29,7 +29,7 @@ struct BlackjackController {
         try blackjack.playDealerRound()
         
         outputView.printEndStat(of: blackjack)
-        outputView.printResults(of: blackjack)
+        outputView.printResults(dealer: blackjack.dealer, participants: blackjack.participants)
     }
     
     private func bet(participant: Participant) throws {
