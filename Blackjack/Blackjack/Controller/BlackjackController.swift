@@ -15,21 +15,17 @@ struct BlackjackController {
         guard let participantNames = inputView.readParticipantNames() else { throw BlackjackError.invalidInput }
         var blackjack = Blackjack(participantNames: participantNames, cardPool: CardPool())
         try blackjack.start()
-        
-        for participant in blackjack.participants {
-            try bet(participant: participant)
-        }
+        try playBetRound(of: blackjack)
         outputView.printStartStat(of: blackjack)
         
-        for participant in blackjack.participants {
-            try playExternalRounds(at: &blackjack, participant: participant)
+        try playCardRound(of: &blackjack)
+        showResult(of: blackjack)
+    }
+    
+    private func playBetRound(of game: Blackjack) throws {
+        for participant in game.participants {
+            try bet(participant: participant)
         }
-        
-        outputView.printDealerRound(dealer: blackjack.dealer)
-        try blackjack.playDealerRound()
-        
-        outputView.printEndStat(of: blackjack)
-        outputView.printResults(dealer: blackjack.dealer, participants: blackjack.participants)
     }
     
     private func bet(participant: Participant) throws {
@@ -37,7 +33,16 @@ struct BlackjackController {
         participant.bet(amount: amount)
     }
     
-    private func playExternalRounds(at game: inout Blackjack, participant: Participant) throws {
+    private func playCardRound(of game: inout Blackjack) throws {
+        for participant in game.participants {
+            try playExternalCardRounds(at: &game, participant: participant)
+        }
+        
+        try game.playDealerRound()
+        outputView.printDealerRound(dealer: game.dealer)
+    }
+    
+    private func playExternalCardRounds(at game: inout Blackjack, participant: Participant) throws {
         while let answer = inputView.readIsOneMoreRound(participantName: participant.name), answer == "y" {
             try game.playOneMoreRound(participant: participant)
             outputView.printCards(of: participant)
@@ -46,5 +51,10 @@ struct BlackjackController {
         if participant.cards.count == 2 {
             outputView.printCards(of: participant)
         }
+    }
+    
+    private func showResult(of game: Blackjack) {
+        outputView.printEndStat(of: game)
+        outputView.printResults(dealer: game.dealer, participants: game.participants)
     }
 }
